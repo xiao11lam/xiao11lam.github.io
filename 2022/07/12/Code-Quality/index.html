@@ -16,15 +16,15 @@
   <meta name="author" content="Xiao Zhang">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Python BasicsFloat number and boolWe cannot directly compare the float value, like using the logic “&#x3D;&#x3D;” symbol. But we can use: the way that using the division method to compare the result w">
+    <meta name="description" content="Python Basics OperationsFloat number and boolWe cannot directly compare the float value, like using the logic “&#x3D;&#x3D;” symbol. But we can use: the way that using the division method to compare t">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Code Quality">
 <meta property="og:url" content="http://xiaos.site/2022/07/12/Code-Quality/index.html">
 <meta property="og:site_name" content="Xiao">
-<meta property="og:description" content="Python BasicsFloat number and boolWe cannot directly compare the float value, like using the logic “&#x3D;&#x3D;” symbol. But we can use: the way that using the division method to compare the result w">
+<meta property="og:description" content="Python Basics OperationsFloat number and boolWe cannot directly compare the float value, like using the logic “&#x3D;&#x3D;” symbol. But we can use: the way that using the division method to compare t">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-07-12T14:04:50.000Z">
-<meta property="article:modified_time" content="2022-07-29T17:29:15.489Z">
+<meta property="article:modified_time" content="2022-07-30T12:45:08.112Z">
 <meta property="article:author" content="Xiao Zhang">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -216,7 +216,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          14k words
+          17k words
         
       </span>
     
@@ -227,7 +227,7 @@
         
         
         
-          116 mins
+          142 mins
         
       </span>
     
@@ -269,7 +269,7 @@
             
             <div class="markdown-body">
               
-              <h1 id="Python-Basics"><a href="#Python-Basics" class="headerlink" title="Python Basics"></a>Python Basics</h1><h2 id="Float-number-and-bool"><a href="#Float-number-and-bool" class="headerlink" title="Float number and bool"></a>Float number and bool</h2><p>We cannot directly compare the float value, like using the logic “&#x3D;&#x3D;” symbol. But we can use: the way that using the division method to compare the result with a very small value. </p>
+              <h1 id="Python-Basics-Operations"><a href="#Python-Basics-Operations" class="headerlink" title="Python Basics Operations"></a>Python Basics Operations</h1><h2 id="Float-number-and-bool"><a href="#Float-number-and-bool" class="headerlink" title="Float number and bool"></a>Float number and bool</h2><p>We cannot directly compare the float value, like using the logic “&#x3D;&#x3D;” symbol. But we can use: the way that using the division method to compare the result with a very small value. </p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs Python"><span class="hljs-comment"># float_num == cannot be used into the float number comparision.</span><br><span class="hljs-built_in">abs</span>(float_num - <span class="hljs-number">12.2</span> &lt; <span class="hljs-number">1e-5</span>)<br><span class="hljs-comment"># here the 1e5 means the 0.1^(-5), just equals to 0.000001. </span><br></code></pre></td></tr></table></figure>
 
 
@@ -279,15 +279,17 @@
 
 
 
-<h1 id="Swap-the-two-value’s-values"><a href="#Swap-the-two-value’s-values" class="headerlink" title="Swap the two value’s values:"></a>Swap the two value’s values:</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># here is the standard way</span><br>num1 = <span class="hljs-number">10</span><br>num2 = <span class="hljs-number">15</span><br><br>tmp = num2<br>num2 = num1<br>num1 = tmp<br><br><span class="hljs-comment"># this is to help you to exchange the variables, but if you are in python we can do:</span><br>num1, num2 = num2, num1<br></code></pre></td></tr></table></figure>
+<h2 id="Swap-the-two-value’s-values"><a href="#Swap-the-two-value’s-values" class="headerlink" title="Swap the two value’s values:"></a>Swap the two value’s values:</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># here is the standard way</span><br>num1 = <span class="hljs-number">10</span><br>num2 = <span class="hljs-number">15</span><br><br>tmp = num2<br>num2 = num1<br>num1 = tmp<br><br><span class="hljs-comment"># this is to help you to exchange the variables, but if you are in python we can do:</span><br>num1, num2 = num2, num1<br></code></pre></td></tr></table></figure>
 
 <p>Google Codestyle Pygide</p>
 <h2 id="Enumerate"><a href="#Enumerate" class="headerlink" title="Enumerate"></a>Enumerate</h2><p>In python we can use range() or just for loops to loop the elements from a list, but we still strongly suggest we use the enumerate, since it looks more python.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">for</span> (index, num) <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(nums):<br>	<span class="hljs-keyword">return</span> (index, num<br></code></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">for</span> (index, num) <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(nums):<br>	<span class="hljs-keyword">return</span> (index, num)<br></code></pre></td></tr></table></figure>
 
 
 <p>Reverse the list!!! Using range()</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(nums) - <span class="hljs-number">1</span>, -<span class="hljs-number">1</span>, -<span class="hljs-number">1</span>):<br>	<span class="hljs-comment"># range(n, m, -1) n = [n, n - 1, n - 2, ..., m + 1]</span><br>	<span class="hljs-built_in">print</span>(nums[i], end = <span class="hljs-string">&quot; &quot;</span>)<br><span class="hljs-built_in">print</span>()<br></code></pre></td></tr></table></figure>
+
+
 
 <h2 id="While-and-for"><a href="#While-and-for" class="headerlink" title="While and for"></a>While and for</h2><p>While loop is just equal to the for loop in many ways:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python">i = <span class="hljs-number">0</span><br><span class="hljs-keyword">while</span> i &lt; <span class="hljs-built_in">len</span>(scores):<br>	<span class="hljs-built_in">print</span>(score[i])<br>	i += <span class="hljs-number">1</span><br><br>	<span class="hljs-comment"># thats the biggest difference, since if in for, we do not need to add the value manually.</span><br></code></pre></td></tr></table></figure>
@@ -301,31 +303,169 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs Python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Student</span>(): <span class="hljs-comment"># Class name should follow the camel way</span><br>	<span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, name, score</span>):<br>		<span class="hljs-comment"># we defined two natures of the student: name &amp; score</span><br>		self.name = name<br>		self.score = score<br><br>	<span class="hljs-comment"># here we defined the behaviour</span><br>	<span class="hljs-keyword">def</span> <span class="hljs-title function_">speak</span>(<span class="hljs-params">self</span>):<br>		<span class="hljs-built_in">print</span>(self.name, self.score)<br></code></pre></td></tr></table></figure>
 
 
-<h3 id="init"><a href="#init" class="headerlink" title="init"></a><strong>init</strong></h3><p>init is the default construnction function that will run when you create that class. </p>
+<h3 id="init"><a href="#init" class="headerlink" title="init"></a><strong>init</strong></h3><p>init is the default construnction function that will run when you create that class. This is the compulsory element of the class.</p>
 <h3 id="self"><a href="#self" class="headerlink" title="self"></a>self</h3><p>Self it is the object itself, when we define the class we must declare it, but when we call it we will not see.</p>
 <h2 id="From-class-to-object"><a href="#From-class-to-object" class="headerlink" title="From class to object"></a>From class to object</h2><p>Instance is just object.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python">student = Student(<span class="hljs-string">&#x27;Jack&#x27;</span>, <span class="hljs-number">90</span>)<br><span class="hljs-comment"># we can visit the value of that object</span><br>student.name<br>student.score<br><span class="hljs-comment"># call the function from that class object</span><br>student.speak()<br><span class="hljs-comment"># reset the value</span><br>student.name = <span class="hljs-number">80</span><br><br></code></pre></td></tr></table></figure>
 
 
 
-<h1 id="Recursion"><a href="#Recursion" class="headerlink" title="Recursion"></a>Recursion</h1><p>Find the sum of from the 1~100</p>
-<p>BFS (Broad First Search) focuses on the width of the search.<br>DFS (Deep First Search) focuses on the depth of the search.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">sum</span> = <span class="hljs-number">0</span><br><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">101</span>):<br>	<span class="hljs-built_in">sum</span> += <span class="hljs-number">1</span><br><br></code></pre></td></tr></table></figure>
+<h2 id="List-CRUD"><a href="#List-CRUD" class="headerlink" title="List CRUD"></a>List CRUD</h2><h3 id="Create"><a href="#Create" class="headerlink" title="Create"></a>Create</h3><ul>
+<li></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">list</span> = list_1 + list_2<br></code></pre></td></tr></table></figure>
 
 
 
-<p>After we use the recursion, f(1) &#x3D; 1, f(n) &#x3D; f(n-1) + n</p>
-<p>1: f(1) &#x3D; 1<br>2: f(2) &#x3D; f(1) + 1</p>
-<p>If we want to prove f(n), we need firstly prove f(1) is valid, and the next step is just to make a hypothesis that the f(n-1) is also valid. So from f(n-1) we can prove the f(n) is valid.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">recursive_sum</span>(<span class="hljs-params">n</span>):<br>	<br>	<span class="hljs-comment"># S1. this is to prove that f(1) = 1</span><br>	<span class="hljs-keyword">if</span> n== <span class="hljs-number">1</span>:<br>		<span class="hljs-keyword">return</span> <span class="hljs-number">1</span><br>	<span class="hljs-keyword">else</span>:<br>		<span class="hljs-comment"># S2. this is to prove that the f(n-1) is also valid, write the code like f(n) = f(n-1) + n</span><br>		<span class="hljs-keyword">return</span> recursive_sum(n-<span class="hljs-number">1</span>) + n<br></code></pre></td></tr></table></figure>
+<ul>
+<li></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">list</span> = <span class="hljs-built_in">list</span> * <span class="hljs-number">3</span><br><span class="hljs-comment"># It will duplicate all the elements in the list three times</span><br></code></pre></td></tr></table></figure>
 
 
 
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">if</span> n = <span class="hljs-number">5</span>:<br>	<span class="hljs-attribute">recursive_sum</span>(<span class="hljs-number">4</span>) + <span class="hljs-number">5</span><br>		 <span class="hljs-attribute">recursive_sum</span>(<span class="hljs-number">3</span>) + <span class="hljs-number">4</span> + <span class="hljs-number">5</span><br>		 	<span class="hljs-attribute">recursive_sum</span>(<span class="hljs-number">2</span>) + <span class="hljs-number">3</span> + <span class="hljs-number">4</span> + <span class="hljs-number">5</span><br>		 		<span class="hljs-attribute">recursive_sum</span>(<span class="hljs-number">1</span>) + <span class="hljs-number">2</span> + <span class="hljs-number">3</span> + <span class="hljs-number">4</span> + <span class="hljs-number">5</span><br>		 			<span class="hljs-attribute">1</span> + <span class="hljs-number">2</span> + <span class="hljs-number">3</span> + <span class="hljs-number">4</span> + <span class="hljs-number">5</span><br></code></pre></td></tr></table></figure>
+<p>append</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">list</span>.append(<span class="hljs-string">&quot;will add an element from the end of the list&quot;</span>)<br></code></pre></td></tr></table></figure>
 
 
 
-<h1 id="Algorithms-and-Data-Structures"><a href="#Algorithms-and-Data-Structures" class="headerlink" title="Algorithms and Data Structures:"></a>Algorithms and Data Structures:</h1><p>Algorithm is the way how we do things, the data structure is is the structure of how we storage the data.</p>
+<p>insert</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">list.insert(index, <span class="hljs-string">&quot;the element you want to insert&quot;</span>)<br>list.insert(2, <span class="hljs-string">&quot;the element you want to insert&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+
+
+<p>extend</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">list_a = [<span class="hljs-string">&quot;1&quot;</span>, <span class="hljs-string">&quot;2&quot;</span>, <span class="hljs-string">&quot;3&quot;</span>]<br>list_b = [<span class="hljs-string">&quot;a&quot;</span>, <span class="hljs-string">&quot;b&quot;</span>, <span class="hljs-string">&quot;c&quot;</span>]<br>list_a.extend(list_b)<br></code></pre></td></tr></table></figure>
+
+<p>This will enable us to insert the values before the list we want to append. It looks like “+”, but for “+”, we need to generate a new list, but for this strategy, there is no need to do this.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">list_b = [<span class="hljs-string">&quot;1&quot;</span>, <span class="hljs-string">&quot;2&quot;</span>, <span class="hljs-string">&quot;3&quot;</span>, <span class="hljs-string">&quot;a&quot;</span>, <span class="hljs-string">&quot;b&quot;</span>, <span class="hljs-string">&quot;c&quot;</span>]<br></code></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="Read"><a href="#Read" class="headerlink" title="Read"></a>Read</h3><p><strong>iteration</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> list_a:<br>    <span class="hljs-built_in">print</span>(x, end = <span class="hljs-string">&quot; &quot;</span>)<br></code></pre></td></tr></table></figure>
+
+
+
+<p><strong>index id</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">list_a[n]<br></code></pre></td></tr></table></figure>
+
+<p><strong>slice</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">list_a[:]<br></code></pre></td></tr></table></figure>
+
+<p><strong>in</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-number">2</span> <span class="hljs-keyword">in</span> list_a<br><span class="hljs-comment"># it will return a boolean value</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>index method</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python">list_a.index(<span class="hljs-string">&quot;the value you want to search&quot;</span>)<br><br><span class="hljs-comment"># it will tell you the index of the value you search, if not in there will be invalid</span><br><span class="hljs-keyword">if</span> <span class="hljs-number">2</span> <span class="hljs-keyword">in</span> list_a:<br>    <span class="hljs-keyword">return</span> list_a.index(<span class="hljs-number">2</span>)<br><span class="hljs-comment"># in order to prevent that if we cannot find the index value and output the bug issues, we need to firstly have a if then if true, we then print the index of that value, else just do not.</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>count</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">list</span>.count(<span class="hljs-number">2</span>)<br><span class="hljs-comment"># count is to get how many frequencies that value occurred from the list</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="Update"><a href="#Update" class="headerlink" title="Update"></a>Update</h3><p><strong>update through the index</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">list_a[<span class="hljs-number">2</span>] = ... <br></code></pre></td></tr></table></figure>
+
+
+
+<p><strong>Update through slicing</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">list_b[:n] = [,,,]<br></code></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="Delete"><a href="#Delete" class="headerlink" title="Delete"></a>Delete</h3><p><strong>&#x3D;</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">list_b [:<span class="hljs-number">2</span>] = []<br><span class="hljs-comment"># delete all the values before the list_b[2]</span><br></code></pre></td></tr></table></figure>
+
+
+
+<p><strong>pop</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">list_b.pop(index)<br>list_b.pop(<span class="hljs-number">2</span>)<br><span class="hljs-comment"># this will delete the list_b[2]</span><br></code></pre></td></tr></table></figure>
+
+<p>If there is no index, it will defaultly delete the final value.</p>
+<p><strong>remove</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">list_b.remove(index_value)<br>list_b.pop(<span class="hljs-string">&quot;A&quot;</span>)<br><span class="hljs-comment"># this will remove the value from the list</span><br></code></pre></td></tr></table></figure>
+
+
+
+<p><strong>del</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">del</span> list_a[<span class="hljs-number">3</span>]<br><span class="hljs-comment"># we can use delete to delete the value by index or by slicing</span><br><span class="hljs-keyword">del</span> list_a[:n]<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="Others"><a href="#Others" class="headerlink" title="Others"></a>Others</h3><p><strong>len</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">len</span>(list_a)<br></code></pre></td></tr></table></figure>
+
+<p><strong>sort</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">list_a.sort()<br><span class="hljs-comment"># it will generate a sorted version of the list_a</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>reverse</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">list_a.reverse()<br><span class="hljs-comment"># it will reverse the list</span><br></code></pre></td></tr></table></figure>
+
+<p>reverse sort</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">list_a.sort(reverse = <span class="hljs-literal">True</span>)<br><span class="hljs-comment"># it will reverse from the big elements downto the small ones</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="List-Generator"><a href="#List-Generator" class="headerlink" title="List Generator"></a>List Generator</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">list_demo = [i <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">101</span>) <span class="hljs-keyword">if</span> i % <span class="hljs-number">5</span> == <span class="hljs-number">0</span>]<br><span class="hljs-comment"># we can easily generate the list by this way.</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># generate a multiple value list</span><br>[<span class="hljs-number">0</span> <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">3</span>)]<br>we can generate the multiple values there:<br>[<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>]<br></code></pre></td></tr></table></figure>
+
+<h2 id="Tuple"><a href="#Tuple" class="headerlink" title="Tuple"></a>Tuple</h2><p>We only can read tuple cannot do the <strong>CUD</strong> there. </p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>When we do the copy the value</p>
+<h2 id="String-CRUD"><a href="#String-CRUD" class="headerlink" title="String CRUD"></a>String CRUD</h2><h3 id="Create-1"><a href="#Create-1" class="headerlink" title="Create"></a>Create</h3><p><strong>+</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">string_a = string_a + string_b<br></code></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">string_a = string_a * <span class="hljs-number">3</span><br></code></pre></td></tr></table></figure>
+
+
+
+<p><strong>for</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">for</span> c <span class="hljs-keyword">in</span> string_a:<br>    <span class="hljs-built_in">print</span>(c, end = <span class="hljs-string">&quot; &quot;</span>)<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="Read-1"><a href="#Read-1" class="headerlink" title="Read"></a>Read</h3><p><strong>find</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">string_a.find(<span class="hljs-string">&quot;a&quot;</span>)<br><span class="hljs-comment"># we can get the index of the string value</span><br></code></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="Update-1"><a href="#Update-1" class="headerlink" title="Update"></a>Update</h3><p><strong>replace</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">string_a.replace(<span class="hljs-string">&quot;h&quot;</span>, <span class="hljs-string">&quot;www&quot;</span>)<br><span class="hljs-comment"># we can replace the value &quot;h&quot; into &quot;www&quot;</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="Delete-1"><a href="#Delete-1" class="headerlink" title="Delete"></a>Delete</h3><p><strong>replace</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">string_a.replace(<span class="hljs-string">&quot;h&quot;</span>, <span class="hljs-string">&quot; &quot;</span>)<br><span class="hljs-comment"># we can replace the value &quot;h&quot; into &quot; &quot;, by this way we can delete the &quot;h&quot; element.</span><br></code></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="Others-1"><a href="#Others-1" class="headerlink" title="Others"></a>Others</h3><p><strong>len</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">len</span>(string_a)<br></code></pre></td></tr></table></figure>
+
+<p><strong>format</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-string">&quot;I am &#123;&#125;&quot;</span>.<span class="hljs-built_in">format</span>(<span class="hljs-string">&quot;Xiao&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+<p><strong>str()</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">str</span>(<span class="hljs-number">100</span>)<br><span class="hljs-comment"># we can invert the numerical number into a string</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>format the elements of the list into the string value</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python">list_demo = [<span class="hljs-string">&quot;xiao&quot;</span>, <span class="hljs-string">&quot;zhang&quot;</span>]<br><br>result = <span class="hljs-string">&quot;&quot;</span><br><span class="hljs-keyword">for</span> s <span class="hljs-keyword">in</span> list_demo:<br>    result += s + <span class="hljs-string">&quot; &quot;</span><br><span class="hljs-comment"># here is a more elegant way</span><br>result = <span class="hljs-string">&quot; &quot;</span>.join(list_demo)<br>    <br><span class="hljs-comment"># the result will be &quot;xiao zhang&quot;    </span><br></code></pre></td></tr></table></figure>
+
+<p><strong>reverse the string</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># using for loop but it is not suggested!!!</span><br>s = <span class="hljs-string">&quot;xiaozhang&quot;</span><br>result = <span class="hljs-string">&quot;&quot;</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(s)-<span class="hljs-number">1</span>, -<span class="hljs-number">1</span>, -<span class="hljs-number">1</span>):<br>    result = s[i]<br><span class="hljs-built_in">print</span>(result)<br><br><br><span class="hljs-comment"># we can just using the slicing</span><br><span class="hljs-built_in">print</span>(s[::-<span class="hljs-number">1</span>]<br></code></pre></td></tr></table></figure>
+
+<h2 id="Linked-List"><a href="#Linked-List" class="headerlink" title="Linked List"></a>Linked List</h2><h1 id="Algorithms-and-Data-Structures"><a href="#Algorithms-and-Data-Structures" class="headerlink" title="Algorithms and Data Structures:"></a>Algorithms and Data Structures:</h1><p>Algorithm is the way how we do things, the data structure is is the structure of how we storage the data.</p>
 <p><strong>二分法</strong></p>
 <p><strong>二叉树&#x2F;链表</strong></p>
 <p><strong>递归&#x2F;DFS</strong></p>
@@ -334,7 +474,7 @@
 <p><strong>双指针</strong></p>
 <p><strong>动态规划</strong></p>
 <p><strong>堆</strong></p>
-<h2 id="Hash-Table"><a href="#Hash-Table" class="headerlink" title="Hash Table"></a>Hash Table</h2><h2 id="Binary-Search-Tree"><a href="#Binary-Search-Tree" class="headerlink" title="Binary Search Tree"></a>Binary Search Tree</h2><h2 id="Binary-Search"><a href="#Binary-Search" class="headerlink" title="Binary Search"></a>Binary Search</h2><h2 id="Dynamic-Search"><a href="#Dynamic-Search" class="headerlink" title="Dynamic Search"></a>Dynamic Search</h2><h2 id="Topological-Sorting"><a href="#Topological-Sorting" class="headerlink" title="Topological Sorting"></a>Topological Sorting</h2><h2 id="Others"><a href="#Others" class="headerlink" title="Others"></a>Others</h2><h3 id="Heap"><a href="#Heap" class="headerlink" title="Heap"></a>Heap</h3><h3 id="Divide-amp-Conquer"><a href="#Divide-amp-Conquer" class="headerlink" title="Divide &amp; Conquer"></a>Divide &amp; Conquer</h3><h3 id="Greedy"><a href="#Greedy" class="headerlink" title="Greedy"></a>Greedy</h3><h3 id="Minimum-Spanning-Tree"><a href="#Minimum-Spanning-Tree" class="headerlink" title="Minimum Spanning Tree"></a>Minimum Spanning Tree</h3><h3 id="Trie"><a href="#Trie" class="headerlink" title="Trie"></a>Trie</h3><h3 id="Union-Find"><a href="#Union-Find" class="headerlink" title="Union Find"></a>Union Find</h3><p>Time complexity expresses the efficiency of that algorithm’s efficiency. </p>
+<h2 id="Hash-Table"><a href="#Hash-Table" class="headerlink" title="Hash Table"></a>Hash Table</h2><h2 id="Binary-Search-Tree"><a href="#Binary-Search-Tree" class="headerlink" title="Binary Search Tree"></a>Binary Search Tree</h2><h2 id="Binary-Search"><a href="#Binary-Search" class="headerlink" title="Binary Search"></a>Binary Search</h2><h2 id="Dynamic-Search"><a href="#Dynamic-Search" class="headerlink" title="Dynamic Search"></a>Dynamic Search</h2><h2 id="Topological-Sorting"><a href="#Topological-Sorting" class="headerlink" title="Topological Sorting"></a>Topological Sorting</h2><h2 id="Others-2"><a href="#Others-2" class="headerlink" title="Others"></a>Others</h2><h3 id="Heap"><a href="#Heap" class="headerlink" title="Heap"></a>Heap</h3><h3 id="Divide-amp-Conquer"><a href="#Divide-amp-Conquer" class="headerlink" title="Divide &amp; Conquer"></a>Divide &amp; Conquer</h3><h3 id="Greedy"><a href="#Greedy" class="headerlink" title="Greedy"></a>Greedy</h3><h3 id="Minimum-Spanning-Tree"><a href="#Minimum-Spanning-Tree" class="headerlink" title="Minimum Spanning Tree"></a>Minimum Spanning Tree</h3><h3 id="Trie"><a href="#Trie" class="headerlink" title="Trie"></a>Trie</h3><h3 id="Union-Find"><a href="#Union-Find" class="headerlink" title="Union Find"></a>Union Find</h3><p>Time complexity expresses the efficiency of that algorithm’s efficiency. </p>
 <p><strong>Dynamic Programming</strong></p>
 <p><strong>Linked List</strong></p>
 <p><strong>Recursion</strong></p>
@@ -459,7 +599,25 @@
 
 
 
-<h1 id="Recursion-1"><a href="#Recursion-1" class="headerlink" title="Recursion"></a>Recursion</h1><h3 id="17-Letter-Combinations-of-a-Phone-Number-https-leetcode-com-problems-letter-combinations-of-a-phone-number"><a href="#17-Letter-Combinations-of-a-Phone-Number-https-leetcode-com-problems-letter-combinations-of-a-phone-number" class="headerlink" title="17. Letter Combinations of a Phone Number:https://leetcode.com/problems/letter-combinations-of-a-phone-number/"></a>17. Letter Combinations of a Phone Number:<a target="_blank" rel="noopener" href="https://leetcode.com/problems/letter-combinations-of-a-phone-number/">https://leetcode.com/problems/letter-combinations-of-a-phone-number/</a></h3><h4 id="Easy-way-to-understand"><a href="#Easy-way-to-understand" class="headerlink" title="Easy way to understand:"></a>Easy way to understand:</h4><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs avrasm">Example <span class="hljs-number">1</span>:<br><br><span class="hljs-symbol">Input:</span> digits = <span class="hljs-string">&quot;23&quot;</span><br><span class="hljs-symbol">Output:</span> [<span class="hljs-string">&quot;ad&quot;</span>,<span class="hljs-string">&quot;ae&quot;</span>,<span class="hljs-string">&quot;af&quot;</span>,<span class="hljs-string">&quot;bd&quot;</span>,<span class="hljs-string">&quot;be&quot;</span>,<span class="hljs-string">&quot;bf&quot;</span>,<span class="hljs-string">&quot;cd&quot;</span>,<span class="hljs-string">&quot;ce&quot;</span>,<span class="hljs-string">&quot;cf&quot;</span>]<br>Example <span class="hljs-number">2</span>:<br><br><span class="hljs-symbol">Input:</span> digits = <span class="hljs-string">&quot;&quot;</span><br><span class="hljs-symbol">Output:</span> []<br>Example <span class="hljs-number">3</span>:<br><br><span class="hljs-symbol">Input:</span> digits = <span class="hljs-string">&quot;2&quot;</span><br><span class="hljs-symbol">Output:</span> [<span class="hljs-string">&quot;a&quot;</span>,<span class="hljs-string">&quot;b&quot;</span>,<span class="hljs-string">&quot;c&quot;</span>]<br></code></pre></td></tr></table></figure>
+<h1 id="Recursion"><a href="#Recursion" class="headerlink" title="Recursion"></a>Recursion</h1><p>Find the sum of from the 1~100</p>
+<p>BFS (Broad First Search) focuses on the width of the search.<br>DFS (Deep First Search) focuses on the depth of the search.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">sum</span> = <span class="hljs-number">0</span><br><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">101</span>):<br>	<span class="hljs-built_in">sum</span> += <span class="hljs-number">1</span><br><br></code></pre></td></tr></table></figure>
+
+
+
+<p>After we use the recursion, f(1) &#x3D; 1, f(n) &#x3D; f(n-1) + n</p>
+<p>1: f(1) &#x3D; 1<br>2: f(2) &#x3D; f(1) + 1</p>
+<p>If we want to prove f(n), we need firstly prove f(1) is valid, and the next step is just to make a hypothesis that the f(n-1) is also valid. So from f(n-1) we can prove the f(n) is valid.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">recursive_sum</span>(<span class="hljs-params">n</span>):<br>	<br>	<span class="hljs-comment"># S1. this is to prove that f(1) = 1</span><br>	<span class="hljs-keyword">if</span> n== <span class="hljs-number">1</span>:<br>		<span class="hljs-keyword">return</span> <span class="hljs-number">1</span><br>	<span class="hljs-keyword">else</span>:<br>		<span class="hljs-comment"># S2. this is to prove that the f(n-1) is also valid, write the code like f(n) = f(n-1) + n</span><br>		<span class="hljs-keyword">return</span> recursive_sum(n-<span class="hljs-number">1</span>) + n<br></code></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">if</span> n = <span class="hljs-number">5</span>:<br>	<span class="hljs-attribute">recursive_sum</span>(<span class="hljs-number">4</span>) + <span class="hljs-number">5</span><br>		 <span class="hljs-attribute">recursive_sum</span>(<span class="hljs-number">3</span>) + <span class="hljs-number">4</span> + <span class="hljs-number">5</span><br>		 	<span class="hljs-attribute">recursive_sum</span>(<span class="hljs-number">2</span>) + <span class="hljs-number">3</span> + <span class="hljs-number">4</span> + <span class="hljs-number">5</span><br>		 		<span class="hljs-attribute">recursive_sum</span>(<span class="hljs-number">1</span>) + <span class="hljs-number">2</span> + <span class="hljs-number">3</span> + <span class="hljs-number">4</span> + <span class="hljs-number">5</span><br>		 			<span class="hljs-attribute">1</span> + <span class="hljs-number">2</span> + <span class="hljs-number">3</span> + <span class="hljs-number">4</span> + <span class="hljs-number">5</span><br></code></pre></td></tr></table></figure>
+
+
+
+<p>Letter Combinations of a Phone Number:<a target="_blank" rel="noopener" href="https://leetcode.com/problems/letter-combinations-of-a-phone-number/">https://leetcode.com/problems/letter-combinations-of-a-phone-number/</a></p>
+<h4 id="Easy-way-to-understand"><a href="#Easy-way-to-understand" class="headerlink" title="Easy way to understand:"></a>Easy way to understand:</h4><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs avrasm">Example <span class="hljs-number">1</span>:<br><br><span class="hljs-symbol">Input:</span> digits = <span class="hljs-string">&quot;23&quot;</span><br><span class="hljs-symbol">Output:</span> [<span class="hljs-string">&quot;ad&quot;</span>,<span class="hljs-string">&quot;ae&quot;</span>,<span class="hljs-string">&quot;af&quot;</span>,<span class="hljs-string">&quot;bd&quot;</span>,<span class="hljs-string">&quot;be&quot;</span>,<span class="hljs-string">&quot;bf&quot;</span>,<span class="hljs-string">&quot;cd&quot;</span>,<span class="hljs-string">&quot;ce&quot;</span>,<span class="hljs-string">&quot;cf&quot;</span>]<br>Example <span class="hljs-number">2</span>:<br><br><span class="hljs-symbol">Input:</span> digits = <span class="hljs-string">&quot;&quot;</span><br><span class="hljs-symbol">Output:</span> []<br>Example <span class="hljs-number">3</span>:<br><br><span class="hljs-symbol">Input:</span> digits = <span class="hljs-string">&quot;2&quot;</span><br><span class="hljs-symbol">Output:</span> [<span class="hljs-string">&quot;a&quot;</span>,<span class="hljs-string">&quot;b&quot;</span>,<span class="hljs-string">&quot;c&quot;</span>]<br></code></pre></td></tr></table></figure>
 
 
 
@@ -524,9 +682,8 @@
 <li><p>Judge ways:</p>
 </li>
 </ol>
-<p>​			Logicality</p>
-<p>​			Code Quality</p>
-<p>​	</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css">Logicality<br><br><span class="hljs-selector-tag">Code</span> Quality<br></code></pre></td></tr></table></figure>
+
 <ol start="9">
 <li><p>Always code before ask the requirements, when totally understood, just stop chatting and write codes. Do not need to ask a lot when do the codings there. In order to save time.</p>
 </li>
