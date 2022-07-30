@@ -16,21 +16,22 @@
   <meta name="author" content="Xiao Zhang">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Decode and DeployWe need to Download the pre-compiled runtime wenet mode from the wenet github, since they already shared the pre-trained runtime model https:&#x2F;&#x2F;github.com&#x2F;wenet-e2e&#x2F;wenet&#x2F;actions&#x2F;runs&#x2F;">
+    <meta name="description" content="Decode and DeployWe need to Download the pre-compiled runtime wenet mode from the wenet github, since they already shared the pre-trained runtime model https:&#x2F;&#x2F;github.com&#x2F;wenet-e2e&#x2F;wenet&#x2F;actions&#x2F;runs">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Wenet ASR Toolkit Tutorials From Training to Deployment">
-<meta property="og:url" content="http://xiaos.site/2022/03/01/Wenet-ASR-Toolkit-Tutorials-From-Training-to-Deployment/index.html">
+<meta property="og:url" content="http://xiaos.site/2022/03/02/Wenet-ASR-Toolkit-Tutorials-From-Training-to-Deployment/index.html">
 <meta property="og:site_name" content="Xiao">
-<meta property="og:description" content="Decode and DeployWe need to Download the pre-compiled runtime wenet mode from the wenet github, since they already shared the pre-trained runtime model https:&#x2F;&#x2F;github.com&#x2F;wenet-e2e&#x2F;wenet&#x2F;actions&#x2F;runs&#x2F;">
+<meta property="og:description" content="Decode and DeployWe need to Download the pre-compiled runtime wenet mode from the wenet github, since they already shared the pre-trained runtime model https:&#x2F;&#x2F;github.com&#x2F;wenet-e2e&#x2F;wenet&#x2F;actions&#x2F;runs">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://xiaos.site/images/image-20220730230852670.png">
 <meta property="og:image" content="http://xiaos.site/images/image-20220730003510616-16591147216542.png">
 <meta property="og:image" content="http://xiaos.site/images/image-20220730004721190.png">
 <meta property="og:image" content="http://xiaos.site/images/image-20220730004448344.png">
-<meta property="article:published_time" content="2022-03-02T06:52:54.000Z">
-<meta property="article:modified_time" content="2022-07-30T06:55:54.562Z">
+<meta property="article:published_time" content="2022-03-02T22:52:54.000Z">
+<meta property="article:modified_time" content="2022-07-30T17:07:20.500Z">
 <meta property="article:author" content="Xiao Zhang">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://xiaos.site/images/image-20220730003510616-16591147216542.png">
+<meta name="twitter:image" content="http://xiaos.site/images/image-20220730230852670.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -222,8 +223,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-03-01 22:52" pubdate>
-          March 1, 2022 pm
+        <time datetime="2022-03-02 14:52" pubdate>
+          March 2, 2022 pm
         </time>
       </span>
     
@@ -234,7 +235,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.7k words
+          3.6k words
         
       </span>
     
@@ -245,7 +246,7 @@
         
         
         
-          14 mins
+          31 mins
         
       </span>
     
@@ -287,7 +288,8 @@
             
             <div class="markdown-body">
               
-              <h1 id="Decode-and-Deploy"><a href="#Decode-and-Deploy" class="headerlink" title="Decode and Deploy"></a>Decode and Deploy</h1><p>We need to Download the pre-compiled runtime wenet mode from the wenet github, since they already shared the pre-trained runtime model <a target="_blank" rel="noopener" href="https://github.com/wenet-e2e/wenet/actions/runs/2175816175">https://github.com/wenet-e2e/wenet/actions/runs/2175816175</a> their, so we can just use it instead of compile for ourselves.</p>
+              <p><img src="/../images/image-20220730230852670.png" srcset="/img/loading.gif" lazyload alt="image-20220730230852670"></p>
+<h1 id="Decode-and-Deploy"><a href="#Decode-and-Deploy" class="headerlink" title="Decode and Deploy"></a>Decode and Deploy</h1><p>We need to Download the pre-compiled runtime wenet mode from the wenet github, since they already shared the pre-trained runtime model <a target="_blank" rel="noopener" href="https://github.com/wenet-e2e/wenet/actions/runs/2175816175">https://github.com/wenet-e2e/wenet/actions/runs/2175816175</a> their, so we can just use it instead of compile for ourselves.</p>
 <p><img src="/../images/image-20220730003510616-16591147216542.png" srcset="/img/loading.gif" lazyload alt="image-20220730003510616"></p>
 <p>After we downloaded that pre-trained model, we can just get into that downloaded directory.</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">cd</span> Downloads/release-wenet-binary<br></code></pre></td></tr></table></figure>
@@ -316,9 +318,33 @@
 
 
 
+<h1 id="Integrate-with-the-Language-Model-LM"><a href="#Integrate-with-the-Language-Model-LM" class="headerlink" title="Integrate with the Language Model (LM)"></a>Integrate with the Language Model (LM)</h1><p>As we know, the wenet will output a <code>TLG.fst</code> decoding model, and then we can just use this model to integrate into the n-gram language model.</p>
+<p>Since before we had the dictionary in tokens, but here we are dealing with the word level.</p>
+<p>If we use the LM, in most cases the decoding time will be much longer, but also there will be a higher accurancy.</p>
+<h2 id="N-gram-LM-in-Wenet"><a href="#N-gram-LM-in-Wenet" class="headerlink" title="N-gram LM in Wenet"></a>N-gram LM in Wenet</h2><p>Wenet use the N-gram LM to help us to improve our CTC DNN model, since if we can add one more LM so we can have a more promissing WER during the decoding.</p>
+<p>Compared with the DNN LM, the n-gram model is very easily to implement and light-weighted, which is much faster than the DNN decoding. And at the same time, the traditional n-gram model is not limited to the corpus size, we can even use a very small corpus to build this. Also compared with DNN, we can make our model more controllable, since DNN is very randomize. </p>
+<p>In Wenet, we will import the WFST to do the decoding for the LM. </p>
+<h3 id="TLG-fst"><a href="#TLG-fst" class="headerlink" title="TLG.fst"></a>TLG.fst</h3><p>Just like in Kaldi, we have the <code>HCLG.fst</code>, also in Wenet, we have the same strategy. </p>
+<p><strong>T.fst</strong></p>
+<p>For <code>T</code>,  it means the <code>token</code>, in wenet, it is used for CTC decoding. It is used for: </p>
+<ol>
+<li>remove and manage the blanks, from <blank> -&gt; <eps> </li>
+<li>decode the multiple tokens output into one sentence, how we manage it? (this is very typically used in Mandarin Chinese, which can be a kind of characteristics of that language.)</li>
+</ol>
+<p><strong>L.fst</strong></p>
+<p>L is lexicon, since the logic here is to make the input characters into the words, in english can be phones to words.</p>
+<p><strong>G.fst</strong></p>
+<p>G is grammar, it guides us from the words level into the sentence level. For words, it can be n-gram model. </p>
+<p><strong>LG.fst</strong>  </p>
+<p>LG.fst &#x3D; compose(L.fst, G.fst), we can compose those two fst models into one. </p>
+<p><strong>TLG.fst</strong></p>
+<p>Finally, we can just compose the LG.fst with the T.fst into a big decoding map. </p>
+<h2 id="Language-Model-Deployment"><a href="#Language-Model-Deployment" class="headerlink" title="Language Model Deployment"></a>Language Model Deployment</h2><h3 id="Install-SRILM"><a href="#Install-SRILM" class="headerlink" title="Install SRILM"></a>Install SRILM</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">cd</span> wenet/tools<br><span class="hljs-comment"># download the srilm and compile it.</span><br>bash install_srilm.sh<br><span class="hljs-built_in">source</span> env.sh<br><span class="hljs-comment"># check the dependencies whether in our dev env</span><br><span class="hljs-built_in">which</span> ngram-count<br><br><span class="hljs-comment"># we just train a 2-gram LM, the input text file is train.txt and the output is the lm.arpa</span><br>ngram-count -order 2 -text train.txt -lm lm.arpa<br></code></pre></td></tr></table></figure>
 
+<h3 id="Compile-the-Runtime"><a href="#Compile-the-Runtime" class="headerlink" title="Compile the Runtime"></a>Compile the Runtime</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">cd</span> runtime/server/x86<br><span class="hljs-built_in">mkdir</span> build &amp;&amp; <span class="hljs-built_in">cd</span> build &amp;&amp; cmake .. &amp;&amp; cmake --build .<br></code></pre></td></tr></table></figure>
 
-
+<p>There is a notice here, we must ensure the <strong>cmake is upper than the 3.14 version, and the gcc should be higher than 5.4.</strong> </p>
+<h1 id="Hot-Word-Enhancement"><a href="#Hot-Word-Enhancement" class="headerlink" title="Hot Word Enhancement"></a>Hot Word Enhancement</h1>
               
             </div>
             <hr/>
@@ -335,7 +361,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>Wenet ASR Toolkit Tutorials From Training to Deployment</div>
-      <div>http://xiaos.site/2022/03/01/Wenet-ASR-Toolkit-Tutorials-From-Training-to-Deployment/</div>
+      <div>http://xiaos.site/2022/03/02/Wenet-ASR-Toolkit-Tutorials-From-Training-to-Deployment/</div>
     </div>
     <div class="license-meta">
       
@@ -347,7 +373,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>March 1, 2022</div>
+          <div>March 2, 2022</div>
         </div>
       
       

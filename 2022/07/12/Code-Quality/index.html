@@ -24,7 +24,7 @@
 <meta property="og:description" content="Python Basics OperationsFloat number and boolWe cannot directly compare the float value, like using the logic “&#x3D;&#x3D;” symbol. But we can use: the way that using the division method to compare t">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-07-12T14:04:50.000Z">
-<meta property="article:modified_time" content="2022-07-30T12:45:08.112Z">
+<meta property="article:modified_time" content="2022-07-30T17:07:20.500Z">
 <meta property="article:author" content="Xiao Zhang">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -230,7 +230,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          17k words
+          18k words
         
       </span>
     
@@ -241,7 +241,7 @@
         
         
         
-          142 mins
+          149 mins
         
       </span>
     
@@ -479,7 +479,18 @@
 <p><strong>reverse the string</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># using for loop but it is not suggested!!!</span><br>s = <span class="hljs-string">&quot;xiaozhang&quot;</span><br>result = <span class="hljs-string">&quot;&quot;</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(s)-<span class="hljs-number">1</span>, -<span class="hljs-number">1</span>, -<span class="hljs-number">1</span>):<br>    result = s[i]<br><span class="hljs-built_in">print</span>(result)<br><br><br><span class="hljs-comment"># we can just using the slicing</span><br><span class="hljs-built_in">print</span>(s[::-<span class="hljs-number">1</span>]<br></code></pre></td></tr></table></figure>
 
-<h2 id="Linked-List"><a href="#Linked-List" class="headerlink" title="Linked List"></a>Linked List</h2><h1 id="Algorithms-and-Data-Structures"><a href="#Algorithms-and-Data-Structures" class="headerlink" title="Algorithms and Data Structures:"></a>Algorithms and Data Structures:</h1><p>Algorithm is the way how we do things, the data structure is is the structure of how we storage the data.</p>
+<h2 id="Linked-List"><a href="#Linked-List" class="headerlink" title="Linked List"></a>Linked List</h2><p>Linked list is not in the Python default data type, so we have to self define it.  The first node and its reference can represent the whole linked list, because you can find from one to infinity one by one. </p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-keyword">class</span> <span class="hljs-title class_">ListNode</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, val</span>):<br>        self.val = val<br>        <span class="hljs-string">&#x27;&#x27;&#x27;</span><br><span class="hljs-string">        val in here is the node value, it can be integer or anything, &quot;next&quot; is to connect this node to 			next node.</span><br><span class="hljs-string">        </span><br><span class="hljs-string">        none in python is an global object, if we cannot define that value specifically, we just denote it 			as none. Since we do not want to pass no value to that variable. </span><br><span class="hljs-string">        &#x27;&#x27;&#x27;</span><br>        self.<span class="hljs-built_in">next</span> = <span class="hljs-literal">None</span><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">build_linkedlist</span>():<br>    node_1 = ListNode(<span class="hljs-number">1</span>)<br>    node_2 = ListNode(<span class="hljs-number">3</span>)<br>    node_3 = ListNode(<span class="hljs-number">5</span>)    <br>    node_4 = ListNode(<span class="hljs-number">7</span>)   <br>    <br>    <br>    <br>    node_1.<span class="hljs-built_in">next</span> = node_2<br>    node_2.<span class="hljs-built_in">next</span> = node_3<br>    node_3.<span class="hljs-built_in">next</span> = node_4<br>    <br>    <span class="hljs-keyword">return</span> node_1<br><br><span class="hljs-string">&#x27;&#x27;&#x27;            </span><br><span class="hljs-string">                Val</span><br><span class="hljs-string"> * *           * *  next     * *            * *                                    </span><br><span class="hljs-string">* 1 * -&gt; None * 3 * -&gt; None * 5 *  -&gt; None * 7 * -&gt; None                          </span><br><span class="hljs-string"> * *           * *           * *            * *                     </span><br><span class="hljs-string">  ^             ^             ^              ^</span><br><span class="hljs-string">node_1        node_2         node_3        node_4</span><br><span class="hljs-string">  </span><br><span class="hljs-string">&#x27;&#x27;&#x27;</span><br><br><br></code></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+<h1 id="Algorithms-and-Data-Structures"><a href="#Algorithms-and-Data-Structures" class="headerlink" title="Algorithms and Data Structures:"></a>Algorithms and Data Structures:</h1><p>Algorithm is the way how we do things, the data structure is is the structure of how we storage the data.</p>
 <p><strong>二分法</strong></p>
 <p><strong>二叉树&#x2F;链表</strong></p>
 <p><strong>递归&#x2F;DFS</strong></p>
