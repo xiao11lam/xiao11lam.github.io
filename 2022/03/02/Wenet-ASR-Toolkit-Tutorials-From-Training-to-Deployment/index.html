@@ -1,0 +1,762 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Xiao Zhang">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Decode and DeployWe need to Download the pre-compiled runtime wenet mode from the wenet github, since they already shared the pre-trained runtime model https:&#x2F;&#x2F;github.com&#x2F;wenet-e2e&#x2F;wenet&#x2F;actions&#x2F;runs">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Wenet ASR Toolkit Tutorials From Training to Deployment">
+<meta property="og:url" content="http://xiaos.site/2022/03/02/Wenet-ASR-Toolkit-Tutorials-From-Training-to-Deployment/index.html">
+<meta property="og:site_name" content="Xiao">
+<meta property="og:description" content="Decode and DeployWe need to Download the pre-compiled runtime wenet mode from the wenet github, since they already shared the pre-trained runtime model https:&#x2F;&#x2F;github.com&#x2F;wenet-e2e&#x2F;wenet&#x2F;actions&#x2F;runs">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://xiaos.site/images/image-20220730230852670.png">
+<meta property="og:image" content="http://xiaos.site/images/image-20220730003510616-16591147216542.png">
+<meta property="og:image" content="http://xiaos.site/images/image-20220730004721190.png">
+<meta property="og:image" content="http://xiaos.site/images/image-20220730004448344.png">
+<meta property="article:published_time" content="2022-03-02T06:52:54.000Z">
+<meta property="article:modified_time" content="2022-07-30T17:10:41.282Z">
+<meta property="article:author" content="Xiao Zhang">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://xiaos.site/images/image-20220730230852670.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>Wenet ASR Toolkit Tutorials From Training to Deployment - Xiao</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"xiaos.site","root":"/","version":"1.9.1","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Xiao&#39;s Site | Montamnis</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Tutorials
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Products
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Use Cases
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                Links
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Wenet ASR Toolkit Tutorials From Training to Deployment"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-03-02 14:52" pubdate>
+          March 2, 2022 pm
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.6k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          31 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Wenet ASR Toolkit Tutorials From Training to Deployment</h1>
+            
+            <div class="markdown-body">
+              
+              <p><img src="/../images/image-20220730230852670.png" srcset="/img/loading.gif" lazyload alt="image-20220730230852670"></p>
+<h1 id="Decode-and-Deploy"><a href="#Decode-and-Deploy" class="headerlink" title="Decode and Deploy"></a>Decode and Deploy</h1><p>We need to Download the pre-compiled runtime wenet mode from the wenet github, since they already shared the pre-trained runtime model <a target="_blank" rel="noopener" href="https://github.com/wenet-e2e/wenet/actions/runs/2175816175">https://github.com/wenet-e2e/wenet/actions/runs/2175816175</a> their, so we can just use it instead of compile for ourselves.</p>
+<p><img src="/../images/image-20220730003510616-16591147216542.png" srcset="/img/loading.gif" lazyload alt="image-20220730003510616"></p>
+<p>After we downloaded that pre-trained model, we can just get into that downloaded directory.</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">cd</span> Downloads/release-wenet-binary<br></code></pre></td></tr></table></figure>
+
+
+
+<p>Here we can do a basic decoding test from our downloaded pre-trained runtime model. The decoding tool is just like <code>decoder_main.exe</code>, but we have to pass in some params there. </p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs ada"><span class="hljs-comment">--chunk_size    the wave chunck streamming param</span><br><span class="hljs-comment">--wav_path		the wave file we want to do the decoding</span><br><span class="hljs-comment">--model_path	the neural model from the trained model</span><br><span class="hljs-comment">--dict_path     the dictionary file from the trained model.</span><br></code></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">./decoder_main.exe     --chunk_size -1     --wav_path ../test.wav     --model_path ../20210601_u2++_conformer_libtorch/20210601_u2++_conformer_libtorch/final.zip     --dict_path ../20210601_u2++_conformer_libtorch/20210601_u2++_conformer_libtorch/units.txt<br></code></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># here are the code to run the runtime server, right now it is hosted, and we can get the request from that url: ws://127.0.0.1:10086</span><br>./websocket_server_main.exe --port 10086    --chunk_size -1    --model_path ../20210601_u2++_conformer_libtorch/20210601_u2++_conformer_libtorch/final.zip     --dict_path ../20210601_u2++_conformer_libtorch/20210601_u2++_conformer_libtorch/units.txt<br></code></pre></td></tr></table></figure>
+
+<p>For the server side, it will open a server from the local machine at the 10086, we can then get into the <code>index.html</code> from the flask demo to get the response there. </p>
+<p><img src="/../images/image-20220730004721190.png" srcset="/img/loading.gif" lazyload alt="image-20220730004721190"></p>
+<h3 id="Way-1-To-get-the-response-from-the-runtime-server-by-web"><a href="#Way-1-To-get-the-response-from-the-runtime-server-by-web" class="headerlink" title="Way 1. To get the response from the runtime server by web"></a>Way 1. To get the response from the runtime server by web</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">cd</span> wenet/runtime/server/x86/web/templates<br><span class="hljs-comment"># we can just open that index.html to open a flask web demo app to retreive the data there.</span><br></code></pre></td></tr></table></figure>
+
+
+
+<p><img src="/../images/image-20220730004448344.png" srcset="/img/loading.gif" lazyload alt="image-20220730004448344"></p>
+<h3 id="Way-2-To-get-the-response-from-the-runtime-server-by-cmd"><a href="#Way-2-To-get-the-response-from-the-runtime-server-by-cmd" class="headerlink" title="Way 2. To get the response from the runtime server by cmd"></a>Way 2. To get the response from the runtime server by cmd</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">./websocket_client_main.exe   --hostname 127.0.0.1   --port 10086    --wav_path ../test.wav<br></code></pre></td></tr></table></figure>
+
+
+
+<h1 id="Integrate-with-the-Language-Model-LM"><a href="#Integrate-with-the-Language-Model-LM" class="headerlink" title="Integrate with the Language Model (LM)"></a>Integrate with the Language Model (LM)</h1><p>As we know, the wenet will output a <code>TLG.fst</code> decoding model, and then we can just use this model to integrate into the n-gram language model.</p>
+<p>Since before we had the dictionary in tokens, but here we are dealing with the word level.</p>
+<p>If we use the LM, in most cases the decoding time will be much longer, but also there will be a higher accurancy.</p>
+<h2 id="N-gram-LM-in-Wenet"><a href="#N-gram-LM-in-Wenet" class="headerlink" title="N-gram LM in Wenet"></a>N-gram LM in Wenet</h2><p>Wenet use the N-gram LM to help us to improve our CTC DNN model, since if we can add one more LM so we can have a more promissing WER during the decoding.</p>
+<p>Compared with the DNN LM, the n-gram model is very easily to implement and light-weighted, which is much faster than the DNN decoding. And at the same time, the traditional n-gram model is not limited to the corpus size, we can even use a very small corpus to build this. Also compared with DNN, we can make our model more controllable, since DNN is very randomize. </p>
+<p>In Wenet, we will import the WFST to do the decoding for the LM. </p>
+<h3 id="TLG-fst"><a href="#TLG-fst" class="headerlink" title="TLG.fst"></a>TLG.fst</h3><p>Just like in Kaldi, we have the <code>HCLG.fst</code>, also in Wenet, we have the same strategy. </p>
+<p><strong>T.fst</strong></p>
+<p>For <code>T</code>,  it means the <code>token</code>, in wenet, it is used for CTC decoding. It is used for: </p>
+<ol>
+<li>remove and manage the blanks, from <blank> -&gt; <eps> </li>
+<li>decode the multiple tokens output into one sentence, how we manage it? (this is very typically used in Mandarin Chinese, which can be a kind of characteristics of that language.)</li>
+</ol>
+<p><strong>L.fst</strong></p>
+<p>L is lexicon, since the logic here is to make the input characters into the words, in english can be phones to words.</p>
+<p><strong>G.fst</strong></p>
+<p>G is grammar, it guides us from the words level into the sentence level. For words, it can be n-gram model. </p>
+<p><strong>LG.fst</strong>  </p>
+<p>LG.fst &#x3D; compose(L.fst, G.fst), we can compose those two fst models into one. </p>
+<p><strong>TLG.fst</strong></p>
+<p>Finally, we can just compose the LG.fst with the T.fst into a big decoding map. </p>
+<h2 id="Language-Model-Deployment"><a href="#Language-Model-Deployment" class="headerlink" title="Language Model Deployment"></a>Language Model Deployment</h2><h3 id="Install-SRILM"><a href="#Install-SRILM" class="headerlink" title="Install SRILM"></a>Install SRILM</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">cd</span> wenet/tools<br><span class="hljs-comment"># download the srilm and compile it.</span><br>bash install_srilm.sh<br><span class="hljs-built_in">source</span> env.sh<br><span class="hljs-comment"># check the dependencies whether in our dev env</span><br><span class="hljs-built_in">which</span> ngram-count<br><br><span class="hljs-comment"># we just train a 2-gram LM, the input text file is train.txt and the output is the lm.arpa</span><br>ngram-count -order 2 -text train.txt -lm lm.arpa<br></code></pre></td></tr></table></figure>
+
+<h3 id="Compile-the-Runtime"><a href="#Compile-the-Runtime" class="headerlink" title="Compile the Runtime"></a>Compile the Runtime</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">cd</span> runtime/server/x86<br><span class="hljs-built_in">mkdir</span> build &amp;&amp; <span class="hljs-built_in">cd</span> build &amp;&amp; cmake .. &amp;&amp; cmake --build .<br></code></pre></td></tr></table></figure>
+
+<p>There is a notice here, we must ensure the <strong>cmake is upper than the 3.14 version, and the gcc should be higher than 5.4.</strong> </p>
+<h1 id="Hot-Word-Enhancement"><a href="#Hot-Word-Enhancement" class="headerlink" title="Hot Word Enhancement"></a>Hot Word Enhancement</h1>
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Wenet ASR Toolkit Tutorials From Training to Deployment</div>
+      <div>http://xiaos.site/2022/03/02/Wenet-ASR-Toolkit-Tutorials-From-Training-to-Deployment/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>Xiao Zhang</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>March 2, 2022</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>Licensed under</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/03/30/Audio-and-Speech-Application-Development/" title="Audio and Speech Application Development">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Audio and Speech Application Development</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/01/07/Hexo/" title="Hexo">
+                        <span class="hidden-mobile">Hexo</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;Table of Contents</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        Views: 
+        <span id="busuanzi_value_site_pv"></span>
+        
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        Visitors: 
+        <span id="busuanzi_value_site_uv"></span>
+        
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>
