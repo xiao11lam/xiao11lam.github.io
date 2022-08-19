@@ -2,7 +2,7 @@
     width: 123%;
     left: -23%; 
 }
-@media (max-width: 767px) {
+@media (max-width: 1067px) {
     .col-lg-8.nopadding-x-md > .container.nopadding-x-md > #board.py-5 {
         width: 100%;
         left: 0; 
@@ -13,17 +13,6 @@
         width: 100%;
         left: 0; 
     }
-}
-
-.tocbot-active-link {
-    font-weight: bold;
-    /*color var(--link-hover-color)*/
-    color: #800000;
-    background: #FA807233;
-    border-radius: 5px;
-}
-.toc-list-item::before {
-    background: #800000;
 }
 
 figure.highlight {
@@ -54,81 +43,7 @@ figure.highlight::before {
 a {
     color: #173774;
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    position: relative;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    font-weight: bold;
-    line-height: 1.4;
-    cursor: text;
-    overflow: hidden;
-}
-h1:hover a.anchor,
-h2:hover a.anchor,
-h3:hover a.anchor,
-h4:hover a.anchor,
-h5:hover a.anchor,
-h6:hover a.anchor {
-    text-decoration: none;
-}
-h1 tt,
-h1 code {
-    font-size: inherit;
-}
-h2 tt,
-h2 code {
-    font-size: inherit;
-}
-h3 tt,
-h3 code {
-    font-size: inherit;
-}
-h4 tt,
-h4 code {
-    font-size: inherit;
-}
-h5 tt,
-h5 code {
-    font-size: inherit;
-}
-h6 tt,
-h6 code {
-    font-size: inherit;
-}
-h1 {
-    font-size: 2.25em;
-    line-height: 1.2;
-    border-bottom: 1px solid #eee;
-}
-h2 {
-    font-size: 1.75em  ;
-    line-height: 1.1;
-    /*
-    border-bottom: 0px solid #eee;
-    */
-    color: #7e3131;
-}
 
-h3 {
-    font-size: 1.5em;
-    line-height: 1.1;
-    color: RGB(47,85,151);
-}
-h4 {
-    font-size: 1.25em;
-}
-h5 {
-    font-size: 1em;
-}
-h6 {
-   font-size: 1em;
-    color: #777;
-}
 
 p,
 blockquote,
