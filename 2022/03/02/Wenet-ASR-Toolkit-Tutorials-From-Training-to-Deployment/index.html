@@ -33,8 +33,15 @@
 <meta property="og:image" content="http://xiaos.site/images/image-20220819211753969.png">
 <meta property="og:image" content="http://xiaos.site/images/image-20220819212902233.png">
 <meta property="og:image" content="http://xiaos.site/images/image-20220819213119821.png">
+<meta property="og:image" content="http://xiaos.site/images/image-20220821035221487.png">
+<meta property="og:image" content="http://xiaos.site/images/image-20220821035807719.png">
+<meta property="og:image" content="http://xiaos.site/images/image-20220821040446495.png">
+<meta property="og:image" content="http://xiaos.site/images/image-20220821055530432.png">
+<meta property="og:image" content="http://xiaos.site/images/image-20220821055724162.png">
+<meta property="og:image" content="http://xiaos.site/images/image-20220821052226122.png">
+<meta property="og:image" content="http://xiaos.site/images/image-20220821053452850.png">
 <meta property="article:published_time" content="2022-03-02T06:52:54.000Z">
-<meta property="article:modified_time" content="2022-08-19T13:56:33.046Z">
+<meta property="article:modified_time" content="2022-08-20T22:00:14.939Z">
 <meta property="article:author" content="Xiao Zhang">
 <meta property="article:tag" content="Speech Recognition">
 <meta name="twitter:card" content="summary_large_image">
@@ -246,7 +253,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          11k words
+          12k words
         
       </span>
     
@@ -257,7 +264,7 @@
         
         
         
-          91 mins
+          104 mins
         
       </span>
     
@@ -414,6 +421,24 @@
 <p>These are the codes that how it really works:</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">CtcEndpoint::IsEndpoint</span><span class="hljs-params">(</span></span><br><span class="hljs-params"><span class="hljs-function">    <span class="hljs-type">const</span> std::vector&lt;std::vector&lt;<span class="hljs-type">float</span>&gt;&gt;&amp; ctc_log_probs,</span></span><br><span class="hljs-params"><span class="hljs-function">    <span class="hljs-comment">// it will get the ctc log probabilities, it will get the ctc prob and compare with the blank prob.</span></span></span><br><span class="hljs-params"><span class="hljs-function">    <span class="hljs-type">bool</span> decoded_something)</span> </span>&#123;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> t = <span class="hljs-number">0</span>; t &lt; ctc_log_probs.<span class="hljs-built_in">size</span>(); ++t) &#123;<br>    <span class="hljs-type">const</span> <span class="hljs-keyword">auto</span>&amp; <span class="hljs-type">logp_t</span> = ctc_log_probs[t];<br>    <span class="hljs-type">float</span> blank_prob = <span class="hljs-built_in">expf</span>(<span class="hljs-type">logp_t</span>[config_.blank]);<br>    num_frames_decoded_++;<br>    <span class="hljs-comment">// in here if the blank prob bigger than the preset blank value we set, it will detect as silence signal.</span><br>    <span class="hljs-keyword">if</span> (blank_prob &gt; config_.blank_threshold) &#123;<br>      num_frames_trailing_blank_++;<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>      <span class="hljs-comment">// if not will be cleared into 0, some it follows a culmuative way.</span><br>      num_frames_trailing_blank_ = <span class="hljs-number">0</span>;<br>    &#125;<br>  &#125;<br>  <span class="hljs-comment">// we will check the length of the speech.</span><br>  <span class="hljs-built_in">CHECK_GE</span>(num_frames_decoded_, num_frames_trailing_blank_);<br>  <span class="hljs-built_in">CHECK_GT</span>(frame_shift_in_ms_, <span class="hljs-number">0</span>);<br>  <span class="hljs-type">int</span> utterance_length = num_frames_decoded_ * frame_shift_in_ms_;<br>  <span class="hljs-type">int</span> trailing_silence = num_frames_trailing_blank_ * frame_shift_in_ms_;<br>  <span class="hljs-comment">// if there is any case that be activated, the endpoint exception case will be triggered.</span><br>  <span class="hljs-keyword">if</span> (<span class="hljs-built_in">RuleActivated</span>(config_.rule1, <span class="hljs-string">&quot;rule1&quot;</span>, decoded_something, trailing_silence,<br>                    utterance_length))<br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>  <span class="hljs-keyword">if</span> (<span class="hljs-built_in">RuleActivated</span>(config_.rule2, <span class="hljs-string">&quot;rule2&quot;</span>, decoded_something, trailing_silence,<br>                    utterance_length))<br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>  <span class="hljs-keyword">if</span> (<span class="hljs-built_in">RuleActivated</span>(config_.rule3, <span class="hljs-string">&quot;rule3&quot;</span>, decoded_something, trailing_silence,<br>                    utterance_length))<br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>  <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
+<h3 id="6-1-1-CTC-Endpoint-Process"><a href="#6-1-1-CTC-Endpoint-Process" class="headerlink" title="6.1.1 CTC Endpoint Process"></a>6.1.1 CTC Endpoint Process</h3><h4 id="Endpoint-Detection"><a href="#Endpoint-Detection" class="headerlink" title="Endpoint Detection"></a>Endpoint Detection</h4><p>We can check the code here: <a target="_blank" rel="noopener" href="https://github.com/wenet-e2e/wenet/blob/main/runtime/core/decoder/asr_decoder.cc#L117">https://github.com/wenet-e2e/wenet/blob/main/runtime/core/decoder/asr_decoder.cc#L117</a></p>
+<p><img src="/../images/image-20220821035221487.png" srcset="/img/loading.gif" lazyload alt="image-20220821035221487"></p>
+<p>Here the program can detect whether there is a endpoint there.</p>
+<h4 id="Rescoring"><a href="#Rescoring" class="headerlink" title="Rescoring"></a>Rescoring</h4><p>For Wenet, we have the CTC decoding results to do the rescoring tatics. It will the Nbest scoring, also it will append the recognition results into the original results. <img src="/../images/image-20220821035807719.png" srcset="/img/loading.gif" lazyload alt="image-20220821035807719"></p>
+<p>We can detect from <a target="_blank" rel="noopener" href="https://github.com/wenet-e2e/wenet/blob/main/runtime/core/bin/decoder_main.cc#L75">https://github.com/wenet-e2e/wenet/blob/main/runtime/core/bin/decoder_main.cc#L75</a></p>
+<h4 id="State-Reset"><a href="#State-Reset" class="headerlink" title="State Reset"></a>State Reset</h4><p><a target="_blank" rel="noopener" href="https://github.com/wenet-e2e/wenet/blob/main/runtime/core/decoder/asr_decoder.cc#L67">https://github.com/wenet-e2e/wenet/blob/main/runtime/core/decoder/asr_decoder.cc#L67</a></p>
+<p><img src="/../images/image-20220821040446495.png" srcset="/img/loading.gif" lazyload alt="image-20220821040446495"></p>
+<p>It will do the status reset for the final step. It will clear the status, and ready for the next-stage recognition. It will add a comma “,” for each endpoint.</p>
+<h3 id="6-1-2-Webrtcvad"><a href="#6-1-2-Webrtcvad" class="headerlink" title="6.1.2 Webrtcvad"></a>6.1.2 Webrtcvad</h3><p>Wenet also supports like external vad modules like from <code>webrtcvad</code>. It is a very great open-resource job here, the difference here is that it used more tactics to do the audio vad works instead of just pure stop-point detections. </p>
+<p><a target="_blank" rel="noopener" href="https://github.com/wiseman/py-webrtcvad">https://github.com/wiseman/py-webrtcvad</a></p>
+<p><img src="/../images/image-20220821055530432.png" srcset="/img/loading.gif" lazyload alt="image-20220821055530432"></p>
+<p>The way it works are very direct, it will detect whether there is the silent audio.</p>
+<p><img src="/../images/image-20220821055724162.png" srcset="/img/loading.gif" lazyload alt="From: https://github.com/wiseman/py-webrtcvad/blob/master/example.py#L141"></p>
+<h2 id="6-2-Python-Deployment"><a href="#6-2-Python-Deployment" class="headerlink" title="6.2 Python Deployment"></a>6.2 Python Deployment</h2><p>The easiest way is to just call the <code>continous_decoding</code> param and set it as <code>True</code>. If we set this as <code>False</code>, there can be no stops of our recognition texts, and at the same time, there will be a faster speed to decode since there is no endstop detection.</p>
+<p><img src="/../images/image-20220821052226122.png" srcset="/img/loading.gif" lazyload alt="image-20220821052226122"></p>
+<p>We will use a streaming way that we will input the audio chunks in every 0.5 seconds. We decode the audio file in each 0.5 seconds each time, it will like the streaming way. The delay in the streaming ASR jobs will always like between <code>500ms</code> to <code>600ms</code>, so it will be limited on there speech recognition accuracy.</p>
+<h2 id="6-3-Use-C"><a href="#6-3-Use-C" class="headerlink" title="6.3 Use C++"></a>6.3 Use C++</h2><p>We can easily use the C++ to do the long-time audio ASR by just selecting the <code>continous_decoding</code> into <code>True</code>:</p>
+<p><img src="/../images/image-20220821053452850.png" srcset="/img/loading.gif" lazyload alt="image-20220821053452850"></p>
 
               
             </div>
