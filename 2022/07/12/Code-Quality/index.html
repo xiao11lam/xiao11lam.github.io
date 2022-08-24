@@ -32,7 +32,7 @@
 <meta property="og:image" content="http://xiaos.site/images/image-20220816014232178.png">
 <meta property="og:image" content="http://xiaos.site/images/image-20220816000014300.png">
 <meta property="article:published_time" content="2022-07-11T23:04:50.000Z">
-<meta property="article:modified_time" content="2022-08-18T22:01:06.758Z">
+<meta property="article:modified_time" content="2022-08-23T00:15:02.140Z">
 <meta property="article:author" content="Xiao Zhang">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://xiaos.site/images/image-20220804004720164.png">
@@ -361,26 +361,6 @@
 
 
 
-<p>append</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">list</span>.append(<span class="hljs-string">&quot;will add an element from the end of the list&quot;</span>)<br></code></pre></td></tr></table></figure>
-
-
-
-<p>insert</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">list.insert(index, <span class="hljs-string">&quot;the element you want to insert&quot;</span>)<br>list.insert(2, <span class="hljs-string">&quot;the element you want to insert&quot;</span>)<br></code></pre></td></tr></table></figure>
-
-
-
-<p>extend</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">list_a = [<span class="hljs-string">&quot;1&quot;</span>, <span class="hljs-string">&quot;2&quot;</span>, <span class="hljs-string">&quot;3&quot;</span>]<br>list_b = [<span class="hljs-string">&quot;a&quot;</span>, <span class="hljs-string">&quot;b&quot;</span>, <span class="hljs-string">&quot;c&quot;</span>]<br>list_a.extend(list_b)<br></code></pre></td></tr></table></figure>
-
-<p>This will enable us to insert the values before the list we want to append. It looks like “+”, but for “+”, we need to generate a new list, but for this strategy, there is no need to do this.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">list_b = [<span class="hljs-string">&quot;1&quot;</span>, <span class="hljs-string">&quot;2&quot;</span>, <span class="hljs-string">&quot;3&quot;</span>, <span class="hljs-string">&quot;a&quot;</span>, <span class="hljs-string">&quot;b&quot;</span>, <span class="hljs-string">&quot;c&quot;</span>]<br></code></pre></td></tr></table></figure>
-
-
-
-
-
 <h3 id="Read"><a href="#Read" class="headerlink" title="Read"></a>Read</h3><p><strong>iteration</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> list_a:<br>    <span class="hljs-built_in">print</span>(x, end = <span class="hljs-string">&quot; &quot;</span>)<br></code></pre></td></tr></table></figure>
 
@@ -412,6 +392,22 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">list_b[:n] = [,,,]<br></code></pre></td></tr></table></figure>
 
 
+
+<p><strong>append</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">list</span>.append(<span class="hljs-string">&quot;will add an element from the end of the list&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+
+
+<p><strong>insert</strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">list.insert(index, <span class="hljs-string">&quot;the element you want to insert&quot;</span>)<br>list.insert(2, <span class="hljs-string">&quot;the element you want to insert&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+
+
+<p><strong>extend</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">list_a = [<span class="hljs-string">&quot;1&quot;</span>, <span class="hljs-string">&quot;2&quot;</span>, <span class="hljs-string">&quot;3&quot;</span>]<br>list_b = [<span class="hljs-string">&quot;a&quot;</span>, <span class="hljs-string">&quot;b&quot;</span>, <span class="hljs-string">&quot;c&quot;</span>]<br>list_a.extend(list_b)<br></code></pre></td></tr></table></figure>
+
+<p>This will enable us to insert the values before the list we want to append. It looks like “+”, but for “+”, we need to generate a new list, but for this strategy, there is no need to do this.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">list_b = [<span class="hljs-string">&quot;1&quot;</span>, <span class="hljs-string">&quot;2&quot;</span>, <span class="hljs-string">&quot;3&quot;</span>, <span class="hljs-string">&quot;a&quot;</span>, <span class="hljs-string">&quot;b&quot;</span>, <span class="hljs-string">&quot;c&quot;</span>]<br></code></pre></td></tr></table></figure>
 
 
 
@@ -512,7 +508,9 @@
 <p><strong>while loop to read through the linked list</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">while</span> cur <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-literal">None</span>:<br>    <span class="hljs-built_in">print</span>(cur.val, end=<span class="hljs-string">&quot; &quot;</span>)<br>    cur = cur.<span class="hljs-built_in">next</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;\n&quot;</span>)<br></code></pre></td></tr></table></figure>
 
-<h3 id=""><a href="#" class="headerlink" title=""></a></h3><p>The core idea is that if we can know the head of the linkedlist, then we can know the all linkedlist. So in most cases, we will only store the head of the linkedlist. We will make use of the head of the linkedlist, to do the CRUD for all the linkedList. And these are the core idea for the Linkedlist. We believe if we can know the head of the LinkedList, then we can know all the LinkedList. </p>
+
+
+<p>The core idea is that if we can know the head of the linkedlist, then we can know the all linkedlist. So in most cases, we will only store the head of the linkedlist. We will make use of the head of the linkedlist, to do the CRUD for all the linkedList. And these are the core idea for the Linkedlist. We believe if we can know the head of the LinkedList, then we can know all the LinkedList. </p>
 <p>So here, we will do the all the operations based on the manipulation of the head of the linkedlist.</p>
 <h3 id="Create-2"><a href="#Create-2" class="headerlink" title="Create"></a>Create</h3><p><strong>add(location, val)</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># here we want to do the operation like: add(2, 2)</span><br><span class="hljs-comment"># which means we want to add a value into the location[2], and assign that value into 2</span><br><br>Like here: <span class="hljs-number">1</span> &gt; <span class="hljs-number">3</span> &gt; <span class="hljs-number">5</span> &gt; <span class="hljs-number">7</span><br>The result should be: <span class="hljs-number">1</span> &gt; <span class="hljs-number">3</span> &gt; <span class="hljs-number">2</span> &gt; <span class="hljs-number">5</span> &gt; <span class="hljs-number">7</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">The logic is we have to know the:</span><br><span class="hljs-string">1) the node we add (new_node) before that node, here is &quot;3&quot;, we call it &quot;prev&quot;, we then cut that node&#x27;s connection with the next one.</span><br><span class="hljs-string">2) link the new_node with the position after it (new_node.next).</span><br><span class="hljs-string">3)</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-comment"># we cut the connection between the original node and the node after it.</span><br>new_node.<span class="hljs-built_in">next</span> = pre.<span class="hljs-built_in">next</span><br><span class="hljs-comment"># we reconnect with the original node with current node we want to add.</span><br>pre.<span class="hljs-built_in">next</span> = new_node<br></code></pre></td></tr></table></figure>
@@ -571,7 +569,7 @@
 
 
 
-<h3 id="Delete-3"><a href="#Delete-3" class="headerlink" title="Delete"></a>Delete</h3><p>pop()</p>
+<h3 id="Delete-3"><a href="#Delete-3" class="headerlink" title="Delete"></a>Delete</h3><p><strong>pop()</strong></p>
 <p>It will only delete the element at the top of the stack.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">MyStack</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self</span>):<br>        self.items = []<br>        <br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">pop</span>(<span class="hljs-params">self, item</span>):<br>        <span class="hljs-keyword">return</span> self.items.pop()<br><br><span class="hljs-comment"># we can just delete the last element of the list and return it.</span><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&quot;__main__&quot;</span>:<br>    my_stack = MyStack()<br>    <span class="hljs-keyword">while</span> <span class="hljs-keyword">not</span> my_stack.is_empty():<br>         my_stack.pop()<br></code></pre></td></tr></table></figure>
 
