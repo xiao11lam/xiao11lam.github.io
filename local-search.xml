@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title>CMake for Audio and Speech Processing</title>
+    <link href="/2022/08/29/CMake-for-Audio-and-Speech-Processing/"/>
+    <url>/2022/08/29/CMake-for-Audio-and-Speech-Processing/</url>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="https://cdn.jsdelivr.net/npm/meting/dist/Meting.min.js"></script><h1 id="Cmake-Basic-Files"><a href="#Cmake-Basic-Files" class="headerlink" title="Cmake Basic Files"></a>Cmake Basic Files</h1><h2 id="Two-Essential-Lines"><a href="#Two-Essential-Lines" class="headerlink" title="Two Essential Lines"></a>Two Essential Lines</h2><p>For any cmake project, we need to have a <code>CMakeLists.txt</code> file, there are two scripts are fixed:</p><figure class="highlight plaintext"><figcaption><span>line ``` is mostly about the ```cmake version```.</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs 1st"><br>```cmake<br>cmake_minimum_required(VERSION 3.1)<br></code></pre></td></tr></table></figure><figure class="highlight plaintext"><figcaption><span>line``` is the project name:</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs 2st"><br>```camke<br>project(kaldi)<br></code></pre></td></tr></table></figure><h2 id="Include-DIR"><a href="#Include-DIR" class="headerlink" title="Include DIR"></a>Include DIR</h2><p>Next step is to call or include the DIRs you need, the DIR can be the environmental files or other files:</p><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmake"><span class="hljs-keyword">include_directories</span>(<span class="hljs-variable">$&#123;CMAKE_SOURCE_DIR&#125;</span>/<span class="hljs-keyword">include</span>)<br></code></pre></td></tr></table></figure><figure class="highlight plaintext"><figcaption><span>here means the current absolute path, ```include``` is the sub-directory.</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs CMAKE_SOURCE_DIR```"><br><br><br>## Executable CMake<br><br>After finish all the settings there, just use this line:<br><br>```cmake<br>add_executable(output_cmake_exe the_cpp_file.cpp the_cpp_file2.cpp)<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Speech Synthesis Toolkits Introduction</title>
     <link href="/2022/08/25/Speech-Synthesis-Toolkits-Introduction/"/>
     <url>/2022/08/25/Speech-Synthesis-Toolkits-Introduction/</url>
