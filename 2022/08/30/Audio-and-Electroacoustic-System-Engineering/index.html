@@ -30,6 +30,8 @@
 <meta property="og:image" content="http://xiaos.site/images/image-20220830160555817.png">
 <meta property="og:image" content="http://xiaos.site/images/image-20220830160746952.png">
 <meta property="og:image" content="http://xiaos.site/images/image-20220830160754871.png">
+<meta property="og:image" content="http://xiaos.site/images/image-20220830231622130.png">
+<meta property="og:image" content="http://xiaos.site/images/image-20220830231726241.png">
 <meta property="og:image" content="http://xiaos.site/images/image-20220830185359432.png">
 <meta property="og:image" content="http://xiaos.site/images/image-20220830185640372.png">
 <meta property="og:image" content="http://xiaos.site/images/image-20220830185803031.png">
@@ -59,7 +61,7 @@
 <meta property="og:image" content="http://xiaos.site/images/image-20220830193531424.png">
 <meta property="og:image" content="http://xiaos.site/images/image-20220830192414403.png">
 <meta property="article:published_time" content="2022-08-30T14:34:11.000Z">
-<meta property="article:modified_time" content="2022-08-30T21:44:51.862Z">
+<meta property="article:modified_time" content="2022-08-30T22:30:40.388Z">
 <meta property="article:author" content="Xiao Zhang">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://xiaos.site/images/image-20220830155046339.png">
@@ -270,7 +272,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          17k words
+          20k words
         
       </span>
     
@@ -281,7 +283,7 @@
         
         
         
-          142 mins
+          164 mins
         
       </span>
     
@@ -323,7 +325,7 @@
             
             <div class="markdown-body">
               
-              <h1 id="Audio-Engineering"><a href="#Audio-Engineering" class="headerlink" title="Audio Engineering"></a>Audio Engineering</h1><h2 id="Loudness"><a href="#Loudness" class="headerlink" title="Loudness"></a>Loudness</h2><h3 id=""><a href="#" class="headerlink" title=""></a></h3><h2 id="Frequency-and-bandwidth"><a href="#Frequency-and-bandwidth" class="headerlink" title="Frequency and bandwidth"></a>Frequency and bandwidth</h2><h3 id="f0"><a href="#f0" class="headerlink" title="f0"></a>f0</h3><p><code>F0</code> is the frequency corresponding to the point where the vibration plate vibrates most strongly when the speaker starts to vibrate from the low range, and the frequency corresponding to the first time the impedance value reaches its maximum value on the impedance curve (i.e. <code>Zmax</code>) is called the resonant frequency or resonance frequency of the speaker unit, abbreviated as <code>F0</code>. The input is a swept frequency signal of equal amplitude, and the voltage across the speaker is viewed in real time with a voltmeter. The voltage corresponds to <code>f0</code> at the maximum.</p>
+              <h1 id="Audio-Engineering"><a href="#Audio-Engineering" class="headerlink" title="Audio Engineering"></a>Audio Engineering</h1><h2 id="Loudness"><a href="#Loudness" class="headerlink" title="Loudness"></a>Loudness</h2><h2 id="Frequency-and-bandwidth"><a href="#Frequency-and-bandwidth" class="headerlink" title="Frequency and bandwidth"></a>Frequency and bandwidth</h2><h3 id="f0"><a href="#f0" class="headerlink" title="f0"></a>f0</h3><p><code>F0</code> is the frequency corresponding to the point where the vibration plate vibrates most strongly when the speaker starts to vibrate from the low range, and the frequency corresponding to the first time the impedance value reaches its maximum value on the impedance curve (i.e. <code>Zmax</code>) is called the resonant frequency or resonance frequency of the speaker unit, abbreviated as <code>F0</code>. The input is a swept frequency signal of equal amplitude, and the voltage across the speaker is viewed in real time with a voltmeter. The voltage corresponds to <code>f0</code> at the maximum.</p>
 <h3 id="fh"><a href="#fh" class="headerlink" title="fh"></a>fh</h3><p><code>f0</code> is mainly caused by the rear cavity, <code>fh</code> is the problem of the front cavity. The change in high frequency is the extrusion of the front cavity.</p>
 <h3 id="Q-Value"><a href="#Q-Value" class="headerlink" title="Q Value"></a>Q Value</h3><p>Q value: represents the resonance quality factor at the resonance point <code>f0</code>. </p>
 <p>The higher Q means that the curve is sharper, and in terms of vibration phenomenon, it is not easy to stop the vibration, so the bass will sound muddy. But in the case of small speakers, because the bass is not easy to do well, so the Q value is higher.</p>
@@ -378,7 +380,55 @@
 <p><img src="/../images/image-20220830160754871.png" srcset="/img/loading.gif" lazyload alt="image-20220830160754871"></p>
 <p><a target="_blank" rel="noopener" href="https://www.digikey.com/en/product-highlight/k/knowles/i2s-output-digital-microphone">https://www.digikey.com/en/product-highlight/k/knowles/i2s-output-digital-microphone</a></p>
 <p>I2S microphone example: <a target="_blank" rel="noopener" href="http://www.analog.com/en/audiovideo-products/mems-microphones/admp441/products/product.html">ADMP441 </a>, I2S can easily be replaced, but the mainstream is still PDM now.</p>
-<h2 id="Audio-Power-Amp"><a href="#Audio-Power-Amp" class="headerlink" title="Audio Power Amp"></a>Audio Power Amp</h2><h2 id="Boost-and-Charge-pump"><a href="#Boost-and-Charge-pump" class="headerlink" title="Boost and Charge pump"></a>Boost and Charge pump</h2><p>Boost is high because of the DCDC, which uses an inductor. (The use of inductor current can not change the characteristics of the sudden)<br>Charge pump is reversed by capacitor, because the capacitor is very stable at both ends, but charge pump is generally very small boost multiplier, with the use of capacitors. charge pump is a charge pump boost, with the capacitor charging characteristics to complete the boost. charge pump uses capacitive energy storage, the same as the pump (a tube a tube), the charge through the capacitor (a capacitor Capacity size of the power) in series to boost the way. Charge after use, use after recharge.</p>
+<h2 id="Audio-Power-Amp-（PA"><a href="#Audio-Power-Amp-（PA" class="headerlink" title="Audio Power Amp （PA)"></a>Audio Power Amp （PA)</h2><p>There is no electrical signal from the horn, because the horn is a passive device, so the measured signal is actually the PA.</p>
+<p>Here are the basic params to describe the Audio PA.</p>
+<p><img src="/../images/image-20220830231622130.png" srcset="/img/loading.gif" lazyload alt="image-20220830231622130"></p>
+<p><img src="/../images/image-20220830231726241.png" srcset="/img/loading.gif" lazyload alt="Power and Loudness"></p>
+<p>Since every 10 dBFS decrease, then the theoretical value of the measured power will decrease by a factor of 10.</p>
+<p><strong>10dBFS &#x3D; 10log(P1&#x2F;P2)</strong></p>
+<p><strong>1dBFS &#x3D; log(P1&#x2F;P2)</strong></p>
+<p><strong>(P1&#x2F;P2) &#x3D; 10</strong></p>
+<p>Therefore it can be seen that P1 should be ten times larger than P2, which is the parameter after the change.</p>
+<p>Channel: 我们对于耳机一般选择双声道（dual），对于喇叭而言，我们既可以双声道也可以单声道。</p>
+<p>20hz ~ 20kHz ± 0.2 dB ：代表以1000Hz为参照的测量.</p>
+<h3 id="Loudness-Level（电声压）"><a href="#Loudness-Level（电声压）" class="headerlink" title="Loudness Level（电声压）"></a>Loudness Level（电声压）</h3><p>RMS level (Rooted Mean Square level): Mean Square* level</p>
+<p>MOL (Maximum Output Level): Maximum output level &#x2F; minimum output level</p>
+<p>Relative Level （电位差）</p>
+<p>*<strong>最大输出电平_0dBFS_1k_L+R*</strong></p>
+<p><audio src="../images/%E6%9C%80%E5%A4%A7%E8%BE%93%E5%87%BA%E7%94%B5%E5%B9%B3_0dBFS_1k_L+R.wav"></audio></p>
+<h3 id="Dynamic-Range"><a href="#Dynamic-Range" class="headerlink" title="Dynamic Range"></a>Dynamic Range</h3><p>*<strong>动态范围_20Hz-20KHz_Frequency Sweep_61pt_slow*</strong></p>
+<p><audio src="../images/_%E5%8A%A8%E6%80%81%E8%8C%83%E5%9B%B4%E6%89%AB%E9%A2%91_20Hz-20KHz_Frequency-Sweep_61pt_slow.wav"></audio></p>
+<p>*<strong>动态范围Dynamic Range_1kHz-60dB*</strong></p>
+<p><audio src="../images/_%E5%8A%A8%E6%80%81%E8%8C%83%E5%9B%B4_Dynamic-Range_1kHz_-60dB.wav"></audio></p>
+<p>Dynamic range refers to the system playback, the maximum undistorted output power and static system noise output power ratio of the logarithmic value</p>
+<p>Dynamic range is the difference between two signals, usually we just listen to a large signal (0 dB), and then listen to a small signal (-60 dB) or need to subtract this result with 60 to see the difference.</p>
+<p>Sweep in the AP software, we have to choose: 20 Hz - 20 kHz, 1&#x2F;6 Oct (61 pt, slow), and do not choose Append Graph Data, this option will keep the last results.</p>
+<h3 id="Distortion"><a href="#Distortion" class="headerlink" title="Distortion"></a>Distortion</h3><p>*<strong>总谐波失真和左右声道相位差_MaximumOutputLevel &amp;THD+N&amp; InterchannelPhase_1kHz_0dB互调失真_IMD_70+7K*</strong></p>
+<p>·    <strong>THD+N :</strong> <strong>总协调参数失真+噪音</strong></p>
+<p>Distortion of the sound after amplification. The smaller it is, the better.</p>
+<p>IMD: Intermodulation distortion (20 Hz-20 kHz, 1&#x2F;6 Oct, 61: points)</p>
+<p>MTD (Multi-tone distortion)</p>
+<h3 id="Frequency-Response"><a href="#Frequency-Response" class="headerlink" title="Frequency Response"></a>Frequency Response</h3><p><strong>频率响应_Freq_sweep_61_0dB*</strong></p>
+<p>Generally, the flatter the better.</p>
+<p>Flatness: flatness</p>
+<h3 id="Noise"><a href="#Noise" class="headerlink" title="Noise"></a>Noise</h3><p>*<strong>底噪_mute_silence_0dB*</strong></p>
+<p>*<strong>信噪比Dynamic Range_1kHz-60dB*</strong></p>
+<p>·    Signal-to-Noise Ratio ：底噪率</p>
+<p>·    POP noise</p>
+<p>·    SNR （Signal-noise ratio）：<strong>Signal-to-noise ratio &#x3D; received signal power&#x2F;noise power</strong></p>
+<p>Power Spectral Density: No &#x3D; 10^(-14.4) W&#x2F;Hz * B (Bandwidth: 20~20000Hz)。Noise Power&#x2F;Variance。 NoB单位dBm。来源：</p>
+<h3 id="SNR"><a href="#SNR" class="headerlink" title="SNR"></a>SNR</h3><p>Dial 0dB first and then click noise. First measure the maximum electric sound pressure and then measure the bottom noise is also OK, count the difference. Signal-to-noise ratio and dynamic range is about the same. If you really can not switch, you can: maximum volume - noise bottom noise.</p>
+<h3 id="Crosstalk"><a href="#Crosstalk" class="headerlink" title="Crosstalk"></a>Crosstalk</h3><p>*<strong>Crosstalk_left_only_1kHz_0dB*</strong></p>
+<p>*<strong>Crosstalk_right_only_1kHz_0dB*</strong></p>
+<p>*<strong>Crosstalk_sweep L to R 20to20k*</strong></p>
+<p>The crosstalk curves from L to R are tested separately.</p>
+<p>*<strong>Crosstalk_sweep R to L 20to20k*</strong></p>
+<p>The crosstalk curves from L to R are tested separately.</p>
+<p>It means that there is no correlation between the two channels and they are independent of each other.</p>
+<h3 id="Phase"><a href="#Phase" class="headerlink" title="Phase"></a>Phase</h3><p><strong>左右声道相位差_MaximumOutputLevel &amp;THD+N&amp; InterchannelPhase_1kHz_0dB*</strong></p>
+<p>We generally use 16bit audio for testing.</p>
+<p>The difference between speakers and headphones is Balanced and Unbalanced, other operations are the same.</p>
+<h2 id="Boost-and-Charge-pump"><a href="#Boost-and-Charge-pump" class="headerlink" title="Boost and Charge pump"></a>Boost and Charge pump</h2><p>Boost is high because of the DCDC, which uses an inductor. (The use of inductor current can not change the characteristics of the sudden)<br>Charge pump is reversed by capacitor, because the capacitor is very stable at both ends, but charge pump is generally very small boost multiplier, with the use of capacitors. charge pump is a charge pump boost, with the capacitor charging characteristics to complete the boost. charge pump uses capacitive energy storage, the same as the pump (a tube a tube), the charge through the capacitor (a capacitor Capacity size of the power) in series to boost the way. Charge after use, use after recharge.</p>
 <p>boost</p>
 <p><strong>advantages</strong>: Any voltage value efficiency can be to more than 90%, do a good company, can do 95%<br><strong>Disadvantages</strong>: need inductors, occupy a lot of area, but also need to prevent EMI mess.<br>charge pump</p>
 <p><strong>advantages</strong>: Using the capacitive method, the volume advantage comes out.<br><strong>Disadvantages</strong>: VOUT voltage for the vin voltage of the integer times when the efficiency reaches the highest, other times, the efficiency will have an impact.</p>
@@ -455,7 +505,7 @@
 <p><img src="/../images/image-20220830192850879.png" srcset="/img/loading.gif" lazyload alt="image-20220830192850879"></p>
 <p>The figure on the right is the difference between the two signals, the difference between the reference curve and the actual received curve, we can see that the difference is very small and very flat, indicating that the device below is a little better.</p>
 <p><em>Reference:</em> ITU-T Recommendation P.79</p>
-<h2 id="Frequency-Response"><a href="#Frequency-Response" class="headerlink" title="Frequency Response"></a>Frequency Response</h2><p>Frequency Response: describes how flat the loudness is. Frequency response is very much related to loudness level. The loudness level is an overall level, but the frequency response is a reflection of how smooth the response is. Here we are generally only concerned with how smooth the curve is here, not the size. The red line is the test curve, the blue line is the excitation signal we send to the device, when we subtract the difference between the two signals to get, this is the final of our frequency response curve.</p>
+<h2 id="Frequency-Response-1"><a href="#Frequency-Response-1" class="headerlink" title="Frequency Response"></a>Frequency Response</h2><p>Frequency Response: describes how flat the loudness is. Frequency response is very much related to loudness level. The loudness level is an overall level, but the frequency response is a reflection of how smooth the response is. Here we are generally only concerned with how smooth the curve is here, not the size. The red line is the test curve, the blue line is the excitation signal we send to the device, when we subtract the difference between the two signals to get, this is the final of our frequency response curve.</p>
 <h2 id="Delay"><a href="#Delay" class="headerlink" title="Delay"></a>Delay</h2><p>Can be eliminated by adjusting echo canller. The harder the echo cancellation. Longer delays require more aggressive echo cancellation.</p>
 <p>Delay: The delay between the transmission and arrival of the voice signal. The unit is ms. The smaller the better.</p>
 <p>Delay does not affect the quality of voice. The smaller the delay, the better.</p>
@@ -470,7 +520,7 @@
 <p>​                               </p>
 <p>Delay (Cross): <strong>185.23 ms &#x3D; 0.185 s</strong></p>
 <p><img src="/../images/image-20220830193234249.png" srcset="/img/loading.gif" lazyload alt="image-20220830193234249"></p>
-<h2 id="Noise"><a href="#Noise" class="headerlink" title="Noise:"></a>Noise:</h2><ol>
+<h2 id="Noise-1"><a href="#Noise-1" class="headerlink" title="Noise:"></a>Noise:</h2><ol>
 <li>Idle Channel Noise.<br>It is internal noise, similar to the bottom noise. The root cause of the generation of electronic noise in the audio path, low quality speakers or microphones.</li>
 </ol>
 <p>It is the noise floor. The internal bottom noise generated by the hardware when there is no signal at all.</p>
@@ -488,7 +538,7 @@
 <li><p>In&#x2F;Out Band Signal</p>
 </li>
 </ol>
-<h2 id="Distortion"><a href="#Distortion" class="headerlink" title="Distortion"></a><strong>Distortion</strong></h2><p>Non-linear response of the DUT. Causes: Low quality speakers or microphones, poor dynamic range performance. We tested with a sine signal to excite the response for each frequency band.</p>
+<h2 id="Distortion-1"><a href="#Distortion-1" class="headerlink" title="Distortion"></a><strong>Distortion</strong></h2><p>Non-linear response of the DUT. Causes: Low quality speakers or microphones, poor dynamic range performance. We tested with a sine signal to excite the response for each frequency band.</p>
 <h2 id="Echo-the-bigger-the-better"><a href="#Echo-the-bigger-the-better" class="headerlink" title="Echo: the bigger the better"></a>Echo: the bigger the better</h2><p>Send an excitation signal to the receiving direction, we want to go to test how much echo is sent back from the receiving device, we test in the sending direction. It is when you can hear your voice in the sound sent by the other party, this time it is related to the other party and not to you. Root causes: long latency, devices that are not properly calibrated and no echo cancellation algorithm.<br>Near-end voice is green, far-end voice is red, and black indicates repeated parts.</p>
 <p><img src="/../images/image-20220830192104094.png" srcset="/img/loading.gif" lazyload alt="https://www.youtube.com/watch?v=yHJecWrk_E4 "></p>
 <p>Echo counts is the loss is the echo cancellation effect, the greater the better.<br>Echo is a problem at the far end.<br>20ms &#x3D; 31dB<br>ITU-T G.131</p>
