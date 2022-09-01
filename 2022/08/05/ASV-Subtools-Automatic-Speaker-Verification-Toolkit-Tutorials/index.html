@@ -16,18 +16,20 @@
   <meta name="author" content="Xiao Zhang">
   <meta name="keywords" content="">
   
-    <meta name="description" content="ASV-tools InstallationInstall KaldiWe need to install the kaldi into the work directory. 1git clone https:&#x2F;&#x2F;github.com&#x2F;kaldi-asr&#x2F;kaldi">
+    <meta name="description" content="ASV-tools InstallationInstall KaldiWe need to install the kaldi into the work directory. 1git clone https:&#x2F;&#x2F;github.com&#x2F;kaldi-asr&#x2F;kaldi    Training DataDatasets DownloadingWe will use the voxceleb 1 to">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ASV-Subtools Automatic Speaker Verification Toolkit Tutorials">
 <meta property="og:url" content="http://xiaos.site/2022/08/05/ASV-Subtools-Automatic-Speaker-Verification-Toolkit-Tutorials/index.html">
 <meta property="og:site_name" content="Xiao">
-<meta property="og:description" content="ASV-tools InstallationInstall KaldiWe need to install the kaldi into the work directory. 1git clone https:&#x2F;&#x2F;github.com&#x2F;kaldi-asr&#x2F;kaldi">
+<meta property="og:description" content="ASV-tools InstallationInstall KaldiWe need to install the kaldi into the work directory. 1git clone https:&#x2F;&#x2F;github.com&#x2F;kaldi-asr&#x2F;kaldi    Training DataDatasets DownloadingWe will use the voxceleb 1 to">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://xiaos.site/images/image-20220831183616702.png">
 <meta property="article:published_time" content="2022-08-05T22:23:33.000Z">
-<meta property="article:modified_time" content="2022-08-31T14:48:02.928Z">
+<meta property="article:modified_time" content="2022-08-31T22:52:47.646Z">
 <meta property="article:author" content="Xiao Zhang">
 <meta property="article:tag" content="Voiceprint Recognition">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://xiaos.site/images/image-20220831183616702.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -235,7 +237,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          120 words
+          1.5k words
         
       </span>
     
@@ -246,7 +248,7 @@
         
         
         
-          2 mins
+          13 mins
         
       </span>
     
@@ -290,6 +292,29 @@
               
               <h1 id="ASV-tools-Installation"><a href="#ASV-tools-Installation" class="headerlink" title="ASV-tools Installation"></a>ASV-tools Installation</h1><h2 id="Install-Kaldi"><a href="#Install-Kaldi" class="headerlink" title="Install Kaldi"></a>Install Kaldi</h2><p>We need to install the kaldi into the <code>work</code> directory.</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">git <span class="hljs-built_in">clone</span> https://github.com/kaldi-asr/kaldi<br></code></pre></td></tr></table></figure>
+
+
+
+<h1 id="Training-Data"><a href="#Training-Data" class="headerlink" title="Training Data"></a>Training Data</h1><h2 id="Datasets-Downloading"><a href="#Datasets-Downloading" class="headerlink" title="Datasets Downloading"></a>Datasets Downloading</h2><p>We will use the <code>voxceleb 1</code> to do the experiment demo. </p>
+<p><img src="/../images/image-20220831183616702.png" srcset="/img/loading.gif" lazyload alt="https://www.robots.ox.ac.uk/~vgg/data/voxceleb/vox1.html"></p>
+<p>We need to download the dataset from the website.</p>
+<h2 id="Front-end-files"><a href="#Front-end-files" class="headerlink" title="Front-end files"></a>Front-end files</h2><p>There are several files that needed to be prerpared, and we need to follow the kaldi way:</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs applescript">wav.scp : utt-<span class="hljs-built_in">id</span> utt-path<br>utt2spk : utt-<span class="hljs-built_in">id</span> spk-<span class="hljs-built_in">id</span><br>spk2utt : spk-<span class="hljs-built_in">id</span> utt-<span class="hljs-built_in">id</span><br></code></pre></td></tr></table></figure>
+
+<p>We need to use the <code>make_voxceleb1_v2.pl</code></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">cd</span> asv-subtools/recipe/voxceleb/prepare<br><span class="hljs-comment"># we need to prepare the preparing files in this way</span><br>make_voxceleb1_v2.pl &lt;dataset&gt; &lt;path-to-data-dir&gt;<br><br><span class="hljs-comment"># Usage: ./make_voxceleb1_v2.pl &lt;path-to-voxceleb1&gt; &lt;dataset&gt; &lt;path-to-data-dir&gt;</span><br><span class="hljs-comment"># e.g. ./make_voxceleb1_v2.pl /export/voxceleb1 dev data/dev</span><br></code></pre></td></tr></table></figure>
+
+<p>If we want to have a better shell scripting way like preparing those files, we can just do:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">mkdir</span> -p data/voxceleb1_train<br><br><span class="hljs-comment"># get all the .wav file path, eg. /data/voxceleb1/dev/id1231/...wav</span><br>find /data/voxceleb1/dev -name *.wav &gt; data/voxceleb1_train/temp.lst<br><br><span class="hljs-comment"># generate the wav.scp, eg. id1231 data/voxceleb1/dev/id1231/...wav</span><br><span class="hljs-comment"># 1st. using split to cut &quot;a&quot; text with &quot;/&quot;</span><br><span class="hljs-comment"># 2st. cut the a[8] value with &quot;.&quot; and save into the &quot;b&quot; </span><br>awk <span class="hljs-string">&#x27;&#123;split($0, a, &quot;/&quot;); &#123;split(a[8], b,&quot;.&quot;)&#125;; print a[6]&quot;-&quot;a[7]&quot;-&quot;b[1], $1&#125;&#x27;</span> data/voxceleb1_train/temp.list &gt; data/voxceleb1_train/wav.scp<br></code></pre></td></tr></table></figure>
+
+<p>Now we can filter the files:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">subtools/kaldi/utils/fix_data_dir.sh<br><br><span class="hljs-comment"># this script helps to ensure that the various files in a data dir are correctly sorted and filtered, for example removing utterances that have no features (if feats.scp is present)</span><br></code></pre></td></tr></table></figure>
+
+
+
+
+
+
 
 
 
