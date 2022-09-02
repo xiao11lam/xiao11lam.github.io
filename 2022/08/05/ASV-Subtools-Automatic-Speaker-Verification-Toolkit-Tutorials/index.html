@@ -25,7 +25,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://xiaos.site/images/image-20220831183616702.png">
 <meta property="article:published_time" content="2022-08-05T22:23:33.000Z">
-<meta property="article:modified_time" content="2022-08-31T22:52:47.646Z">
+<meta property="article:modified_time" content="2022-09-01T22:59:06.102Z">
 <meta property="article:author" content="Xiao Zhang">
 <meta property="article:tag" content="Voiceprint Recognition">
 <meta name="twitter:card" content="summary_large_image">
@@ -237,7 +237,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.5k words
+          1.6k words
         
       </span>
     
@@ -305,7 +305,7 @@
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">cd</span> asv-subtools/recipe/voxceleb/prepare<br><span class="hljs-comment"># we need to prepare the preparing files in this way</span><br>make_voxceleb1_v2.pl &lt;dataset&gt; &lt;path-to-data-dir&gt;<br><br><span class="hljs-comment"># Usage: ./make_voxceleb1_v2.pl &lt;path-to-voxceleb1&gt; &lt;dataset&gt; &lt;path-to-data-dir&gt;</span><br><span class="hljs-comment"># e.g. ./make_voxceleb1_v2.pl /export/voxceleb1 dev data/dev</span><br></code></pre></td></tr></table></figure>
 
 <p>If we want to have a better shell scripting way like preparing those files, we can just do:</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">mkdir</span> -p data/voxceleb1_train<br><br><span class="hljs-comment"># get all the .wav file path, eg. /data/voxceleb1/dev/id1231/...wav</span><br>find /data/voxceleb1/dev -name *.wav &gt; data/voxceleb1_train/temp.lst<br><br><span class="hljs-comment"># generate the wav.scp, eg. id1231 data/voxceleb1/dev/id1231/...wav</span><br><span class="hljs-comment"># 1st. using split to cut &quot;a&quot; text with &quot;/&quot;</span><br><span class="hljs-comment"># 2st. cut the a[8] value with &quot;.&quot; and save into the &quot;b&quot; </span><br>awk <span class="hljs-string">&#x27;&#123;split($0, a, &quot;/&quot;); &#123;split(a[8], b,&quot;.&quot;)&#125;; print a[6]&quot;-&quot;a[7]&quot;-&quot;b[1], $1&#125;&#x27;</span> data/voxceleb1_train/temp.list &gt; data/voxceleb1_train/wav.scp<br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">mkdir</span> -p data/voxceleb1_train<br><br><span class="hljs-comment"># get all the .wav file path, eg. /data/voxceleb1/dev/id1231/...wav</span><br>find /data/voxceleb1/dev -name <span class="hljs-string">&quot;*.wav&quot;</span> &gt; data/voxceleb1_train/temp.lst<br><br><span class="hljs-comment"># generate the wav.scp, eg. id1231 data/voxceleb1/dev/id1231/...wav</span><br><span class="hljs-comment"># 1st. using split to cut &quot;a&quot; text with &quot;/&quot;</span><br><span class="hljs-comment"># 2st. cut the a[8] value with &quot;.&quot; and save into the &quot;b&quot; </span><br>awk <span class="hljs-string">&#x27;&#123;split($0, a, &quot;/&quot;); &#123;split(a[8], b,&quot;.&quot;)&#125;; print a[6]&quot;-&quot;a[7]&quot;-&quot;b[1], $1&#125;&#x27;</span> data/voxceleb1_train/temp.list &gt; data/voxceleb1_train/wav.scp<br></code></pre></td></tr></table></figure>
 
 <p>Now we can filter the files:</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">subtools/kaldi/utils/fix_data_dir.sh<br><br><span class="hljs-comment"># this script helps to ensure that the various files in a data dir are correctly sorted and filtered, for example removing utterances that have no features (if feats.scp is present)</span><br></code></pre></td></tr></table></figure>
