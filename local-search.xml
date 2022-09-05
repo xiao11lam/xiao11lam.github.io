@@ -266,5 +266,18 @@
   
   
   
+  <entry>
+    <title>Video and Audio Multimedia Development</title>
+    <link href="/2022/01/02/Video-and-Audio-Multimedia-Development/"/>
+    <url>/2022/01/02/Video-and-Audio-Multimedia-Development/</url>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="https://cdn.jsdelivr.net/npm/meting/dist/Meting.min.js"></script>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
   
 </search>
