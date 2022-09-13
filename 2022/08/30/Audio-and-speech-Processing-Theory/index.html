@@ -16,20 +16,21 @@
   <meta name="author" content="Xiao Zhang">
   <meta name="keywords" content="Speech and Language Processing">
   
-    <meta name="description" content="Speech Production ModelThe voiced and unvoiced speech mostly for 10~20 ms.   The vocal tract model can be understood by a filter equation, here can be the transfer function, the n means the filers you">
+    <meta name="description" content="Audio ProcessingADC (Analog to Digital Codec) After the Microphone got the analog signals from the environment, it will pass through the codec and transform it into the digital data which only has “0”">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Audio and speech Processing Theory">
 <meta property="og:url" content="http://xiaos.site/2022/08/30/Audio-and-speech-Processing-Theory/index.html">
 <meta property="og:site_name" content="Xiao @ Speech and Language Processing">
-<meta property="og:description" content="Speech Production ModelThe voiced and unvoiced speech mostly for 10~20 ms.   The vocal tract model can be understood by a filter equation, here can be the transfer function, the n means the filers you">
+<meta property="og:description" content="Audio ProcessingADC (Analog to Digital Codec) After the Microphone got the analog signals from the environment, it will pass through the codec and transform it into the digital data which only has “0”">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://xiaos.site/images/image-20220830190323321.png">
 <meta property="og:image" content="http://xiaos.site/images/image-20220830144931149.png">
 <meta property="article:published_time" content="2022-08-30T13:19:00.000Z">
-<meta property="article:modified_time" content="2022-08-30T14:28:59.093Z">
+<meta property="article:modified_time" content="2022-09-10T00:39:38.545Z">
 <meta property="article:author" content="Xiao Zhang">
 <meta property="article:tag" content="Speech and Language Processing">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://xiaos.site/images/image-20220830144931149.png">
+<meta name="twitter:image" content="http://xiaos.site/images/image-20220830190323321.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -237,7 +238,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          265 words
+          2.9k words
         
       </span>
     
@@ -248,7 +249,7 @@
         
         
         
-          3 mins
+          24 mins
         
       </span>
     
@@ -290,10 +291,45 @@
             
             <div class="markdown-body">
               
-              <h1 id="Speech-Production-Model"><a href="#Speech-Production-Model" class="headerlink" title="Speech Production Model"></a>Speech Production Model</h1><p>The voiced and unvoiced speech mostly for 10~20 ms. </p>
+              <h1 id="Audio-Processing"><a href="#Audio-Processing" class="headerlink" title="Audio Processing"></a>Audio Processing</h1><h2 id="ADC-Analog-to-Digital-Codec"><a href="#ADC-Analog-to-Digital-Codec" class="headerlink" title="ADC (Analog to Digital Codec)"></a>ADC (Analog to Digital Codec)</h2><p><img src="/../images/image-20220830190323321.png" srcset="/img/loading.gif" lazyload alt="https://www.rfwireless-world.com/Terminology/Advantages-and-Disadvantages-of-Pulse-Density-Modulation.html"></p>
+<p>After the Microphone got the analog signals from the environment, it will pass through the codec and transform it into the digital data which only has “0”, and “1”. </p>
+<p>The signals that continually trace the same path in this way are called periodic. </p>
+<p>The shape that repeats is called a <strong>cycle</strong>, and the time it takes to repeat is called the <strong>period</strong>.</p>
+<p>$$<br>f &#x3D; \frac{1}{p}<br>(f: freq, p: period)\<br>f &#x3D; rate * channel.num * sample.bits<br>$$</p>
+<p>$$<br>dur(sec) &#x3D; \frac{bit.num}{bit&#x2F;sec}<br>$$</p>
+<p>$$<br>dur(sec) &#x3D; \frac{size(mb) * 8 * 1024 * 1024}{sample.rate * bit.depth * channel.num }<br>$$<br>If there is 16 bit mono speech file:<br>$$<br>dur(sec) &#x3D; \frac{size(mb) * 8 * 1024 * 1024}{sample.rate * 16 * 1 }<br>$$</p>
+<p>The sawtooth waveform is important in the study of production, as the vocal cords change the airflow from the lungs into a signal that looks similar to a sawtooth.</p>
+<p>Square wave, or rectangle wave, or pulse trains. The signals differ in how long they stay at the top and bottom of their travel, their duty cycle (the proportion of period in which they are at their maximum).</p>
+<p>Each of these lasts for a short time only, and hence they are known as <strong>transients</strong> (since they don’t hang around). <strong>Burst</strong> is happened in the human speech and they are part of the transients.</p>
+<p>The rms amplitude is the most important way of specifying the amplitude of a signal because it presupposes the use of a related quantity - <strong>intensity</strong>.</p>
+<p><a target="_blank" rel="noopener" href="http://soundfile.sapp.org/doc/WaveFormat/">http://soundfile.sapp.org/doc/WaveFormat/</a></p>
+<h2 id="Audio-Architecture"><a href="#Audio-Architecture" class="headerlink" title="Audio Architecture"></a>Audio Architecture</h2><p>We will use the <code>SDL</code> C++ lib package to explain this, and we will know from this that how computer render the audio files.</p>
+<p>The most high level concept or the interface of the audio system from the <code>SDL</code> is the <code>IAudioContext</code>. </p>
+<h4 id="IAudioContext"><a href="#IAudioContext" class="headerlink" title="IAudioContext"></a>IAudioContext</h4><p>The <code>IAudioConext</code> contains those operations:</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs scss">-<span class="hljs-attr">--playAudio</span> (AudioObject)<br>-<span class="hljs-attr">--PauseAudio</span> (AudioObject)<br>-<span class="hljs-attr">--StopAudio</span> (AudioObject)<br></code></pre></td></tr></table></figure>
+
+<p>Another component is like <code>IAudioDevice</code>, it includes:</p>
+<figure class="highlight isbl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs isbl">---<span class="hljs-function"><span class="hljs-title">CreateAudio</span>(<span class="hljs-variable">fileName</span>)</span><br>---<span class="hljs-function"><span class="hljs-title">ReleaseAudio</span>(<span class="hljs-variable">IAudioData</span>)</span><br></code></pre></td></tr></table></figure>
+
+<p>We will also have an abstract idea, like there has <code>AudioObject</code>. This is the object of our audio system.</p>
+<p>It includes:</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-built_in">---GenerateSamples</span>(stream, len)<br><span class="hljs-built_in">---SetPos</span>(pos) # set the <span class="hljs-attribute">position</span> of the <span class="hljs-selector-tag">audio</span> rendering<br>-<span class="hljs-attr">--SampleInfo</span><br>----<span class="hljs-attr">--volume</span><br>----<span class="hljs-attr">--pitch</span><br>----<span class="hljs-attr">--loopLoc</span><br>----<span class="hljs-attr">--Panning</span><br>-<span class="hljs-attr">--IAudioData</span><br></code></pre></td></tr></table></figure>
+
+<p>We got <code>IAudioData</code> to contain the audio data, they are generated from: <code>GenerateSamples(stream, len, Pos, SampleInfo)</code>.</p>
+<h1 id="Speech-Production-Model"><a href="#Speech-Production-Model" class="headerlink" title="Speech Production Model"></a>Speech Production Model</h1><p>The voiced and unvoiced speech mostly for 10~20 ms. </p>
 <p><img src="/../images/image-20220830144931149.png" srcset="/img/loading.gif" lazyload alt="Pic From: http://eemedia.ee.unsw.edu.au/contents/elec9344/LectureNotes/Chapter%201.pdf"></p>
 <p>The vocal tract model can be understood by a filter equation, here can be the transfer function, the <code>n</code> means the filers you want to have:<br>$$<br>\frac{1}{1 + b_{1}z^{-1} + b_{2}z^{-2} + b_{n}z^{-n} }<br>$$</p>
 <p>The Radiation model here means the <code>lip model</code>. </p>
+<h1 id="Linguistics"><a href="#Linguistics" class="headerlink" title="Linguistics"></a>Linguistics</h1><p>Linguistics can be a science about hyposis and experimental research. We study human languages as a natural phenomenon, and this is what linguistics about. And linguistics should not used as a mean of discrimination. </p>
+<p>From <strong>Panini</strong>, we still use his <strong>level of analysis</strong> study about Sanskrit linguistics:</p>
+<ol>
+<li>Phonology (Sound Difference for each phone in difference languages)</li>
+<li>Morphology (格)</li>
+<li>Syntax </li>
+<li>Lexicon （like the dictionary)</li>
+</ol>
+<p><strong>Contemporary linguistics is about unwealing the hidden rules of the languages.</strong></p>
+<p>Basically, the system of language and the system of societies and cultures can be analysed in a similar way.  <strong>So its about data so much, it called Structurism.</strong> </p>
 
               
             </div>

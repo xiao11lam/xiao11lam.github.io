@@ -43,7 +43,7 @@
 <meta property="og:image" content="http://xiaos.site/images/image-20220731194754537.png">
 <meta property="og:image" content="http://xiaos.site/images/image-20220731211958212.png">
 <meta property="article:published_time" content="2022-07-11T08:17:19.000Z">
-<meta property="article:modified_time" content="2022-09-01T16:32:00.633Z">
+<meta property="article:modified_time" content="2022-09-11T21:44:02.919Z">
 <meta property="article:author" content="Xiao Zhang">
 <meta property="article:tag" content="Speech Recognition">
 <meta name="twitter:card" content="summary_large_image">
@@ -255,7 +255,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          123k words
+          124k words
         
       </span>
     
@@ -266,7 +266,7 @@
         
         
         
-          1026 mins
+          1031 mins
         
       </span>
     
@@ -584,7 +584,7 @@
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">cd</span> /mnt/c/Users/ABC/Desktop/kaldi-cslt/tools<br>vim run.sh  <span class="hljs-comment"># check the env installation scripts</span><br>sh run.sh <span class="hljs-comment"># we can just run the scripts and let it automatically install</span><br></code></pre></td></tr></table></figure>
 
 <p>Here are the preview of the <code>run.sh</code></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># here you can spefify your CPU info</span><br>make -j 8<br><span class="hljs-comment"># install the IRSTLM</span><br>./extras/install_irstlm.sh<br><span class="hljs-comment"># install the openblas</span><br>./extras/install_openblas.sh<br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># here you can spefify your CPU info</span><br>make -j 8<br><span class="hljs-comment"># install the IRSTLM</span><br>./extras/install_irstlm.sh<br><span class="hljs-comment"># The env.sh is not under tools/extras/. It is under tools/.So you need to change the environmental variable.</span><br><span class="hljs-built_in">source</span> env.sh<br><span class="hljs-comment"># install the openblas</span><br>./extras/install_openblas.sh<br></code></pre></td></tr></table></figure>
 
 
 
@@ -651,6 +651,11 @@
 <h1 id="5-Some-Useful-Links"><a href="#5-Some-Useful-Links" class="headerlink" title="5. Some Useful Links"></a>5. Some Useful Links</h1><p><a target="_blank" rel="noopener" href="https://www.eleanorchodroff.com/tutorial/kaldi/training-acoustic-models.html">https://www.eleanorchodroff.com/tutorial/kaldi/training-acoustic-models.html</a></p>
 <p><a target="_blank" rel="noopener" href="https://faculty.sbs.arizona.edu/hammond/ling578-sp20/">https://faculty.sbs.arizona.edu/hammond/ling578-sp20/</a></p>
 <p><a target="_blank" rel="noopener" href="https://shichaog1.gitbooks.io/hand-book-of-speech-enhancement-and-recognition/content/">https://shichaog1.gitbooks.io/hand-book-of-speech-enhancement-and-recognition/content/</a></p>
+<p><a target="_blank" rel="noopener" href="https://desh2608.github.io/2020-05-18-using-librispeech/">https://desh2608.github.io/2020-05-18-using-librispeech/</a></p>
+<p><a target="_blank" rel="noopener" href="http://jrmeyer.github.io/asr/2016/01/26/Installing-Kaldi.html">http://jrmeyer.github.io/asr/2016/01/26/Installing-Kaldi.html</a></p>
+<p>Understanding kaldi recipes with mini-librispeech example: <a target="_blank" rel="noopener" href="https://medium.com/@qianhwan/understanding-kaldi-recipes-with-mini-librispeech-example-part-1-hmm-models-472a7f4a0488">https://medium.com/@qianhwan/understanding-kaldi-recipes-with-mini-librispeech-example-part-1-hmm-models-472a7f4a0488</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.assemblyai.com/blog/kaldi-speech-recognition-for-beginners-a-simple-tutorial/">https://www.assemblyai.com/blog/kaldi-speech-recognition-for-beginners-a-simple-tutorial/</a></p>
+<p><a target="_blank" rel="noopener" href="http://pelhans.com/2018/01/18/kaldi-note1/">http://pelhans.com/2018/01/18/kaldi-note1/</a></p>
 
               
             </div>

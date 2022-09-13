@@ -16,26 +16,29 @@
   <meta name="author" content="Xiao Zhang">
   <meta name="keywords" content="Speech and Language Processing">
   
-    <meta name="description" content="Install the SPTKInstall the SoX1apt-get install sox  Clone the Git Repo1git clone https:&#x2F;&#x2F;github.com&#x2F;sp-nitech&#x2F;SPTK.git  Compile the C++1cd SPTK; make  Export the Environmental Variable1vim ~&#x2F;.bashrc">
+    <meta name="description" content="Calculate the Vocal Tract LengthUsing PraatAfter we installed the Pratt together with the VocalToolkit : https:&#x2F;&#x2F;www.praatvocaltoolkit.com&#x2F;calculate-vocal-tract-length.html, we can just calculate the">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Speech Signal Processing Toolkit (SPTK) Tutorials">
-<meta property="og:url" content="http://xiaos.site/2022/08/24/Speech-Signal-Processing-Toolkit-SPTK-Tutorials/index.html">
+<meta property="og:title" content="Vocal Tract Length Normalization (VTLN)">
+<meta property="og:url" content="http://xiaos.site/2022/09/12/Vocal-Tract-Length-Normalization-VTLN/index.html">
 <meta property="og:site_name" content="Xiao @ Speech and Language Processing">
-<meta property="og:description" content="Install the SPTKInstall the SoX1apt-get install sox  Clone the Git Repo1git clone https:&#x2F;&#x2F;github.com&#x2F;sp-nitech&#x2F;SPTK.git  Compile the C++1cd SPTK; make  Export the Environmental Variable1vim ~&#x2F;.bashrc">
+<meta property="og:description" content="Calculate the Vocal Tract LengthUsing PraatAfter we installed the Pratt together with the VocalToolkit : https:&#x2F;&#x2F;www.praatvocaltoolkit.com&#x2F;calculate-vocal-tract-length.html, we can just calculate the">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://xiaos.site/images/image-20220825050436624.png">
-<meta property="article:published_time" content="2022-08-24T21:01:16.000Z">
-<meta property="article:modified_time" content="2022-08-24T23:02:34.600Z">
+<meta property="og:image" content="http://xiaos.site/images/image-20220912215239543.png">
+<meta property="og:image" content="http://xiaos.site/images/image-20220912215345612.png">
+<meta property="og:image" content="http://xiaos.site/images/image-20220912215404723.png">
+<meta property="og:image" content="http://xiaos.site/images/image-20220912215427231.png">
+<meta property="article:published_time" content="2022-09-12T20:49:07.000Z">
+<meta property="article:modified_time" content="2022-09-12T22:57:03.066Z">
 <meta property="article:author" content="Xiao Zhang">
 <meta property="article:tag" content="Speech and Language Processing">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://xiaos.site/images/image-20220825050436624.png">
+<meta name="twitter:image" content="http://xiaos.site/images/image-20220912215239543.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>Speech Signal Processing Toolkit (SPTK) Tutorials - Xiao @ Speech and Language Processing</title>
+  <title>Vocal Tract Length Normalization (VTLN) - Xiao @ Speech and Language Processing</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -214,7 +217,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Speech Signal Processing Toolkit (SPTK) Tutorials"></span>
+            <span id="subtitle" data-typed-text="Vocal Tract Length Normalization (VTLN)"></span>
           
         </div>
 
@@ -225,8 +228,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-08-24 22:01" pubdate>
-          August 24, 2022 pm
+        <time datetime="2022-09-12 21:49" pubdate>
+          September 12, 2022 pm
         </time>
       </span>
     
@@ -237,7 +240,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          508 words
+          870 words
         
       </span>
     
@@ -248,7 +251,7 @@
         
         
         
-          5 mins
+          8 mins
         
       </span>
     
@@ -286,32 +289,19 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Speech Signal Processing Toolkit (SPTK) Tutorials</h1>
+            <h1 style="display: none">Vocal Tract Length Normalization (VTLN)</h1>
             
             <div class="markdown-body">
               
-              <h1 id="Install-the-SPTK"><a href="#Install-the-SPTK" class="headerlink" title="Install the SPTK"></a>Install the SPTK</h1><h2 id="Install-the-SoX"><a href="#Install-the-SoX" class="headerlink" title="Install the SoX"></a>Install the SoX</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">apt-get install sox<br></code></pre></td></tr></table></figure>
-
-<h2 id="Clone-the-Git-Repo"><a href="#Clone-the-Git-Repo" class="headerlink" title="Clone the Git Repo"></a>Clone the Git Repo</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">git <span class="hljs-built_in">clone</span> https://github.com/sp-nitech/SPTK.git<br></code></pre></td></tr></table></figure>
-
-<h2 id="Compile-the-C"><a href="#Compile-the-C" class="headerlink" title="Compile the C++"></a>Compile the C++</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">cd</span> SPTK; make<br></code></pre></td></tr></table></figure>
-
-<h2 id="Export-the-Environmental-Variable"><a href="#Export-the-Environmental-Variable" class="headerlink" title="Export the Environmental Variable"></a>Export the Environmental Variable</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">vim ~/.bashrc<br></code></pre></td></tr></table></figure>
-
-<p><img src="/../images/image-20220825050436624.png" srcset="/img/loading.gif" lazyload alt="image-20220825050436624"></p>
-<p>Just export the <code>bin</code> path to your environmental variable.</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">export</span> PATH=<span class="hljs-variable">$PATH</span>:/mnt/c/Users/ABC/SPTK/bin<br></code></pre></td></tr></table></figure>
-
-<h1 id="Some-Usual-Commands"><a href="#Some-Usual-Commands" class="headerlink" title="Some Usual Commands"></a>Some Usual Commands</h1><h2 id="Pitch-Extraction"><a href="#Pitch-Extraction" class="headerlink" title="Pitch Extraction"></a>Pitch Extraction</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">pitch -s 16 -p 80 -L 80 -H 200 -o 1 &lt; test.wav &gt; data.f0<br></code></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-<h1 id="Python-Version-SPTK"><a href="#Python-Version-SPTK" class="headerlink" title="Python Version SPTK"></a>Python Version SPTK</h1><p>we can have a python version SPTK and it combines the same functions:</p>
-<p><a target="_blank" rel="noopener" href="https://nbviewer.org/github/r9y9/pysptk/blob/master/examples/pysptk%20introduction.ipynb">https://nbviewer.org/github/r9y9/pysptk/blob/master/examples/pysptk%20introduction.ipynb</a></p>
+              <h1 id="Calculate-the-Vocal-Tract-Length"><a href="#Calculate-the-Vocal-Tract-Length" class="headerlink" title="Calculate the Vocal Tract Length"></a>Calculate the Vocal Tract Length</h1><h2 id="Using-Praat"><a href="#Using-Praat" class="headerlink" title="Using Praat"></a>Using Praat</h2><p>After we installed the <code>Pratt</code> together with the <code>VocalToolkit</code> : <a target="_blank" rel="noopener" href="https://www.praatvocaltoolkit.com/calculate-vocal-tract-length.html">https://www.praatvocaltoolkit.com/calculate-vocal-tract-length.html</a>, we can just calculate the vocal tract length from the <code>pratt</code> easily.</p>
+<p><img src="/../images/image-20220912215239543.png" srcset="/img/loading.gif" lazyload alt="image-20220912215239543"></p>
+<p>We can open that <code>Praat</code> the main panel, and hit the <code>process</code> buttom, </p>
+<p><img src="/../images/image-20220912215345612.png" srcset="/img/loading.gif" lazyload alt="image-20220912215345612"></p>
+<p><img src="/../images/image-20220912215404723.png" srcset="/img/loading.gif" lazyload alt="image-20220912215404723"></p>
+<p><img src="/../images/image-20220912215427231.png" srcset="/img/loading.gif" lazyload alt="image-20220912215427231"></p>
+<p>Here is the result, and the calculating formula was from: Johnson, Keith. Acoustic and Auditory Phonetics. 2nd ed. Malden, Mass: Blackwell Pub, 2003. p. 96.</p>
+<p>$$<br>F_{n} &#x3D; \frac{ (2n - 1)c}{4L},    c &#x3D; 35,000\ cm&#x2F; sec<br>$$</p>
+<p>In here, $$F_{4}$$ is 3369.558 Hz, and here can be the how it calculated:<br>$$<br>3369.558 \ Hz &#x3D;  \frac{(7)* 35,000\ cm&#x2F; sec}{4L} \<br>3369.558 \ \frac{1}{sec} &#x3D; \frac{(7)* 35,000\ cm&#x2F; sec}{4L} \<br>\frac{3369.558}{sec} &#x3D; \frac{(7)* 35,000\ cm&#x2F; sec}{4L} \<br>\frac{3369.558 * 4L}{sec} &#x3D; (7)* 35,000\ cm&#x2F; sec \<br>3369.558 * 4L &#x3D;  (7)* 35,000\ cm \<br>L &#x3D; \frac{(7)* 35,000\ cm}{3369.558 * 4} \<br>L &#x3D; \frac{245000}{13478} \<br>L &#x3D; 18.1777711827 \ cm<br>$$</p>
 
               
             </div>
@@ -328,8 +318,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Speech Signal Processing Toolkit (SPTK) Tutorials</div>
-      <div>http://xiaos.site/2022/08/24/Speech-Signal-Processing-Toolkit-SPTK-Tutorials/</div>
+      <div>Vocal Tract Length Normalization (VTLN)</div>
+      <div>http://xiaos.site/2022/09/12/Vocal-Tract-Length-Normalization-VTLN/</div>
     </div>
     <div class="license-meta">
       
@@ -341,7 +331,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>August 24, 2022</div>
+          <div>September 12, 2022</div>
         </div>
       
       
@@ -371,18 +361,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/08/25/Speech-Synthesis-Toolkits-Introduction/" title="Speech Synthesis Toolkits Introduction">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Speech Synthesis Toolkits Introduction</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/08/05/ASV-Subtools-Automatic-Speaker-Verification-Toolkit-Tutorials/" title="ASV-Subtools Automatic Speaker Verification Toolkit Tutorials">
-                        <span class="hidden-mobile">ASV-Subtools Automatic Speaker Verification Toolkit Tutorials</span>
+                      <a href="/2022/08/30/Audio-and-Electroacoustic-System-Engineering/" title="Audio and Electroacoustic System Engineering">
+                        <span class="hidden-mobile">Audio and Electroacoustic System Engineering</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

@@ -16,27 +16,33 @@
   <meta name="author" content="Xiao Zhang">
   <meta name="keywords" content="Speech and Language Processing">
   
-    <meta name="description" content="Web DevThere are serveral frameworks that are in my suggestion lists, such as:  BeaqleJSBeaqleJS: HTML5 and JavaScript basedFramework for the Subjective Evaluation ofAudio Quality: https:&#x2F;&#x2F;github.com&#x2F;">
+    <meta name="description" content="Install the SPTKInstall the SoX1apt-get install sox  Clone the Git Repo1git clone https:&#x2F;&#x2F;github.com&#x2F;sp-nitech&#x2F;SPTK.git  Compile the C++1cd SPTK; make  Export the Environmental Variable1vim ~&#x2F;.bashrc">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Audio and Speech Application Development">
-<meta property="og:url" content="http://xiaos.site/2022/03/30/Audio-and-Speech-Application-Development/index.html">
+<meta property="og:title" content="Speech Signal Processing Toolkit (SPTK) Tutorials">
+<meta property="og:url" content="http://xiaos.site/2022/08/25/Speech-Signal-Processing-Toolkit-SPTK-Tutorials/index.html">
 <meta property="og:site_name" content="Xiao @ Speech and Language Processing">
-<meta property="og:description" content="Web DevThere are serveral frameworks that are in my suggestion lists, such as:  BeaqleJSBeaqleJS: HTML5 and JavaScript basedFramework for the Subjective Evaluation ofAudio Quality: https:&#x2F;&#x2F;github.com&#x2F;">
+<meta property="og:description" content="Install the SPTKInstall the SoX1apt-get install sox  Clone the Git Repo1git clone https:&#x2F;&#x2F;github.com&#x2F;sp-nitech&#x2F;SPTK.git  Compile the C++1cd SPTK; make  Export the Environmental Variable1vim ~&#x2F;.bashrc">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://xiaos.site/images/image-20220821052902080.png">
-<meta property="og:image" content="http://xiaos.site/images/image-20220901155527822.png">
-<meta property="article:published_time" content="2022-03-30T13:37:20.000Z">
-<meta property="article:modified_time" content="2022-09-07T21:48:52.939Z">
+<meta property="og:image" content="http://xiaos.site/images/image-20220825050436624.png">
+<meta property="og:image" content="http://xiaos.site/images/image-20220912232026981.png">
+<meta property="og:image" content="http://xiaos.site/images/image-20220912233129993.png">
+<meta property="og:image" content="http://xiaos.site/images/image-20220912232904531.png">
+<meta property="og:image" content="http://xiaos.site/images/image-20220912232118579.png">
+<meta property="og:image" content="http://xiaos.site/images/image-20220912233057842.png">
+<meta property="og:image" content="http://xiaos.site/images/image-20220912232740976.png">
+<meta property="og:image" content="http://xiaos.site/images/image-20220912232138056.png">
+<meta property="article:published_time" content="2022-08-25T04:01:16.000Z">
+<meta property="article:modified_time" content="2022-09-12T22:31:55.395Z">
 <meta property="article:author" content="Xiao Zhang">
-<meta property="article:tag" content="Audio and Speech Processing">
+<meta property="article:tag" content="Speech and Language Processing">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://xiaos.site/images/image-20220821052902080.png">
+<meta name="twitter:image" content="http://xiaos.site/images/image-20220825050436624.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>Audio and Speech Application Development - Xiao @ Speech and Language Processing</title>
+  <title>Speech Signal Processing Toolkit (SPTK) Tutorials - Xiao @ Speech and Language Processing</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -215,7 +221,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Audio and Speech Application Development"></span>
+            <span id="subtitle" data-typed-text="Speech Signal Processing Toolkit (SPTK) Tutorials"></span>
           
         </div>
 
@@ -226,8 +232,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-03-30 14:37" pubdate>
-          March 30, 2022 pm
+        <time datetime="2022-08-25 05:01" pubdate>
+          August 25, 2022 am
         </time>
       </span>
     
@@ -238,7 +244,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.4k words
+          732 words
         
       </span>
     
@@ -249,7 +255,7 @@
         
         
         
-          12 mins
+          7 mins
         
       </span>
     
@@ -287,74 +293,51 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Audio and Speech Application Development</h1>
+            <h1 style="display: none">Speech Signal Processing Toolkit (SPTK) Tutorials</h1>
             
             <div class="markdown-body">
               
-              <h1 id="Web-Dev"><a href="#Web-Dev" class="headerlink" title="Web Dev"></a>Web Dev</h1><p>There are serveral frameworks that are in my suggestion lists, such as: </p>
-<h3 id="BeaqleJS"><a href="#BeaqleJS" class="headerlink" title="BeaqleJS"></a>BeaqleJS</h3><p>BeaqleJS: HTML5 and JavaScript based<br>Framework for the Subjective Evaluation of<br>Audio Quality: <a target="_blank" rel="noopener" href="https://github.com/HSU-ANT/beaqlejs">https://github.com/HSU-ANT/beaqlejs</a></p>
-<h3 id="wavesurfer-js"><a href="#wavesurfer-js" class="headerlink" title="wavesurfer.js"></a>wavesurfer.js</h3><p><a target="_blank" rel="noopener" href="https://wavesurfer-js.org/">https://wavesurfer-js.org/</a></p>
-<h1 id="Audio-Swiss-Knife-–-Sox"><a href="#Audio-Swiss-Knife-–-Sox" class="headerlink" title="Audio Swiss Knife – Sox"></a>Audio Swiss Knife – Sox</h1><h2 id="Install-SOX"><a href="#Install-SOX" class="headerlink" title="Install SOX"></a>Install SOX</h2><p>We can download the SOX by <code>wget</code></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">wget https://sourceforge.net/projects/sox/files/sox/14.4.2/sox-14.4.2.tar.gz/<br></code></pre></td></tr></table></figure>
+              <h1 id="Install-the-SPTK"><a href="#Install-the-SPTK" class="headerlink" title="Install the SPTK"></a>Install the SPTK</h1><h2 id="Install-the-SoX"><a href="#Install-the-SoX" class="headerlink" title="Install the SoX"></a>Install the SoX</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">apt-get install sox<br></code></pre></td></tr></table></figure>
 
-<p>After we unizip the file,  we can just run by:</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># unzip the file</span><br>tar -xzvf sox-14.4.2.tar.gz <br><br><span class="hljs-comment"># we can get a sox-14.4.2 and get into that folder </span><br><span class="hljs-built_in">cd</span> sox-14.4.2<br><span class="hljs-comment"># we need to compile the downloaded files</span><br>./config<br>make<br>make install<br></code></pre></td></tr></table></figure>
+<h2 id="Clone-the-Git-Repo"><a href="#Clone-the-Git-Repo" class="headerlink" title="Clone the Git Repo"></a>Clone the Git Repo</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">git <span class="hljs-built_in">clone</span> https://github.com/sp-nitech/SPTK.git<br></code></pre></td></tr></table></figure>
 
-<p>Or we can just use this cmd in Ubuntu Linux :</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">sudo apt install sox<br></code></pre></td></tr></table></figure>
+<h2 id="Compile-the-C"><a href="#Compile-the-C" class="headerlink" title="Compile the C++"></a>Compile the C++</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">cd</span> SPTK; make<br></code></pre></td></tr></table></figure>
 
+<h2 id="Export-the-Environmental-Variable"><a href="#Export-the-Environmental-Variable" class="headerlink" title="Export the Environmental Variable"></a>Export the Environmental Variable</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">vim ~/.bashrc<br></code></pre></td></tr></table></figure>
 
-
-
-
-<h2 id="SOX-Commands"><a href="#SOX-Commands" class="headerlink" title="SOX Commands"></a>SOX Commands</h2><h3 id="Check-the-audio-info"><a href="#Check-the-audio-info" class="headerlink" title="Check the audio info"></a>Check the audio info</h3><figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs gams"><span class="hljs-function"><span class="hljs-title">soxi</span></span> ...wav<br></code></pre></td></tr></table></figure>
-
-<p><img src="/../images/image-20220821052902080.png" srcset="/img/loading.gif" lazyload alt="image-20220821052902080"></p>
-<p>Cheatsheet here: <a target="_blank" rel="noopener" href="https://gist.github.com/ideoforms/d64143e2bad16b18de6e97b91de494fd">https://gist.github.com/ideoforms/d64143e2bad16b18de6e97b91de494fd</a></p>
-<h3 id="Change-the-audio-type"><a href="#Change-the-audio-type" class="headerlink" title="Change the audio type"></a>Change the audio type</h3><p>We will use the example like from <code>raw</code> file into the <code>wav</code> file.</p>
-<p><img src="/../images/image-20220901155527822.png" srcset="/img/loading.gif" lazyload alt="image-20220901155527822"></p>
-<p>Or just convert the <code>wav</code> file into <code>FLAC</code>:</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">sox input.wav output.flac<br></code></pre></td></tr></table></figure>
+<p><img src="/../images/image-20220825050436624.png" srcset="/img/loading.gif" lazyload alt="image-20220825050436624"></p>
+<p>Just export the <code>bin</code> path to your environmental variable.</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">export</span> PATH=<span class="hljs-variable">$PATH</span>:/mnt/c/Users/ABC/SPTK/bin<br></code></pre></td></tr></table></figure>
 
 
 
 
 
-<h3 id="Remix"><a href="#Remix" class="headerlink" title="Remix"></a>Remix</h3><p>We can use <code>remix</code> to convert the audio left and right channel.</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs sh">sox input.wav output.wav remix 2 1<br><span class="hljs-comment"># 2 means the 2th channel, or right channel</span><br><span class="hljs-comment"># 1 means the 1th channel, or left channel</span><br><span class="hljs-comment"># now we exchange the left and right channel</span><br><br></code></pre></td></tr></table></figure>
+<h1 id="Analysis-Synthesis"><a href="#Analysis-Synthesis" class="headerlink" title="Analysis Synthesis"></a>Analysis Synthesis</h1><h2 id="Pitch-Extraction"><a href="#Pitch-Extraction" class="headerlink" title="Pitch Extraction"></a>Pitch Extraction</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">pitch -s 16 -p 80 -L 80 -H 200 -o 1 &lt; test.wav &gt; data.f0<br></code></pre></td></tr></table></figure>
 
 
 
-<h3 id="Re-sample"><a href="#Re-sample" class="headerlink" title="Re-sample"></a>Re-sample</h3><p>We can just downsample an audio to 8KHz to simulate:</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">sox input.wav -r 8000 output.wav<br></code></pre></td></tr></table></figure>
+<h2 id="LPC"><a href="#LPC" class="headerlink" title="LPC"></a>LPC</h2><p>When we reviewed the <code>lpc</code> directory, which is under <code>/SPTK/egs/analysis_synthesis/lpc</code>. </p>
+<p><img src="/../images/image-20220912232026981.png" srcset="/img/loading.gif" lazyload alt="image-20220912232026981"></p>
+<p>When we finally compare the output file:</p>
+<p><code>data.syn.raw</code>:</p>
+<p><img src="/../images/image-20220912233129993.png" srcset="/img/loading.gif" lazyload alt="image-20220912233129993"></p>
+<p><img src="/../images/image-20220912232904531.png" srcset="/img/loading.gif" lazyload alt="image-20220912232904531"></p>
+<p><img src="/../images/image-20220912232118579.png" srcset="/img/loading.gif" lazyload alt="image-20220912232118579"></p>
+<p>And compared with the original wav file, <code>data.org.wav</code>. </p>
+<p><img src="/../images/image-20220912233057842.png" srcset="/img/loading.gif" lazyload alt="image-20220912233057842"></p>
+<p><img src="/../images/image-20220912232740976.png" srcset="/img/loading.gif" lazyload alt="image-20220912232740976"></p>
+<p><img src="/../images/image-20220912232138056.png" srcset="/img/loading.gif" lazyload alt="image-20220912232138056"></p>
+<p>We can found out that the sound pressure is became more linear.</p>
+<h1 id="Python-Version-SPTK"><a href="#Python-Version-SPTK" class="headerlink" title="Python Version SPTK"></a>Python Version SPTK</h1><p>we can have a python version SPTK and it combines the same functions:</p>
+<p><a target="_blank" rel="noopener" href="https://nbviewer.org/github/r9y9/pysptk/blob/master/examples/pysptk%20introduction.ipynb">https://nbviewer.org/github/r9y9/pysptk/blob/master/examples/pysptk%20introduction.ipynb</a></p>
 
-
-
-<h3 id="Help"><a href="#Help" class="headerlink" title="Help"></a>Help</h3><p>We can recall the help function by simply type:</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">man sox<br>sox -<span class="hljs-built_in">help</span><br></code></pre></td></tr></table></figure>
-
-
-
-<h1 id="FFmpeg"><a href="#FFmpeg" class="headerlink" title="FFmpeg"></a>FFmpeg</h1><p>If there had some audio formats that did not supported on the sox, like <code>mp4</code>.</p>
-<p>We can just use the <code>FFmpeg</code>, we need to download it by <code> sudo apt install ffmpeg</code>  on ubuntu linux. </p>
-<h3 id="Convert-the-mp4-file-to-wav"><a href="#Convert-the-mp4-file-to-wav" class="headerlink" title="Convert the mp4 file to wav"></a>Convert the mp4 file to wav</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">ffmpeg -i input.mp4 output.wav<br></code></pre></td></tr></table></figure>
-
-
-
-<h1 id="Flac"><a href="#Flac" class="headerlink" title="Flac"></a>Flac</h1>
               
             </div>
             <hr/>
             <div>
               <div class="post-metas my-3">
   
-  
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/Use%20Cases/Audio-and-Speech-Processing/">#Audio and Speech Processing</a>
-      
-    </div>
   
 </div>
 
@@ -364,8 +347,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Audio and Speech Application Development</div>
-      <div>http://xiaos.site/2022/03/30/Audio-and-Speech-Application-Development/</div>
+      <div>Speech Signal Processing Toolkit (SPTK) Tutorials</div>
+      <div>http://xiaos.site/2022/08/25/Speech-Signal-Processing-Toolkit-SPTK-Tutorials/</div>
     </div>
     <div class="license-meta">
       
@@ -377,7 +360,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>March 30, 2022</div>
+          <div>August 25, 2022</div>
         </div>
       
       
@@ -407,9 +390,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/06/06/Git%20Tutorials/" title="Git">
+                      <a href="/2022/08/25/Speech-Synthesis-Toolkits-Introduction/" title="Speech Synthesis Toolkits Introduction">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Git</span>
+                        <span class="hidden-mobile">Speech Synthesis Toolkits Introduction</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -417,8 +400,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/03/02/Wenet-ASR-Toolkit-Tutorials-From-Training-to-Deployment/" title="Wenet ASR Toolkit Tutorials From Training to Deployment">
-                        <span class="hidden-mobile">Wenet ASR Toolkit Tutorials From Training to Deployment</span>
+                      <a href="/2022/08/05/ASV-Subtools-Automatic-Speaker-Verification-Toolkit-Tutorials/" title="ASV-Subtools Automatic Speaker Verification Toolkit Tutorials">
+                        <span class="hidden-mobile">ASV-Subtools Automatic Speaker Verification Toolkit Tutorials</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
