@@ -24,9 +24,18 @@
 <meta property="og:description" content="Audio ProcessingADC (Analog to Digital Codec) After the Microphone got the analog signals from the environment, it will pass through the codec and transform it into the digital data which only has “0”">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://xiaos.site/images/image-20220830190323321.png">
+<meta property="og:image" content="http://xiaos.site/images/image-20220917174531894.png">
+<meta property="og:image" content="http://xiaos.site/images/image-20220917175421567.png">
+<meta property="og:image" content="http://xiaos.site/images/image-20220917175904984.png">
+<meta property="og:image" content="http://xiaos.site/images/image-20220917180023833.png">
+<meta property="og:image" content="http://xiaos.site/images/image-20220917180656489.png">
+<meta property="og:image" content="http://xiaos.site/images/image-20220917181019732.png">
+<meta property="og:image" content="http://xiaos.site/images/image-20220917181123310.png">
+<meta property="og:image" content="http://xiaos.site/images/image-20220917181318336.png">
+<meta property="og:image" content="http://xiaos.site/images/image-20220917181359913.png">
 <meta property="og:image" content="http://xiaos.site/images/image-20220830144931149.png">
 <meta property="article:published_time" content="2022-08-30T13:19:00.000Z">
-<meta property="article:modified_time" content="2022-09-10T00:39:38.545Z">
+<meta property="article:modified_time" content="2022-09-17T17:34:14.682Z">
 <meta property="article:author" content="Xiao Zhang">
 <meta property="article:tag" content="Speech and Language Processing">
 <meta name="twitter:card" content="summary_large_image">
@@ -238,7 +247,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.9k words
+          5.7k words
         
       </span>
     
@@ -249,7 +258,7 @@
         
         
         
-          24 mins
+          48 mins
         
       </span>
     
@@ -316,11 +325,61 @@
 <figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-built_in">---GenerateSamples</span>(stream, len)<br><span class="hljs-built_in">---SetPos</span>(pos) # set the <span class="hljs-attribute">position</span> of the <span class="hljs-selector-tag">audio</span> rendering<br>-<span class="hljs-attr">--SampleInfo</span><br>----<span class="hljs-attr">--volume</span><br>----<span class="hljs-attr">--pitch</span><br>----<span class="hljs-attr">--loopLoc</span><br>----<span class="hljs-attr">--Panning</span><br>-<span class="hljs-attr">--IAudioData</span><br></code></pre></td></tr></table></figure>
 
 <p>We got <code>IAudioData</code> to contain the audio data, they are generated from: <code>GenerateSamples(stream, len, Pos, SampleInfo)</code>.</p>
+<h1 id="Speech-and-Language-Processing"><a href="#Speech-and-Language-Processing" class="headerlink" title="Speech and Language Processing"></a>Speech and Language Processing</h1><h2 id="Short-time-analysis-Speech-Features"><a href="#Short-time-analysis-Speech-Features" class="headerlink" title="Short time analysis : Speech Features"></a>Short time analysis : Speech Features</h2><p>The feature in speech means that <code>an indivisual measurable property or characteristics of a phenomenon being observed.</code></p>
+<p>The three principles of a good feature:</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">Informative   </span><br><span class="hljs-attribute">Discriminating</span><br><span class="hljs-attribute">Independent</span><br></code></pre></td></tr></table></figure>
+
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3><h3 id="Global-Acoustic-Features-Stationary-features"><a href="#Global-Acoustic-Features-Stationary-features" class="headerlink" title="Global Acoustic Features (Stationary features)"></a>Global Acoustic Features (Stationary features)</h3><p>The global acoustic features are mostly stationary features, since we always need to get the whole audio files then can we processing those features.</p>
+<p>Also if the speech signal is very <strong>periodic</strong> signal which are very stable, then it is very useful to discuss about those global acoustic features. But to many speech signals they are not periodic, if we use the stationary features to describe the whole speech signal, which will <strong>lose some details of the speech</strong>. And another question could be, the stationary features will be extremely sensible to the <strong>noise</strong>. </p>
+<h4 id="Fundamental-frequency-f0"><a href="#Fundamental-frequency-f0" class="headerlink" title="Fundamental frequency (f0)"></a>Fundamental frequency (f0)</h4><h4 id="Formants-f1-and-f2"><a href="#Formants-f1-and-f2" class="headerlink" title="Formants (f1 and f2)"></a>Formants (f1 and f2)</h4><h4 id="Intensity"><a href="#Intensity" class="headerlink" title="Intensity"></a>Intensity</h4><h3 id="Short-time-analysis"><a href="#Short-time-analysis" class="headerlink" title="Short time analysis"></a>Short time analysis</h3><p>The basic idea is to break the audio frames into small trunks, which range from <code>10ms ~ 30ms</code>, so we will think in a more micro way. In this way, each trunk will be stationary. And those trunks we will call it <code>frames</code>.  In video processing, each image you captured is a frame, but in speech processing, we will only know the <strong>dense samples</strong> since we only use the <code>frame</code> for analyzing. </p>
+<h4 id="Framing"><a href="#Framing" class="headerlink" title="Framing"></a>Framing</h4><p><img src="/../images/image-20220917174531894.png" srcset="/img/loading.gif" lazyload alt="image-20220917174531894"></p>
+<p>There are two concepts from the framing:</p>
+<ol>
+<li>frame size: the duration of each frame</li>
+<li>frame step&#x2F;stride: the temporal distance between two consecutive frames</li>
+</ol>
+<p>Three principles of framing:</p>
+<ol>
+<li>Size &gt; Step (Mostly used way, so they can share overlaps)</li>
+<li>Size &#x3D; Step (So each sampling point only belongs to a specific frame)</li>
+<li>Size &lt; Step (So there may have gaps between different frames, which is not suggested since it can lose some info)</li>
+</ol>
+<p>Eg:</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">1</span> sec audio file with <span class="hljs-number">16</span>KHz sample rate, frame size: <span class="hljs-number">25</span>ms, frame step(stride): <span class="hljs-number">10</span>ms<br><br><span class="hljs-attribute">Nums_frames</span> = <span class="hljs-number">1</span> second/ <span class="hljs-number">10</span>ms = <span class="hljs-number">100</span><br><span class="hljs-attribute">Nums_samples</span> per frame: <span class="hljs-number">16</span> KHz * <span class="hljs-number">0</span>.<span class="hljs-number">025</span>s = <span class="hljs-number">400</span><br><br></code></pre></td></tr></table></figure>
+
+
+
+<h4 id="Window-function"><a href="#Window-function" class="headerlink" title="Window function"></a>Window function</h4><p><img src="/../images/image-20220917175421567.png" srcset="/img/loading.gif" lazyload alt="image-20220917175421567"></p>
+<p>In order to solve the framing discontinuity problem, we need to use the windowing function. Because when we do the framing, it will make the original speech signal with no boundary connections, which can cause discontinuity (Gibbs Phenomenon: <strong>undesired high frequency components</strong> and <strong>spectral leakage</strong>). </p>
+<p>The logic of the windowing function is to give each frame a weight, near the edge values we make it <strong>close to 0</strong>, if in the middle frame, we keep it untouched. <img src="/../images/image-20220917175904984.png" srcset="/img/loading.gif" lazyload alt="image-20220917175904984"></p>
+<h5 id="Gaussian-Windowing"><a href="#Gaussian-Windowing" class="headerlink" title="Gaussian Windowing"></a>Gaussian Windowing</h5><h5 id="Hanning-Windowing-amp-Hamming-Windowing"><a href="#Hanning-Windowing-amp-Hamming-Windowing" class="headerlink" title="Hanning Windowing &amp; Hamming Windowing"></a>Hanning Windowing &amp; Hamming Windowing</h5><p><img src="/../images/image-20220917180023833.png" srcset="/img/loading.gif" lazyload alt="image-20220917180023833"></p>
+<p>Hamming windowing will set the edge totally like close to 0, but hamming window will slightly not that harsh.</p>
+<h4 id="Frame-Post-Processing"><a href="#Frame-Post-Processing" class="headerlink" title="Frame Post Processing"></a>Frame Post Processing</h4><p>After we did the framing and the windowing, we need to do some frame post processing.</p>
+<p>They includes:</p>
+<ol>
+<li>Frame Stacking : Stacking the neighboring frames into a single super frame, it will combine the relevant frames into a bigger frame.</li>
+</ol>
+<p><img src="/../images/image-20220917180656489.png" srcset="/img/loading.gif" lazyload alt="image-20220917180656489"></p>
+<p>As shown it will copy each frame from the previous frame, it will help us to know more information from the previous frame. The <code>?</code> frame from the graph can be replaced by 1st frame.</p>
+<ol start="2">
+<li>Frame Subsampling: Drop some frame.</li>
+</ol>
+<p>It will help us to reduce the computational cost. </p>
+<p><img src="/../images/image-20220917181019732.png" srcset="/img/loading.gif" lazyload alt="image-20220917181019732"></p>
+<p>We mostly do the Frame Stacking and then is the Frame Subsampling. </p>
+<ol start="3">
+<li>Frame Normalization: Optimize the numeric values to follow the Normal Distributions.</li>
+</ol>
+<p><img src="/../images/image-20220917181123310.png" srcset="/img/loading.gif" lazyload alt="image-20220917181123310"></p>
+<p>The normalization parts  helped us to <code>converge</code> when we do the training.</p>
+<p><img src="/../images/image-20220917181318336.png" srcset="/img/loading.gif" lazyload alt="image-20220917181318336"></p>
+<h4 id="Results"><a href="#Results" class="headerlink" title="Results"></a>Results</h4><p>Here are the lifecycle of the speech features processing.</p>
+<p><img src="/../images/image-20220917181359913.png" srcset="/img/loading.gif" lazyload alt="image-20220917181359913"></p>
 <h1 id="Speech-Production-Model"><a href="#Speech-Production-Model" class="headerlink" title="Speech Production Model"></a>Speech Production Model</h1><p>The voiced and unvoiced speech mostly for 10~20 ms. </p>
 <p><img src="/../images/image-20220830144931149.png" srcset="/img/loading.gif" lazyload alt="Pic From: http://eemedia.ee.unsw.edu.au/contents/elec9344/LectureNotes/Chapter%201.pdf"></p>
 <p>The vocal tract model can be understood by a filter equation, here can be the transfer function, the <code>n</code> means the filers you want to have:<br>$$<br>\frac{1}{1 + b_{1}z^{-1} + b_{2}z^{-2} + b_{n}z^{-n} }<br>$$</p>
 <p>The Radiation model here means the <code>lip model</code>. </p>
-<h1 id="Linguistics"><a href="#Linguistics" class="headerlink" title="Linguistics"></a>Linguistics</h1><p>Linguistics can be a science about hyposis and experimental research. We study human languages as a natural phenomenon, and this is what linguistics about. And linguistics should not used as a mean of discrimination. </p>
+<h1 id="Linguistics-amp-Phonetics"><a href="#Linguistics-amp-Phonetics" class="headerlink" title="Linguistics &amp; Phonetics"></a>Linguistics &amp; Phonetics</h1><p>Linguistics can be a science about hyposis and experimental research. We study human languages as a natural phenomenon, and this is what linguistics about. And linguistics should not used as a mean of discrimination. </p>
 <p>From <strong>Panini</strong>, we still use his <strong>level of analysis</strong> study about Sanskrit linguistics:</p>
 <ol>
 <li>Phonology (Sound Difference for each phone in difference languages)</li>
