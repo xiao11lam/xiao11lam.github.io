@@ -25,9 +25,10 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://xiaos.site/images/image-20220730154010169.png">
 <meta property="og:image" content="http://xiaos.site/images/image-20220801144443432.png">
+<meta property="og:image" content="http://xiaos.site/images/image-20220918124124743.png">
 <meta property="og:image" content="http://xiaos.site/images/image-20220918004648297.png">
 <meta property="article:published_time" content="2022-07-30T14:33:40.000Z">
-<meta property="article:modified_time" content="2022-09-17T23:47:53.251Z">
+<meta property="article:modified_time" content="2022-09-18T11:41:45.751Z">
 <meta property="article:author" content="Xiao Zhang">
 <meta property="article:tag" content="Audio and Speech Processing">
 <meta name="twitter:card" content="summary_large_image">
@@ -239,7 +240,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.1k words
+          4.7k words
         
       </span>
     
@@ -250,7 +251,7 @@
         
         
         
-          27 mins
+          39 mins
         
       </span>
     
@@ -346,6 +347,22 @@
 <figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs gradle">ls <span class="hljs-regexp">/usr/</span>src | <span class="hljs-keyword">grep</span> nvidia     <br></code></pre></td></tr></table></figure>
 
 <p>This will solve this common issue.</p>
+<p><strong>Install the CONDA for WSL2</strong></p>
+<p>Please follow this link:<a target="_blank" rel="noopener" href="https://docs.nvidia.com/cuda/wsl-user-guide/index.html">https://docs.nvidia.com/cuda/wsl-user-guide/index.html</a></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sh">wget https://developer.download.nvidia.com/compute/cuda/repos/wsl-ubuntu/x86_64/cuda-wsl-ubuntu.pin<br>sudo <span class="hljs-built_in">mv</span> cuda-wsl-ubuntu.pin /etc/apt/preferences.d/cuda-repository-pin-600<br>wget https://developer.download.nvidia.com/compute/cuda/11.7.0/local_installers/cuda-repo-wsl-ubuntu-11-7-local_11.7.0-1_amd64.deb<br>sudo dpkg -i cuda-repo-wsl-ubuntu-11-7-local_11.7.0-1_amd64.deb<br>sudo apt-get update<br>sudo apt-get -y install cuda<br></code></pre></td></tr></table></figure>
+
+<p>or Installation of Linux x86 CUDA Toolkit using Meta Package:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs sh">wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin<br>sudo <span class="hljs-built_in">mv</span> cuda-ubuntu2004.pin /etc/apt/preferences.d/cuda-repository-pin-600<br>wget https://developer.download.nvidia.com/compute/cuda/11.7.0/local_installers/cuda-repo-ubuntu2004-11-7-local_11.7.0-515.43.04-1_amd64.deb<br>sudo dpkg -i cuda-repo-ubuntu2004-11-7-local_11.7.0-515.43.04-1_amd64.deb<br>wget https://developer.download.nvidia.com/compute/cuda/repos/wsl-ubuntu/x86_64/cuda-keyring_1.0-1_all.deb<br>sudo dpkg -i cuda-keyring_1.0-1_all.deb<br>sudo apt-get update<br>sudo apt-get -y install cuda-toolkit-11-7<br></code></pre></td></tr></table></figure>
+
+<p>Check the environment by:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh\">nvcc -V<br></code></pre></td></tr></table></figure>
+
+<p>If there is <code>nvida</code> not found, it should be the environmental problem:</p>
+<p>Set the environmenal Inside of the .bashrc file, update the path as follows:<br><code> export PATH=&quot;/usr/local/cuda-11.7/bin:$PATH&quot;</code><br><code> export LD_LIBRARY_PATH=&quot;/usr/local/cuda-11.7/lib64:$LD_LIBRARY_PATH&quot;</code></p>
+<p><strong>Check the nvidia-smi:</strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">nvidia-smi<br></code></pre></td></tr></table></figure>
+
+<p><img src="/../images/image-20220918124124743.png" srcset="/img/loading.gif" lazyload alt="image-20220918124124743"></p>
 <h2 id="WSL"><a href="#WSL" class="headerlink" title="WSL"></a>WSL</h2><p><strong>Check the version of wsl</strong></p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">wsl -l -v<br></code></pre></td></tr></table></figure>
 
@@ -366,7 +383,7 @@
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">wget https://repo.anaconda.com/archive/Anaconda3-2022.05-Linux-x86_64.sh<br><span class="hljs-comment"># after we downloaded the Linux Version anaconda, we need to run the .sh file, and we just choose yes</span><br>sh Anaconda3-2022.05-Linux-x86_64.sh<br></code></pre></td></tr></table></figure>
 
 <p>If  there is a <code>conda not found</code> problem, we need to fix the environmental variables:</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># check the bashrc file</span><br>vi ~/.bashrc<br><br><span class="hljs-comment"># insert the path loc</span><br><span class="hljs-built_in">export</span> PATH=<span class="hljs-variable">$PATH</span>:/root/anaconda3/bin/<br><br><br><span class="hljs-comment"># excecute file, the conda can be found</span><br><span class="hljs-built_in">source</span> ~/.bashrc<br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># check the bashrc file</span><br>vi ~/.bashrc<br><br><span class="hljs-comment"># insert the path loc</span><br><span class="hljs-built_in">export</span> PATH=<span class="hljs-variable">$PATH</span>:/root/anaconda3/bin/<br><br><br><span class="hljs-comment"># excecute file, the conda can be found</span><br><span class="hljs-built_in">source</span> ~/.bashrc<br><br><span class="hljs-comment"># or we can set the environment into true</span><br>conda config --<span class="hljs-built_in">set</span> auto_activate_base <span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure>
 
 <h2 id="Create-a-Python-Env"><a href="#Create-a-Python-Env" class="headerlink" title="Create a Python Env"></a>Create a Python Env</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># create a conda env name &quot;env_name&quot;</span><br>conda create -n env_name python=3.8<br><br><span class="hljs-comment"># activate the env</span><br>conda activate env_name<br><br><span class="hljs-comment"># deactivate the env</span><br>conda deactivate env_name<br><br><span class="hljs-comment"># create a conda env with environment.yml</span><br>conda <span class="hljs-built_in">env</span> create --name env_name -f environment.yml<br><br><span class="hljs-comment"># update the conda env with environment.yml</span><br>conda <span class="hljs-built_in">env</span> update --name <span class="hljs-variable">$MYENV</span> -f environment.yml<br></code></pre></td></tr></table></figure>
 
