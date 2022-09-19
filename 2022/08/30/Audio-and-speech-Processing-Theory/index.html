@@ -24,6 +24,7 @@
 <meta property="og:description" content="Audio ProcessingADC (Analog to Digital Codec) After the Microphone got the analog signals from the environment, it will pass through the codec and transform it into the digital data which only has “0”">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://xiaos.site/images/image-20220830190323321.png">
+<meta property="og:image" content="http://xiaos.site/images/image-20220917181359913.png">
 <meta property="og:image" content="http://xiaos.site/images/image-20220917174531894.png">
 <meta property="og:image" content="http://xiaos.site/images/image-20220917175421567.png">
 <meta property="og:image" content="http://xiaos.site/images/image-20220917175904984.png">
@@ -32,10 +33,13 @@
 <meta property="og:image" content="http://xiaos.site/images/image-20220917181019732.png">
 <meta property="og:image" content="http://xiaos.site/images/image-20220917181123310.png">
 <meta property="og:image" content="http://xiaos.site/images/image-20220917181318336.png">
-<meta property="og:image" content="http://xiaos.site/images/image-20220917181359913.png">
+<meta property="og:image" content="http://xiaos.site/images/image-20220919014841416.png">
+<meta property="og:image" content="http://xiaos.site/images/image-20220919015020116.png">
+<meta property="og:image" content="http://xiaos.site/images/image-20220919015035225.png">
+<meta property="og:image" content="http://xiaos.site/images/image-20220919015237395.png">
 <meta property="og:image" content="http://xiaos.site/images/image-20220830144931149.png">
 <meta property="article:published_time" content="2022-08-30T13:19:00.000Z">
-<meta property="article:modified_time" content="2022-09-17T17:34:14.682Z">
+<meta property="article:modified_time" content="2022-09-19T00:55:08.542Z">
 <meta property="article:author" content="Xiao Zhang">
 <meta property="article:tag" content="Speech and Language Processing">
 <meta name="twitter:card" content="summary_large_image">
@@ -247,7 +251,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          5.7k words
+          6.6k words
         
       </span>
     
@@ -258,7 +262,7 @@
         
         
         
-          48 mins
+          56 mins
         
       </span>
     
@@ -325,13 +329,15 @@
 <figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-built_in">---GenerateSamples</span>(stream, len)<br><span class="hljs-built_in">---SetPos</span>(pos) # set the <span class="hljs-attribute">position</span> of the <span class="hljs-selector-tag">audio</span> rendering<br>-<span class="hljs-attr">--SampleInfo</span><br>----<span class="hljs-attr">--volume</span><br>----<span class="hljs-attr">--pitch</span><br>----<span class="hljs-attr">--loopLoc</span><br>----<span class="hljs-attr">--Panning</span><br>-<span class="hljs-attr">--IAudioData</span><br></code></pre></td></tr></table></figure>
 
 <p>We got <code>IAudioData</code> to contain the audio data, they are generated from: <code>GenerateSamples(stream, len, Pos, SampleInfo)</code>.</p>
-<h1 id="Speech-and-Language-Processing"><a href="#Speech-and-Language-Processing" class="headerlink" title="Speech and Language Processing"></a>Speech and Language Processing</h1><h2 id="Short-time-analysis-Speech-Features"><a href="#Short-time-analysis-Speech-Features" class="headerlink" title="Short time analysis : Speech Features"></a>Short time analysis : Speech Features</h2><p>The feature in speech means that <code>an indivisual measurable property or characteristics of a phenomenon being observed.</code></p>
+<h1 id="Speech-and-Language-Processing"><a href="#Speech-and-Language-Processing" class="headerlink" title="Speech and Language Processing"></a>Speech and Language Processing</h1><p>Here are the lifecycle of the speech features processing.</p>
+<p><img src="/../images/image-20220917181359913.png" srcset="/img/loading.gif" lazyload alt="image-20220917181359913"></p>
+<h2 id="Short-time-analysis-Speech-Features"><a href="#Short-time-analysis-Speech-Features" class="headerlink" title="Short time analysis : Speech Features"></a>Short time analysis : Speech Features</h2><p>The feature in speech means that <code>an indivisual measurable property or characteristics of a phenomenon being observed.</code></p>
 <p>The three principles of a good feature:</p>
 <figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">Informative   </span><br><span class="hljs-attribute">Discriminating</span><br><span class="hljs-attribute">Independent</span><br></code></pre></td></tr></table></figure>
 
-<h3 id=""><a href="#" class="headerlink" title=""></a></h3><h3 id="Global-Acoustic-Features-Stationary-features"><a href="#Global-Acoustic-Features-Stationary-features" class="headerlink" title="Global Acoustic Features (Stationary features)"></a>Global Acoustic Features (Stationary features)</h3><p>The global acoustic features are mostly stationary features, since we always need to get the whole audio files then can we processing those features.</p>
-<p>Also if the speech signal is very <strong>periodic</strong> signal which are very stable, then it is very useful to discuss about those global acoustic features. But to many speech signals they are not periodic, if we use the stationary features to describe the whole speech signal, which will <strong>lose some details of the speech</strong>. And another question could be, the stationary features will be extremely sensible to the <strong>noise</strong>. </p>
-<h4 id="Fundamental-frequency-f0"><a href="#Fundamental-frequency-f0" class="headerlink" title="Fundamental frequency (f0)"></a>Fundamental frequency (f0)</h4><h4 id="Formants-f1-and-f2"><a href="#Formants-f1-and-f2" class="headerlink" title="Formants (f1 and f2)"></a>Formants (f1 and f2)</h4><h4 id="Intensity"><a href="#Intensity" class="headerlink" title="Intensity"></a>Intensity</h4><h3 id="Short-time-analysis"><a href="#Short-time-analysis" class="headerlink" title="Short time analysis"></a>Short time analysis</h3><p>The basic idea is to break the audio frames into small trunks, which range from <code>10ms ~ 30ms</code>, so we will think in a more micro way. In this way, each trunk will be stationary. And those trunks we will call it <code>frames</code>.  In video processing, each image you captured is a frame, but in speech processing, we will only know the <strong>dense samples</strong> since we only use the <code>frame</code> for analyzing. </p>
+
+
+<h3 id="Short-time-analysis"><a href="#Short-time-analysis" class="headerlink" title="Short time analysis"></a>Short time analysis</h3><p>The basic idea is to break the audio frames into small trunks, which range from <code>10ms ~ 30ms</code>, so we will think in a more micro way. In this way, each trunk will be stationary. And those trunks we will call it <code>frames</code>.  In video processing, each image you captured is a frame, but in speech processing, we will only know the <strong>dense samples</strong> since we only use the <code>frame</code> for analyzing. </p>
 <h4 id="Framing"><a href="#Framing" class="headerlink" title="Framing"></a>Framing</h4><p><img src="/../images/image-20220917174531894.png" srcset="/img/loading.gif" lazyload alt="image-20220917174531894"></p>
 <p>There are two concepts from the framing:</p>
 <ol>
@@ -373,8 +379,29 @@
 <p><img src="/../images/image-20220917181123310.png" srcset="/img/loading.gif" lazyload alt="image-20220917181123310"></p>
 <p>The normalization parts  helped us to <code>converge</code> when we do the training.</p>
 <p><img src="/../images/image-20220917181318336.png" srcset="/img/loading.gif" lazyload alt="image-20220917181318336"></p>
-<h4 id="Results"><a href="#Results" class="headerlink" title="Results"></a>Results</h4><p>Here are the lifecycle of the speech features processing.</p>
-<p><img src="/../images/image-20220917181359913.png" srcset="/img/loading.gif" lazyload alt="image-20220917181359913"></p>
+<h3 id="Feature-Extraction"><a href="#Feature-Extraction" class="headerlink" title="Feature Extraction"></a>Feature Extraction</h3><h4 id="Global-Acoustic-Features-Stationary-features"><a href="#Global-Acoustic-Features-Stationary-features" class="headerlink" title="Global Acoustic Features (Stationary features)"></a>Global Acoustic Features (Stationary features)</h4><p>The global acoustic features are mostly stationary features, since we always need to get the whole audio files then can we processing those features.</p>
+<p>Also if the speech signal is very <strong>periodic</strong> signal which are very stable, then it is very useful to discuss about those global acoustic features. But to many speech signals they are not periodic, if we use the stationary features to describe the whole speech signal, which will <strong>lose some details of the speech</strong>. And another question could be, the stationary features will be extremely sensible to the <strong>noise</strong>. </p>
+<h5 id="Fundamental-frequency-f0"><a href="#Fundamental-frequency-f0" class="headerlink" title="Fundamental frequency (f0)"></a>Fundamental frequency (f0)</h5><h5 id="Formants-f1-and-f2"><a href="#Formants-f1-and-f2" class="headerlink" title="Formants (f1 and f2)"></a>Formants (f1 and f2)</h5><h5 id="Intensity"><a href="#Intensity" class="headerlink" title="Intensity"></a>Intensity</h5><h3 id="Time-Domain-Features"><a href="#Time-Domain-Features" class="headerlink" title="Time Domain Features"></a>Time Domain Features</h3><p>We can extract the features directly from the waveform without the Fourier transform.</p>
+<p>Here are the usual time domain features:</p>
+<p><strong>Short Time Energy</strong></p>
+<p>It mostly used in VAD, if high energy &#x3D;&gt; speech signal, and in Automatic Gain Control (AGC).</p>
+<p><strong>Short Time Average Magnitude</strong></p>
+<p><strong>Short-time Zero Cross Rate (ZCR)</strong></p>
+<p><strong>Short-time Autocorrelation</strong></p>
+<p>We will delay the signals by k samples, then compute the <code>correlation</code>. </p>
+<p><img src="/../images/image-20220919014841416.png" srcset="/img/loading.gif" lazyload alt="image-20220919014841416"></p>
+<p>We will mostly use this in the <strong>pitch detection</strong>! </p>
+<p><strong>Short-time average magnitude difference function (AMDF)</strong></p>
+<p>We will delay the signals by k samples, then compute the <code>difference</code>.</p>
+<p><img src="/../images/image-20220919015020116.png" srcset="/img/loading.gif" lazyload alt="image-20220919015020116"> </p>
+<p>For the short-time AMDF, we use:</p>
+<p><img src="/../images/image-20220919015035225.png" srcset="/img/loading.gif" lazyload alt="image-20220919015035225"></p>
+<p>It just like the autocorrelation, but it is very good for the pitch dection. </p>
+<p><strong>Short Time Linear Predictive Coding (LPC)</strong></p>
+<p>We will assume that each sample can be approximated by previous samples via linear combinations:</p>
+<p><img src="/../images/image-20220919015237395.png" srcset="/img/loading.gif" lazyload alt="image-20220919015237395"></p>
+<p>$$<br>The \ combination \ of \ the \ previous \ ks \ samples : a_{i} \<br>the \ difference : e[n] \<br>Each \ frame \ has \ N \ Samples<br>$$</p>
+<h3 id="Frequency-Domain-Features"><a href="#Frequency-Domain-Features" class="headerlink" title="Frequency Domain Features"></a>Frequency Domain Features</h3><p>We need to do the Fourier transform firstly, and this is always be used. </p>
 <h1 id="Speech-Production-Model"><a href="#Speech-Production-Model" class="headerlink" title="Speech Production Model"></a>Speech Production Model</h1><p>The voiced and unvoiced speech mostly for 10~20 ms. </p>
 <p><img src="/../images/image-20220830144931149.png" srcset="/img/loading.gif" lazyload alt="Pic From: http://eemedia.ee.unsw.edu.au/contents/elec9344/LectureNotes/Chapter%201.pdf"></p>
 <p>The vocal tract model can be understood by a filter equation, here can be the transfer function, the <code>n</code> means the filers you want to have:<br>$$<br>\frac{1}{1 + b_{1}z^{-1} + b_{2}z^{-2} + b_{n}z^{-n} }<br>$$</p>
