@@ -28,8 +28,12 @@
 <meta property="og:image" content="http://xiaos.site/images/image-20220922220153890.png">
 <meta property="og:image" content="http://xiaos.site/images/image-20220922223635463.png">
 <meta property="og:image" content="http://xiaos.site/images/image-20220922223756278.png">
+<meta property="og:image" content="http://xiaos.site/images/image-20220924142713210.png">
+<meta property="og:image" content="http://xiaos.site/images/image-20220924160919422.png">
+<meta property="og:image" content="http://xiaos.site/images/image-20220924162242225.png">
+<meta property="og:image" content="http://xiaos.site/images/image-20220924215057558.png">
 <meta property="article:published_time" content="2022-07-12T06:04:50.000Z">
-<meta property="article:modified_time" content="2022-09-24T00:16:12.188Z">
+<meta property="article:modified_time" content="2022-09-25T01:07:35.635Z">
 <meta property="article:author" content="Xiao Zhang">
 <meta property="article:tag" content="Speech and Language Processing">
 <meta name="twitter:card" content="summary_large_image">
@@ -241,7 +245,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          6.9k words
+          9.9k words
         
       </span>
     
@@ -252,7 +256,7 @@
         
         
         
-          58 mins
+          83 mins
         
       </span>
     
@@ -326,7 +330,8 @@
 
 <h1 id="Read-a-wav-file-and-render-it"><a href="#Read-a-wav-file-and-render-it" class="headerlink" title="Read a wav file and render it"></a>Read a wav file and render it</h1><h2 id="Environmental-Install"><a href="#Environmental-Install" class="headerlink" title="Environmental Install"></a>Environmental Install</h2><h3 id="Intall-SDL"><a href="#Intall-SDL" class="headerlink" title="Intall SDL"></a>Intall SDL</h3><p><a target="_blank" rel="noopener" href="https://gist.github.com/aaangeletakis/3187339a99f7786c25075d4d9c80fad5">https://gist.github.com/aaangeletakis/3187339a99f7786c25075d4d9c80fad5</a></p>
 <h3 id="Git-clone-the-Tutorial-Code"><a href="#Git-clone-the-Tutorial-Code" class="headerlink" title="Git clone the Tutorial Code"></a>Git clone the Tutorial Code</h3><p><a target="_blank" rel="noopener" href="https://github.com/BennyQBD/AudioTutorial">https://github.com/BennyQBD/AudioTutorial</a></p>
-<h2 id="Understand-audio"><a href="#Understand-audio" class="headerlink" title="Understand audio"></a>Understand audio</h2><h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><h2 id="Environment-of-C"><a href="#Environment-of-C" class="headerlink" title="Environment of C++"></a>Environment of C++</h2><p>In windows there is the Visual C++ </p>
+<h2 id="Understand-audio"><a href="#Understand-audio" class="headerlink" title="Understand audio"></a>Understand audio</h2><p><a target="_blank" rel="noopener" href="https://www.ee.iitb.ac.in/course/~daplab/resources/">https://www.ee.iitb.ac.in/course/~daplab/resources/</a></p>
+<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><h2 id="Environment-of-C"><a href="#Environment-of-C" class="headerlink" title="Environment of C++"></a>Environment of C++</h2><p>In windows there is the Visual C++ </p>
 <p>Linux: GCC : (the <code>gcc</code> in most cases are compiled for c, and g++ is for C++)</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs g++">g++<br></code></pre></td></tr></table></figure>
 
@@ -417,6 +422,51 @@
 
 <p>It can equals to :</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;cstdio&gt;</span> <span class="hljs-comment">// but it is not that quite standard and strict, so we import &lt;cstdio&gt; lib to refer the printf</span></span><br><span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Hello World\n&quot;</span>);<br></code></pre></td></tr></table></figure>
+
+
+
+<h4 id="if"><a href="#if" class="headerlink" title="if"></a>if</h4><p>The essence of <code>if</code> is division like trees.</p>
+<p>Here is the <code>if</code> in C++:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">if</span> (x == y)&#123;<br>    <br>&#125;<br><span class="hljs-keyword">else</span>&#123;<br>    <br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="while"><a href="#while" class="headerlink" title="while"></a>while</h4><p>The essence of the <code>while</code> is recursion or loop.</p>
+<p>Here is an example is guessing number:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-type">int</span> x = <span class="hljs-number">42</span>;<br>    <span class="hljs-type">int</span> y = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">while</span> (x != y)&#123;<br>    	std::cout &lt;&lt; <span class="hljs-string">&quot;Please input a number: \n&quot;</span>;<br>        <span class="hljs-comment">// Cin here will be the user input</span><br>        std::cin &gt;&gt; y;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="/../images/image-20220924142713210.png" srcset="/img/loading.gif" lazyload alt="image-20220924142713210"></p>
+<p>The logic here is that, if the user input is not equal to the <code>x</code> there, so the program will request you to input a number, else it will stop.</p>
+<h4 id="Struct"><a href="#Struct" class="headerlink" title="Struct"></a>Struct</h4><p>We can define the struct of  multiple variables we want to call, especially for those variables who have inner connections.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;cstdio&gt;</span></span><br><br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Point</span>&#123;<br>  <span class="hljs-type">int</span> x;  <br>  <span class="hljs-type">int</span> y;  <br>  <span class="hljs-comment">// the inside of the struct also can include functions</span><br>  <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">IncX</span><span class="hljs-params">()</span></span>&#123;<br>      x = x + <span class="hljs-number">1</span>;<br>  &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">fun</span><span class="hljs-params">(Point p)</span></span>&#123;<br>    p.x;<br>    p.y;<br>    p.x = p.x + <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">return</span> x;<br>&#125;<br><br><span class="hljs-comment">// So in this way, we can make the variables more friendly to call</span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>   	Point p;<br>    <span class="hljs-comment">// so we can call a struct name is &quot;p&quot; </span><br>    p.x = <span class="hljs-number">3</span>;<br>    p.y = <span class="hljs-number">5</span>;<br>    p.<span class="hljs-built_in">IncX</span>();<br>    std::cout &lt;&lt; p.x &lt;&lt; <span class="hljs-string">&quot; &quot;</span> &lt;&lt; p.y &lt;&lt; <span class="hljs-string">&quot;\n&quot;</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<h1 id="Type-and-variables"><a href="#Type-and-variables" class="headerlink" title="Type and variables"></a>Type and variables</h1><p>C++ is a very strong language focused on the type of variables typically. </p>
+<p>There are two steps to set a variable in C++:</p>
+<h5 id="Initialize"><a href="#Initialize" class="headerlink" title="Initialize"></a>Initialize</h5><p>The first step to define a value can be:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-type">int</span> x = <span class="hljs-number">10</span>;<br><span class="hljs-type">int</span> y = <span class="hljs-number">5</span>;<br></code></pre></td></tr></table></figure>
+
+<p>Now the variable <code>x</code> can be created into a storage <code>address</code>, and pass the value into it. </p>
+<h5 id="Pass-the-value"><a href="#Pass-the-value" class="headerlink" title="Pass the value"></a>Pass the value</h5><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp">x = y<br></code></pre></td></tr></table></figure>
+
+<p>The computer now will firstly find the address of the <code>x</code>, and change the value from that address <strong>[rbp-4] (-4 &#x3D; 0xFFFFFFFFFFFFFFFC)</strong> into <strong>10 (10 &#x3D; 0xA)</strong>. And the same idea is that <code>y</code> is correspond to <strong>[rbp-8 ] (-8 &#x3D; 0xFFFFFFFFFFFFFFF8)</strong> whose the value is <strong>5 &#x3D; 0x5</strong>.</p>
+<p><img src="/../images/image-20220924160919422.png" srcset="/img/loading.gif" lazyload alt="image-20220924160919422"></p>
+<p>Now the idea can be let <code>y</code> equals to <code>x</code>. The logic here is we firstly get the address of y which is   <strong>[rbp-8]</strong> and pass the value under that address into <code>eax</code>, and pass the <code>eax</code> value into the address which is <strong>[rbp-4]</strong>.</p>
+<p>There is one notice is that, the C++ will sometimes convert the value for you if you misuse it, like in here the 10.5 is a double float number, but the C++ will let you to store that value only include the integer part which is the automatic setting of the C++.</p>
+<p><img src="/../images/image-20220924162242225.png" srcset="/img/loading.gif" lazyload alt="image-20220924162242225"></p>
+<h1 id="Pointer"><a href="#Pointer" class="headerlink" title="Pointer"></a>Pointer</h1><p>Here we can firstly define a pointer, and the pointer address will point to a value.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-type">int</span> x = <span class="hljs-number">42</span>;<br>    <span class="hljs-type">int</span> y = <span class="hljs-number">56</span>;<br>    <br>    <span class="hljs-type">int</span>* p = &amp;x;<br>    <span class="hljs-comment">// &amp;x is to get the address from the variable, </span><br>    <span class="hljs-comment">// we can change the value of the pointer p the same as the address of y</span><br>    p = &amp;y;<br>    <br>    <span class="hljs-comment">// now we can get the value from refering the pointer p, the idea of int* p and *p is totally different</span><br>    std::cout &lt;&lt; *p &lt;&lt; std::endl;<br>    <span class="hljs-comment">// the *p will be the value of x</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="/../images/image-20220924215057558.png" srcset="/img/loading.gif" lazyload alt="image-20220924215057558"></p>
+<p>&amp; is for getting the address. Pointer will also create a space in your computer, it will also can become an object. Pointer it is a procedure to point! Pointer can save the address. </p>
+<p>We can also set the default pointer into <code>null</code>, like:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-type">int</span> *p = <span class="hljs-literal">nullptr</span>; <span class="hljs-comment">// this is just a pre-set value, which means the address of it have not be clearly decided.</span><br></code></pre></td></tr></table></figure>
+
+<p>We can use pointer to save a lot of computing space, especially when we want to pass a relatively “big” value into the function. </p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Str</span>&#123;<br>    ....<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">fun</span><span class="hljs-params">(Str* param)</span></span>&#123;<br>    <span class="hljs-comment">// we are setting the function params into the pointer, so we can just give that pointer an address, so we can easily manipulate it.</span><br>    <br>&#125;<br><br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    Str x;<br>    <span class="hljs-comment">// now we pass the x&#x27;s address to p</span><br>    Str* p = &amp;x;<br>    <span class="hljs-built_in">fun</span>(p);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+
 
 
 
