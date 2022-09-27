@@ -61,7 +61,7 @@
 <meta property="og:image" content="http://xiaos.site/images/image-20220830193531424.png">
 <meta property="og:image" content="http://xiaos.site/images/image-20220830192414403.png">
 <meta property="article:published_time" content="2022-08-30T14:34:11.000Z">
-<meta property="article:modified_time" content="2022-09-13T00:26:45.046Z">
+<meta property="article:modified_time" content="2022-09-26T16:08:52.349Z">
 <meta property="article:author" content="Xiao Zhang">
 <meta property="article:tag" content="Speech and Language Processing">
 <meta name="twitter:card" content="summary_large_image">
@@ -286,7 +286,7 @@
         
         
         
-          194 mins
+          196 mins
         
       </span>
     
@@ -346,7 +346,8 @@
 <p>$$<br>dBPa &#x3D; 20*log(x \ Pa)<br>$$</p>
 <p>$$<br>dB &#x3D; 20 log_{10} （V_{input} &#x2F; V_{output \ or \ reference \ voltage}）<br>$$</p>
 <p>$$<br>dB &#x3D; 10 log_{10} （P_{input}&#x2F;P_{output \ or \ reference \ power}）<br>$$</p>
-<p>The formula for Volts to <strong>dBV</strong> conversion is:<br>$$<br>dBV &#x3D; 20*log(xV)<br>$$<br> And hence, the reverse formula for dBv to Volts conversion is:<br>$$<br>Volts &#x3D; 10^{\frac{dBV}{20}}<br>$$<br>Power level in decibels relative to 1 V (volts) power. dB in Acqua acoustic test is 1 Vrms (root mean square value of voltage) as the reference voltage value. So at this point, 0 dB is 1 Vrms, the maximum value. Power level relative to 1 mW (milliwatt) power, in decibels.<em><strong>dBm &#x3D; decibel of milliwatt (mW)</strong></em><br>$$<br>dBm &#x3D; 10 *log(xm \ W) \<br>10 log_{10}(signal \ power&#x2F;1 mW) \<br>1 mW &#x3D; 0  \ dBm \<br>10 mW &#x3D; 10 \ dBm \<br>100 mW &#x3D; 20 \ dBm \<br>40 W &#x3D; 46 \ dBm<br>$$</p>
+<p>The formula for Volts to <strong>dBV</strong> conversion is:<br>$$<br>dBV &#x3D; 20*log(xV)<br>$$<br><strong>6dB &#x3D;&gt; 2 times voltage, 3dB &#x3D;&gt; 2 times power.</strong></p>
+<p> And hence, the reverse formula for dBv to Volts conversion is:<br>$$<br>Volts &#x3D; 10^{\frac{dBV}{20}}<br>$$<br>Power level in decibels relative to 1 V (volts) power. dB in Acqua acoustic test is 1 Vrms (root mean square value of voltage) as the reference voltage value. So at this point, 0 dB is 1 Vrms, the maximum value. Power level relative to 1 mW (milliwatt) power, in decibels.<em><strong>dBm &#x3D; decibel of milliwatt (mW)</strong></em><br>$$<br>dBm &#x3D; 10 *log(xm \ W) \<br>10 log_{10}(signal \ power&#x2F;1 mW) \<br>1 mW &#x3D; 0  \ dBm \<br>10 mW &#x3D; 10 \ dBm \<br>100 mW &#x3D; 20 \ dBm \<br>40 W &#x3D; 46 \ dBm<br>$$</p>
 <p>$$<br>20 log_{10}(2)dB &#x3D; 6.02 dB \<br>20 log_{10}(3)dB &#x3D; 9.54 dB \<br>20 log_{10}(4)dB &#x3D; 12.04 dB \<br>20 log_{10}(5)dB &#x3D; 13.97 dB \<br>20 log_{10}(6)dB &#x3D; 15.56 dB \<br>$$<br>**dBFS &#x3D; dBm0 &#x3D; dBm relative to a 0 transmission point &#x3D; dB relative to digital overload point, 0dB0v &#x3D; full scale.. **</p>
 <p><strong>dBv is a logarithmic voltage ratio with a voltage reference of 1 Volt.</strong></p>
 <p>1 V is equivalent to 0 dBv.</p>
@@ -384,8 +385,9 @@
 <p><img src="/../images/image-20220830160754871.png" srcset="/img/loading.gif" lazyload alt="image-20220830160754871"></p>
 <p><a target="_blank" rel="noopener" href="https://www.digikey.com/en/product-highlight/k/knowles/i2s-output-digital-microphone">https://www.digikey.com/en/product-highlight/k/knowles/i2s-output-digital-microphone</a></p>
 <p>I2S microphone example: <a target="_blank" rel="noopener" href="http://www.analog.com/en/audiovideo-products/mems-microphones/admp441/products/product.html">ADMP441 </a>, I2S can easily be replaced, but the mainstream is still PDM now.</p>
-<h2 id="Audio-Power-Amp-（PA"><a href="#Audio-Power-Amp-（PA" class="headerlink" title="Audio Power Amp （PA)"></a>Audio Power Amp （PA)</h2><p>There is no electrical signal from the horn, because the horn is a passive device, so the measured signal is actually the PA.</p>
-<p>Here are the basic params to describe the Audio PA.</p>
+<h2 id="Audio-Power-Amp-（PA"><a href="#Audio-Power-Amp-（PA" class="headerlink" title="Audio Power Amp （PA)"></a>Audio Power Amp （PA)</h2><p>The amplification can be the <code>gain factor</code>. </p>
+<p>There is no electrical signal from the horn, because the horn is a passive device, so the measured signal is actually the PA.</p>
+<p>Here are the basic params to describe the Audio PA. We will only use the sin waves to do the testing here. </p>
 <p><img src="/../images/image-20220830231622130.png" srcset="/img/loading.gif" lazyload alt="image-20220830231622130"></p>
 <p><img src="/../images/image-20220830231726241.png" srcset="/img/loading.gif" lazyload alt="Power and Loudness"></p>
 <p>Since every <strong>10 dBFS</strong> decrease, then the theoretical value of the measured power will decrease by a factor of <strong>10</strong>.</p>
@@ -399,12 +401,12 @@
 <p>MOL (Maximum Output Level): Maximum output level &#x2F; minimum output level</p>
 <p>Relative Level （电位差）</p>
 
-        <div id="aplayer-CMlVyAFJ" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-yKDeRlCd" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-CMlVyAFJ"),
+            element: document.getElementById("aplayer-yKDeRlCd"),
             narrow: false,
             autoplay: false,
             showlrc: false,
@@ -424,12 +426,12 @@
 
 
 <h3 id="Dynamic-Range"><a href="#Dynamic-Range" class="headerlink" title="Dynamic Range"></a>Dynamic Range</h3>
-        <div id="aplayer-owEFqOIR" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-olLvqUxZ" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-owEFqOIR"),
+            element: document.getElementById("aplayer-olLvqUxZ"),
             narrow: false,
             autoplay: false,
             showlrc: false,
@@ -449,12 +451,12 @@
 
 <p>*<strong>动态范围Dynamic Range_1kHz-60dB*</strong></p>
 
-        <div id="aplayer-kRfxIMbx" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-RnTnoytk" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-kRfxIMbx"),
+            element: document.getElementById("aplayer-RnTnoytk"),
             narrow: false,
             autoplay: false,
             showlrc: false,
@@ -477,12 +479,12 @@
 <p>Sweep in the AP software, we have to choose: 20 Hz - 20 kHz, 1&#x2F;6 Oct (61 pt, slow), and do not choose Append Graph Data, this option will keep the last results.</p>
 <h3 id="Distortion"><a href="#Distortion" class="headerlink" title="Distortion"></a>Distortion</h3><p>*<strong>总谐波失真和左右声道相位差_MaximumOutputLevel &amp;THD+N&amp; InterchannelPhase_1kHz_0dB互调失真_IMD_70+7K*</strong></p>
 
-        <div id="aplayer-YVbQhUtv" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-LuHcLzbN" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-YVbQhUtv"),
+            element: document.getElementById("aplayer-LuHcLzbN"),
             narrow: false,
             autoplay: false,
             showlrc: false,
@@ -502,14 +504,15 @@
 <p>Distortion of the sound after amplification. The smaller it is, the better.</p>
 <p>IMD: Intermodulation distortion (20 Hz-20 kHz, 1&#x2F;6 Oct, 61: points)</p>
 <p>MTD (Multi-tone distortion)</p>
+<p>The type of non-linearity, when the amplitude of the output levels are both compressed and distorted is called <code>saturation</code>. </p>
 <h3 id="Frequency-Response"><a href="#Frequency-Response" class="headerlink" title="Frequency Response"></a>Frequency Response</h3><p><strong>频率响应_Freq_sweep_61_0dB*</strong></p>
 
-        <div id="aplayer-LiNOVUxD" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-szAfjcjU" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-LiNOVUxD"),
+            element: document.getElementById("aplayer-szAfjcjU"),
             narrow: false,
             autoplay: false,
             showlrc: false,
@@ -529,12 +532,12 @@
 <p>Flatness: flatness</p>
 <h3 id="Noise"><a href="#Noise" class="headerlink" title="Noise"></a>Noise</h3><p>*<strong>底噪_mute_silence_0dB*</strong></p>
 
-        <div id="aplayer-CYKcueQX" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-BWuiyGKf" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-CYKcueQX"),
+            element: document.getElementById("aplayer-BWuiyGKf"),
             narrow: false,
             autoplay: false,
             showlrc: false,
@@ -552,12 +555,12 @@
 
 <p>*<strong>信噪比Dynamic Range_1kHz-60dB*</strong></p>
 
-        <div id="aplayer-fHXPUVSA" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-JDDNDJmI" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-fHXPUVSA"),
+            element: document.getElementById("aplayer-JDDNDJmI"),
             narrow: false,
             autoplay: false,
             showlrc: false,
@@ -573,8 +576,7 @@
           window.aplayers.push(ap);
         </script>
 
-
-
+<p>The noise will be noticeable and will clearly distort the outpu</p>
 <p>·    Signal-to-Noise Ratio ：底噪率</p>
 <p>·    POP noise</p>
 <p>·    SNR （Signal-noise ratio）：<strong>Signal-to-noise ratio &#x3D; received signal power&#x2F;noise power</strong></p>
@@ -582,12 +584,12 @@
 <h3 id="SNR"><a href="#SNR" class="headerlink" title="SNR"></a>SNR</h3><p>Dial 0dB first and then click noise. First measure the maximum electric sound pressure and then measure the bottom noise is also OK, count the difference. Signal-to-noise ratio and dynamic range is about the same. If you really can not switch, you can: maximum volume - noise bottom noise.</p>
 <h3 id="Crosstalk"><a href="#Crosstalk" class="headerlink" title="Crosstalk"></a>Crosstalk</h3><p>*<strong>Crosstalk_left_only_1kHz_0dB*</strong></p>
 
-        <div id="aplayer-DLyHHXnL" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-vdahSURE" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-DLyHHXnL"),
+            element: document.getElementById("aplayer-vdahSURE"),
             narrow: false,
             autoplay: false,
             showlrc: false,
@@ -605,12 +607,12 @@
 
 <p>*<strong>Crosstalk_right_only_1kHz_0dB*</strong></p>
 
-        <div id="aplayer-ehdlidhC" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-XzjvjdEK" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-ehdlidhC"),
+            element: document.getElementById("aplayer-XzjvjdEK"),
             narrow: false,
             autoplay: false,
             showlrc: false,
@@ -628,12 +630,12 @@
 
 <p>*<strong>Crosstalk_sweep L to R 20to20k*</strong></p>
 
-        <div id="aplayer-jpwfwEOc" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-AURrcQsN" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-jpwfwEOc"),
+            element: document.getElementById("aplayer-AURrcQsN"),
             narrow: false,
             autoplay: false,
             showlrc: false,
@@ -652,12 +654,12 @@
 <p>The crosstalk curves from L to R are tested separately.</p>
 <p>*<strong>Crosstalk_sweep R to L 20to20k*</strong></p>
 
-        <div id="aplayer-ZdvhPhDp" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-yNAFeVQs" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-ZdvhPhDp"),
+            element: document.getElementById("aplayer-yNAFeVQs"),
             narrow: false,
             autoplay: false,
             showlrc: false,
@@ -677,12 +679,12 @@
 <p>It means that there is no correlation between the two channels and they are independent of each other.</p>
 <h3 id="Phase"><a href="#Phase" class="headerlink" title="Phase"></a>Phase</h3><p><strong>左右声道相位差_MaximumOutputLevel &amp;THD+N&amp; InterchannelPhase_1kHz_0dB*</strong></p>
 
-        <div id="aplayer-cooyUmZH" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-xdIcKoTY" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-cooyUmZH"),
+            element: document.getElementById("aplayer-xdIcKoTY"),
             narrow: false,
             autoplay: false,
             showlrc: false,
