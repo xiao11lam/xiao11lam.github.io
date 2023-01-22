@@ -24,7 +24,7 @@
 <meta property="og:description" content="Cmake Basic FilesTwo Essential LinesFor any cmake project, we need to have a CMakeLists.txt file, there are two scripts are fixed: line &#96;&#96;&#96; is mostly about the &#96;&#96;&#96;cmake version&#96;&#96;&#96;.123&#96;&#96;&#96;cmakecmake_min">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-08-29T22:27:59.000Z">
-<meta property="article:modified_time" content="2022-09-11T23:19:36.765Z">
+<meta property="article:modified_time" content="2023-01-22T00:43:34.110Z">
 <meta property="article:author" content="Xiao Zhang">
 <meta property="article:tag" content="Speech and Language Processing">
 <meta name="twitter:card" content="summary_large_image">
@@ -235,7 +235,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.1k words
+          3.2k words
         
       </span>
     
@@ -246,7 +246,7 @@
         
         
         
-          10 mins
+          27 mins
         
       </span>
     
@@ -302,7 +302,63 @@
 
 
 
+<h2 id="An-Example-like-include-the-gsl-lib"><a href="#An-Example-like-include-the-gsl-lib" class="headerlink" title="An Example like include the gsl lib"></a>An Example like include the gsl lib</h2><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs cmake">        <span class="hljs-keyword">find_package</span>(GSL)  <span class="hljs-comment"># 查找包</span><br><br>        <span class="hljs-keyword">set</span>(GSL_LIBS gsl;gslcblas;m) <span class="hljs-comment"># 指定要包含的库</span><br><br>        <span class="hljs-keyword">message</span>(STATUS <span class="hljs-string">&quot;**GSL library status:&quot;</span>)  <span class="hljs-comment"># 显示GSL的查找情况</span><br><br>        <span class="hljs-keyword">message</span>(STATUS <span class="hljs-string">&quot;    //version: $&#123;GSL_VERSION&#125;&quot;</span><br><br>        <span class="hljs-keyword">message</span>(STATUS <span class="hljs-string">&quot;    //libraries: $&#123;GSL_LIBS&#125;&quot;</span>)<br><br>        <span class="hljs-keyword">message</span>(STATUS <span class="hljs-string">&quot;    //include path: $&#123;GSL_INCLUDE_DIRS&#125;&quot;</span>)<br><br>        <span class="hljs-keyword">target_link_libraries</span>(stereo_matching <span class="hljs-variable">$&#123;GSL_LIBS&#125;</span>)<br></code></pre></td></tr></table></figure>
+
+<p>or </p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs cmake"><span class="hljs-keyword">cmake_minimum_required</span>(VERSION <span class="hljs-number">3.7</span>)<br><span class="hljs-keyword">project</span>(Unitsv1)<br><br><span class="hljs-keyword">set</span>(SOURCE_FILES main.cpp<br>                 transition.cpp<br>                 random.cpp)<br><span class="hljs-keyword">add_executable</span>(Unitsv1 <span class="hljs-variable">$&#123;SOURCE_FILES&#125;</span>)<br><br><span class="hljs-keyword">find_package</span>(GSL REQUIRED)    <br><span class="hljs-keyword">target_link_libraries</span>(Unitsv1 GSL::gsl GSL::gslcblas)<br></code></pre></td></tr></table></figure>
+
+
+
+<p><a target="_blank" rel="noopener" href="https://solarianprogrammer.com/2020/01/26/getting-started-gsl-gnu-scientific-library-windows-macos-linux/">https://solarianprogrammer.com/2020/01/26/getting-started-gsl-gnu-scientific-library-windows-macos-linux/</a></p>
+<p>If we need to do in CLion, we need to include the dir:</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs cmake"><span class="hljs-keyword">set</span>(INC_DIR /Users/haoran/Downloads/wfdb/<span class="hljs-keyword">include</span>)<br><span class="hljs-keyword">set</span>(LINK_DIR /Users/haoran/Downloads/wfdb/lib)<br><br><span class="hljs-keyword">include_directories</span>(<span class="hljs-variable">$&#123;INC_DIR&#125;</span>)<br><span class="hljs-keyword">link_directories</span>(<span class="hljs-variable">$&#123;LINK_DIR&#125;</span>)<br><span class="hljs-keyword">link_libraries</span>(wfdb)<br><br><span class="hljs-keyword">target_link_libraries</span>(wfdb_demo wfdb)<br></code></pre></td></tr></table></figure>
+
+<p>Complete version looks like this:</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs cmake"><span class="hljs-keyword">cmake_minimum_required</span>(VERSION <span class="hljs-number">3.6</span>)<br><span class="hljs-keyword">project</span>(wfdb_demo)<br><br><span class="hljs-keyword">set</span>(CMAKE_CXX_STANDARD <span class="hljs-number">11</span>)<br><br><span class="hljs-keyword">set</span>(SOURCE_FILES main.cpp)<br><br><span class="hljs-keyword">set</span>(INC_DIR /Users/haoran/Downloads/wfdb/<span class="hljs-keyword">include</span>)<br><span class="hljs-keyword">set</span>(LINK_DIR /Users/haoran/Downloads/wfdb/lib)<br><br><span class="hljs-keyword">include_directories</span>(<span class="hljs-variable">$&#123;INC_DIR&#125;</span>)<br><span class="hljs-keyword">link_directories</span>(<span class="hljs-variable">$&#123;LINK_DIR&#125;</span>)<br><span class="hljs-keyword">link_libraries</span>(wfdb)<br><br><span class="hljs-keyword">add_executable</span>(wfdb_demo <span class="hljs-variable">$&#123;SOURCE_FILES&#125;</span>)<br><span class="hljs-keyword">target_link_libraries</span>(wfdb_demo wfdb)<br></code></pre></td></tr></table></figure>
+
+
+
+
+
+
+
 <h2 id="Compile-the-code"><a href="#Compile-the-code" class="headerlink" title="Compile the code"></a>Compile the code</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">cmake .<br>make -j<br>make install<br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="Installation-Steps"><a href="#Installation-Steps" class="headerlink" title="Installation Steps"></a>Installation Steps</h2><figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs smali">configure<br> make<br>make<span class="hljs-built_in"> check</span><br><span class="hljs-built_in"></span>sudo make install<br>make installcheck<br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="Configure-the-LIB-environment"><a href="#Configure-the-LIB-environment" class="headerlink" title="Configure the LIB environment"></a>Configure the LIB environment</h2><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-built_in">export</span> <span class="hljs-attribute">LD_LIBRARY_PATH</span>=/usr/local/lib:$LD_LIBRARY_PATH<br></code></pre></td></tr></table></figure>
+
+
+
+<h1 id="GCC"><a href="#GCC" class="headerlink" title="GCC"></a>GCC</h1><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">gcc -Wall -I<span class="hljs-regexp">/home/</span>steve<span class="hljs-regexp">/dev/i</span>nclude -c example.c<br></code></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">gcc -L<span class="hljs-regexp">/home/</span>steve<span class="hljs-regexp">/dev/</span>lib example.o -lgsl -lgslcblas -lm<br></code></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">./a.<span class="hljs-keyword">out</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h1 id="VCPKG"><a href="#VCPKG" class="headerlink" title="VCPKG"></a>VCPKG</h1><h2 id="Install-VCPKG"><a href="#Install-VCPKG" class="headerlink" title="Install VCPKG"></a>Install VCPKG</h2><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs awk">git clone https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/microsoft/</span>vcpkg.git<br>cd vcpkg<br>.\bootstrap-vcpkg.bat<br>.\vcpkg integrate install<br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="Install-Libs-with-VCPKG"><a href="#Install-Libs-with-VCPKG" class="headerlink" title="Install Libs with VCPKG"></a>Install Libs with VCPKG</h2><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmake">vcpkg <span class="hljs-keyword">install</span> gsl gsl:x64-windows<br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="Add-targests-to-CMAKE"><a href="#Add-targests-to-CMAKE" class="headerlink" title="Add targests to CMAKE"></a>Add targests to CMAKE</h2><figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs reasonml"><br>The package gsl is compatible <span class="hljs-keyword">with</span> built-<span class="hljs-keyword">in</span> CMake targets:<br><br>find<span class="hljs-constructor">_package(GSL REQUIRED)</span><br>target<span class="hljs-constructor">_link_libraries(<span class="hljs-params">main</span> PRIVATE GSL::<span class="hljs-params">gsl</span> GSL::<span class="hljs-params">gslcblas</span>)</span><br></code></pre></td></tr></table></figure>
+
+
+
+
 
 
 
