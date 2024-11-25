@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/fluid.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/xiao11lam.github.io/img/fluid.png">
+  <link rel="icon" href="/xiao11lam.github.io/img/fluid.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -19,17 +19,17 @@
     <meta name="description" content="ASV-tools InstallationInstall KaldiWe need to install the kaldi into the work directory. 1git clone https:&#x2F;&#x2F;github.com&#x2F;kaldi-asr&#x2F;kaldi    Training DataDatasets DownloadingWe will use the voxceleb 1 to">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ASV-Subtools Automatic Speaker Verification Toolkit Tutorials">
-<meta property="og:url" content="https://xiao11lam.github.io/2022/08/05/ASV-Subtools-Automatic-Speaker-Verification-Toolkit-Tutorials/index.html">
+<meta property="og:url" content="https://xiao11lam/xiao11lam.github.io/2022/08/05/ASV-Subtools-Automatic-Speaker-Verification-Toolkit-Tutorials/index.html">
 <meta property="og:site_name" content="Xiao Zhang">
 <meta property="og:description" content="ASV-tools InstallationInstall KaldiWe need to install the kaldi into the work directory. 1git clone https:&#x2F;&#x2F;github.com&#x2F;kaldi-asr&#x2F;kaldi    Training DataDatasets DownloadingWe will use the voxceleb 1 to">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://xiao11lam.github.io/images/image-20220831183616702.png">
+<meta property="og:image" content="https://xiao11lam/images/image-20220831183616702.png">
 <meta property="article:published_time" content="2022-08-05T22:23:33.000Z">
 <meta property="article:modified_time" content="2024-11-25T22:45:14.890Z">
 <meta property="article:author" content="Xiao Zhang">
 <meta property="article:tag" content="Voiceprint Recognition">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://xiao11lam.github.io/images/image-20220831183616702.png">
+<meta name="twitter:image" content="https://xiao11lam/images/image-20220831183616702.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -59,33 +59,33 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/css/main.css" />
+<link  rel="stylesheet" href="/xiao11lam.github.io/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/xiao11lam.github.io/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/xiao11lam.github.io/css/highlight-dark.css" />
   
 
 
 
   
-<link rel="stylesheet" href="/css/fluid-extention.css">
+<link rel="stylesheet" href="/xiao11lam.github.io/css/fluid-extention.css">
 
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"xiao11lam.github.io","root":"/","version":"1.9.1","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"xiao11lam","root":"/xiao11lam.github.io/","version":"1.9.1","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/xiao11lam.github.io/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
+  <script  src="/xiao11lam.github.io/js/utils.js" ></script>
+  <script  src="/xiao11lam.github.io/js/color-schema.js" ></script>
 
   
 <meta name="generator" content="Hexo 6.2.0"></head>
@@ -100,7 +100,7 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="/xiao11lam.github.io/">
       <strong>Xiao @ Speech and Language Processing</strong>
     </a>
 
@@ -119,7 +119,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="/xiao11lam.github.io/">
                 <i class="iconfont icon-home-fill"></i>
                 Home
               </a>
@@ -131,7 +131,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archive/">
+              <a class="nav-link" href="/xiao11lam.github.io/archive/">
                 <i class="iconfont icon-archive-fill"></i>
                 Archive
               </a>
@@ -143,7 +143,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/products/">
+              <a class="nav-link" href="/xiao11lam.github.io/products/">
                 <i class="iconfont icon-category-fill"></i>
                 Products
               </a>
@@ -155,7 +155,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="/xiao11lam.github.io/tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 Use Cases
               </a>
@@ -167,7 +167,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="/xiao11lam.github.io/about/">
                 <i class="iconfont icon-user-fill"></i>
                 About
               </a>
@@ -179,7 +179,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/links/">
+              <a class="nav-link" href="/xiao11lam.github.io/links/">
                 <i class="iconfont icon-link-fill"></i>
                 Links
               </a>
@@ -208,7 +208,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/banner.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('/xiao11lam.github.io/img/banner.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -296,7 +296,7 @@
 
 
 <h1 id="Training-Data"><a href="#Training-Data" class="headerlink" title="Training Data"></a>Training Data</h1><h2 id="Datasets-Downloading"><a href="#Datasets-Downloading" class="headerlink" title="Datasets Downloading"></a>Datasets Downloading</h2><p>We will use the <code>voxceleb 1</code> to do the experiment demo. </p>
-<p><img src="/../images/image-20220831183616702.png" srcset="/img/loading.gif" lazyload alt="https://www.robots.ox.ac.uk/~vgg/data/voxceleb/vox1.html"></p>
+<p><img src="/xiao11lam.github.io/../images/image-20220831183616702.png" srcset="/xiao11lam.github.io/img/loading.gif" lazyload alt="https://www.robots.ox.ac.uk/~vgg/data/voxceleb/vox1.html"></p>
 <p>We need to download the dataset from the website.</p>
 <h2 id="Front-end-files"><a href="#Front-end-files" class="headerlink" title="Front-end files"></a>Front-end files</h2><p>There are several files that needed to be prerpared, and we need to follow the kaldi way:</p>
 <figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs applescript">wav.scp : utt-<span class="hljs-built_in">id</span> utt-path<br>utt2spk : utt-<span class="hljs-built_in">id</span> spk-<span class="hljs-built_in">id</span><br>spk2utt : spk-<span class="hljs-built_in">id</span> utt-<span class="hljs-built_in">id</span><br></code></pre></td></tr></table></figure>
@@ -331,7 +331,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/Use%20Cases/Voiceprint-Recognition/">#Voiceprint Recognition</a>
+        <a href="/xiao11lam.github.io/Use%20Cases/Voiceprint-Recognition/">#Voiceprint Recognition</a>
       
     </div>
   
@@ -344,7 +344,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>ASV-Subtools Automatic Speaker Verification Toolkit Tutorials</div>
-      <div>https://xiao11lam.github.io/2022/08/05/ASV-Subtools-Automatic-Speaker-Verification-Toolkit-Tutorials/</div>
+      <div>https://xiao11lam/xiao11lam.github.io/2022/08/05/ASV-Subtools-Automatic-Speaker-Verification-Toolkit-Tutorials/</div>
     </div>
     <div class="license-meta">
       
@@ -386,7 +386,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/08/25/Speech-Signal-Processing-Toolkit-SPTK-Tutorials/" title="Speech Signal Processing Toolkit (SPTK) Tutorials">
+                      <a href="/xiao11lam.github.io/2022/08/25/Speech-Signal-Processing-Toolkit-SPTK-Tutorials/" title="Speech Signal Processing Toolkit (SPTK) Tutorials">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">Speech Signal Processing Toolkit (SPTK) Tutorials</span>
                         <span class="visible-mobile">Previous</span>
@@ -396,7 +396,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/07/30/Audio-and-Speech-Processing-Development-Environment/" title="Audio and Speech Processing Development Environment">
+                      <a href="/xiao11lam.github.io/2022/07/30/Audio-and-Speech-Processing-Development-Environment/" title="Audio and Speech Processing Development Environment">
                         <span class="hidden-mobile">Audio and Speech Processing Development Environment</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -558,8 +558,8 @@
 
 <script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+<script  src="/xiao11lam.github.io/js/events.js" ></script>
+<script  src="/xiao11lam.github.io/js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -598,7 +598,7 @@
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    <script  src="/xiao11lam.github.io/js/img-lazyload.js" ></script>
   
 
 
@@ -773,7 +773,7 @@
 
   <script  src="https://lib.baomitu.com/mathjax/3.2.1/es5/tex-mml-chtml.js" ></script>
 
-  <script  src="/js/local-search.js" ></script>
+  <script  src="/xiao11lam.github.io/js/local-search.js" ></script>
 
   <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
@@ -783,7 +783,7 @@
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
+<script  src="/xiao11lam.github.io/js/boot.js" ></script>
 
 
   
