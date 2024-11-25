@@ -1,0 +1,914 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Xiao Zhang">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="1. Use Wenet to train the ASR E2E Model1.1 Pre-trained ModelWe can Download the pre-compiled runtime wenet mode from the wenet github, since they already shared the pre-trained runtime model https:&#x2F;&#x2F;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Wenet ASR Toolkit Tutorials From Training to Deployment">
+<meta property="og:url" content="https://xiao11lam.github.io/2022/03/02/Wenet-ASR-Toolkit-Tutorials-From-Training-to-Deployment/index.html">
+<meta property="og:site_name" content="Xiao Zhang">
+<meta property="og:description" content="1. Use Wenet to train the ASR E2E Model1.1 Pre-trained ModelWe can Download the pre-compiled runtime wenet mode from the wenet github, since they already shared the pre-trained runtime model https:&#x2F;&#x2F;">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://xiao11lam.github.io/images/image-20220730230852670.png">
+<meta property="og:image" content="https://xiao11lam.github.io/images/image-20220730003510616-16591147216542.png">
+<meta property="og:image" content="https://xiao11lam.github.io/images/image-20220804141633132.png">
+<meta property="og:image" content="https://xiao11lam.github.io/images/image-20220804222301456.png">
+<meta property="og:image" content="https://xiao11lam.github.io/images/image-20220804222653725.png">
+<meta property="og:image" content="https://xiao11lam.github.io/images/image-20220730004721190.png">
+<meta property="og:image" content="https://xiao11lam.github.io/images/image-20220730004448344.png">
+<meta property="og:image" content="https://xiao11lam.github.io/images/image-20220819211753969.png">
+<meta property="og:image" content="https://xiao11lam.github.io/images/image-20220819212902233.png">
+<meta property="og:image" content="https://xiao11lam.github.io/images/image-20220819213119821.png">
+<meta property="og:image" content="https://xiao11lam.github.io/images/image-20220821035221487.png">
+<meta property="og:image" content="https://xiao11lam.github.io/images/image-20220821035807719.png">
+<meta property="og:image" content="https://xiao11lam.github.io/images/image-20220821040446495.png">
+<meta property="og:image" content="https://xiao11lam.github.io/images/image-20220821055530432.png">
+<meta property="og:image" content="https://xiao11lam.github.io/images/image-20220821055724162.png">
+<meta property="og:image" content="https://xiao11lam.github.io/images/image-20220821052226122.png">
+<meta property="og:image" content="https://xiao11lam.github.io/images/image-20220821053452850.png">
+<meta property="article:published_time" content="2022-03-02T14:52:54.000Z">
+<meta property="article:modified_time" content="2024-11-25T22:45:14.894Z">
+<meta property="article:author" content="Xiao Zhang">
+<meta property="article:tag" content="Speech Recognition">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://xiao11lam.github.io/images/image-20220730230852670.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>Wenet ASR Toolkit Tutorials From Training to Deployment - Xiao Zhang</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/fluid-extention.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"xiao11lam.github.io","root":"/","version":"1.9.1","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Xiao @ Speech and Language Processing</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archive/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archive
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/products/">
+                <i class="iconfont icon-category-fill"></i>
+                Products
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Use Cases
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                Links
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/banner.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Wenet ASR Toolkit Tutorials From Training to Deployment"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-03-02 14:52" pubdate>
+          March 2, 2022 pm
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          12k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          104 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Wenet ASR Toolkit Tutorials From Training to Deployment</h1>
+            
+            <div class="markdown-body">
+              
+              <p><img src="/../images/image-20220730230852670.png" srcset="/img/loading.gif" lazyload alt="image-20220730230852670"></p>
+<h1 id="1-Use-Wenet-to-train-the-ASR-E2E-Model"><a href="#1-Use-Wenet-to-train-the-ASR-E2E-Model" class="headerlink" title="1. Use Wenet to train the ASR E2E Model"></a>1. Use Wenet to train the ASR E2E Model</h1><h2 id="1-1-Pre-trained-Model"><a href="#1-1-Pre-trained-Model" class="headerlink" title="1.1 Pre-trained Model"></a>1.1 Pre-trained Model</h2><p>We can Download the pre-compiled runtime wenet mode from the wenet github, since they already shared the pre-trained runtime model <a target="_blank" rel="noopener" href="https://github.com/wenet-e2e/wenet/actions/runs/2175816175">https://github.com/wenet-e2e/wenet/actions/runs/2175816175</a> their, so we can just use it instead of compile for ourselves.</p>
+<p>Wenet supports the <code>.zip</code> model to decode the ASR outputs. If you do not need to train your model yourself, then you can try this step. </p>
+<p><img src="/../images/image-20220730003510616-16591147216542.png" srcset="/img/loading.gif" lazyload alt="image-20220730003510616"></p>
+<h2 id="1-2-Self-trained-Model"><a href="#1-2-Self-trained-Model" class="headerlink" title="1.2 Self-trained Model"></a>1.2 Self-trained Model</h2><p>If you want to train your model, you can try to run an example project just like kaldi <code>wsj</code> examples. In Wenet, since it was created mostly for Chinese ASR tasks, so we will use a Chinese corpus to be the example. But Wenet still supports other languages like English, so if you still want to do it, it should be without any concern. </p>
+<p>In all, this is just an example we can refer, the goal is to know how wenet train the ASR we want.</p>
+<p>Here is the offical website for the trainning purposes, <a target="_blank" rel="noopener" href="https://wenet.org.cn/wenet/tutorial_aishell.html">https://wenet.org.cn/wenet/tutorial_aishell.html</a></p>
+<p>Also, with the LibriSpeech one: <a target="_blank" rel="noopener" href="https://wenet.org.cn/wenet/tutorial_librispeech.html">https://wenet.org.cn/wenet/tutorial_librispeech.html</a></p>
+<h1 id="2-Optionally-Integrate-with-the-Language-Model-LM"><a href="#2-Optionally-Integrate-with-the-Language-Model-LM" class="headerlink" title="2. Optionally Integrate with the Language Model (LM)"></a>2. Optionally Integrate with the Language Model (LM)</h1><p>As we know, the wenet will output a <code>TLG.fst</code> decoding model, and then we can just use this model to integrate into the n-gram language model.</p>
+<p>Since before we had the dictionary in tokens, but here we are dealing with the word level.</p>
+<p>If we use the LM, in most cases the decoding time will be much longer, but also there will be a higher accurancy, but this is not compulsory!</p>
+<h2 id="2-1-N-gram-LM-in-Wenet"><a href="#2-1-N-gram-LM-in-Wenet" class="headerlink" title="2.1 N-gram LM in Wenet"></a>2.1 N-gram LM in Wenet</h2><p>Wenet use the N-gram LM to help us to improve our CTC DNN model, since if we can add one more LM so we can have a more promissing WER during the decoding.</p>
+<p>Compared with the DNN LM, the n-gram model is very easily to implement and light-weighted, which is much faster than the DNN decoding. And at the same time, the traditional n-gram model is not limited to the corpus size, we can even use a very small corpus to build this. Also compared with DNN, we can make our model more controllable, since DNN is very randomize. </p>
+<p>In Wenet, we will import the WFST to do the decoding for the LM. </p>
+<h3 id="TLG-fst"><a href="#TLG-fst" class="headerlink" title="TLG.fst"></a>TLG.fst</h3><p>Just like in Kaldi, we have the <code>HCLG.fst</code>, also in Wenet, we have the same strategy. </p>
+<p><strong>T.fst</strong></p>
+<p>For <code>T</code>,  it means the <code>token</code>, in wenet, it is used for CTC decoding. It is used for: </p>
+<ol>
+<li>remove and manage the blanks, from <blank> -&gt; <eps> </li>
+<li>decode the multiple tokens output into one sentence, how we manage it? (this is very typically used in Mandarin Chinese, which can be a kind of characteristics of that language.)</li>
+</ol>
+<p><strong>L.fst</strong></p>
+<p>L is lexicon, since the logic here is to make the input characters into the words, in english can be phones to words.</p>
+<p><strong>G.fst</strong></p>
+<p>G is grammar, it guides us from the words level into the sentence level. For words, it can be n-gram model. </p>
+<p><strong>LG.fst</strong>  </p>
+<p>LG.fst &#x3D; compose(L.fst, G.fst), we can compose those two fst models into one. </p>
+<p><strong>TLG.fst</strong></p>
+<p>Finally, we can just compose the LG.fst with the T.fst into a big decoding map. </p>
+<h2 id="2-2-Language-Model-Deployment"><a href="#2-2-Language-Model-Deployment" class="headerlink" title="2.2 Language Model Deployment"></a>2.2 Language Model Deployment</h2><h3 id="Install-SRILM"><a href="#Install-SRILM" class="headerlink" title="Install SRILM"></a>Install SRILM</h3><p>If you want to review more ideas about the SRILM, you can also refer this page: <a target="_blank" rel="noopener" href="https://www.xiaos.site/2022/07/11/Kaldi-for-Dummies/#2-4-1-write-get-lm-sh-we-need-to-write-aw-shell-script-to-run-and-get-th-lm-language-model">https://www.xiaos.site/2022/07/11/Kaldi-for-Dummies/#2-4-1-write-get-lm-sh-we-need-to-write-aw-shell-script-to-run-and-get-th-lm-language-model</a></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">cd</span> wenet/tools<br><span class="hljs-comment"># download, install the srilm, compile it.</span><br>bash install_srilm.sh<br><span class="hljs-built_in">source</span> env.sh<br><span class="hljs-comment"># check the dependencies whether in our dev env</span><br><span class="hljs-built_in">which</span> ngram-count<br><br><span class="hljs-comment"># we just train a 2-gram LM, the input text file is train.txt and the output is the lm.arpa</span><br>ngram-count -order 2 -text train.txt -lm lm.arpa<br><br><br></code></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-comment"># the train.txt is the original lexicon file, which includes some words like</span><br><br><br><span class="hljs-comment"># train.txt</span><br>I Love You<br>Wenet<br>ASR<br><span class="hljs-keyword">From</span> Training <span class="hljs-keyword">to</span> Deployment<br></code></pre></td></tr></table></figure>
+
+<p>In that case, it will generate a <code>lm.arpa</code> file, and we can <code>vim lm.arpa</code></p>
+<h3 id="Get-the-fst-with-LM-language-model"><a href="#Get-the-fst-with-LM-language-model" class="headerlink" title="Get the .fst with LM ( language model)"></a>Get the .fst with LM ( language model)</h3><p><img src="/../images/image-20220804141633132.png" srcset="/img/loading.gif" lazyload alt="image-20220804141633132"></p>
+<p>Her we need to get into the <code>cd /wenet/examples/aishell/s0</code> folder and <code>vim</code> the <code>run.sh</code> file.</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># 7.1 Prepare dict</span><br>unit_file=<span class="hljs-variable">$dict</span><br><span class="hljs-built_in">mkdir</span> -p data/local/dict<br><span class="hljs-built_in">cp</span> <span class="hljs-variable">$unit_file</span> data/local/dict/units.txt<br>tools/fst/prepare_dict.py <span class="hljs-variable">$unit_file</span> <span class="hljs-variable">$&#123;data&#125;</span>/resource_aishell/lexicon.txt \<br>    data/local/dict/lexicon.txt<br><span class="hljs-comment"># 7.2 Train lm</span><br>lm=data/local/lm<br><span class="hljs-built_in">mkdir</span> -p <span class="hljs-variable">$lm</span><br>tools/filter_scp.pl data/train/text \<br>     <span class="hljs-variable">$data</span>/data_aishell/transcript/aishell_transcript_v0.8.txt &gt; <span class="hljs-variable">$lm</span>/text<br><span class="hljs-built_in">local</span>/aishell_train_lms.sh<br><span class="hljs-comment"># 7.3 Build decoding TLG</span><br>tools/fst/compile_lexicon_token_fst.sh \<br>    data/local/dict data/local/tmp data/local/lang<br>tools/fst/make_tlg.sh data/local/lm data/local/lang data/lang_test || <span class="hljs-built_in">exit</span> 1;<br><span class="hljs-comment"># 7.4 Decoding with runtime</span><br>./tools/decode.sh --nj 16 \<br>    --beam 15.0 --lattice_beam 7.5 --max_active 7000 \<br>    --blank_skip_thresh 0.98 --ctc_weight 0.5 --rescoring_weight 1.0 \<br>    --fst_path data/lang_test/TLG.fst \<br>    --dict_path data/lang_test/words.txt \<br>    data/test/wav.scp data/test/text <span class="hljs-variable">$dir</span>/final.zip \<br>    data/lang_test/units.txt <span class="hljs-variable">$dir</span>/lm_with_runtime<br></code></pre></td></tr></table></figure>
+
+<p>In wenet, this is the 7th step in the  <code>run.sh</code>,  if runs well, we would get :</p>
+<p><code>composing decoding graph TLG.fst succeded</code></p>
+<p>We will compile a <code>.fst</code> file into the <code>data/lang_test/</code> folder.</p>
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3><h1 id="3-Runtime-Compiling"><a href="#3-Runtime-Compiling" class="headerlink" title="3. Runtime Compiling"></a>3. Runtime Compiling</h1><h2 id="3-1-Get-the-pre-compiled-runtime-from-Wenet"><a href="#3-1-Get-the-pre-compiled-runtime-from-Wenet" class="headerlink" title="3.1 Get the pre-compiled runtime from Wenet"></a>3.1 Get the pre-compiled runtime from Wenet</h2><p>Wenet already gave us a pre-compiled runtime software for us to decode, so we do not need to compile the runtime ourselves, we can firstly use the wenet official released version to help us to do the decoding in the next stage, we can download here:</p>
+<p><img src="/../images/image-20220804222301456.png" srcset="/img/loading.gif" lazyload alt="image-20220804222301456"></p>
+<p>After we downloaded, we can see those documents there:</p>
+<p><img src="/../images/image-20220804222653725.png" srcset="/img/loading.gif" lazyload alt="image-20220804222653725"></p>
+<p>We will use mostly those three <code>.exe</code>  programs with red marks for us to do the decoding. </p>
+<h2 id="3-2-Compile-at-your-local-machine"><a href="#3-2-Compile-at-your-local-machine" class="headerlink" title="3.2 Compile at your local machine"></a>3.2 Compile at your local machine</h2><p>If you want to compile your own runtime files on your local machine <strong>instead of downloading from the pre-compiled version from the Wenet official release</strong>, please check here!</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">cd</span> runtime/server/x86<br><span class="hljs-built_in">mkdir</span> build &amp;&amp; <span class="hljs-built_in">cd</span> build &amp;&amp; cmake .. &amp;&amp; cmake --build .<br></code></pre></td></tr></table></figure>
+
+<p>There is a notice here, we must ensure the <strong>cmake is upper than the 3.14 version, and the gcc should be higher than 5.4.</strong> </p>
+<h1 id="4-Decode-the-Model"><a href="#4-Decode-the-Model" class="headerlink" title="4. Decode the Model"></a>4. Decode the Model</h1><p>Here is an example, we will use the pre-trained wenet model to do a sample decoding. After we downloaded that pre-trained model, we can just get into that downloaded directory.</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">cd</span> Downloads/release-wenet-binary<br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="4-1-Runtime-Local-Decoding"><a href="#4-1-Runtime-Local-Decoding" class="headerlink" title="4.1 Runtime Local Decoding"></a>4.1 Runtime Local Decoding</h2><p>Here we can do a basic decoding test from our downloaded pre-trained runtime model. The decoding tool is just like <code>decoder_main.exe</code>, but we have to pass in some params there. </p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs ada"><span class="hljs-comment">--chunk_size    the wave chunck streamming param</span><br><span class="hljs-comment">--wav_path		the wave file we want to do the decoding</span><br><span class="hljs-comment">--model_path	the neural model from the trained model</span><br><span class="hljs-comment">--dict_path     the dictionary file from the trained model.</span><br></code></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">./decoder_main.exe     --chunk_size -1     --wav_path ../test.wav     --model_path ../20210601_u2++_conformer_libtorch/20210601_u2++_conformer_libtorch/final.zip     --dict_path ../20210601_u2++_conformer_libtorch/20210601_u2++_conformer_libtorch/units.txt<br></code></pre></td></tr></table></figure>
+
+
+
+<p>Here is the demo code that wenet gave:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">cd</span> /home/wenet/runtime/server/x86<br><span class="hljs-built_in">export</span> GLOG_logtostderr=1<br><span class="hljs-built_in">export</span> GLOG_v=2<br>wav_path=../test.wav<br>model_dir=../20210601_u2++_conformer_libtorch/20210601_u2++_conformer_libtorch<br>./build/bin/decoder_main \<br>    --chunk_size 16 \<br>    --wav_path <span class="hljs-variable">$wav_path</span> \<br>    --model_path <span class="hljs-variable">$model_dir</span>/final.zip \<br>    --unit_path <span class="hljs-variable">$model_dir</span>/units.txt 2&gt;&amp;1 | <span class="hljs-built_in">tee</span> log.txt \<br>    <span class="hljs-comment"># here are the path need to specify if we need the LM, it without these two lines of code, it will decode without the LM</span><br>    --fst_path <span class="hljs-variable">$model_dir</span>/TLG.fst \<br>    --dict_path <span class="hljs-variable">$model_dir</span>/words.txt<br></code></pre></td></tr></table></figure>
+
+<h2 id="4-2-Online-Decoding-with-Host"><a href="#4-2-Online-Decoding-with-Host" class="headerlink" title="4.2 Online Decoding with Host"></a>4.2 Online Decoding with Host</h2><h3 id="4-2-1-Runtime-Host-Decoding-with-a-CMD-interface"><a href="#4-2-1-Runtime-Host-Decoding-with-a-CMD-interface" class="headerlink" title="4.2.1 Runtime Host Decoding with a CMD interface"></a>4.2.1 Runtime Host Decoding with a CMD interface</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">./websocket_client_main.exe   --hostname 127.0.0.1   --port 10086    --wav_path ../test.wav<br></code></pre></td></tr></table></figure>
+
+<h3 id="4-2-2-Runtime-Host-Decoding-with-a-Web-interface"><a href="#4-2-2-Runtime-Host-Decoding-with-a-Web-interface" class="headerlink" title="4.2.2 Runtime Host Decoding with a Web interface"></a>4.2.2 Runtime Host Decoding with a Web interface</h3><p>Wenet just gave us a great demo for us to do the demo illustration, and it used the <code>Flask</code>.  </p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># here are the code to run the runtime server, right now it is hosted, and we can get the request from that url: ws://127.0.0.1:10086</span><br>./websocket_server_main.exe --port 10086    --chunk_size -1    --model_path ../20210601_u2++_conformer_libtorch/20210601_u2++_conformer_libtorch/final.zip     --dict_path ../20210601_u2++_conformer_libtorch/20210601_u2++_conformer_libtorch/units.txt<br></code></pre></td></tr></table></figure>
+
+<p>For the server side, it will open a server from the local machine at the 10086, we can then get into the <code>index.html</code> from the flask demo to get the response there. </p>
+<p><img src="/../images/image-20220730004721190.png" srcset="/img/loading.gif" lazyload alt="image-20220730004721190"></p>
+<p>We need to open the <code>index.html</code> after we already made sure that our <code>ws://127.0.0.1:10086</code> host is launching. </p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">cd</span> wenet/runtime/server/x86/web/templates<br><span class="hljs-comment"># we can just open that index.html to open a flask web demo app to retreive the data there.</span><br></code></pre></td></tr></table></figure>
+
+<p>The blue button here is a Chinese means “start to do the speech recognition”, and after we click the allow to recording, so we can just do the asr tasks here with the streaming and unstreamming modes only if we changed the <code>chunk_size</code> from our decoding cmds.</p>
+<p><img src="/../images/image-20220730004448344.png" srcset="/img/loading.gif" lazyload alt="image-20220730004448344"></p>
+<h2 id="4-3-Use-Python"><a href="#4-3-Use-Python" class="headerlink" title="4.3 Use Python"></a>4.3 Use Python</h2><p>We can refer this website,  it supports the streaming and non-streaming methods: <a target="_blank" rel="noopener" href="https://github.com/wenet-e2e/wenet/tree/main/runtime/binding/python">https://github.com/wenet-e2e/wenet/tree/main/runtime/binding/python</a></p>
+<p>Here we just choose a <strong>Non-streaming</strong> Usage. </p>
+<p>we just firstly install the python:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">pip install wenet<br></code></pre></td></tr></table></figure>
+
+<p>We need to write a <code>demo.py</code>:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># demo.py</span><br><span class="hljs-keyword">import</span> sys<br><span class="hljs-keyword">import</span> wenet<br><br>wav_file = sys.argv[<span class="hljs-number">1</span>] <span class="hljs-comment"># we specify the file we want to decode </span><br>decoder = wenet.Decoder(model_dir, lang=<span class="hljs-string">&#x27;chs&#x27;</span>)<br><span class="hljs-comment"># in the model directory we need to add 4 files into it: 1) the runtime model like final.zip 2) units.txt from the datasets, 3) words.txt, from the LM we trained (optional), 4) TLG.fst, from previous operations (optional)</span><br>ans = decoder.decode_wav(wav_file)<br><span class="hljs-built_in">print</span>(ans)<br><span class="hljs-comment"># call decoder.reset() if you want to do the next decoding</span><br></code></pre></td></tr></table></figure>
+
+
+
+
+
+<h1 id="5-Hot-Word-Enhancement"><a href="#5-Hot-Word-Enhancement" class="headerlink" title="5. Hot Word Enhancement"></a>5. Hot Word Enhancement</h1><p>Hot word is contextual (context) biasing, which means we can argumented the specific word we want and make it easily be recognized. This is often occurred within the speech technology. </p>
+<p>The common senarios can be recognize: locations, contacter’s name, date or telephone numbers… This senario is always used into the real commercial cases.</p>
+<p>In all, the how word enhancement is to give some particular words some kind of more weighting score. In this way, it will make the word we want (hot word) more easily to be decoded.</p>
+<h1 id="6-Long-time-audio-ASR"><a href="#6-Long-time-audio-ASR" class="headerlink" title="6. Long-time audio ASR"></a>6. Long-time audio ASR</h1><p><img src="/../images/image-20220819211753969.png" srcset="/img/loading.gif" lazyload alt="image-20220819211753969"></p>
+<p>The basic philosophy here for long-time audio asr tasks are very direct, we just divide the big problems into small problems. We have to detect the endpoint for each sentences, just make it in trucks. And after the end-point,  we can re-recognize the sentences. </p>
+<h2 id="6-1-EndPoint-Detection"><a href="#6-1-EndPoint-Detection" class="headerlink" title="6.1 EndPoint Detection"></a>6.1 EndPoint Detection</h2><p>What is endpoint, endpoint is somewhere that the user will stop at some point, or just the end of the sentences. We can just set the silence threshold of the sentences. </p>
+<p>There are three senarios(rules) in wenet:</p>
+<ol>
+<li>Before the speech, the silence in there. Default value is 5000ms (5s).</li>
+<li>Within the speech, the silence there. Default value is 1000ms (1s).</li>
+<li>If the user’s speech trunks are too large, we have to cut it forcelly. Default value is 20000ms (20s).</li>
+</ol>
+<p>We can set the params here in wenet.</p>
+<p>Here are the core codes here from wenet for Endpoint detection task:<a target="_blank" rel="noopener" href="https://github.com/wenet-e2e/wenet/blob/main/runtime/core/decoder/ctc_endpoint.h">https://github.com/wenet-e2e/wenet/blob/main/runtime/core/decoder/ctc_endpoint.h</a></p>
+<p><img src="/../images/image-20220819212902233.png" srcset="/img/loading.gif" lazyload alt="image-20220819212902233"></p>
+<p><img src="/../images/image-20220819213119821.png" srcset="/img/loading.gif" lazyload alt="image-20220819213119821"></p>
+<p>We can define the values we want, the units will be 5000 ms. </p>
+<p>The real code for <strong>continous blank detection</strong> is in here: <a target="_blank" rel="noopener" href="https://github.com/wenet-e2e/wenet/blob/main/runtime/core/decoder/ctc_endpoint.cc">https://github.com/wenet-e2e/wenet/blob/main/runtime/core/decoder/ctc_endpoint.cc</a></p>
+<p>These are the codes that how it really works:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">CtcEndpoint::IsEndpoint</span><span class="hljs-params">(</span></span><br><span class="hljs-params"><span class="hljs-function">    <span class="hljs-type">const</span> std::vector&lt;std::vector&lt;<span class="hljs-type">float</span>&gt;&gt;&amp; ctc_log_probs,</span></span><br><span class="hljs-params"><span class="hljs-function">    <span class="hljs-comment">// it will get the ctc log probabilities, it will get the ctc prob and compare with the blank prob.</span></span></span><br><span class="hljs-params"><span class="hljs-function">    <span class="hljs-type">bool</span> decoded_something)</span> </span>&#123;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> t = <span class="hljs-number">0</span>; t &lt; ctc_log_probs.<span class="hljs-built_in">size</span>(); ++t) &#123;<br>    <span class="hljs-type">const</span> <span class="hljs-keyword">auto</span>&amp; <span class="hljs-type">logp_t</span> = ctc_log_probs[t];<br>    <span class="hljs-type">float</span> blank_prob = <span class="hljs-built_in">expf</span>(<span class="hljs-type">logp_t</span>[config_.blank]);<br>    num_frames_decoded_++;<br>    <span class="hljs-comment">// in here if the blank prob bigger than the preset blank value we set, it will detect as silence signal.</span><br>    <span class="hljs-keyword">if</span> (blank_prob &gt; config_.blank_threshold) &#123;<br>      num_frames_trailing_blank_++;<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>      <span class="hljs-comment">// if not will be cleared into 0, some it follows a culmuative way.</span><br>      num_frames_trailing_blank_ = <span class="hljs-number">0</span>;<br>    &#125;<br>  &#125;<br>  <span class="hljs-comment">// we will check the length of the speech.</span><br>  <span class="hljs-built_in">CHECK_GE</span>(num_frames_decoded_, num_frames_trailing_blank_);<br>  <span class="hljs-built_in">CHECK_GT</span>(frame_shift_in_ms_, <span class="hljs-number">0</span>);<br>  <span class="hljs-type">int</span> utterance_length = num_frames_decoded_ * frame_shift_in_ms_;<br>  <span class="hljs-type">int</span> trailing_silence = num_frames_trailing_blank_ * frame_shift_in_ms_;<br>  <span class="hljs-comment">// if there is any case that be activated, the endpoint exception case will be triggered.</span><br>  <span class="hljs-keyword">if</span> (<span class="hljs-built_in">RuleActivated</span>(config_.rule1, <span class="hljs-string">&quot;rule1&quot;</span>, decoded_something, trailing_silence,<br>                    utterance_length))<br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>  <span class="hljs-keyword">if</span> (<span class="hljs-built_in">RuleActivated</span>(config_.rule2, <span class="hljs-string">&quot;rule2&quot;</span>, decoded_something, trailing_silence,<br>                    utterance_length))<br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>  <span class="hljs-keyword">if</span> (<span class="hljs-built_in">RuleActivated</span>(config_.rule3, <span class="hljs-string">&quot;rule3&quot;</span>, decoded_something, trailing_silence,<br>                    utterance_length))<br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>  <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="6-1-1-CTC-Endpoint-Process"><a href="#6-1-1-CTC-Endpoint-Process" class="headerlink" title="6.1.1 CTC Endpoint Process"></a>6.1.1 CTC Endpoint Process</h3><h4 id="Endpoint-Detection"><a href="#Endpoint-Detection" class="headerlink" title="Endpoint Detection"></a>Endpoint Detection</h4><p>We can check the code here: <a target="_blank" rel="noopener" href="https://github.com/wenet-e2e/wenet/blob/main/runtime/core/decoder/asr_decoder.cc#L117">https://github.com/wenet-e2e/wenet/blob/main/runtime/core/decoder/asr_decoder.cc#L117</a></p>
+<p><img src="/../images/image-20220821035221487.png" srcset="/img/loading.gif" lazyload alt="image-20220821035221487"></p>
+<p>Here the program can detect whether there is a endpoint there.</p>
+<h4 id="Rescoring"><a href="#Rescoring" class="headerlink" title="Rescoring"></a>Rescoring</h4><p>For Wenet, we have the CTC decoding results to do the rescoring tatics. It will the Nbest scoring, also it will append the recognition results into the original results. <img src="/../images/image-20220821035807719.png" srcset="/img/loading.gif" lazyload alt="image-20220821035807719"></p>
+<p>We can detect from <a target="_blank" rel="noopener" href="https://github.com/wenet-e2e/wenet/blob/main/runtime/core/bin/decoder_main.cc#L75">https://github.com/wenet-e2e/wenet/blob/main/runtime/core/bin/decoder_main.cc#L75</a></p>
+<h4 id="State-Reset"><a href="#State-Reset" class="headerlink" title="State Reset"></a>State Reset</h4><p><a target="_blank" rel="noopener" href="https://github.com/wenet-e2e/wenet/blob/main/runtime/core/decoder/asr_decoder.cc#L67">https://github.com/wenet-e2e/wenet/blob/main/runtime/core/decoder/asr_decoder.cc#L67</a></p>
+<p><img src="/../images/image-20220821040446495.png" srcset="/img/loading.gif" lazyload alt="image-20220821040446495"></p>
+<p>It will do the status reset for the final step. It will clear the status, and ready for the next-stage recognition. It will add a comma “,” for each endpoint.</p>
+<h3 id="6-1-2-Webrtcvad"><a href="#6-1-2-Webrtcvad" class="headerlink" title="6.1.2 Webrtcvad"></a>6.1.2 Webrtcvad</h3><p>Wenet also supports like external vad modules like from <code>webrtcvad</code>. It is a very great open-resource job here, the difference here is that it used more tactics to do the audio vad works instead of just pure stop-point detections. </p>
+<p><a target="_blank" rel="noopener" href="https://github.com/wiseman/py-webrtcvad">https://github.com/wiseman/py-webrtcvad</a></p>
+<p><img src="/../images/image-20220821055530432.png" srcset="/img/loading.gif" lazyload alt="image-20220821055530432"></p>
+<p>The way it works are very direct, it will detect whether there is the silent audio.</p>
+<p><img src="/../images/image-20220821055724162.png" srcset="/img/loading.gif" lazyload alt="From: https://github.com/wiseman/py-webrtcvad/blob/master/example.py#L141"></p>
+<h2 id="6-2-Python-Deployment"><a href="#6-2-Python-Deployment" class="headerlink" title="6.2 Python Deployment"></a>6.2 Python Deployment</h2><p>The easiest way is to just call the <code>continous_decoding</code> param and set it as <code>True</code>. If we set this as <code>False</code>, there can be no stops of our recognition texts, and at the same time, there will be a faster speed to decode since there is no endstop detection.</p>
+<p><img src="/../images/image-20220821052226122.png" srcset="/img/loading.gif" lazyload alt="image-20220821052226122"></p>
+<p>We will use a streaming way that we will input the audio chunks in every 0.5 seconds. We decode the audio file in each 0.5 seconds each time, it will like the streaming way. The delay in the streaming ASR jobs will always like between <code>500ms</code> to <code>600ms</code>, so it will be limited on there speech recognition accuracy.</p>
+<h2 id="6-3-Use-C"><a href="#6-3-Use-C" class="headerlink" title="6.3 Use C++"></a>6.3 Use C++</h2><p>We can easily use the C++ to do the long-time audio ASR by just selecting the <code>continous_decoding</code> into <code>True</code>:</p>
+<p><img src="/../images/image-20220821053452850.png" srcset="/img/loading.gif" lazyload alt="image-20220821053452850"></p>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/Use%20Cases/Speech-Recognition/">#Speech Recognition</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Wenet ASR Toolkit Tutorials From Training to Deployment</div>
+      <div>https://xiao11lam.github.io/2022/03/02/Wenet-ASR-Toolkit-Tutorials-From-Training-to-Deployment/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>Xiao Zhang</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>March 2, 2022</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>Licensed under</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/03/30/Audio-and-Speech-Application-Development/" title="Audio and Speech Application Development">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Audio and Speech Application Development</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/02/02/WebRtc-Audio-Processing-Notes/" title="WebRtc Audio Processing Notes">
+                        <span class="hidden-mobile">WebRtc Audio Processing Notes</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;Table of Contents</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>© 2022 By Xiao Zhang</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        Views: 
+        <span id="busuanzi_value_site_pv"></span>
+        
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        Visitors: 
+        <span id="busuanzi_value_site_uv"></span>
+        
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        MathJax = {
+          tex    : {
+            inlineMath: { '[+]': [['$', '$']] }
+          },
+          loader : {
+            load: ['ui/lazy']
+          },
+          options: {
+            renderActions: {
+              findScript    : [10, doc => {
+                document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                  const display = !!node.type.match(/; *mode=display/);
+                  const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                  const text = document.createTextNode('');
+                  node.parentNode.replaceChild(text, node);
+                  math.start = { node: text, delim: '', n: 0 };
+                  math.end = { node: text, delim: '', n: 0 };
+                  doc.math.push(math);
+                });
+              }, '', false],
+              insertedScript: [200, () => {
+                document.querySelectorAll('mjx-container').forEach(node => {
+                  let target = node.parentNode;
+                  if (target.nodeName.toLowerCase() === 'li') {
+                    target.parentNode.classList.add('has-jax');
+                  }
+                });
+              }, '', false]
+            }
+          }
+        };
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.1/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>

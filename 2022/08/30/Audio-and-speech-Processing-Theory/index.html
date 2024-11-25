@@ -1,0 +1,1599 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Xiao Zhang">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Audio ProcessingADC (Analog to Digital Codec) After the Microphone got the analog signals from the environment, it will pass through the codec and transform it into the digital data which only has “0”">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Audio and speech Processing Theory">
+<meta property="og:url" content="https://xiao11lam.github.io/2022/08/30/Audio-and-speech-Processing-Theory/index.html">
+<meta property="og:site_name" content="Xiao Zhang">
+<meta property="og:description" content="Audio ProcessingADC (Analog to Digital Codec) After the Microphone got the analog signals from the environment, it will pass through the codec and transform it into the digital data which only has “0”">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://xiao11lam.github.io/images/image-20220830190323321.png">
+<meta property="og:image" content="https://xiao11lam.github.io/images/image-20220917181359913.png">
+<meta property="og:image" content="https://xiao11lam.github.io/images/image-20220917174531894.png">
+<meta property="og:image" content="https://xiao11lam.github.io/images/image-20220917175421567.png">
+<meta property="og:image" content="https://xiao11lam.github.io/images/image-20220917175904984.png">
+<meta property="og:image" content="https://xiao11lam.github.io/images/image-20220917180023833.png">
+<meta property="og:image" content="https://xiao11lam.github.io/images/image-20220917180656489.png">
+<meta property="og:image" content="https://xiao11lam.github.io/images/image-20220917181019732.png">
+<meta property="og:image" content="https://xiao11lam.github.io/images/image-20220917181123310.png">
+<meta property="og:image" content="https://xiao11lam.github.io/images/image-20220917181318336.png">
+<meta property="og:image" content="https://xiao11lam.github.io/images/image-20220919014841416.png">
+<meta property="og:image" content="https://xiao11lam.github.io/images/image-20220919015020116.png">
+<meta property="og:image" content="https://xiao11lam.github.io/images/image-20220919015035225.png">
+<meta property="og:image" content="https://xiao11lam.github.io/images/image-20220919015237395.png">
+<meta property="og:image" content="https://xiao11lam.github.io/images/image-20220830144931149.png">
+<meta property="article:published_time" content="2022-08-30T13:19:00.000Z">
+<meta property="article:modified_time" content="2024-11-25T22:45:14.891Z">
+<meta property="article:author" content="Xiao Zhang">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://xiao11lam.github.io/images/image-20220830190323321.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>Audio and speech Processing Theory - Xiao Zhang</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/fluid-extention.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"xiao11lam.github.io","root":"/","version":"1.9.1","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Xiao @ Speech and Language Processing</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archive/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archive
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/products/">
+                <i class="iconfont icon-category-fill"></i>
+                Products
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Use Cases
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                Links
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/banner.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Audio and speech Processing Theory"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-08-30 14:19" pubdate>
+          August 30, 2022 pm
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          30k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          254 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Audio and speech Processing Theory</h1>
+            
+            <div class="markdown-body">
+              
+              <h1 id="Audio-Processing"><a href="#Audio-Processing" class="headerlink" title="Audio Processing"></a>Audio Processing</h1><h2 id="ADC-Analog-to-Digital-Codec"><a href="#ADC-Analog-to-Digital-Codec" class="headerlink" title="ADC (Analog to Digital Codec)"></a>ADC (Analog to Digital Codec)</h2><p><img src="/../images/image-20220830190323321.png" srcset="/img/loading.gif" lazyload alt="https://www.rfwireless-world.com/Terminology/Advantages-and-Disadvantages-of-Pulse-Density-Modulation.html"></p>
+<p>After the Microphone got the analog signals from the environment, it will pass through the codec and transform it into the digital data which only has “0”, and “1”. </p>
+<p>The signals that continually trace the same path in this way are called periodic. </p>
+<p>The shape that repeats is called a <strong>cycle</strong>, and the time it takes to repeat is called the <strong>period</strong>.</p>
+<p>$$<br>f &#x3D; \frac{1}{p}<br>(f: freq, p: period)\<br>f &#x3D; rate * channel.num * sample.bits<br>$$</p>
+<p>$$<br>dur(sec) &#x3D; \frac{bit.num}{bit&#x2F;sec}<br>$$</p>
+<p>$$<br>dur(sec) &#x3D; \frac{size(mb) * 8 * 1024 * 1024}{sample.rate * bit.depth * channel.num }<br>$$<br>If there is 16 bit mono speech file:<br>$$<br>dur(sec) &#x3D; \frac{size(mb) * 8 * 1024 * 1024}{sample.rate * 16 * 1 }<br>$$</p>
+<p>The sawtooth waveform is important in the study of production, as the vocal cords change the airflow from the lungs into a signal that looks similar to a sawtooth.</p>
+<p>Square wave, or rectangle wave, or pulse trains. The signals differ in how long they stay at the top and bottom of their travel, their duty cycle (the proportion of period in which they are at their maximum).</p>
+<p>Each of these lasts for a short time only, and hence they are known as <strong>transients</strong> (since they don’t hang around). <strong>Burst</strong> is happened in the human speech and they are part of the transients.</p>
+<p>The rms amplitude is the most important way of specifying the amplitude of a signal because it presupposes the use of a related quantity - <strong>intensity</strong>.</p>
+<p><a target="_blank" rel="noopener" href="http://soundfile.sapp.org/doc/WaveFormat/">http://soundfile.sapp.org/doc/WaveFormat/</a></p>
+<h2 id="Audio-Architecture"><a href="#Audio-Architecture" class="headerlink" title="Audio Architecture"></a>Audio Architecture</h2><p>We will use the <code>SDL</code> C++ lib package to explain this, and we will know from this that how computer render the audio files.</p>
+<p>The most high level concept or the interface of the audio system from the <code>SDL</code> is the <code>IAudioContext</code>. </p>
+<h4 id="IAudioContext"><a href="#IAudioContext" class="headerlink" title="IAudioContext"></a>IAudioContext</h4><p>The <code>IAudioConext</code> contains those operations:</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs scss">-<span class="hljs-attr">--playAudio</span> (AudioObject)<br>-<span class="hljs-attr">--PauseAudio</span> (AudioObject)<br>-<span class="hljs-attr">--StopAudio</span> (AudioObject)<br></code></pre></td></tr></table></figure>
+
+<p>Another component is like <code>IAudioDevice</code>, it includes:</p>
+<figure class="highlight isbl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs isbl">---<span class="hljs-function"><span class="hljs-title">CreateAudio</span>(<span class="hljs-variable">fileName</span>)</span><br>---<span class="hljs-function"><span class="hljs-title">ReleaseAudio</span>(<span class="hljs-variable">IAudioData</span>)</span><br></code></pre></td></tr></table></figure>
+
+<p>We will also have an abstract idea, like there has <code>AudioObject</code>. This is the object of our audio system.</p>
+<p>It includes:</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-built_in">---GenerateSamples</span>(stream, len)<br><span class="hljs-built_in">---SetPos</span>(pos) # set the <span class="hljs-attribute">position</span> of the <span class="hljs-selector-tag">audio</span> rendering<br>-<span class="hljs-attr">--SampleInfo</span><br>----<span class="hljs-attr">--volume</span><br>----<span class="hljs-attr">--pitch</span><br>----<span class="hljs-attr">--loopLoc</span><br>----<span class="hljs-attr">--Panning</span><br>-<span class="hljs-attr">--IAudioData</span><br></code></pre></td></tr></table></figure>
+
+<p>We got <code>IAudioData</code> to contain the audio data, they are generated from: <code>GenerateSamples(stream, len, Pos, SampleInfo)</code>.</p>
+<h1 id="Speech-and-Language-Processing"><a href="#Speech-and-Language-Processing" class="headerlink" title="Speech and Language Processing"></a>Speech and Language Processing</h1><p>Here are the lifecycle of the speech features processing.</p>
+<p><img src="/../images/image-20220917181359913.png" srcset="/img/loading.gif" lazyload alt="image-20220917181359913"></p>
+<h2 id="Short-time-analysis-Speech-Features"><a href="#Short-time-analysis-Speech-Features" class="headerlink" title="Short time analysis : Speech Features"></a>Short time analysis : Speech Features</h2><p>The feature in speech means that <code>an indivisual measurable property or characteristics of a phenomenon being observed.</code></p>
+<p>The three principles of a good feature:</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">Informative   </span><br><span class="hljs-attribute">Discriminating</span><br><span class="hljs-attribute">Independent</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="Short-time-analysis"><a href="#Short-time-analysis" class="headerlink" title="Short time analysis"></a>Short time analysis</h3><p>The basic idea is to break the audio frames into small trunks, which range from <code>10ms ~ 30ms</code>, so we will think in a more micro way. In this way, each trunk will be stationary. And those trunks we will call it <code>frames</code>.  In video processing, each image you captured is a frame, but in speech processing, we will only know the <strong>dense samples</strong> since we only use the <code>frame</code> for analyzing. </p>
+<h4 id="Framing"><a href="#Framing" class="headerlink" title="Framing"></a>Framing</h4><p><img src="/../images/image-20220917174531894.png" srcset="/img/loading.gif" lazyload alt="image-20220917174531894"></p>
+<p>There are two concepts from the framing:</p>
+<ol>
+<li>frame size: the duration of each frame</li>
+<li>frame step&#x2F;stride: the temporal distance between two consecutive frames</li>
+</ol>
+<p>Three principles of framing:</p>
+<ol>
+<li>Size &gt; Step (Mostly used way, so they can share overlaps)</li>
+<li>Size &#x3D; Step (So each sampling point only belongs to a specific frame)</li>
+<li>Size &lt; Step (So there may have gaps between different frames, which is not suggested since it can lose some info)</li>
+</ol>
+<p>Eg:</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">1</span> sec audio file with <span class="hljs-number">16</span>KHz sample rate, frame size: <span class="hljs-number">25</span>ms, frame step(stride): <span class="hljs-number">10</span>ms<br><br><span class="hljs-attribute">Nums_frames</span> = <span class="hljs-number">1</span> second/ <span class="hljs-number">10</span>ms = <span class="hljs-number">100</span><br><span class="hljs-attribute">Nums_samples</span> per frame: <span class="hljs-number">16</span> KHz * <span class="hljs-number">0</span>.<span class="hljs-number">025</span>s = <span class="hljs-number">400</span><br><br></code></pre></td></tr></table></figure>
+
+
+
+<h4 id="Window-function"><a href="#Window-function" class="headerlink" title="Window function"></a>Window function</h4><p><img src="/../images/image-20220917175421567.png" srcset="/img/loading.gif" lazyload alt="image-20220917175421567"></p>
+<p>In order to solve the framing discontinuity problem, we need to use the windowing function. Because when we do the framing, it will make the original speech signal with no boundary connections, which can cause discontinuity (Gibbs Phenomenon: <strong>undesired high frequency components</strong> and <strong>spectral leakage</strong>). </p>
+<p>The logic of the windowing function is to give each frame a weight, near the edge values we make it <strong>close to 0</strong>, if in the middle frame, we keep it untouched. <img src="/../images/image-20220917175904984.png" srcset="/img/loading.gif" lazyload alt="image-20220917175904984"></p>
+<h5 id="Gaussian-Windowing"><a href="#Gaussian-Windowing" class="headerlink" title="Gaussian Windowing"></a>Gaussian Windowing</h5><h5 id="Hanning-Windowing-amp-Hamming-Windowing"><a href="#Hanning-Windowing-amp-Hamming-Windowing" class="headerlink" title="Hanning Windowing &amp; Hamming Windowing"></a>Hanning Windowing &amp; Hamming Windowing</h5><p><img src="/../images/image-20220917180023833.png" srcset="/img/loading.gif" lazyload alt="image-20220917180023833"></p>
+<p>Hamming windowing will set the edge totally like close to 0, but hamming window will slightly not that harsh.</p>
+<h4 id="Frame-Post-Processing"><a href="#Frame-Post-Processing" class="headerlink" title="Frame Post Processing"></a>Frame Post Processing</h4><p>After we did the framing and the windowing, we need to do some frame post processing.</p>
+<p>They includes:</p>
+<ol>
+<li>Frame Stacking : Stacking the neighboring frames into a single super frame, it will combine the relevant frames into a bigger frame.</li>
+</ol>
+<p><img src="/../images/image-20220917180656489.png" srcset="/img/loading.gif" lazyload alt="image-20220917180656489"></p>
+<p>As shown it will copy each frame from the previous frame, it will help us to know more information from the previous frame. The <code>?</code> frame from the graph can be replaced by 1st frame.</p>
+<ol start="2">
+<li>Frame Subsampling: Drop some frame.</li>
+</ol>
+<p>It will help us to reduce the computational cost. </p>
+<p><img src="/../images/image-20220917181019732.png" srcset="/img/loading.gif" lazyload alt="image-20220917181019732"></p>
+<p>We mostly do the Frame Stacking and then is the Frame Subsampling. </p>
+<ol start="3">
+<li>Frame Normalization: Optimize the numeric values to follow the Normal Distributions.</li>
+</ol>
+<p><img src="/../images/image-20220917181123310.png" srcset="/img/loading.gif" lazyload alt="image-20220917181123310"></p>
+<p>The normalization parts  helped us to <code>converge</code> when we do the training.</p>
+<p><img src="/../images/image-20220917181318336.png" srcset="/img/loading.gif" lazyload alt="image-20220917181318336"></p>
+<h3 id="Feature-Extraction"><a href="#Feature-Extraction" class="headerlink" title="Feature Extraction"></a>Feature Extraction</h3><h4 id="Global-Acoustic-Features-Stationary-features"><a href="#Global-Acoustic-Features-Stationary-features" class="headerlink" title="Global Acoustic Features (Stationary features)"></a>Global Acoustic Features (Stationary features)</h4><p>The global acoustic features are mostly stationary features, since we always need to get the whole audio files then can we processing those features.</p>
+<p>Also if the speech signal is very <strong>periodic</strong> signal which are very stable, then it is very useful to discuss about those global acoustic features. But to many speech signals they are not periodic, if we use the stationary features to describe the whole speech signal, which will <strong>lose some details of the speech</strong>. And another question could be, the stationary features will be extremely sensible to the <strong>noise</strong>. </p>
+<h5 id="Fundamental-frequency-f0"><a href="#Fundamental-frequency-f0" class="headerlink" title="Fundamental frequency (f0)"></a>Fundamental frequency (f0)</h5><h5 id="Formants-f1-and-f2"><a href="#Formants-f1-and-f2" class="headerlink" title="Formants (f1 and f2)"></a>Formants (f1 and f2)</h5><h5 id="Intensity"><a href="#Intensity" class="headerlink" title="Intensity"></a>Intensity</h5><h3 id="Time-Domain-Features"><a href="#Time-Domain-Features" class="headerlink" title="Time Domain Features"></a>Time Domain Features</h3><p>We can extract the features directly from the waveform without the Fourier transform.</p>
+<p>Here are the usual time domain features:</p>
+<p><strong>Short Time Energy</strong></p>
+<p>It mostly used in VAD, if high energy &#x3D;&gt; speech signal, and in Automatic Gain Control (AGC).</p>
+<p><strong>Short Time Average Magnitude</strong></p>
+<p><strong>Short-time Zero Cross Rate (ZCR)</strong></p>
+<p><strong>Short-time Autocorrelation</strong></p>
+<p>We will delay the signals by k samples, then compute the <code>correlation</code>. </p>
+<p><img src="/../images/image-20220919014841416.png" srcset="/img/loading.gif" lazyload alt="image-20220919014841416"></p>
+<p>We will mostly use this in the <strong>pitch detection</strong>! </p>
+<p><strong>Short-time average magnitude difference function (AMDF)</strong></p>
+<p>We will delay the signals by k samples, then compute the <code>difference</code>.</p>
+<p><img src="/../images/image-20220919015020116.png" srcset="/img/loading.gif" lazyload alt="image-20220919015020116"> </p>
+<p>For the short-time AMDF, we use:</p>
+<p><img src="/../images/image-20220919015035225.png" srcset="/img/loading.gif" lazyload alt="image-20220919015035225"></p>
+<p>It just like the autocorrelation, but it is very good for the pitch dection. </p>
+<p><strong>Short Time Linear Predictive Coding (LPC)</strong></p>
+<p>We will assume that each sample can be approximated by previous samples via linear combinations:</p>
+<p><img src="/../images/image-20220919015237395.png" srcset="/img/loading.gif" lazyload alt="image-20220919015237395"></p>
+<p>$$<br>The \ combination \ of \ the \ previous \ ks \ samples : a_{i} \<br>the \ difference : e[n] \<br>Each \ frame \ has \ N \ Samples<br>$$</p>
+<h3 id="Frequency-Domain-Features"><a href="#Frequency-Domain-Features" class="headerlink" title="Frequency Domain Features"></a>Frequency Domain Features</h3><p>We need to do the Fourier transform firstly, and this is always be used. </p>
+<h1 id="Speech-Production-Model"><a href="#Speech-Production-Model" class="headerlink" title="Speech Production Model"></a>Speech Production Model</h1><p>The voiced and unvoiced speech mostly for 10~20 ms. </p>
+<p><img src="/../images/image-20220830144931149.png" srcset="/img/loading.gif" lazyload alt="Pic From: http://eemedia.ee.unsw.edu.au/contents/elec9344/LectureNotes/Chapter%201.pdf"></p>
+<p>The vocal tract model can be understood by a filter equation, here can be the transfer function, the <code>n</code> means the filers you want to have:<br>$$<br>\frac{1}{1 + b_{1}z^{-1} + b_{2}z^{-2} + b_{n}z^{-n} }<br>$$</p>
+<p>The Radiation model here means the <code>lip model</code>. </p>
+<p>Vocal fold can become a <strong>signal system</strong>.  It has a input signal, and transmitted into a system and output a processed speech signals. So if in vocal tract, it will be the voice source signal, and pass the vocal tract it will be the speech signal.</p>
+<p>The human speech model can be a <code>LTI (Linear Time Invariant)</code> system. LTI system can be both linear and time-invariant, and can be homogenous (k * input signal and k * output signal, which can be a linear addiction, in a, <code>frequency</code> is the same, when got <code>statuation</code> or <code>overanged</code> it could be not LTI system) and additive (sum of the two signals, signals can be added and transferred). Linear can be &#x3D; <code>homogeneity + additivity</code>.</p>
+<p>A system that is <code>time-invariant</code> does not change over time, in (t-delay) &#x3D;&gt; out (t-delay). For a sinusoid, a change in time is equivalent to a change in phase, a sin wave and a cosine wave differes only in time. </p>
+<p>We will assume the vocal tract is a LTI system, but in reality it is not, we just gave an assumption, it is <code>time-variant</code>. We are treating some vocal tract <code>noise</code> into a LTI system. </p>
+<p>But we only need to know the response of an LTI system to sinusoids. </p>
+<p><a target="_blank" rel="noopener" href="http://www.speechandhearing.net/laboratory/esystem/">www.speechandhearing.net/laboratory/esystem/</a></p>
+<p>For LTI system, if the input is the sin wave, the output will be the same freq sin wav but can be differs in <strong>amplitude and phase</strong>. </p>
+<p>Frequency response can be with <code>amplitude response A(f) = Outamp(f)/Inamp(f) </code>   and <code>frequency response</code>.</p>
+<p>Like the amplitude response, like for voltage, we can get the gain is the<code>A(f) = Voltage_outputamp(f)/Voltage_Inputamp(f)</code>, </p>
+<p>and we can get more acoustic information by add the <code>20logA(f)</code>, to get the unit under it and units in <code>dB</code>.</p>
+<figure class="highlight plaintext"><figcaption><span>always refer to the doubling signal.</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br></pre></td><td class="code"><pre><code class="hljs Octave```"><br><br><br>```cascade``` filter can be mutiple filters added together, like many ```low or high pass filters```.  <br><br><br><br>Resonant frequency can be ```formant frequency```, just different saying.<br><br>More tense voice will be narrower the ```bandwidth```. ```formant resonators``` also can be called as &quot;poles&quot; in a more enginerring way.<br><br>**HPC will lift/boost the higher formant/high freq energy**, since it can drop the energy in high freq energy, it will emphasis the higher frequency in the speech. <br><br><br><br>HPC filter will  not affect the vowel quality, and will not affect the formant frequecy. The speech energy level is mostly in low freq range, but for higher freq is also need to emphasised if we wanna view clearly in the spectogram, like HPC filter. <br><br><br><br># Linguistics &amp; Phonetics<br><br>Linguistics can be a science about hyposis and experimental research. We study human languages as a natural phenomenon, and this is what linguistics about. And linguistics should not used as a mean of discrimination. <br><br>From **Panini**, we still use his **level of analysis** study about Sanskrit linguistics:<br><br>1. Phonology (Sound Difference for each phone in difference languages)<br>2. Morphology (格)<br>3. Syntax <br>4. Lexicon （like the dictionary)<br><br>**Contemporary linguistics is about unwealing the hidden rules of the languages.**<br><br>Basically, the system of language and the system of societies and cultures can be analysed in a similar way.  **So its about data so much, it called Structurism.** <br><br><br><br>Broadband: frequency, more short time.  Bandpass filter for broadband is 300Hz (good time resolution), for narrowband is 50Hz (poor time resolution).  <br><br>Narrowband: harmonics structure ? <br><br>The difference is from the **FFT window length**. Narrowband view, it boost the higher frequency, we will see the higher frequency than the broadband. <br><br>We mostly set the frequency range from 0 to 5k, and find out the first 5 formants (at most), but mostly first 3 formants. <br><br><br><br>**Source is from larynx, filter is from the vocal tract.** Vocal tract actually acts like a band pass filter. <br><br>**Source spectrum + filter function = Output Spectrum**<br><br>Rate of vocal fold vibration determines f0, longer vocal cords, which can get lower f0 range. Man can have bigger resonator (from the larnxy to the lips, the cavity/chamber), so leads to more lower frequency. <br><br><br><br>Each formant can be explained as different parts of the vocal tract. <br><br>Spectrum (spectrogram can also be but just in little units of the spectrum) of the ouput has characteristics of both glottal source and vocal tract filter. <br><br>Change f0 =&gt; change the harmonics =&gt; change the F1, F2 (F1 and F2 also independent)<br><br>Pitch will change the F1 and F2, fairly independent. F0 and F1, F2 are fairly independent. <br><br>Good rule is take 10 hamonics.<br><br><br><br>Cosine phase, is always the reference signal. <br><br><br><br><br><br><br><br><br><br>**0.005 / 0.03**<br><br><br><br>The first logic we explain will assume (bivalency) (each proposition is either true of false). <br><br>**Interpretation** function or **meaning (meaning is a value: True of False, is that a semantics meaning)** function: <br>$$<br>[.]^&#123;I&#125;<br>$$<br>The value of it is either true or false. <br>$$<br>[p \to q ]^&#123;I&#125; iff \ [p]^&#123;I&#125; = 0 \ or \ [q]^&#123;I&#125; = 1<br>$$<br><br><br>A sentences is **valid** if and only if it is true under every possible interpretation. <br><br><br><br><br><br>**Today is Thursday**, (what is the negation?) <br><br></code></pre></td></tr></table></figure>
+<p>Today is not Thursday.</p>
+<p>Not today is Thursday. </p>
+<p>It is false that today is Thursday.</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><br><br><br><br><br><span class="hljs-keyword">True</span> <span class="hljs-keyword">statement</span>. There <span class="hljs-keyword">is</span> <span class="hljs-keyword">no</span> perfect match <span class="hljs-keyword">of</span> negation, we are <span class="hljs-keyword">following</span> an **abstraction** way. <br><br></code></pre></td></tr></table></figure>
+<p>Fact 1 implies Fact 2</p>
+<p>Fact 2</p>
+<hr>
+<p>Therefore, fact 2.</p>
+<pre><code class="hljs">
+
+
+What the smallest unit of a sentence if we are talking in semantics ? Morphones?
+
+Since we are discussing the sentences level. The **sentence?** So the sentence is somekind of reasonable sentences?
+
+
+
+Search from the queries like eliminatings the values not met the values and keep the results not met the conditions.
+
+
+
+Formal linguistics is caring only about the logic validity.
+
+
+
+
+
+```f0``` can affect the formants, but mostly it wont but if we use a very &quot;unreasonable&quot; way to pronounce it. 
+
+Why we like &quot;h&quot; sound is that it will not affect the vowels after it since you will get some &quot;preparation&quot; for the following sound. Always use your own judgements not only relying on the Praat only.
+
+
+
+
+
+**For a spectrum, the x-axis is the frequency domain, which can be understood the units of the sine waves in that particular units like 1 KHz actually represends the divisor like 1KHz sine wav signal, the original signal is the dividend. The results that reflected on the y-axis is the dB scale which is dervied from the forier series.**
+
+Fourier synthesis is the multiplication of those sinounds muliple with the fourier series. 
+
+
+
+
+
+Even you changed the first hamonics even you remove it, the fundamental freq will remain the same. Removing the fundamental component (H1), the pitch will not change, it will change a little bit but just the little auditory hearing from our human beings. 
+
+
+
+amplitude response is used for testing the audio system. System amplitude response can be a filter of the speaker output. The amplitude spectrum is on the ADC processing, the amplitude response can be already the DAC.
+
+Most of the energy of the triangular wave is in the first harmonic. 
+
+
+
+
+
+![image-20221010140556527](../images/image-20221010140556527.png)
+
+
+
+
+
+![image-20221006174356021](../images/image-20221006174356021.png)
+
+
+
+**there is a Queen: A**
+**there is an Ace: B**
+**there is an King: C** 
+$$
+1) A \rightarrow B   \\
+2) C \rightarrow B   \\
+3) C \vee  A
+$$
+Since:
+$$
+p \rightarrow q \equiv \sim p \vee q
+$$
+So: 
+$$
+1) A \rightarrow B  \equiv \sim A \vee B  \\
+2) C \rightarrow B  \equiv \sim C \vee B  \\
+3) C \vee  A
+$$
+
+
+Now, we knew: Sentence 0), 3)  is true, exactly  (1) and (2) is true.
+
+Universal validity (|=) 
+
+
+
+P |= Q :q is a semantics consequence of P, |= is the knowlege extraction of the knowledge base.
+
+P erro Q 
+
+|- : Supports, implies to the deduction system
+
+
+
+
+
+p -&gt; q
+
+p
+
+_____
+
+If p is true, then q is true, if p is true, then &#123;p-&gt;q, p&#125; |- q
+
+Got some knowlege of the world + addtion of the datbase -&gt; knowlege system 
+
+
+
+
+
+
+
+**Steady Point:**
+
+**The formants have the highest energy to show the role of itself.** It always in the half or close to the half position of it. For dipthongs, they can have two steady points. 
+
+
+
+
+
+/^/ not totally = [ʊ], but we mostly ignore it. 
+
+
+
+ [^] or [ʊ] there is only little potential differences, only depends on the willingness of the native speaker, like American and British people. 
+
+Most English accents differs in the vowels, but the consonants are just little things.
+
+
+
+IPA charts does not represent any language, the vowel chart just represents the most &quot;**extremely**&quot; humanly possible position of the sound, just for setting a &quot;**Border**&quot;.
+
+
+
+
+
+Irish Vowels:
+
+ heed: i (long, just like i:)
+
+hid: I (short)
+
+One is longer (**phonlogy: length = acoustic duration**), acoustically saying is the duration. 
+
+
+
+1) Already known, literature review, get the question. 2) see what you found and how and where, auditory , social impacts , and analyze the results in your way 3) results,
+
+F3 formants will be affected by F2 which is the front and back of the tongue, also will be affected by the roundness or unroundness, they will be affected by each other. 
+
+ Make sure the two pics scale the same.
+
+Make sure to visualize the table with the pic.
+
+
+
+M&lt;D, I&gt; , D: domains, I: intereting function of the meaning of the domain
+
+M: Model
+
+
+
+!
+
+E : thats a unique exisitance
+
+[]^M = I() : Meaning function, interpreting function.
+$$
+[]^&#123;M&#125;
+$$
+
+
+
+
+Everything got a name:
+
+C: is the name
+
+&#123;i, ii, &#125; the name of the indivisuals.
+
+Finite, and modality: Infinite
+
+
+
+We name everything like an object.
+
+
+
+**PROPOSE: 1. Choose a  measure the complexity**  
+
+
+
+
+
+**Treetagger**
+
+
+
+
+
+Residual: is the difference between the observation and estimations.
+
+
+
+Categorical Perception
+
+
+
+Outerear =&gt; Convert the acoustics signal into the mechanical signal =&gt; Middle Ear
+
+Pinna have some slightly amplifing the acoustic signal a little bit. 
+
+The way we are deciding the sound direction is that we had two ears, and the left ear may hear eariler than the right one, so there has time delay, from that delay we can determine, espcially we had two ears together to decide at the same time. Since we had two ears, if we are discussing in the cocktail party in the nosiy environment.
+
+
+
+VTL for male is like 18,19cm
+
+Female: 14cm
+
+We have some boosting effect into our ear. Outer ear boost.
+
+Middle ear can act like a low pass filter, and it acts like a transfomer, we need to boost the incoming air pressure. Like you move a rock using the leverage effect. It will boost like 5dB, which is like doubling. The membrane will boost like 25 dB, which is like 20 times (20log(20))dB. Middle ear also protects us against the very loud voice. It regulates the loudness for inner ear.
+
+
+
+Speech hearable area is like speech banana. The dip in the hearing curve(absolute hearing threshold) is due to the boosting effect from the auditory system. The y-axis is the sound from the loudspeaker and thats the signal we can calibrate into dBW.
+
+
+
+For 1KHz in the sound equal loudness curve for phons its just quite linear.
+
+For low frequency, the sound will perceive more rapidly changing from the human hearing system.
+
+
+
+www.ipacharts.com
+
+internationalassociation.org/IPA_charts/IPA-2018.html
+
+i e E a:You can just pronounce from there, so you can feel the idea how you can know the direct difference.
+
+Everything within a set has two sets in it: one set within the set, and another set out of the set.
+
+Relative freq: the freq that divide the sum
+
+X^2 distribution is somekind of like normal distribution.
+
+**Residual is** : o - e, oberservation - estimation, if the residual is positive, the oberserve value will be greater than the expeectation value. Residul probability higher which means **higher interaction**, which means higher portion of that. - is means fewer.
+
+So Kai2 distribution it can tell you which portion may share the highest propotion of it. If the value is higher, which means the freq of it is quite high, which means higher density.
+
+You can describe any parametric data stastisic into two parameters: 1) Mean 2) Standard Derivation (is something like residual)
+
+hm: harmontic mean, is like talking about rate
+
+How to tell ur data is normally distributed?
+
+We can use the p-value.
+
+It is very safe to use the non-parametric instead of prametric test.
+
+T test is based on mean.
+
+Rank order test is testing on rank order, you pick all the relative frequency and rank them. 
+
+**&quot;signifance difference&quot;**: 
+
+We need to find the n-th (example like 150) most frequent frequency word, and then caculate the word frequency related to that  position, so that we can represent each word in the vector form.
+
+Sometimes you remove the stop words, but sometimes u didnt, it really depends on the question you are dealing with.
+
+If we will need to calcualte the sentence level complexity into the sentences, since we can use the context complexity.
+
+Treetagger, R, SPSS ,any libarairy for exapmple like for Kai Square?
+
+APA
+
+chisq.
+
+chisq.test(xtabs(cbind(we,FileTokens-we)~Periods))$observed
+
+chisq.test(xtabs(cbind(we,FileTokens-we)~Periods))$expected
+
+
+
+Infinite number of cycles for a perfect siniosoid signal: infinitely narrow in the frequency domain, it would be a line.
+
+So the widebrand or narrowband filter in analog signals, and if in the digitalized way, it would be the window length of the FFT.    Wide band filter, poor resolution. Narrow band in someway can be more suffiecient, since we can see the formants more clearly.
+
+In wideband system, the impluse response will be very short, if we wanna analyze the **formants.**
+
+Narrow response will be longer impluse so the timing will be longer, so we can check the indivisual **harmonics**, this always used to track the pitch contour all because the impluse response is very long.
+
+
+
+Infinite precision: is to say the way how we say it, its just a ideal way, its not the reality, but we just call it.
+
+Sampling is just mean how many samples within one second.
+
+[] and () is just a way to disperate the discrete and continous time.
+
+^: which it means it just qualitized to the nearest value it sampled. Like rounded.
+
+1/1minsec = 1kHz
+
+Nyquist frequency(**folding frequency**) is &gt; 2 times, but never forget the =, if the = 2 times, thats not enough. Nyquist Rate, more than twice is very important.
+
+44100 =&gt; 22050, the 50 Hz is just for bufferring.
+
+Most acoustic energy is under 5KHz.
+
+Nyquist rate (applied to period or un-period signals) is the lowest sampling frequency that retain all the information in the signal. It is different from the Nyquist frequency, nyquist frequency is another concept which just mention about that theory.
+
+
+
+Impluse unit train is like a train with multiple trains, its some kind of like impluse unit train. Is also just like a period spectrum, since it followed a period way. Its almost like a discrete signal. Mupltie time domain, and we got the convolution in the frequency domain.
+
+
+
+U can always get the negative freq from FFT, usually we ignore them. Every spectrum has its negative part, but we ignore it.
+
+Smapling: is about unit impulse train 
+
+We use the anti-aliasing filter to filter any signal that higher than half of the frequency like Nyquist frequency.
+
+Impluse unit train (time domain) convolution frequency domain, and get the FFT spectrum.
+
+ 16bit audio data: 2^16 (+ and -), it was defined the largest sound we can hear like 130 dB, and the smallest hearing threshold, which is also called the dynamic range.
+
+Dynamic range is from (n*6), so if we need to record the 130dBSPL sound, so we need at least 22 bit audio recorder.
+
+8bit = 1 byte audio quality for one sampling data.
+
+
+
+Noise signal + Qualitized signal = Real Signal.
+
+
+
+Loudness : Pycohologycal
+
+Equal Loudness: is pychological the same feeling of the sound, so its called the phone.
+
+
+
+We just need to know the freq and dB so we can get the equal loundess curve. like 1Khz , 90dB, on that equal loudness curver 90 phons, 4Khz, so on 4KHz, is like 95dB, so psycaological only 4dB difference.
+
+
+
+Louness in sones, is 100dB, 1KHz, 100Phons, so we get into the 100 phons euqal curve, and find that what at 1KHz from the curve, which is also 100dB. Also we can do the opposite way.
+
+
+
+**40Hz, loundness in sons is 0.1, and its in the 20phons and is 68dB.  Also it can be converted into Pascal:**
+
+**P = Pref * 10(68/20) = ...pascal.**
+
+
+
+At the first the masking experiment they use like 400Hz masker, but when comes to the same frequency, they will have a dip there, but laterly they improved using the auditory masking by using white noise and which we can say it is the narrow band noise.
+
+
+
+Auditory masking at higher freq will be elevated , and the for lower freq the slope is quite linear since it can be dependent from the outer ear filter or boosting filter.
+
+The lower freq hamonics will masking the higher frequencies as well. So it is also a tradeoff, it depends on what you really want.
+
+If we wanna higher frequency, so we can have a frequecny at the same freq, if not we should have the freq lower than that.
+
+The critical band is to set the crtical band that mask the particular sound or freq we want. Critical bandwidth is not depend on the width of it, no matter the width of it. So if we go through the critial bandwith point, so the percieved loudness will be elevated or loudness summation.
+
+
+
+The masking phonomenon and tthe loudness summation are two different things, and two sperated phoneon, and they have just few connections with each other.
+
+Am(Amplituded modulation), FM(frequency modulation), they had the same amplitude but have different phase. Am is more detectable than FM.
+
+Ohms acoustics law: people can hear the different hamonices from the complex sound.If the engery is within the critical band, then the loundness will be summarized. So we have one critical band for each frequency, so we can use many bandwiths within a full scale frequency band.
+
+Byle Moore
+
+For complex sound, we need to check if the frequency component in the critical band, the fist thing is to split the sound into critical band, and then do some caculation between those critical sounds to get the percieved loudness.
+
+
+
+The masking in some way it is more like deletion, and critical band is more like summation focused, there are a lots of phoenon, And critical bandwith is more like a more general and specific way to expain a lot of sound phoneon like masking. Masking is a very broad phoneon, and its very scentific phoenon.
+
+
+
+|- : That is a derivation symbol, from one statement derivated to another.
+
+ p(x,y) there is no quatifier (quantification expression), than we can see that as x, and y are two free variables. 
+
+Substituion: Replace the words just like in the Microsoft words. We can replace a particular word with a particular word. 
+
+
+
+#### **Meta languages**
+
+For universal proof, we need to try every element and prove that if it true, then we can prove it is universal.
+
+First order logic is about the indivisual elements within a set, but the second order logic is about the indivisuals with indivisuals like combined into a subset. Relation is just the cross product between the set elements. &quot;For every varibale&quot; can be like first order.
+
+
+
+[]^M: M is the model.
+
+c in here is arbitary, and it is just the constant.
+
+The universal in here is that mean we can choose any universal element/constant we want. Every means not leave anyone behind.
+
+dom: is dominant node
+
+id: intermeiate dominat is like parent
+
+DxD is like the tuples within different nodes.
+
+DxDxD is like the triple.
+
+A node cannot have two dominant nodes, cuz that the dominant of two nodes with each other is not exsist.
+
+We can use first order logic to discuss the linguistics syntax structure.
+
+
+
+
+
+Narrow-band filter just have fine resolution in frequency. Low damping. 45Hz
+
+Wide-band filter can have poor resolution in frequency. for formants features. The energy disperse very quickly, loss the energy quicker. High damping. 300Hz
+
+
+
+
+
+Rectification: Make the voltages more steady.
+
+Multi-speech
+
+Man voice is easier to analyze from history, lower formants, lower frequencies.
+
+
+
+Window is like 256, Frame is always like 25ms. Rectangle windowing is a way how we do framing into seconnds.
+
+DFT is like the sampled version of the DTFT. 
+
+m? Window length of the FFT??
+
+0Hz frequency is just the 
+
+Frame and $\delta$ 
+
+
+
+DFT leakage is causing cuz we assumeed before the speech data is periodic, but its not so there had some problems, if the signal is not period at all.
+
+
+
+FFT is reducing the reducdent value like, the N must be a power of 2, it is much faster.
+
+
+
+
+
+Longer seuqnecy = better frequency (Bigger N)
+
+Shorter sequence = better time resoltion (Small N)
+
+
+
+Convoltuion with the windowing function with the fft 
+
+
+
+ Zero padding is just to add more 0&#39;s make the windowing length
+
+When you do the windowing, so what we do is exactly is set other signals outside the windowing is &quot;0&quot;.
+
+The N of sampling, N input, out DFT, still the N output.
+
+Zero padding is not about the resolution, is to get the peaks and slope more easily.
+
+Zero padding is used all the time?
+
+THe drawback of zero-padding, short window DFT, longer window DFT, longer window takes more time, just take time. 
+
+
+
+The points we measure each time can change since the decibel value there always make no sense, just ignore it, even if we just remove a little bit.
+
+
+
+We usually use the 10th hamonics, so we divide 10 to get the f0 harmonic value, the reason is the 10 is easy to average the fundamental frequency.
+
+
+
+The N value is very important, and it really can define anything.
+
+FFt sizes = framming length = windowing length, for eample if we have 512 FFT points.
+
+512/sampling frequnecy = ms
+
+Glottal Pulse can be happened very close to f0 and attemps you to choose it as F1. The spectrogram resolution can be defined the vocal tract vibration cycle.
+
+like 600 points , 30 Hz: Narrow band
+
+like 100 points , 200 Hz: Wide band
+
+Advanced spectrogram setting in Praat they can use Gaussian windowing, its not quite totally Gussian in there since we still need to choose the limited range of that windowing Guassian. SO they are many kinds of Gaussian windowing functions.
+
+  Choose the N length =&gt; add windowing function.
+
+
+
+
+
+
+
+T test is for finding the two numerical data difference, X^2 test is applied to the two categorical data.
+
+We only can say statistically different, we cannot say 100% different. What can we do is to do sampling first and guessing. Anova can help us find more statistics difference like many different T test at the same time. Log linear analysis for multiple X^2 test .
+
+
+
+Pitch is not really supposed to measure in Hz. Its not only depend on the frequency, it can be mel. Mel is a musical term, 1KHz = 1K Mel, its a pyschoacoustics stuff. 
+
+If we raise the pitch twice time on mel, but we need more frequency.
+
+Why say pitch is very closed to frequency is only like under 1Khz, they are propotional. Its better fitness like lower frequency and mel scale.
+
+Bark is the simplication of the critical bandwidth.
+
+You can also pitch from aperidoic like noise and so on.
+
+Mel scale is based on percetpual test. 
+
+Pitch will play a important role in the f0 tracking.
+
+Auditory Demostration CD booklet Demostration 25. Analytic vs. Synthetic Pitch.
+
+Ohms Acoustic law.
+
+**McGurk Effect (Acoustic and Visual information)**
+
+AUditoary illuustion in BBC
+
+Light collector to paint the spectrogram. 
+
+Carrier phrase is just a phrase over and over again, &quot;say again...&quot;
+
+Glides for dipthongs.
+
+Coarticulations
+
+Formants are the resounance of the vocal tract. We do have formants in constants. But for vowels the formants are more clearly. The transitions of the formants can also be an acoustic cue.
+
+F1: 300~500 Hz
+
+F2: 800~2000 Hz or even
+
+F3: very higher
+
+Cross mode is very hard to let us to explore the cross-sectonal area, so it will not be a very imporant cue for us, it is less predictable. Cross-mode can affect the higher freq very much, and especially for F4 or even F5, and F4 and F5 values. Its true the cross-sectional area will affect the vowel quality but not that important and possible for us to research.
+
+
+
+
+
+Spectrum contour : envelope?
+
+There is no one-to-one from articulation to acoustics. 
+
+LPC is model based approach, which is different from DFT.
+
+LPC: the sample can be predicted by the previous speech sample with a few factors. $a_&#123;k&#125;$ in here is coefficients, and error function. 
+
+Impluse train: very tinny pulse time like even less than one 1%, it can gets the harmonics, and all the harmonics have the same amplitude. It can be infinetly narrow.
+
+Random noise can be random white noise, and all the hamonic have the same amplitude, and its very flat.
+
+H(z): the z can be a frequency domain representation.
+
+U(z): is source always used as source
+
+H: Transfer function always used
+
+S: is just the output signal, it used capital letter as the frequency domain
+
+Frames the things will not change drammatically. 
+
+Intensity or energy is proportional square of the the signal.
+
+p?
+
+square? What if without square?
+
+N+p-1?
+
+p is ten, we just make E as small as possible. 
+
+We always deal with the energy error?
+
+We have frame of data, we compute all those value.
+
+Diagonal is the diagonal direction is all the value are the same, so it is constanct.
+
+Stable filter will at the time will reach 0, the decay of it will be the formant bandwidth, and will be positive bandwidth. Narrow band, declay slowly, always negative bandwidth. the narrow, the decaly is quickly cuz the energy loss. and constant will be constant, the unstable will be lounder and lounder over time, its not happened in speech usually.
+
+Frame in here means the u take the DFT specturm length, but mostly the same like it was on the time domain.
+
+If u just pick one steady point, it will not harm that much correlated about the N windowing length. 
+
+EEG signal, closed or open phase analysis, and closed one, when the vocal tract is closed.
+
+Unform tube, there is no variation of the tube shape.
+
+10Khz Sampling frequency =&gt; we can get the 5Khz limit =&gt; 1Khz one resonce =&gt; 5 resounces =&gt; 5*2 at least coefficients
+
+**10Khz =&gt; at least 10 coeeficientts, mostly divide kHz, but actually its more than that result maybe few more.**
+
+SHorter vocal tract, less coefficients.
+
+Formants also can called like pole, cause it can cause peak on the spectrum.
+
+
+
+Preemphasis mostly add 6dB/Octave to speech.
+
+LPC expects a flat spectrum, so if we added the pre-empasis we look forward to have to that.
+
+Power spetrum is cuz u still need to take the log and get the dB scale.
+
+
+
+The LPC is about minimize the error fucntion.
+
+Specturm contour will have more details if we increase the p value.
+
+what the window length? what is the windowing function?
+
+
+
+Nasal murmur: which is moslty in the low freq domain. 
+
+Vowels are more strong compared with nasal sounds, since vowels are more robust than the other ones, the interferences from the environment.
+
+
+
+F2 and F3 coming together for avelor is called avelor pinch.
+
+Stops showed a non-linearity perception effects. Stops are all closed, the mouth are closed. 
+
+Voice bar: the silence interval
+
+Particularlly for voiceless stops: we care much about the burst.
+
+Front vowel: higher F2
+
+locus theory can explain the acoustic starting point, its like a point disperse from that place. 
+
+F2&#39; : means the F2 we used is higher than the real f2.
+
+When we determine the   voiced, we talk about the vowels mostly since the vocal fold is vibrating. But it does not play a strong cue, its not sufficient. SO for English, like stops can be dertimined by voiceless or voiced from the VOT.
+
+The VOT is longer, you will get more aspiration noise.
+
+F1 cutback, cut some periodic engery of those vowels. SO thats the F1 weaking
+
+**Formants can be dicussed by formants frequency and formant bandwidth. WIth broadbandwith, the amplitude will drop, with widering  the bandwith the weaker energy we got.**
+
+Long VOT, more widering time of the vocal tract, the weakening of the F1.
+
+Fricatives is produced from the narrow space from the vocal tract, the air is very quickly. 
+
+Consistency: stability vowels means 
+
+
+
+Intensity higher then its more robust  than other sounds, which is more stable thats also why vowels are more stable.
+
+Identification test: ask listeners to write what they indicated to hear, open response, write down whatever they want, but mostly  experiment used the forced choice way. Which are very limited answer.
+
+Discrimination test: ABX test, you hear one stimulus, and then u hear B stimulus, and then listen X to ask if the sound is more close to a or B. If you did ABX, you can only guess. When it close to 50%, that we can say the A and B can be hearly differently. Two step means from no 1~3 and 3~5 not one step like one to one next. The aim is to get the clear categorical differences. 
+
+CVC context: constants, vowel, constants
+
+IF we deal something rapidly changing, then we can have the categorical change for vowels. Longer duration for vowels, less categorical.
+
+**Voice quality is not really categorical in some way. U already have bias the people who set up the test samples, it is overlapped with the listeners bias. How we control the varible. Johh Lay auditory colouring, artiuculary voice source. Voice source, soft breathy voice, very lax, creaky phoneticial, wispering all those shades emotional. Laverys different people use different ways, impressionistic John lavery tried to give the unified way.**
+
+
+
+Vision can overide the human audtory.
+
+70s, expert system, a lot of cues to do phonetics or speech recognition.
+
+
+
+The purpose of understanding speech perception is not to build of ASR.
+
+
+
+
+
+
+
+
+</code></pre>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Audio and speech Processing Theory</div>
+      <div>https://xiao11lam.github.io/2022/08/30/Audio-and-speech-Processing-Theory/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>Xiao Zhang</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>August 30, 2022</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>Licensed under</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/08/30/Audio-and-Electroacoustic-System-Engineering/" title="Audio and Electroacoustic System Engineering">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Audio and Electroacoustic System Engineering</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/08/29/CMake-for-Audio-and-Speech-Processing/" title="CMake for Audio and Speech Processing">
+                        <span class="hidden-mobile">CMake for Audio and Speech Processing</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;Table of Contents</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>© 2022 By Xiao Zhang</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        Views: 
+        <span id="busuanzi_value_site_pv"></span>
+        
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        Visitors: 
+        <span id="busuanzi_value_site_uv"></span>
+        
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        MathJax = {
+          tex    : {
+            inlineMath: { '[+]': [['$', '$']] }
+          },
+          loader : {
+            load: ['ui/lazy']
+          },
+          options: {
+            renderActions: {
+              findScript    : [10, doc => {
+                document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                  const display = !!node.type.match(/; *mode=display/);
+                  const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                  const text = document.createTextNode('');
+                  node.parentNode.replaceChild(text, node);
+                  math.start = { node: text, delim: '', n: 0 };
+                  math.end = { node: text, delim: '', n: 0 };
+                  doc.math.push(math);
+                });
+              }, '', false],
+              insertedScript: [200, () => {
+                document.querySelectorAll('mjx-container').forEach(node => {
+                  let target = node.parentNode;
+                  if (target.nodeName.toLowerCase() === 'li') {
+                    target.parentNode.classList.add('has-jax');
+                  }
+                });
+              }, '', false]
+            }
+          }
+        };
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.1/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>
