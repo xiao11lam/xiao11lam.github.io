@@ -19,23 +19,23 @@
     <meta name="description" content="Calculate the Vocal Tract LengthUsing PraatAfter we installed the Pratt together with the VocalToolkit : https:&#x2F;&#x2F;www.praatvocaltoolkit.com&#x2F;calculate-vocal-tract-length.html, we can just calculate the">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vocal Tract Length Normalization (VTLN)">
-<meta property="og:url" content="https://xiao11lam.github.io/xiao11lam.github.io/2022/09/12/Vocal-Tract-Length-Normalization-VTLN/index.html">
+<meta property="og:url" content="https://xiao11lam/xiao11lam.github.io/2022/09/12/Vocal-Tract-Length-Normalization-VTLN/index.html">
 <meta property="og:site_name" content="Xiao Zhang">
 <meta property="og:description" content="Calculate the Vocal Tract LengthUsing PraatAfter we installed the Pratt together with the VocalToolkit : https:&#x2F;&#x2F;www.praatvocaltoolkit.com&#x2F;calculate-vocal-tract-length.html, we can just calculate the">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://xiao11lam.github.io/images/image-20220912215239543.png">
-<meta property="og:image" content="https://xiao11lam.github.io/images/image-20220912215345612.png">
-<meta property="og:image" content="https://xiao11lam.github.io/images/image-20220912215404723.png">
-<meta property="og:image" content="https://xiao11lam.github.io/images/image-20220912215427231.png">
-<meta property="og:image" content="https://xiao11lam.github.io/images/Ceptrum%20Formants_demo-16741728791502.png">
-<meta property="og:image" content="https://xiao11lam.github.io/images/ifft_demo.png">
-<meta property="og:image" content="https://xiao11lam.github.io/images/image-20220914145911751.png">
-<meta property="og:image" content="https://xiao11lam.github.io/images/image-20221015160325785.png">
+<meta property="og:image" content="https://xiao11lam/images/image-20220912215239543.png">
+<meta property="og:image" content="https://xiao11lam/images/image-20220912215345612.png">
+<meta property="og:image" content="https://xiao11lam/images/image-20220912215404723.png">
+<meta property="og:image" content="https://xiao11lam/images/image-20220912215427231.png">
+<meta property="og:image" content="https://xiao11lam/images/Ceptrum%20Formants_demo-16741728791502.png">
+<meta property="og:image" content="https://xiao11lam/images/ifft_demo.png">
+<meta property="og:image" content="https://xiao11lam/images/image-20220914145911751.png">
+<meta property="og:image" content="https://xiao11lam/images/image-20221015160325785.png">
 <meta property="article:published_time" content="2022-09-12T20:49:07.000Z">
 <meta property="article:modified_time" content="2024-11-25T22:45:14.894Z">
 <meta property="article:author" content="Xiao Zhang">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://xiao11lam.github.io/images/image-20220912215239543.png">
+<meta name="twitter:image" content="https://xiao11lam/images/image-20220912215239543.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -83,7 +83,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"xiao11lam.github.io","root":"/xiao11lam.github.io/","version":"1.9.1","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/xiao11lam.github.io/local-search.xml"};
+    var CONFIG = {"hostname":"xiao11lam","root":"/xiao11lam.github.io/","version":"1.9.1","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/xiao11lam.github.io/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -357,7 +357,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>Vocal Tract Length Normalization (VTLN)</div>
-      <div>https://xiao11lam.github.io/xiao11lam.github.io/2022/09/12/Vocal-Tract-Length-Normalization-VTLN/</div>
+      <div>https://xiao11lam/xiao11lam.github.io/2022/09/12/Vocal-Tract-Length-Normalization-VTLN/</div>
     </div>
     <div class="license-meta">
       
