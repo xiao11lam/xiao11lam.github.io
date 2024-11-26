@@ -7,41 +7,42 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/xiao11lam.github.io/img/fluid.png">
-  <link rel="icon" href="/xiao11lam.github.io/img/fluid.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
   <meta name="author" content="Xiao Zhang">
-  <meta name="keywords" content="">
+  <meta name="keywords" content="Speech and Language Processing">
   
     <meta name="description" content="Install the SPTKInstall the SoX1apt-get install sox  Clone the Git Repo1git clone https:&#x2F;&#x2F;github.com&#x2F;sp-nitech&#x2F;SPTK.git  Compile the C++1cd SPTK; make  Export the Environmental Variable1vim ~&#x2F;.bashrc">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Speech Signal Processing Toolkit (SPTK) Tutorials">
-<meta property="og:url" content="https://xiao11lam/xiao11lam.github.io/2022/08/25/Speech-Signal-Processing-Toolkit-SPTK-Tutorials/index.html">
-<meta property="og:site_name" content="Xiao Zhang">
+<meta property="og:url" content="http://xiaos.site/2022/08/25/Speech-Signal-Processing-Toolkit-SPTK-Tutorials/index.html">
+<meta property="og:site_name" content="Xiao @ Speech and Language Processing">
 <meta property="og:description" content="Install the SPTKInstall the SoX1apt-get install sox  Clone the Git Repo1git clone https:&#x2F;&#x2F;github.com&#x2F;sp-nitech&#x2F;SPTK.git  Compile the C++1cd SPTK; make  Export the Environmental Variable1vim ~&#x2F;.bashrc">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://xiao11lam/images/image-20220825050436624.png">
-<meta property="og:image" content="https://xiao11lam/images/image-20220912232026981.png">
-<meta property="og:image" content="https://xiao11lam/images/image-20220912233129993.png">
-<meta property="og:image" content="https://xiao11lam/images/image-20220912232904531.png">
-<meta property="og:image" content="https://xiao11lam/images/image-20220912232118579.png">
-<meta property="og:image" content="https://xiao11lam/images/image-20220912233057842.png">
-<meta property="og:image" content="https://xiao11lam/images/image-20220912232740976.png">
-<meta property="og:image" content="https://xiao11lam/images/image-20220912232138056.png">
+<meta property="og:image" content="http://xiaos.site/images/image-20220825050436624.png">
+<meta property="og:image" content="http://xiaos.site/images/image-20220912232026981.png">
+<meta property="og:image" content="http://xiaos.site/images/image-20220912233129993.png">
+<meta property="og:image" content="http://xiaos.site/images/image-20220912232904531.png">
+<meta property="og:image" content="http://xiaos.site/images/image-20220912232118579.png">
+<meta property="og:image" content="http://xiaos.site/images/image-20220912233057842.png">
+<meta property="og:image" content="http://xiaos.site/images/image-20220912232740976.png">
+<meta property="og:image" content="http://xiaos.site/images/image-20220912232138056.png">
 <meta property="article:published_time" content="2022-08-25T04:01:16.000Z">
 <meta property="article:modified_time" content="2024-11-25T22:45:14.893Z">
 <meta property="article:author" content="Xiao Zhang">
+<meta property="article:tag" content="Speech and Language Processing">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://xiao11lam/images/image-20220825050436624.png">
+<meta name="twitter:image" content="http://xiaos.site/images/image-20220825050436624.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>Speech Signal Processing Toolkit (SPTK) Tutorials - Xiao Zhang</title>
+  <title>Speech Signal Processing Toolkit (SPTK) Tutorials - Xiao @ Speech and Language Processing</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -65,33 +66,33 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/xiao11lam.github.io/css/main.css" />
+<link  rel="stylesheet" href="/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/xiao11lam.github.io/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/xiao11lam.github.io/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
   
 
 
 
   
-<link rel="stylesheet" href="/xiao11lam.github.io/css/fluid-extention.css">
+<link rel="stylesheet" href="/css/fluid-extention.css">
 
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"xiao11lam","root":"/xiao11lam.github.io/","version":"1.9.1","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/xiao11lam.github.io/local-search.xml"};
+    var CONFIG = {"hostname":"xiaos.site","root":"/","version":"1.9.1","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/xiao11lam.github.io/js/utils.js" ></script>
-  <script  src="/xiao11lam.github.io/js/color-schema.js" ></script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
 
   
 <meta name="generator" content="Hexo 6.2.0"></head>
@@ -106,8 +107,8 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/xiao11lam.github.io/">
-      <strong>Xiao Zhang</strong>
+    <a class="navbar-brand" href="/">
+      <strong>Xiao @ Speech and Language Processing</strong>
     </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
@@ -125,7 +126,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/xiao11lam.github.io/">
+              <a class="nav-link" href="/">
                 <i class="iconfont icon-home-fill"></i>
                 Home
               </a>
@@ -137,7 +138,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/xiao11lam.github.io/archive/">
+              <a class="nav-link" href="/archive/">
                 <i class="iconfont icon-archive-fill"></i>
                 Archive
               </a>
@@ -149,7 +150,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/xiao11lam.github.io/products/">
+              <a class="nav-link" href="/products/">
                 <i class="iconfont icon-category-fill"></i>
                 Products
               </a>
@@ -161,7 +162,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/xiao11lam.github.io/tags/">
+              <a class="nav-link" href="/tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 Use Cases
               </a>
@@ -173,7 +174,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/xiao11lam.github.io/about/">
+              <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
                 About
               </a>
@@ -185,7 +186,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/xiao11lam.github.io/links/">
+              <a class="nav-link" href="/links/">
                 <i class="iconfont icon-link-fill"></i>
                 Links
               </a>
@@ -214,7 +215,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/xiao11lam.github.io/img/banner.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('/img/banner.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -304,7 +305,7 @@
 
 <h2 id="Export-the-Environmental-Variable"><a href="#Export-the-Environmental-Variable" class="headerlink" title="Export the Environmental Variable"></a>Export the Environmental Variable</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">vim ~/.bashrc<br></code></pre></td></tr></table></figure>
 
-<p><img src="/xiao11lam.github.io/../images/image-20220825050436624.png" srcset="/xiao11lam.github.io/img/loading.gif" lazyload alt="image-20220825050436624"></p>
+<p><img src="/../images/image-20220825050436624.png" srcset="/img/loading.gif" lazyload alt="image-20220825050436624"></p>
 <p>Just export the <code>bin</code> path to your environmental variable.</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">export</span> PATH=<span class="hljs-variable">$PATH</span>:/mnt/c/Users/ABC/SPTK/bin<br></code></pre></td></tr></table></figure>
 
@@ -317,16 +318,16 @@
 
 
 <h2 id="LPC"><a href="#LPC" class="headerlink" title="LPC"></a>LPC</h2><p>When we reviewed the <code>lpc</code> directory, which is under <code>/SPTK/egs/analysis_synthesis/lpc</code>. </p>
-<p><img src="/xiao11lam.github.io/../images/image-20220912232026981.png" srcset="/xiao11lam.github.io/img/loading.gif" lazyload alt="image-20220912232026981"></p>
+<p><img src="/../images/image-20220912232026981.png" srcset="/img/loading.gif" lazyload alt="image-20220912232026981"></p>
 <p>When we finally compare the output file:</p>
 <p><code>data.syn.raw</code>:</p>
-<p><img src="/xiao11lam.github.io/../images/image-20220912233129993.png" srcset="/xiao11lam.github.io/img/loading.gif" lazyload alt="image-20220912233129993"></p>
-<p><img src="/xiao11lam.github.io/../images/image-20220912232904531.png" srcset="/xiao11lam.github.io/img/loading.gif" lazyload alt="image-20220912232904531"></p>
-<p><img src="/xiao11lam.github.io/../images/image-20220912232118579.png" srcset="/xiao11lam.github.io/img/loading.gif" lazyload alt="image-20220912232118579"></p>
+<p><img src="/../images/image-20220912233129993.png" srcset="/img/loading.gif" lazyload alt="image-20220912233129993"></p>
+<p><img src="/../images/image-20220912232904531.png" srcset="/img/loading.gif" lazyload alt="image-20220912232904531"></p>
+<p><img src="/../images/image-20220912232118579.png" srcset="/img/loading.gif" lazyload alt="image-20220912232118579"></p>
 <p>And compared with the original wav file, <code>data.org.wav</code>. </p>
-<p><img src="/xiao11lam.github.io/../images/image-20220912233057842.png" srcset="/xiao11lam.github.io/img/loading.gif" lazyload alt="image-20220912233057842"></p>
-<p><img src="/xiao11lam.github.io/../images/image-20220912232740976.png" srcset="/xiao11lam.github.io/img/loading.gif" lazyload alt="image-20220912232740976"></p>
-<p><img src="/xiao11lam.github.io/../images/image-20220912232138056.png" srcset="/xiao11lam.github.io/img/loading.gif" lazyload alt="image-20220912232138056"></p>
+<p><img src="/../images/image-20220912233057842.png" srcset="/img/loading.gif" lazyload alt="image-20220912233057842"></p>
+<p><img src="/../images/image-20220912232740976.png" srcset="/img/loading.gif" lazyload alt="image-20220912232740976"></p>
+<p><img src="/../images/image-20220912232138056.png" srcset="/img/loading.gif" lazyload alt="image-20220912232138056"></p>
 <p>We can found out that the sound pressure is became more linear.</p>
 <h1 id="Python-Version-SPTK"><a href="#Python-Version-SPTK" class="headerlink" title="Python Version SPTK"></a>Python Version SPTK</h1><p>we can have a python version SPTK and it combines the same functions:</p>
 <p><a target="_blank" rel="noopener" href="https://nbviewer.org/github/r9y9/pysptk/blob/master/examples/pysptk%20introduction.ipynb">https://nbviewer.org/github/r9y9/pysptk/blob/master/examples/pysptk%20introduction.ipynb</a></p>
@@ -347,7 +348,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>Speech Signal Processing Toolkit (SPTK) Tutorials</div>
-      <div>https://xiao11lam/xiao11lam.github.io/2022/08/25/Speech-Signal-Processing-Toolkit-SPTK-Tutorials/</div>
+      <div>http://xiaos.site/2022/08/25/Speech-Signal-Processing-Toolkit-SPTK-Tutorials/</div>
     </div>
     <div class="license-meta">
       
@@ -389,7 +390,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/xiao11lam.github.io/2022/08/25/Speech-Synthesis-Toolkits-Introduction/" title="Speech Synthesis Toolkits Introduction">
+                      <a href="/2022/08/25/Speech-Synthesis-Toolkits-Introduction/" title="Speech Synthesis Toolkits Introduction">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">Speech Synthesis Toolkits Introduction</span>
                         <span class="visible-mobile">Previous</span>
@@ -399,7 +400,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/xiao11lam.github.io/2022/08/05/ASV-Subtools-Automatic-Speaker-Verification-Toolkit-Tutorials/" title="ASV-Subtools Automatic Speaker Verification Toolkit Tutorials">
+                      <a href="/2022/08/05/ASV-Subtools-Automatic-Speaker-Verification-Toolkit-Tutorials/" title="ASV-Subtools Automatic Speaker Verification Toolkit Tutorials">
                         <span class="hidden-mobile">ASV-Subtools Automatic Speaker Verification Toolkit Tutorials</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -561,8 +562,8 @@
 
 <script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/xiao11lam.github.io/js/events.js" ></script>
-<script  src="/xiao11lam.github.io/js/plugins.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -601,7 +602,7 @@
 
 
   
-    <script  src="/xiao11lam.github.io/js/img-lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
@@ -776,7 +777,7 @@
 
   <script  src="https://lib.baomitu.com/mathjax/3.2.1/es5/tex-mml-chtml.js" ></script>
 
-  <script  src="/xiao11lam.github.io/js/local-search.js" ></script>
+  <script  src="/js/local-search.js" ></script>
 
   <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
@@ -786,7 +787,7 @@
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/xiao11lam.github.io/js/boot.js" ></script>
+<script  src="/js/boot.js" ></script>
 
 
   
