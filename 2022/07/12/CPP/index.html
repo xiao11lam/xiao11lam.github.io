@@ -1,321 +1,102 @@
-
-
 <!DOCTYPE html>
-<html lang="en" data-default-color-scheme=auto>
+<html lang="en">
+  <!-- Head tag -->
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-
-
-<head>
-  <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/fluid.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <!-- Title -->
   
-  <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="Xiao Zhang">
-  <meta name="keywords" content="Software Architecture Design">
+  <title>CPP - Xiao Zhang (Software Design Office)</title>
+
+  <!--Favicon-->
+  <link rel="icon" href="favicon/favicon.ico">
+
+  <!--Description-->
   
-    <meta name="description" content="This is the notes for C++ learning. QT Starter RecipeIn C++ we have two ways to create a new class object: 12Student s;Student *s2 &#x3D; new Student(&quot;Alan&quot;);  In QT, we have a class called Qwide">
-<meta property="og:type" content="article">
-<meta property="og:title" content="CPP">
-<meta property="og:url" content="http://xiaos.site/2022/07/12/CPP/index.html">
-<meta property="og:site_name" content="Xiao">
-<meta property="og:description" content="This is the notes for C++ learning. QT Starter RecipeIn C++ we have two ways to create a new class object: 12Student s;Student *s2 &#x3D; new Student(&quot;Alan&quot;);  In QT, we have a class called Qwide">
-<meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://xiaos.site/images/image-20220922212927648.png">
-<meta property="og:image" content="http://xiaos.site/images/image-20220922220320102.png">
-<meta property="og:image" content="http://xiaos.site/images/image-20220922220153890.png">
-<meta property="og:image" content="http://xiaos.site/images/image-20220922223635463.png">
-<meta property="og:image" content="http://xiaos.site/images/image-20220922223756278.png">
-<meta property="og:image" content="http://xiaos.site/images/image-20220924142713210.png">
-<meta property="og:image" content="http://xiaos.site/images/image-20220924160919422.png">
-<meta property="og:image" content="http://xiaos.site/images/image-20220924162242225.png">
-<meta property="og:image" content="http://xiaos.site/images/image-20220924215057558.png">
-<meta property="article:published_time" content="2022-07-12T06:04:50.000Z">
-<meta property="article:modified_time" content="2024-11-25T22:45:14.892Z">
-<meta property="article:author" content="Xiao Zhang">
-<meta property="article:tag" content="Software Architecture Design">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://xiaos.site/images/image-20220922212927648.png">
-  
-  
-    <meta name="referrer" content="no-referrer-when-downgrade">
-  
-  
-  <title>CPP - Xiao</title>
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
-
-
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-
-
-<!-- 主题依赖的图标库，不要自行修改 -->
-<!-- Do not modify the link that theme dependent icons -->
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
-
-
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
-
-
-<link  rel="stylesheet" href="/css/main.css" />
-
-
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
-  
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+      <meta name="description" content="This is the notes for C++ learning.
+QT Starter RecipeIn C++ we have two ways to create a new class object:
+12Student s;Student *s2 = new Student(&amp;quot">
   
 
-
-
+  <!--Author-->
   
-<link rel="stylesheet" href="/css/fluid-extention.css">
-
-
-
-  <script id="fluid-configs">
-    var Fluid = window.Fluid || {};
-    Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"xiaos.site","root":"/","version":"1.9.1","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
-
-    if (CONFIG.web_analytics.follow_dnt) {
-      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
-      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
-    }
-  </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
-
+      <meta name="author" content="Xiao Zhang">
   
+
+  <!-- Pure CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Open+Sans:300,800" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  
+<link rel="stylesheet" href="/css/styles.css">
+
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <!-- Google Analytics -->
+  
+
 <meta name="generator" content="Hexo 6.2.0"></head>
 
 
-<body>
-  
-
-  <header>
-    
-
-<div class="header-inner" style="height: 70vh;">
-  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
-  <div class="container">
-    <a class="navbar-brand" href="/">
-      <strong>Xiao Zhang</strong>
-    </a>
-
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <div class="animated-icon"><span></span><span></span><span></span></div>
-    </button>
-
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto text-center">
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/">
-                <i class="iconfont icon-home-fill"></i>
-                Home
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/archive/">
-                <i class="iconfont icon-archive-fill"></i>
-                Archive
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/products/">
-                <i class="iconfont icon-category-fill"></i>
-                Products
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/">
-                <i class="iconfont icon-tags-fill"></i>
-                Use Cases
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/">
-                <i class="iconfont icon-user-fill"></i>
-                About
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/links/">
-                <i class="iconfont icon-link-fill"></i>
-                Links
-              </a>
-            </li>
-          
-        
-        
-          <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
-              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
-            </a>
-          </li>
-          
-        
-        
-          <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
-                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
-          </li>
-        
-      </ul>
-    </div>
+  <body>
+  	<div class="container-fluid navbar-container m-sm-5">
+      <!-- Header -->
+      <nav class="navbar navbar-toggleable-sm navbar-light px-1 py-3 my-3 mb-sm-5">
+  <a class="navbar-brand ml-2" href="/">Xiao Zhang (Software Design Office)</a>
+  <button class="navbar-toggler navbar-toggler-right py-2" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse text-center" id="navbarCollapse">
+    <ul class="navbar-nav ml-auto my-auto">
+      
+        <li class="nav-item">
+          <a class="nav-link" href="/about">About</a>
+        </li>
+      
+        <li class="nav-item">
+          <a class="nav-link" target="_blank" rel="noopener" href="https://www.linkedin.com/in/xiao-zhang-28785b19b/">LinkedIn</a>
+        </li>
+      
+    </ul>
+    <hr class="hidden-md-up" />
   </div>
 </nav>
 
-  
 
-<div id="banner" class="banner" parallax=true
-     style="background: url('/img/banner.jpg') no-repeat center center; background-size: cover;">
-  <div class="full-bg-img">
-    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-      <div class="banner-text text-center fade-in-up">
-        <div class="h2">
-          
-            <span id="subtitle" data-typed-text="CPP"></span>
-          
-        </div>
-
-        
-          
-  <div class="mt-3">
-    
-    
-      <span class="post-meta">
-        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-07-12 07:04" pubdate>
-          July 12, 2022 am
-        </time>
-      </span>
-    
-  </div>
-
-  <div class="mt-1">
-    
-      <span class="post-meta mr-2">
-        <i class="iconfont icon-chart"></i>
-        
-          11k words
-        
-      </span>
-    
-
-    
-      <span class="post-meta mr-2">
-        <i class="iconfont icon-clock-fill"></i>
-        
-        
-        
-          89 mins
-        
-      </span>
-    
-
-    
-    
-  </div>
-
-
-        
-      </div>
-
-      
-    </div>
-  </div>
-</div>
-
-</div>
-
-  </header>
-
-  <main>
-    
-      
-
-<div class="container-fluid nopadding-x">
-  <div class="row nomargin-x">
-    <div class="side-col d-none d-lg-block col-lg-2">
-      
-
-    </div>
-
-    <div class="col-lg-8 nopadding-x-md">
-      <div class="container nopadding-x-md" id="board-ctn">
-        <div id="board">
-          <article class="post-content mx-auto">
-            <!-- SEO header -->
-            <h1 style="display: none">CPP</h1>
-            
-            <div class="markdown-body">
-              
-              <p>This is the notes for C++ learning.</p>
+  		<div class="row">
+  			<!-- <div class="col-12 mb-4"> -->
+<!--   <img class="img-fluid project-img" src="/" alt="CPP"> -->
+<!-- </div> -->
+<!-- <div class="col-lg-4 col-12 pt-3 px-4 pr-lg-5"> -->
+<!--   <h1>CPP</h1> -->
+<!-- </div> -->
+<div class="col-lg-8 col-12 pt-lg-3 mb-4 pl-lg-5 px-lg-0 px-4 portfolio-content">
+  <p>This is the notes for C++ learning.</p>
 <h1 id="QT-Starter-Recipe"><a href="#QT-Starter-Recipe" class="headerlink" title="QT Starter Recipe"></a>QT Starter Recipe</h1><p>In C++ we have two ways to create a new class object:</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c++">Student s;<br>Student *s2 = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Student</span>(<span class="hljs-string">&quot;Alan&quot;</span>);<br></code></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Student s;</span><br><span class="line">Student *s2 = <span class="keyword">new</span> <span class="built_in">Student</span>(<span class="string">&quot;Alan&quot;</span>);</span><br></pre></td></tr></table></figure>
 
 <p>In QT, we have a class called <code>Qwideget</code>, it also has a function called <code>show</code>, use this function can show a window.</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp">Qwidget *w = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Qwidget</span>();<br>w-&gt;<span class="hljs-built_in">show</span>();<br></code></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Qwidget *w = <span class="keyword">new</span> <span class="built_in">Qwidget</span>();</span><br><span class="line">w-&gt;<span class="built_in">show</span>();</span><br></pre></td></tr></table></figure>
 
 <p>We can add a picture in this window:</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp">TDWidget *w = <span class="hljs-keyword">new</span> <span class="hljs-built_in">TDWidget</span>(<span class="hljs-string">&quot;./image.png&quot;</span>)<br>w-&gt;<span class="hljs-built_in">show</span>()<br></code></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">TDWidget *w = <span class="keyword">new</span> <span class="built_in">TDWidget</span>(<span class="string">&quot;./image.png&quot;</span>)</span><br><span class="line">w-&gt;<span class="built_in">show</span>()</span><br></pre></td></tr></table></figure>
 
 <p>Now, add a button:</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp">QPushButton *btn = <span class="hljs-keyword">new</span> <span class="hljs-built_in">QPushButton</span>(<span class="hljs-string">&quot;Button&quot;</span>, w);<br>btn-&gt;<span class="hljs-built_in">move</span>(<span class="hljs-number">330</span>, <span class="hljs-number">450</span>);<br></code></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">QPushButton *btn = <span class="keyword">new</span> <span class="built_in">QPushButton</span>(<span class="string">&quot;Button&quot;</span>, w);</span><br><span class="line">btn-&gt;<span class="built_in">move</span>(<span class="number">330</span>, <span class="number">450</span>);</span><br></pre></td></tr></table></figure>
 
 <p>Now add a picture into the button:</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp">TDPushButton *btn = <span class="hljs-keyword">new</span> <span class="hljs-built_in">TDPushButton</span>(<span class="hljs-string">&quot;./image2.png&quot;</span>, w);<br>btn-&gt;<span class="hljs-built_in">move</span>(<span class="hljs-number">330</span>, <span class="hljs-number">450</span>);<br></code></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">TDPushButton *btn = <span class="keyword">new</span> <span class="built_in">TDPushButton</span>(<span class="string">&quot;./image2.png&quot;</span>, w);</span><br><span class="line">btn-&gt;<span class="built_in">move</span>(<span class="number">330</span>, <span class="number">450</span>);</span><br></pre></td></tr></table></figure>
 
 <p>Now we want to generate multiple buttons in the window:</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>; i&lt;<span class="hljs-number">11</span>; i++)&#123;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j=<span class="hljs-number">0</span>; j&lt;<span class="hljs-number">6</span>; j++)&#123;<br>        TDMenuButton * btn = <span class="hljs-keyword">new</span> <span class="hljs-built_in">TDMenuButton</span>(<span class="hljs-string">&quot;./images.png&quot;</span>);<br>        btn-&gt;<span class="hljs-built_in">move</span>(<span class="hljs-number">100</span>+i*<span class="hljs-number">65</span>, <span class="hljs-number">100</span>+j*<span class="hljs-number">85</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;<span class="number">11</span>; i++)&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>; j&lt;<span class="number">6</span>; j++)&#123;</span><br><span class="line">        TDMenuButton * btn = <span class="keyword">new</span> <span class="built_in">TDMenuButton</span>(<span class="string">&quot;./images.png&quot;</span>);</span><br><span class="line">        btn-&gt;<span class="built_in">move</span>(<span class="number">100</span>+i*<span class="number">65</span>, <span class="number">100</span>+j*<span class="number">85</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
@@ -324,31 +105,31 @@
 
 
 <h1 id="Hash-Map"><a href="#Hash-Map" class="headerlink" title="Hash Map"></a>Hash Map</h1><h2 id="Ordered-Map-Map"><a href="#Ordered-Map-Map" class="headerlink" title="Ordered Map (Map)"></a>Ordered Map (Map)</h2><p>The elements in the ordered map or we say the map, are sorted. In many cases we use the tree structure for this particular issue, such as binary trees.</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta"># <span class="hljs-keyword">include</span> <span class="hljs-string">&lt;map&gt;</span></span><br></code></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;map&gt;</span></span></span><br></pre></td></tr></table></figure>
 
 
 
 <p>Here we defined a hash map, the key is the audio_ID, and the value is the trans:</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp">std::map&lt;std::string, audioRecord&gt; audioMap;<br></code></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">std::map&lt;std::string, audioRecord&gt; audioMap;</span><br></pre></td></tr></table></figure>
 
 <p>each time we need to add more one element, we use:</p>
 <p>Here, the “audio_file_name” here are the keys. </p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs cpp">audioMap[audio_file_name_1] = audioRecord &#123;<span class="hljs-string">&quot;audio_file_name_1&quot;</span>, sr, bit_depth, dur&#125;;<br>audioMap[audio_file_name_2] = audioRecord &#123;<span class="hljs-string">&quot;audio_file_name_2&quot;</span>, sr, bit_depth, dur&#125;;<br>audioMap[audio_file_name_3] = audioRecord &#123;<span class="hljs-string">&quot;audio_file_name_3&quot;</span>, sr, bit_depth, dur&#125;;<br>...<br>audioMap[audio_file_name_n] = audioRecord &#123;<span class="hljs-string">&quot;audio_file_name_n&quot;</span>, sr, bit_depth, dur&#125;;<br></code></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">audioMap[audio_file_name_1] = audioRecord &#123;<span class="string">&quot;audio_file_name_1&quot;</span>, sr, bit_depth, dur&#125;;</span><br><span class="line">audioMap[audio_file_name_2] = audioRecord &#123;<span class="string">&quot;audio_file_name_2&quot;</span>, sr, bit_depth, dur&#125;;</span><br><span class="line">audioMap[audio_file_name_3] = audioRecord &#123;<span class="string">&quot;audio_file_name_3&quot;</span>, sr, bit_depth, dur&#125;;</span><br><span class="line">...</span><br><span class="line">audioMap[audio_file_name_n] = audioRecord &#123;<span class="string">&quot;audio_file_name_n&quot;</span>, sr, bit_depth, dur&#125;;</span><br></pre></td></tr></table></figure>
 
 
 
 
 
 <p>Retreive the data for audio_file_name_3:</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp">audioRecord&amp; audio_file_name_3 = audioMap[<span class="hljs-string">&quot;audio_file_name_3&quot;</span>]<br>audio_file_name_3.sr;<br></code></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">audioRecord&amp; audio_file_name_3 = audioMap[<span class="string">&quot;audio_file_name_3&quot;</span>]</span><br><span class="line">audio_file_name_3.sr;</span><br></pre></td></tr></table></figure>
 
 <p>So we can easily grap the value results of the “audio_file_name_3” sr.</p>
 <h2 id="Unordered-Map"><a href="#Unordered-Map" class="headerlink" title="Unordered Map"></a>Unordered Map</h2><p>An unordered map is a hash table, it used the hash function to hash the key, and we can easily retreive the bucket we want. This is usually unordered and faster than the map. </p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta"># <span class="hljs-keyword">include</span> <span class="hljs-string">&lt;unordered_map&gt;</span></span><br></code></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;unordered_map&gt;</span></span></span><br></pre></td></tr></table></figure>
 
 
 
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp">std::unordered_map&lt;std::string, audioRecord&gt; audioMap;<br></code></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">std::unordered_map&lt;std::string, audioRecord&gt; audioMap;</span><br></pre></td></tr></table></figure>
 
 
 
@@ -357,52 +138,52 @@
 <h2 id="Understand-audio"><a href="#Understand-audio" class="headerlink" title="Understand audio"></a>Understand audio</h2><p><a target="_blank" rel="noopener" href="https://www.ee.iitb.ac.in/course/~daplab/resources/">https://www.ee.iitb.ac.in/course/~daplab/resources/</a></p>
 <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><h2 id="Environment-of-C"><a href="#Environment-of-C" class="headerlink" title="Environment of C++"></a>Environment of C++</h2><p>In windows there is the Visual C++ </p>
 <p>Linux: GCC : (the <code>gcc</code> in most cases are compiled for c, and g++ is for C++)</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs g++">g++<br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">g++</span><br></pre></td></tr></table></figure>
 
 <p>&#x2F; Clang (Clang++)…</p>
 <p>The IDE includes: Visual Studio &#x2F; CodeLite &#x2F; Code::blocks &#x2F; Eclipse…</p>
 <p>The usual tools included:</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs applescript">– /usr/bin/<span class="hljs-built_in">time</span><br>– valgrind<br>– cpp <span class="hljs-keyword">reference</span><br>– Compiler explorer<br>– C++ insights<br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">– /usr/bin/time</span><br><span class="line">– valgrind</span><br><span class="line">– cpp reference</span><br><span class="line">– Compiler explorer</span><br><span class="line">– C++ insights</span><br></pre></td></tr></table></figure>
 
 
 
 <p>The logic of the C++ is compling: </p>
 <p>We can follow this simple solution<code>source code</code> &gt;&gt; <code>processing</code> &gt;&gt; <code>excecutable programs</code>, the problem is that it can takes a long time. And if there is little editing of the source code, and we have to re-compile it again. </p>
 <p>The solution is to divide the source codes into multiple source codes like: </p>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs gradle">souce_file_1 (<span class="hljs-keyword">source</span> <span class="hljs-keyword">file</span> + headers) &gt;&gt; <span class="hljs-keyword">compile</span> &gt;&gt; object files &gt;&gt; link &gt;&gt; <br>													excecutable programs<br>souce_file_2 (<span class="hljs-keyword">source</span> <span class="hljs-keyword">file</span> + headers) &gt;&gt; <span class="hljs-keyword">compile</span> &gt;&gt; object files &gt;&gt; link &gt;&gt;<br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">souce_file_1 (source file + headers) &gt;&gt; compile &gt;&gt; object files &gt;&gt; link &gt;&gt; </span><br><span class="line">													excecutable programs</span><br><span class="line">souce_file_2 (source file + headers) &gt;&gt; compile &gt;&gt; object files &gt;&gt; link &gt;&gt;</span><br></pre></td></tr></table></figure>
 
 <p>Now we can compile the C++ program more quickly, and easy to maintain. So the core steps can be <code>compile</code> and <code>link</code>. But here also comes with a question!!! </p>
 <p>What if we used the same variable but in different C++ files, which may cause the collision, so we need to declare the definition of the variable. So the header files is to define the <code>variables</code>, it defines all the variables, if another c++ files need it, just borrow and declare it, which would be much more convinient. The initial way of using the header files can be declare the variables, but laterly it also includes some definitions. </p>
 <p>But the golden rule still be if you declare <strong>one variable</strong>, you <strong>only</strong> can declare that variable once. If different c++ files want to refer to that variable, we just include it from the header files. </p>
-<p><img src="/../images/image-20220922212927648.png" srcset="/img/loading.gif" lazyload alt="image-20220922212927648"></p>
+<p><img src="/../images/image-20220922212927648.png" alt="image-20220922212927648"></p>
 <p>Here is a “Hello world” example:</p>
-<h3 id="1st-C-Preprocessor"><a href="#1st-C-Preprocessor" class="headerlink" title="1st. C Preprocessor"></a>1st. C Preprocessor</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br><br>    std::cout &lt;&lt;  <span class="hljs-string">&quot;Hello World&quot;</span>;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="1st-C-Preprocessor"><a href="#1st-C-Preprocessor" class="headerlink" title="1st. C Preprocessor"></a>1st. C Preprocessor</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line">    std::cout &lt;&lt;  <span class="string">&quot;Hello World&quot;</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>Now we can do that preprocessing:</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp">gcc -E ./main.cpp -o ./main.i<br></code></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -E ./main.cpp -o ./main.i</span><br></pre></td></tr></table></figure>
 
-<p><img src="/../images/image-20220922220320102.png" srcset="/img/loading.gif" lazyload alt="image-20220922220320102"></p>
+<p><img src="/../images/image-20220922220320102.png" alt="image-20220922220320102"></p>
 <p>The <code>main.i</code> file will include all the header files into our program and preprocess it. </p>
 <h3 id="2st-C-Compile"><a href="#2st-C-Compile" class="headerlink" title="2st. C Compile"></a>2st. C Compile</h3><p>The next step could be the C compiling. It will generate the compiled code.</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp">g++ main.i -S -o main.s <br></code></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">g++ main.i -S -o main.s </span><br></pre></td></tr></table></figure>
 
 <p>Now we can get the compiled code: <code>main.s</code></p>
-<p><img src="/../images/image-20220922220153890.png" srcset="/img/loading.gif" lazyload alt="image-20220922220153890"></p>
+<p><img src="/../images/image-20220922220153890.png" alt="image-20220922220153890"></p>
 <p>The <code>main</code> in here represents the <code>main</code> function we declared from the previous <code>hello world</code> program.</p>
 <p> The <code>call</code> in here is to print the “hello world” message.</p>
 <h3 id="3st-Assembler-amp-Linker-x2F-link-editor"><a href="#3st-Assembler-amp-Linker-x2F-link-editor" class="headerlink" title="3st. Assembler &amp; Linker&#x2F;link editor"></a>3st. Assembler &amp; Linker&#x2F;link editor</h3><p>The use of the assembler is to use the compiled code into the machine code, that machine can read. </p>
 <p>We will refer to the system link or other objects and put it together to get the runable program. </p>
 <h3 id="Direct-Way"><a href="#Direct-Way" class="headerlink" title="Direct Way"></a>Direct Way</h3><p>We can direct compile those steps in C++ just by one line of code:</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp">g++ ./main.cpp -o ./main<br></code></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">g++ ./main.cpp -o ./main</span><br></pre></td></tr></table></figure>
 
 
 
 <h2 id="Header-Files"><a href="#Header-Files" class="headerlink" title="Header Files"></a>Header Files</h2><h4 id="Preprocessing"><a href="#Preprocessing" class="headerlink" title="Preprocessing"></a>Preprocessing</h4><p>Here is the step to convert the original file into the translated component.</p>
 <h5 id="ifdef"><a href="#ifdef" class="headerlink" title="ifdef"></a>ifdef</h5><p>Ifdef is to solve the reference too deep problem, we can declare these codes in the header file:</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">ifndef</span> HEADER_NAME</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> HEADER_NAME</span><br><br><span class="hljs-meta">#<span class="hljs-keyword">endif</span></span><br></code></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">ifndef</span> HEADER_NAME</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> HEADER_NAME</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br></pre></td></tr></table></figure>
 
 <p>Or we can try <strong>pragma_once</strong> which can replace the same way like #ifndef:</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">pragma</span> once</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">pragma</span> once</span></span><br></pre></td></tr></table></figure>
 
 <p>We suggested to use the #pragma to avoid the collision between different header files. </p>
 <h5 id="Header-Include"><a href="#Header-Include" class="headerlink" title="Header Include"></a>Header Include</h5><p>We need to include the header file: </p>
@@ -415,78 +196,78 @@
 <h2 id="Compile"><a href="#Compile" class="headerlink" title="Compile"></a>Compile</h2><p>We will convert the interpreted units into the compiled languages:</p>
 <p>Here is a good example:</p>
 <p><a target="_blank" rel="noopener" href="https://godbolt.org/z/zh9aqx">https://godbolt.org/z/zh9aqx</a></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-type">int</span> res = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">1000</span>; ++i)<br>    &#123;<br>        res += i;<br>    &#125;<br>    <span class="hljs-keyword">return</span> res;<br>&#125;<br><br><span class="hljs-comment">// the res should be 1+...+999</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">1000</span>; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        res += i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// the res should be 1+...+999</span></span><br></pre></td></tr></table></figure>
 
 <p>Now here is the gcc compiling procedures: Here is the <code>-O0</code> is to compile the codes without any other optimizations. </p>
-<p><img src="/../images/image-20220922223635463.png" srcset="/img/loading.gif" lazyload alt="image-20220922223635463"></p>
+<p><img src="/../images/image-20220922223635463.png" alt="image-20220922223635463"></p>
 <p>But if we set like <code>-O 3</code>, which we will get the third level optimization:</p>
-<p><img src="/../images/image-20220922223756278.png" srcset="/img/loading.gif" lazyload alt="image-20220922223756278"></p>
+<p><img src="/../images/image-20220922223756278.png" alt="image-20220922223756278"></p>
 <h1 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h1><h2 id="Return-0"><a href="#Return-0" class="headerlink" title="Return 0"></a>Return 0</h2><p>Every function it will define the <code>return </code> value except the return value like <code>void</code> or in <code>main</code> function.</p>
 <p>So in here we will define a main function:</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">cheer</span><span class="hljs-params">(<span class="hljs-type">const</span> <span class="hljs-type">char</span>* pInfo)</span></span>&#123;<br>    std::out &lt;&lt; pInfo &lt;&lt; std::endl;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-built_in">cheer</span>(<span class="hljs-string">&quot;This is a good day&quot;</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">cheer</span><span class="params">(<span class="type">const</span> <span class="type">char</span>* pInfo)</span></span>&#123;</span><br><span class="line">    std::out &lt;&lt; pInfo &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cheer</span>(<span class="string">&quot;This is a good day&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>So there maybe a warning like <code>no return value</code>, we need to add the return value:</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">cheer</span><span class="hljs-params">(<span class="hljs-type">const</span> <span class="hljs-type">char</span>* pInfo)</span></span>&#123;<br>    std::out &lt;&lt; pInfo &lt;&lt; std::endl;<br>    <span class="hljs-comment">// return null value</span><br>    <span class="hljs-keyword">return</span>;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-built_in">cheer</span>(<span class="hljs-string">&quot;This is a good day&quot;</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">cheer</span><span class="params">(<span class="type">const</span> <span class="type">char</span>* pInfo)</span></span>&#123;</span><br><span class="line">    std::out &lt;&lt; pInfo &lt;&lt; std::endl;</span><br><span class="line">    <span class="comment">// return null value</span></span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cheer</span>(<span class="string">&quot;This is a good day&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>Also there is also no need to really declare  a formal parameter totally if we do not want use that variable but still want to keep it:</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">cheer</span><span class="hljs-params">(<span class="hljs-type">const</span> <span class="hljs-type">char</span>* pInfo, <span class="hljs-type">int</span>)</span></span>&#123;<br>    std::out &lt;&lt; pInfo &lt;&lt; std::endl;<br>    <span class="hljs-comment">// return null value</span><br>    <span class="hljs-keyword">return</span>;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-built_in">cheer</span>(<span class="hljs-string">&quot;This is a good day&quot;</span>, <span class="hljs-number">0</span>);<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>    <span class="hljs-comment">// number 0 is just the habit</span><br>    <span class="hljs-comment">//  we can check by the echo $?</span><br>    <span class="hljs-comment">// if without declaring, the system will directly call it 0</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">cheer</span><span class="params">(<span class="type">const</span> <span class="type">char</span>* pInfo, <span class="type">int</span>)</span></span>&#123;</span><br><span class="line">    std::out &lt;&lt; pInfo &lt;&lt; std::endl;</span><br><span class="line">    <span class="comment">// return null value</span></span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cheer</span>(<span class="string">&quot;This is a good day&quot;</span>, <span class="number">0</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="comment">// number 0 is just the habit</span></span><br><span class="line">    <span class="comment">//  we can check by the echo $?</span></span><br><span class="line">    <span class="comment">// if without declaring, the system will directly call it 0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plaintext"><figcaption><span>function is the final running program，its like a general function. The return value of it is ```int```, and we usually use ```0``` to represent the return value.</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs main```"><br><br><br>There are two forms of ```main``` function in C++:<br><br>```cpp<br>// This is the first type<br>int main()&#123;<br>    return 0;<br>&#125;<br><br><br>// Here is the second type, it equals to main()<br>int main(int argc, char* argv[])&#123;<br>    return 0;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><figcaption><span>function is the final running program，its like a general function. The return value of it is ```int```, and we usually use ```0``` to represent the return value.</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">There are two forms of ```main``` function in C++:</span><br><span class="line"></span><br><span class="line">```cpp</span><br><span class="line">// This is the first type</span><br><span class="line">int main()&#123;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// Here is the second type, it equals to main()</span><br><span class="line">int main(int argc, char* argv[])&#123;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
 <h3 id="Namespace"><a href="#Namespace" class="headerlink" title="Namespace"></a>Namespace</h3><p>If we need to avoid there are multiple functions with the same name, we can use the <code>namespace</code> to avoid the comflictions.</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><br><span class="hljs-keyword">namespace</span> NameSpace1<br>&#123;<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">fun</span><span class="hljs-params">()</span></span><br><span class="hljs-function">    </span>&#123;<br>        <br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">namespace</span> NameSpace2<br>&#123;<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">fun</span><span class="hljs-params">()</span></span>&#123;<br>        <br>    &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    NameSpace2::<span class="hljs-built_in">fun</span>();<br>   <br>    <br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> NameSpace1</span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">fun</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> NameSpace2</span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">fun</span><span class="params">()</span></span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    NameSpace2::<span class="built_in">fun</span>();</span><br><span class="line">   </span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>Or we can do <code>using namespace</code>:</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-comment">// Now it will defaulty search the fun funtion from the NameSpace1</span><br>    <span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> NameSpace1;<br>    <span class="hljs-built_in">fun</span>();<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">// Now it will defaulty search the fun funtion from the NameSpace1</span></span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> NameSpace1;</span><br><span class="line">    <span class="built_in">fun</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h4 id="printf"><a href="#printf" class="headerlink" title="printf"></a>printf</h4><p>In C++, we can use the <code>std::cout</code> or <code>printf</code>:</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp">std::cout &lt;&lt; <span class="hljs-string">&quot;Hello World&quot;</span> &lt;&lt; std::endl;<br></code></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">std::cout &lt;&lt; <span class="string">&quot;Hello World&quot;</span> &lt;&lt; std::endl;</span><br></pre></td></tr></table></figure>
 
 <p>It can equals to :</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;cstdio&gt;</span> <span class="hljs-comment">// but it is not that quite standard and strict, so we import &lt;cstdio&gt; lib to refer the printf</span></span><br><span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Hello World\n&quot;</span>);<br></code></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstdio&gt;</span> <span class="comment">// but it is not that quite standard and strict, so we import &lt;cstdio&gt; lib to refer the printf</span></span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;Hello World\n&quot;</span>);</span><br></pre></td></tr></table></figure>
 
 
 
 <h4 id="if"><a href="#if" class="headerlink" title="if"></a>if</h4><p>The essence of <code>if</code> is division like trees.</p>
 <p>Here is the <code>if</code> in C++:</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">if</span> (x == y)&#123;<br>    <br>&#125;<br><span class="hljs-keyword">else</span>&#123;<br>    <br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (x == y)&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h4 id="while"><a href="#while" class="headerlink" title="while"></a>while</h4><p>The essence of the <code>while</code> is recursion or loop.</p>
 <p>Here is an example is guessing number:</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-type">int</span> x = <span class="hljs-number">42</span>;<br>    <span class="hljs-type">int</span> y = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">while</span> (x != y)&#123;<br>    	std::cout &lt;&lt; <span class="hljs-string">&quot;Please input a number: \n&quot;</span>;<br>        <span class="hljs-comment">// Cin here will be the user input</span><br>        std::cin &gt;&gt; y;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> x = <span class="number">42</span>;</span><br><span class="line">    <span class="type">int</span> y = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (x != y)&#123;</span><br><span class="line">    	std::cout &lt;&lt; <span class="string">&quot;Please input a number: \n&quot;</span>;</span><br><span class="line">        <span class="comment">// Cin here will be the user input</span></span><br><span class="line">        std::cin &gt;&gt; y;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="/../images/image-20220924142713210.png" srcset="/img/loading.gif" lazyload alt="image-20220924142713210"></p>
+<p><img src="/../images/image-20220924142713210.png" alt="image-20220924142713210"></p>
 <p>The logic here is that, if the user input is not equal to the <code>x</code> there, so the program will request you to input a number, else it will stop.</p>
 <h4 id="Struct"><a href="#Struct" class="headerlink" title="Struct"></a>Struct</h4><p>We can define the struct of  multiple variables we want to call, especially for those variables who have inner connections.</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;cstdio&gt;</span></span><br><br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Point</span>&#123;<br>  <span class="hljs-type">int</span> x;  <br>  <span class="hljs-type">int</span> y;  <br>  <span class="hljs-comment">// the inside of the struct also can include functions</span><br>  <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">IncX</span><span class="hljs-params">()</span></span>&#123;<br>      x = x + <span class="hljs-number">1</span>;<br>  &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">fun</span><span class="hljs-params">(Point p)</span></span>&#123;<br>    p.x;<br>    p.y;<br>    p.x = p.x + <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">return</span> x;<br>&#125;<br><br><span class="hljs-comment">// So in this way, we can make the variables more friendly to call</span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>   	Point p;<br>    <span class="hljs-comment">// so we can call a struct name is &quot;p&quot; </span><br>    p.x = <span class="hljs-number">3</span>;<br>    p.y = <span class="hljs-number">5</span>;<br>    p.<span class="hljs-built_in">IncX</span>();<br>    std::cout &lt;&lt; p.x &lt;&lt; <span class="hljs-string">&quot; &quot;</span> &lt;&lt; p.y &lt;&lt; <span class="hljs-string">&quot;\n&quot;</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Point</span>&#123;</span><br><span class="line">  <span class="type">int</span> x;  </span><br><span class="line">  <span class="type">int</span> y;  </span><br><span class="line">  <span class="comment">// the inside of the struct also can include functions</span></span><br><span class="line">  <span class="function"><span class="type">void</span> <span class="title">IncX</span><span class="params">()</span></span>&#123;</span><br><span class="line">      x = x + <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">fun</span><span class="params">(Point p)</span></span>&#123;</span><br><span class="line">    p.x;</span><br><span class="line">    p.y;</span><br><span class="line">    p.x = p.x + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// So in this way, we can make the variables more friendly to call</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">   	Point p;</span><br><span class="line">    <span class="comment">// so we can call a struct name is &quot;p&quot; </span></span><br><span class="line">    p.x = <span class="number">3</span>;</span><br><span class="line">    p.y = <span class="number">5</span>;</span><br><span class="line">    p.<span class="built_in">IncX</span>();</span><br><span class="line">    std::cout &lt;&lt; p.x &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; p.y &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
 <h1 id="Type-and-variables"><a href="#Type-and-variables" class="headerlink" title="Type and variables"></a>Type and variables</h1><p>C++ is a very strong language focused on the type of variables typically. </p>
 <p>There are two steps to set a variable in C++:</p>
 <h5 id="Initialize"><a href="#Initialize" class="headerlink" title="Initialize"></a>Initialize</h5><p>The first step to define a value can be:</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-type">int</span> x = <span class="hljs-number">10</span>;<br><span class="hljs-type">int</span> y = <span class="hljs-number">5</span>;<br></code></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> x = <span class="number">10</span>;</span><br><span class="line"><span class="type">int</span> y = <span class="number">5</span>;</span><br></pre></td></tr></table></figure>
 
 <p>Now the variable <code>x</code> can be created into a storage <code>address</code>, and pass the value into it. </p>
-<h5 id="Pass-the-value"><a href="#Pass-the-value" class="headerlink" title="Pass the value"></a>Pass the value</h5><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp">x = y<br></code></pre></td></tr></table></figure>
+<h5 id="Pass-the-value"><a href="#Pass-the-value" class="headerlink" title="Pass the value"></a>Pass the value</h5><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x = y</span><br></pre></td></tr></table></figure>
 
 <p>The computer now will firstly find the address of the <code>x</code>, and change the value from that address <strong>[rbp-4] (-4 &#x3D; 0xFFFFFFFFFFFFFFFC)</strong> into <strong>10 (10 &#x3D; 0xA)</strong>. And the same idea is that <code>y</code> is correspond to <strong>[rbp-8 ] (-8 &#x3D; 0xFFFFFFFFFFFFFFF8)</strong> whose the value is <strong>5 &#x3D; 0x5</strong>.</p>
-<p><img src="/../images/image-20220924160919422.png" srcset="/img/loading.gif" lazyload alt="image-20220924160919422"></p>
+<p><img src="/../images/image-20220924160919422.png" alt="image-20220924160919422"></p>
 <p>Now the idea can be let <code>y</code> equals to <code>x</code>. The logic here is we firstly get the address of y which is   <strong>[rbp-8]</strong> and pass the value under that address into <code>eax</code>, and pass the <code>eax</code> value into the address which is <strong>[rbp-4]</strong>.</p>
 <p>There is one notice is that, the C++ will sometimes convert the value for you if you misuse it, like in here the 10.5 is a double float number, but the C++ will let you to store that value only include the integer part which is the automatic setting of the C++.</p>
-<p><img src="/../images/image-20220924162242225.png" srcset="/img/loading.gif" lazyload alt="image-20220924162242225"></p>
+<p><img src="/../images/image-20220924162242225.png" alt="image-20220924162242225"></p>
 <h1 id="Pointer"><a href="#Pointer" class="headerlink" title="Pointer"></a>Pointer</h1><p>Here we can firstly define a pointer, and the pointer address will point to a value.</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-type">int</span> x = <span class="hljs-number">42</span>;<br>    <span class="hljs-type">int</span> y = <span class="hljs-number">56</span>;<br>    <br>    <span class="hljs-type">int</span>* p = &amp;x;<br>    <span class="hljs-comment">// &amp;x is to get the address from the variable, </span><br>    <span class="hljs-comment">// we can change the value of the pointer p the same as the address of y</span><br>    p = &amp;y;<br>    <br>    <span class="hljs-comment">// now we can get the value from refering the pointer p, the idea of int* p and *p is totally different</span><br>    std::cout &lt;&lt; *p &lt;&lt; std::endl;<br>    <span class="hljs-comment">// the *p will be the value of x</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> x = <span class="number">42</span>;</span><br><span class="line">    <span class="type">int</span> y = <span class="number">56</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="type">int</span>* p = &amp;x;</span><br><span class="line">    <span class="comment">// &amp;x is to get the address from the variable, </span></span><br><span class="line">    <span class="comment">// we can change the value of the pointer p the same as the address of y</span></span><br><span class="line">    p = &amp;y;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// now we can get the value from refering the pointer p, the idea of int* p and *p is totally different</span></span><br><span class="line">    std::cout &lt;&lt; *p &lt;&lt; std::endl;</span><br><span class="line">    <span class="comment">// the *p will be the value of x</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="/../images/image-20220924215057558.png" srcset="/img/loading.gif" lazyload alt="image-20220924215057558"></p>
+<p><img src="/../images/image-20220924215057558.png" alt="image-20220924215057558"></p>
 <p>&amp; is for getting the address. Pointer will also create a space in your computer, it will also can become an object. Pointer it is a procedure to point! Pointer can save the address. </p>
 <p>We can also set the default pointer into <code>null</code>, like:</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-type">int</span> *p = <span class="hljs-literal">nullptr</span>; <span class="hljs-comment">// this is just a pre-set value, which means the address of it have not be clearly decided.</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> *p = <span class="literal">nullptr</span>; <span class="comment">// this is just a pre-set value, which means the address of it have not be clearly decided.</span></span><br></pre></td></tr></table></figure>
 
 <p>We can use pointer to save a lot of computing space, especially when we want to pass a relatively “big” value into the function. </p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Str</span>&#123;<br>    ....<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">fun</span><span class="hljs-params">(Str* param)</span></span>&#123;<br>    <span class="hljs-comment">// we are setting the function params into the pointer, so we can just give that pointer an address, so we can easily manipulate it.</span><br>    <br>&#125;<br><br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    Str x;<br>    <span class="hljs-comment">// now we pass the x&#x27;s address to p</span><br>    Str* p = &amp;x;<br>    <span class="hljs-built_in">fun</span>(p);<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Str</span>&#123;</span><br><span class="line">    ....</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">fun</span><span class="params">(Str* param)</span></span>&#123;</span><br><span class="line">    <span class="comment">// we are setting the function params into the pointer, so we can just give that pointer an address, so we can easily manipulate it.</span></span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Str x;</span><br><span class="line">    <span class="comment">// now we pass the x&#x27;s address to p</span></span><br><span class="line">    Str* p = &amp;x;</span><br><span class="line">    <span class="built_in">fun</span>(p);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
@@ -499,472 +280,33 @@
 
 
 <h1 id="Useful-Linux-Cmds"><a href="#Useful-Linux-Cmds" class="headerlink" title="Useful Linux Cmds"></a>Useful Linux Cmds</h1><h2 id="nm"><a href="#nm" class="headerlink" title="nm"></a>nm</h2><p>We can use:</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">nm ./main.cpp.o | c++filt -t<br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nm ./main.cpp.o | c++filt -t</span><br></pre></td></tr></table></figure>
 
 <p>It will print all the referred values or params when the program is compiled.</p>
 
-              
-            </div>
-            <hr/>
-            <div>
-              <div class="post-metas my-3">
-  
-  
 </div>
 
 
-              
-  
+<style>
+  .portfolio-content img {
+    width: 100%;      /* Make the image width equal to the container width */
+    height: auto;     /* Maintain the aspect ratio */
+    max-width: 100%;  /* Ensures the image does not exceed the container width */
+  }
+</style>
 
-  <div class="license-box my-3">
-    <div class="license-title">
-      <div>CPP</div>
-      <div>http://xiaos.site/2022/07/12/CPP/</div>
-    </div>
-    <div class="license-meta">
-      
-        <div class="license-meta-item">
-          <div>Author</div>
-          <div>Xiao Zhang</div>
-        </div>
-      
-      
-        <div class="license-meta-item license-meta-date">
-          <div>Posted on</div>
-          <div>July 12, 2022</div>
-        </div>
-      
-      
-      <div class="license-meta-item">
-        <div>Licensed under</div>
-        <div>
-          
-            
-            
-              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
-              <span class="hint--top hint--rounded" aria-label="BY - Attribution">
-                <i class="iconfont icon-by"></i>
-              </span>
-              </a>
-            
-          
-        </div>
+
+
+
+
       </div>
-    </div>
-    <div class="license-icon iconfont"></div>
-  </div>
-
-
-
-              
-                <div class="post-prevnext my-3">
-                  <article class="post-prev col-6">
-                    
-                    
-                      <a href="/2022/07/12/Code-Quality/" title="Code Quality">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Code Quality</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
-                  </article>
-                  <article class="post-next col-6">
-                    
-                    
-                      <a href="/2022/07/11/Shell-and-Vim-on-Speech-and-Language-Processing/" title="Shell and Vim on Speech and Language Processing">
-                        <span class="hidden-mobile">Shell and Vim on Speech and Language Processing</span>
-                        <span class="visible-mobile">Next</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
-                    
-                  </article>
-                </div>
-              
-            </div>
-
-            
-  <article id="comments" lazyload>
-    
-
-  </article>
-
-
-          </article>
-        </div>
-      </div>
-    </div>
-
-    <div class="side-col d-none d-lg-block col-lg-2">
       
-  <aside class="sidebar" style="margin-left: -1rem">
-    <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;Table of Contents</p>
-  <div class="toc-body" id="toc-body"></div>
-</div>
+  	</div>
 
+    <!-- After footer scripts -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 
-
-  </aside>
-
-
-    </div>
-  </div>
-</div>
-
-
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-  
-  
-
-
-
-
-
-
-
-
-    
-
-    
-      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
-        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-      </a>
-    
-
-    
-      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-     aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
-        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
-        </div>
-        <div class="list-group" id="local-search-result"></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-    
-
-    
-  </main>
-
-  <footer>
-    <div class="footer-inner">
-  
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>© 2022 By Xiao Zhang</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-    </div>
-  
-  
-    <div class="statistics">
-  
-  
-
-  
-    
-      <span id="busuanzi_container_site_pv" style="display: none">
-        Views: 
-        <span id="busuanzi_value_site_pv"></span>
-        
-      </span>
-    
-    
-      <span id="busuanzi_container_site_uv" style="display: none">
-        Visitors: 
-        <span id="busuanzi_value_site_uv"></span>
-        
-      </span>
-    
-    
-  
-</div>
-
-  
-  
-  
-</div>
-
-  </footer>
-
-  <!-- Scripts -->
-  
-  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
-
-  <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
-    NProgress.start()
-    window.addEventListener('load', function() {
-      NProgress.done();
-    })
-  </script>
-
-
-<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
-<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
-
-
-  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
-      }
-      var text = subtitle.getAttribute('data-typed-text');
-      
-        typing(text);
-      
-    })(window, document);
-  </script>
-
-
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-
-
-  
-    <script  src="/js/img-lazyload.js" ></script>
-  
-
-
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
-    var toc = jQuery('#toc');
-    if (toc.length === 0 || !window.tocbot) { return; }
-    var boardCtn = jQuery('#board-ctn');
-    var boardTop = boardCtn.offset().top;
-
-    window.tocbot.init({
-      tocSelector     : '#toc-body',
-      contentSelector : '.markdown-body',
-      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
-      linkClass       : 'tocbot-link',
-      activeLinkClass : 'tocbot-active-link',
-      listClass       : 'tocbot-list',
-      isCollapsedClass: 'tocbot-is-collapsed',
-      collapsibleClass: 'tocbot-is-collapsible',
-      collapseDepth   : CONFIG.toc.collapseDepth || 0,
-      scrollSmooth    : true,
-      headingsOffset  : -boardTop
-    });
-    if (toc.find('.toc-list-item').length > 0) {
-      toc.css('visibility', 'visible');
-    }
-  });
-</script>
-
-
-  <script>
-  (function() {
-    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
-    var enableCopy = CONFIG.copy_btn;
-    if (!enableLang && !enableCopy) {
-      return;
-    }
-
-    function getBgClass(ele) {
-      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
-    }
-
-    var copyTmpl = '';
-    copyTmpl += '<div class="code-widget">';
-    copyTmpl += 'LANG';
-    copyTmpl += '</div>';
-    jQuery('.markdown-body pre').each(function() {
-      var $pre = jQuery(this);
-      if ($pre.find('code.mermaid').length > 0) {
-        return;
-      }
-      if ($pre.find('span.line').length > 0) {
-        return;
-      }
-
-      var lang = '';
-
-      if (enableLang) {
-        lang = CONFIG.code_language.default;
-        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
-          lang = $pre[0].children[0].classList[1];
-        } else if ($pre[0].getAttribute('data-language')) {
-          lang = $pre[0].getAttribute('data-language');
-        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
-          lang = $pre[0].children[0].classList[1];
-          $pre.parent().addClass('code-wrapper');
-        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
-          $pre.wrap('<div class="code-wrapper"></div>');
-        }
-        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
-      }
-      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
-        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
-
-      if (enableCopy) {
-        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
-          var clipboard = new window.ClipboardJS('.copy-btn', {
-            target: function(trigger) {
-              var nodes = trigger.parentNode.childNodes;
-              for (var i = 0; i < nodes.length; i++) {
-                if (nodes[i].tagName === 'CODE') {
-                  return nodes[i];
-                }
-              }
-            }
-          });
-          clipboard.on('success', function(e) {
-            e.clearSelection();
-            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
-            setTimeout(function() {
-              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
-            }, 2000);
-          });
-        });
-      }
-    });
-  })();
-</script>
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
-    window.anchors.options = {
-      placement: CONFIG.anchorjs.placement,
-      visible  : CONFIG.anchorjs.visible
-    };
-    if (CONFIG.anchorjs.icon) {
-      window.anchors.options.icon = CONFIG.anchorjs.icon;
-    }
-    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
-    var res = [];
-    for (var item of el) {
-      res.push('.markdown-body > ' + item.trim());
-    }
-    if (CONFIG.anchorjs.placement === 'left') {
-      window.anchors.options.class = 'anchorjs-link-left';
-    }
-    window.anchors.add(res.join(', '));
-  });
-</script>
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
-    Fluid.plugins.fancyBox();
-  });
-</script>
-
-
-  <script>Fluid.plugins.imageCaption();</script>
-
-  
-      <script>
-        MathJax = {
-          tex    : {
-            inlineMath: { '[+]': [['$', '$']] }
-          },
-          loader : {
-            load: ['ui/lazy']
-          },
-          options: {
-            renderActions: {
-              findScript    : [10, doc => {
-                document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-                  const display = !!node.type.match(/; *mode=display/);
-                  const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-                  const text = document.createTextNode('');
-                  node.parentNode.replaceChild(text, node);
-                  math.start = { node: text, delim: '', n: 0 };
-                  math.end = { node: text, delim: '', n: 0 };
-                  doc.math.push(math);
-                });
-              }, '', false],
-              insertedScript: [200, () => {
-                document.querySelectorAll('mjx-container').forEach(node => {
-                  let target = node.parentNode;
-                  if (target.nodeName.toLowerCase() === 'li') {
-                    target.parentNode.classList.add('has-jax');
-                  }
-                });
-              }, '', false]
-            }
-          }
-        };
-      </script>
-    
-
-  <script  src="https://lib.baomitu.com/mathjax/3.2.1/es5/tex-mml-chtml.js" ></script>
-
-  <script  src="/js/local-search.js" ></script>
-
-  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
-
-
-
-
-
-<!-- 主题的启动项，将它保持在最底部 -->
-<!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
-
-
-  
-
-  <noscript>
-    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
-  </noscript>
-</body>
+  </body>
 </html>

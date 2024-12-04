@@ -1,395 +1,192 @@
-
-
 <!DOCTYPE html>
-<html lang="en" data-default-color-scheme=auto>
+<html lang="en">
+  <!-- Head tag -->
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-
-
-<head>
-  <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/fluid.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <!-- Title -->
   
-  <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="Xiao Zhang">
-  <meta name="keywords" content="Software Architecture Design">
+  <title>Audio and Speech Processing Development Environment - Xiao Zhang (Software Design Office)</title>
+
+  <!--Favicon-->
+  <link rel="icon" href="favicon/favicon.ico">
+
+  <!--Description-->
   
-    <meta name="description" content="Docker1docker-compose build    1systemctl start docker    1systemctl enable docker    1sudo systemctl stop docker  If there is warning like: Warning: Stopping docker.service, but it can still be activ">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Audio and Speech Processing Development Environment">
-<meta property="og:url" content="http://xiaos.site/2022/07/30/Audio-and-Speech-Processing-Development-Environment/index.html">
-<meta property="og:site_name" content="Xiao">
-<meta property="og:description" content="Docker1docker-compose build    1systemctl start docker    1systemctl enable docker    1sudo systemctl stop docker  If there is warning like: Warning: Stopping docker.service, but it can still be activ">
-<meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://xiaos.site/images/image-20220730154010169.png">
-<meta property="og:image" content="http://xiaos.site/images/image-20220801144443432.png">
-<meta property="og:image" content="http://xiaos.site/images/image-20220918124124743.png">
-<meta property="og:image" content="http://xiaos.site/images/image-20220918004648297.png">
-<meta property="og:image" content="http://xiaos.site/images/out.png">
-<meta property="article:published_time" content="2022-07-30T14:33:40.000Z">
-<meta property="article:modified_time" content="2024-11-25T22:45:14.891Z">
-<meta property="article:author" content="Xiao Zhang">
-<meta property="article:tag" content="Audio and Speech Processing">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://xiaos.site/images/image-20220730154010169.png">
-  
-  
-    <meta name="referrer" content="no-referrer-when-downgrade">
-  
-  
-  <title>Audio and Speech Processing Development Environment - Xiao</title>
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+      <meta name="description" content="Docker1docker-compose build
 
 
 
-  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+1systemctl start docker
 
 
 
-<!-- 主题依赖的图标库，不要自行修改 -->
-<!-- Do not modify the link that theme dependent icons -->
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+1systemctl enable docker
 
 
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+1sudo systemctl stop docker
 
-
-<link  rel="stylesheet" href="/css/main.css" />
-
-
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
-  
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+If there is warning like: Warning: ">
   
 
-
-
+  <!--Author-->
   
-<link rel="stylesheet" href="/css/fluid-extention.css">
-
-
-
-  <script id="fluid-configs">
-    var Fluid = window.Fluid || {};
-    Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"xiaos.site","root":"/","version":"1.9.1","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
-
-    if (CONFIG.web_analytics.follow_dnt) {
-      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
-      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
-    }
-  </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
-
+      <meta name="author" content="Xiao Zhang">
   
+
+  <!-- Pure CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Open+Sans:300,800" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  
+<link rel="stylesheet" href="/css/styles.css">
+
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <!-- Google Analytics -->
+  
+
 <meta name="generator" content="Hexo 6.2.0"></head>
 
 
-<body>
-  
-
-  <header>
-    
-
-<div class="header-inner" style="height: 70vh;">
-  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
-  <div class="container">
-    <a class="navbar-brand" href="/">
-      <strong>Xiao Zhang</strong>
-    </a>
-
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <div class="animated-icon"><span></span><span></span><span></span></div>
-    </button>
-
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto text-center">
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/">
-                <i class="iconfont icon-home-fill"></i>
-                Home
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/archive/">
-                <i class="iconfont icon-archive-fill"></i>
-                Archive
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/products/">
-                <i class="iconfont icon-category-fill"></i>
-                Products
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/">
-                <i class="iconfont icon-tags-fill"></i>
-                Use Cases
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/">
-                <i class="iconfont icon-user-fill"></i>
-                About
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/links/">
-                <i class="iconfont icon-link-fill"></i>
-                Links
-              </a>
-            </li>
-          
-        
-        
-          <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
-              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
-            </a>
-          </li>
-          
-        
-        
-          <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
-                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
-          </li>
-        
-      </ul>
-    </div>
+  <body>
+  	<div class="container-fluid navbar-container m-sm-5">
+      <!-- Header -->
+      <nav class="navbar navbar-toggleable-sm navbar-light px-1 py-3 my-3 mb-sm-5">
+  <a class="navbar-brand ml-2" href="/">Xiao Zhang (Software Design Office)</a>
+  <button class="navbar-toggler navbar-toggler-right py-2" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse text-center" id="navbarCollapse">
+    <ul class="navbar-nav ml-auto my-auto">
+      
+        <li class="nav-item">
+          <a class="nav-link" href="/about">About</a>
+        </li>
+      
+        <li class="nav-item">
+          <a class="nav-link" target="_blank" rel="noopener" href="https://www.linkedin.com/in/xiao-zhang-28785b19b/">LinkedIn</a>
+        </li>
+      
+    </ul>
+    <hr class="hidden-md-up" />
   </div>
 </nav>
 
-  
 
-<div id="banner" class="banner" parallax=true
-     style="background: url('/img/banner.jpg') no-repeat center center; background-size: cover;">
-  <div class="full-bg-img">
-    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-      <div class="banner-text text-center fade-in-up">
-        <div class="h2">
-          
-            <span id="subtitle" data-typed-text="Audio and Speech Processing Development Environment"></span>
-          
-        </div>
-
-        
-          
-  <div class="mt-3">
-    
-    
-      <span class="post-meta">
-        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-07-30 15:33" pubdate>
-          July 30, 2022 pm
-        </time>
-      </span>
-    
-  </div>
-
-  <div class="mt-1">
-    
-      <span class="post-meta mr-2">
-        <i class="iconfont icon-chart"></i>
-        
-          5.5k words
-        
-      </span>
-    
-
-    
-      <span class="post-meta mr-2">
-        <i class="iconfont icon-clock-fill"></i>
-        
-        
-        
-          47 mins
-        
-      </span>
-    
-
-    
-    
-  </div>
-
-
-        
-      </div>
-
-      
-    </div>
-  </div>
-</div>
-
-</div>
-
-  </header>
-
-  <main>
-    
-      
-
-<div class="container-fluid nopadding-x">
-  <div class="row nomargin-x">
-    <div class="side-col d-none d-lg-block col-lg-2">
-      
-
-    </div>
-
-    <div class="col-lg-8 nopadding-x-md">
-      <div class="container nopadding-x-md" id="board-ctn">
-        <div id="board">
-          <article class="post-content mx-auto">
-            <!-- SEO header -->
-            <h1 style="display: none">Audio and Speech Processing Development Environment</h1>
-            
-            <div class="markdown-body">
-              
-              <h1 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">docker-compose build<br></code></pre></td></tr></table></figure>
+  		<div class="row">
+  			<!-- <div class="col-12 mb-4"> -->
+<!--   <img class="img-fluid project-img" src="/" alt="Audio and Speech Processing Development Environment"> -->
+<!-- </div> -->
+<!-- <div class="col-lg-4 col-12 pt-3 px-4 pr-lg-5"> -->
+<!--   <h1>Audio and Speech Processing Development Environment</h1> -->
+<!-- </div> -->
+<div class="col-lg-8 col-12 pt-lg-3 mb-4 pl-lg-5 px-lg-0 px-4 portfolio-content">
+  <h1 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose build</span><br></pre></td></tr></table></figure>
 
 
 
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">systemctl start docker<br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start docker</span><br></pre></td></tr></table></figure>
 
 
 
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">systemctl <span class="hljs-built_in">enable</span> docker<br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> docker</span><br></pre></td></tr></table></figure>
 
 
 
-<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arduino">sudo systemctl stop docker<br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl stop docker</span><br></pre></td></tr></table></figure>
 
 <p>If there is warning like: Warning: Stopping docker.service, but it can still be activated by:**</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">docker.socket**<br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker.socket**</span><br></pre></td></tr></table></figure>
 
 
 
 <p>So we can stop the socket</p>
-<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs livecodeserver">sudo systemctl <span class="hljs-built_in">stop</span> docker.<span class="hljs-built_in">socket</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl stop docker.socket</span><br></pre></td></tr></table></figure>
 
 
 
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">systemctl <span class="hljs-built_in">enable</span> docker<br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> docker</span><br></pre></td></tr></table></figure>
 
 
 
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">systemctl restart docker<br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart docker</span><br></pre></td></tr></table></figure>
 
 
 
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">sudo docker-compose up<br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker-compose up</span><br></pre></td></tr></table></figure>
 
 
 
 <p>项目中架起docker环境</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">docker system prune<br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker system prune</span><br></pre></td></tr></table></figure>
 
 
 
 
 
-<h1 id="Cuda"><a href="#Cuda" class="headerlink" title="Cuda"></a>Cuda</h1><p><img src="/../images/image-20220730154010169.png" srcset="/img/loading.gif" lazyload alt="image-20220730154010169"></p>
-<h2 id="nvidia-smi"><a href="#nvidia-smi" class="headerlink" title="nvidia-smi"></a>nvidia-smi</h2><p><img src="/../images/image-20220801144443432.png" srcset="/img/loading.gif" lazyload alt="image-20220801144443432"></p>
+<h1 id="Cuda"><a href="#Cuda" class="headerlink" title="Cuda"></a>Cuda</h1><p><img src="/../images/image-20220730154010169.png" alt="image-20220730154010169"></p>
+<h2 id="nvidia-smi"><a href="#nvidia-smi" class="headerlink" title="nvidia-smi"></a>nvidia-smi</h2><p><img src="/../images/image-20220801144443432.png" alt="image-20220801144443432"></p>
 <p><strong>Issue 1:</strong></p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs applescript">NVIDIA-SMI has failed because <span class="hljs-keyword">it</span> couldn&#x27;t communicate <span class="hljs-keyword">with</span> <span class="hljs-keyword">the</span> NVIDIA driver. <br>Make sure <span class="hljs-keyword">that</span> <span class="hljs-keyword">the</span> latest NVIDIA driver <span class="hljs-keyword">is</span> installed <span class="hljs-keyword">and</span> <span class="hljs-built_in">running</span>.<br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">NVIDIA-SMI has failed because it couldn&#x27;t communicate with the NVIDIA driver. </span><br><span class="line">Make sure that the latest NVIDIA driver is installed and running.</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">sudo apt install dkms<br>sudo dkms install -m nvidia -v 418.87.00  <span class="hljs-comment"># replace the result from ls /usr/src | grep nvidia</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install dkms</span><br><span class="line">sudo dkms install -m nvidia -v 418.87.00  <span class="comment"># replace the result from ls /usr/src | grep nvidia</span></span><br></pre></td></tr></table></figure>
 
 <p>Check  the NVIDIA number:</p>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs gradle">ls <span class="hljs-regexp">/usr/</span>src | <span class="hljs-keyword">grep</span> nvidia     <br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls /usr/src | grep nvidia     </span><br></pre></td></tr></table></figure>
 
 <p>This will solve this common issue.</p>
 <p><strong>Install the CONDA for WSL2</strong></p>
 <p>Please follow this link:<a target="_blank" rel="noopener" href="https://docs.nvidia.com/cuda/wsl-user-guide/index.html">https://docs.nvidia.com/cuda/wsl-user-guide/index.html</a></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sh">wget https://developer.download.nvidia.com/compute/cuda/repos/wsl-ubuntu/x86_64/cuda-wsl-ubuntu.pin<br>sudo <span class="hljs-built_in">mv</span> cuda-wsl-ubuntu.pin /etc/apt/preferences.d/cuda-repository-pin-600<br>wget https://developer.download.nvidia.com/compute/cuda/11.7.0/local_installers/cuda-repo-wsl-ubuntu-11-7-local_11.7.0-1_amd64.deb<br>sudo dpkg -i cuda-repo-wsl-ubuntu-11-7-local_11.7.0-1_amd64.deb<br>sudo apt-get update<br>sudo apt-get -y install cuda<br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">wget https://developer.download.nvidia.com/compute/cuda/repos/wsl-ubuntu/x86_64/cuda-wsl-ubuntu.pin</span><br><span class="line">sudo <span class="built_in">mv</span> cuda-wsl-ubuntu.pin /etc/apt/preferences.d/cuda-repository-pin-600</span><br><span class="line">wget https://developer.download.nvidia.com/compute/cuda/11.7.0/local_installers/cuda-repo-wsl-ubuntu-11-7-local_11.7.0-1_amd64.deb</span><br><span class="line">sudo dpkg -i cuda-repo-wsl-ubuntu-11-7-local_11.7.0-1_amd64.deb</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get -y install cuda</span><br></pre></td></tr></table></figure>
 
 <p>or Installation of Linux x86 CUDA Toolkit using Meta Package:</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs sh">wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin<br>sudo <span class="hljs-built_in">mv</span> cuda-ubuntu2004.pin /etc/apt/preferences.d/cuda-repository-pin-600<br>wget https://developer.download.nvidia.com/compute/cuda/11.7.0/local_installers/cuda-repo-ubuntu2004-11-7-local_11.7.0-515.43.04-1_amd64.deb<br>sudo dpkg -i cuda-repo-ubuntu2004-11-7-local_11.7.0-515.43.04-1_amd64.deb<br>wget https://developer.download.nvidia.com/compute/cuda/repos/wsl-ubuntu/x86_64/cuda-keyring_1.0-1_all.deb<br>sudo dpkg -i cuda-keyring_1.0-1_all.deb<br>sudo apt-get update<br>sudo apt-get -y install cuda-toolkit-11-7<br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin</span><br><span class="line">sudo <span class="built_in">mv</span> cuda-ubuntu2004.pin /etc/apt/preferences.d/cuda-repository-pin-600</span><br><span class="line">wget https://developer.download.nvidia.com/compute/cuda/11.7.0/local_installers/cuda-repo-ubuntu2004-11-7-local_11.7.0-515.43.04-1_amd64.deb</span><br><span class="line">sudo dpkg -i cuda-repo-ubuntu2004-11-7-local_11.7.0-515.43.04-1_amd64.deb</span><br><span class="line">wget https://developer.download.nvidia.com/compute/cuda/repos/wsl-ubuntu/x86_64/cuda-keyring_1.0-1_all.deb</span><br><span class="line">sudo dpkg -i cuda-keyring_1.0-1_all.deb</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get -y install cuda-toolkit-11-7</span><br></pre></td></tr></table></figure>
 
 <p>Check the environment by:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh\">nvcc -V<br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvcc -V</span><br></pre></td></tr></table></figure>
 
 <p>If there is <code>nvida</code> not found, it should be the environmental problem:</p>
 <p>Set the environmenal Inside of the .bashrc file, update the path as follows:<br><code> export PATH=&quot;/usr/local/cuda-11.7/bin:$PATH&quot;</code><br><code> export LD_LIBRARY_PATH=&quot;/usr/local/cuda-11.7/lib64:$LD_LIBRARY_PATH&quot;</code></p>
 <p><strong>Check the nvidia-smi:</strong></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">nvidia-smi<br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvidia-smi</span><br></pre></td></tr></table></figure>
 
-<p><img src="/../images/image-20220918124124743.png" srcset="/img/loading.gif" lazyload alt="image-20220918124124743"></p>
+<p><img src="/../images/image-20220918124124743.png" alt="image-20220918124124743"></p>
 <h2 id="WSL"><a href="#WSL" class="headerlink" title="WSL"></a>WSL</h2><p><strong>Check the version of wsl</strong></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">wsl -l -v<br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl -l -v</span><br></pre></td></tr></table></figure>
 
 
 
 <p><strong>Update from wsl 1 to wsl2</strong></p>
 <p>change the default version into wsl2. </p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">wsl --set-default-version 2<br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --set-default-version 2</span><br></pre></td></tr></table></figure>
 
 
 
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">wsl.exe --set-version Ubuntu 2<br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl.exe --set-version Ubuntu 2</span><br></pre></td></tr></table></figure>
 
 
 
 <h1 id="Anaconda"><a href="#Anaconda" class="headerlink" title="Anaconda"></a>Anaconda</h1><p>This will show how to install the anaconda at the Ubuntu system:</p>
 <p>The first step should be <code>wget</code> the downloaded file:</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">wget https://repo.anaconda.com/archive/Anaconda3-2022.05-Linux-x86_64.sh<br><span class="hljs-comment"># after we downloaded the Linux Version anaconda, we need to run the .sh file, and we just choose yes</span><br>sh Anaconda3-2022.05-Linux-x86_64.sh<br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget https://repo.anaconda.com/archive/Anaconda3-2022.05-Linux-x86_64.sh</span><br><span class="line"><span class="comment"># after we downloaded the Linux Version anaconda, we need to run the .sh file, and we just choose yes</span></span><br><span class="line">sh Anaconda3-2022.05-Linux-x86_64.sh</span><br></pre></td></tr></table></figure>
 
 <p>If  there is a <code>conda not found</code> problem, we need to fix the environmental variables:</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># check the bashrc file</span><br>vi ~/.bashrc<br><br><span class="hljs-comment"># insert the path loc</span><br><span class="hljs-built_in">export</span> PATH=<span class="hljs-variable">$PATH</span>:/root/anaconda3/bin/<br><br><br><span class="hljs-comment"># excecute file, the conda can be found</span><br><span class="hljs-built_in">source</span> ~/.bashrc<br><br><span class="hljs-comment"># or we can set the environment into true</span><br>conda config --<span class="hljs-built_in">set</span> auto_activate_base <span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># check the bashrc file</span></span><br><span class="line">vi ~/.bashrc</span><br><span class="line"></span><br><span class="line"><span class="comment"># insert the path loc</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/root/anaconda3/bin/</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># excecute file, the conda can be found</span></span><br><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br><span class="line"></span><br><span class="line"><span class="comment"># or we can set the environment into true</span></span><br><span class="line">conda config --<span class="built_in">set</span> auto_activate_base <span class="literal">true</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="Create-a-Python-Env"><a href="#Create-a-Python-Env" class="headerlink" title="Create a Python Env"></a>Create a Python Env</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># create a conda env name &quot;env_name&quot;</span><br>conda create -n env_name python=3.8<br><br><span class="hljs-comment"># activate the env</span><br>conda activate env_name<br><br><span class="hljs-comment"># deactivate the env</span><br>conda deactivate env_name<br><br><span class="hljs-comment"># create a conda env with environment.yml</span><br>conda <span class="hljs-built_in">env</span> create --name env_name -f environment.yml<br><br><span class="hljs-comment"># update the conda env with environment.yml</span><br>conda <span class="hljs-built_in">env</span> update --name <span class="hljs-variable">$MYENV</span> -f environment.yml<br></code></pre></td></tr></table></figure>
+<h2 id="Create-a-Python-Env"><a href="#Create-a-Python-Env" class="headerlink" title="Create a Python Env"></a>Create a Python Env</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># create a conda env name &quot;env_name&quot;</span></span><br><span class="line">conda create -n env_name python=3.8</span><br><span class="line"></span><br><span class="line"><span class="comment"># activate the env</span></span><br><span class="line">conda activate env_name</span><br><span class="line"></span><br><span class="line"><span class="comment"># deactivate the env</span></span><br><span class="line">conda deactivate env_name</span><br><span class="line"></span><br><span class="line"><span class="comment"># create a conda env with environment.yml</span></span><br><span class="line">conda <span class="built_in">env</span> create --name env_name -f environment.yml</span><br><span class="line"></span><br><span class="line"><span class="comment"># update the conda env with environment.yml</span></span><br><span class="line">conda <span class="built_in">env</span> update --name <span class="variable">$MYENV</span> -f environment.yml</span><br></pre></td></tr></table></figure>
 
 <h2 id="Environment-yml"><a href="#Environment-yml" class="headerlink" title="Environment.yml"></a>Environment.yml</h2><p>This is an example of <code>environmental.yml</code> from <code>shennong</code> package.<a target="_blank" rel="noopener" href="https://docs.cognitive-ml.fr/shennong/index.html">https://docs.cognitive-ml.fr/shennong/index.html</a></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs sh">name: shennong<br>channels:<br>  - conda-forge<br>  - coml<br>dependencies:<br>  - python&gt;=3.6<br>  - shennong-pykaldi<br>  - ffmpeg<br>  - h5features&gt;=1.3.2<br>  - h5py&lt;3.0  <span class="hljs-comment"># because h5features supports only h5py-2.*</span><br>  - hmmlearn&gt;=0.2.0,&lt;0.3.0<br>  - joblib<br>  <span class="hljs-comment"># shennong-pykaldi is compiled on numpy-1.15, so shennong must stay on the</span><br>  <span class="hljs-comment"># 1.15 version</span><br>  - numpy==1.15.*<br>  - pip<br>  - pydub<br>  - pytest&gt;=5.0<br>  - pytest-cov<br>  - pytest-runner<br>  - pyyaml<br>  - scipy<br>  - sox  <span class="hljs-comment"># sox binary</span><br>  - sphinx<br>  - sphinx_rtd_theme<br>  - tensorflow&lt;2.5<br>  - pip:<br>      - json-tricks==3.15.*<br>      - sox  <span class="hljs-comment"># pysox</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">name: shennong</span><br><span class="line">channels:</span><br><span class="line">  - conda-forge</span><br><span class="line">  - coml</span><br><span class="line">dependencies:</span><br><span class="line">  - python&gt;=3.6</span><br><span class="line">  - shennong-pykaldi</span><br><span class="line">  - ffmpeg</span><br><span class="line">  - h5features&gt;=1.3.2</span><br><span class="line">  - h5py&lt;3.0  <span class="comment"># because h5features supports only h5py-2.*</span></span><br><span class="line">  - hmmlearn&gt;=0.2.0,&lt;0.3.0</span><br><span class="line">  - joblib</span><br><span class="line">  <span class="comment"># shennong-pykaldi is compiled on numpy-1.15, so shennong must stay on the</span></span><br><span class="line">  <span class="comment"># 1.15 version</span></span><br><span class="line">  - numpy==1.15.*</span><br><span class="line">  - pip</span><br><span class="line">  - pydub</span><br><span class="line">  - pytest&gt;=5.0</span><br><span class="line">  - pytest-cov</span><br><span class="line">  - pytest-runner</span><br><span class="line">  - pyyaml</span><br><span class="line">  - scipy</span><br><span class="line">  - sox  <span class="comment"># sox binary</span></span><br><span class="line">  - sphinx</span><br><span class="line">  - sphinx_rtd_theme</span><br><span class="line">  - tensorflow&lt;2.5</span><br><span class="line">  - pip:</span><br><span class="line">      - json-tricks==3.15.*</span><br><span class="line">      - sox  <span class="comment"># pysox</span></span><br></pre></td></tr></table></figure>
 
 
 
@@ -398,518 +195,72 @@
 
 
 <h1 id="Pytorch"><a href="#Pytorch" class="headerlink" title="Pytorch"></a>Pytorch</h1><h2 id="Install-Pytorch"><a href="#Install-Pytorch" class="headerlink" title="Install Pytorch"></a>Install Pytorch</h2><p>We need to install the pytorch:</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">pip3 install pytorch<br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install pytorch</span><br></pre></td></tr></table></figure>
 
 
 
-<h2 id="Check-the-Version-of-the-Pytorch"><a href="#Check-the-Version-of-the-Pytorch" class="headerlink" title="Check the Version of the Pytorch"></a>Check the Version of the Pytorch</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> torch<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Torch version:&quot;</span>, torch.__version__)<br></code></pre></td></tr></table></figure>
+<h2 id="Check-the-Version-of-the-Pytorch"><a href="#Check-the-Version-of-the-Pytorch" class="headerlink" title="Check the Version of the Pytorch"></a>Check the Version of the Pytorch</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Torch version:&quot;</span>, torch.__version__)</span><br></pre></td></tr></table></figure>
 
 
 
 
 
 <h1 id="Heroku"><a href="#Heroku" class="headerlink" title="Heroku"></a>Heroku</h1><p>Create a heroku server.</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs git">heroku create<br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">heroku create</span><br></pre></td></tr></table></figure>
 
 <p>Push the original codes into the empty projects.</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs git">git push heroku HEAD:master<br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push heroku HEAD:master</span><br></pre></td></tr></table></figure>
 
 
 
 
 
-<h1 id="Linux-Environment"><a href="#Linux-Environment" class="headerlink" title="Linux Environment"></a>Linux Environment</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># from https://github.com/kaldi-asr/kaldi/issues/515 @ willendzw</span><br><span class="hljs-comment"># The env.sh is not under tools/extras/. It is under tools/. So you just need to</span><br><span class="hljs-built_in">source</span> env.sh. It just add irstlm path. Eg:<br><span class="hljs-built_in">export</span> IRSTLM=/home/willen/Documents/kaldi/kaldi/tools/irstlm<br><span class="hljs-built_in">export</span> PATH=<span class="hljs-variable">$&#123;PATH&#125;</span>:<span class="hljs-variable">$&#123;IRSTLM&#125;</span>/bin<br></code></pre></td></tr></table></figure>
+<h1 id="Linux-Environment"><a href="#Linux-Environment" class="headerlink" title="Linux Environment"></a>Linux Environment</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># from https://github.com/kaldi-asr/kaldi/issues/515 @ willendzw</span></span><br><span class="line"><span class="comment"># The env.sh is not under tools/extras/. It is under tools/. So you just need to</span></span><br><span class="line"><span class="built_in">source</span> env.sh. It just add irstlm path. Eg:</span><br><span class="line"><span class="built_in">export</span> IRSTLM=/home/willen/Documents/kaldi/kaldi/tools/irstlm</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$&#123;PATH&#125;</span>:<span class="variable">$&#123;IRSTLM&#125;</span>/bin</span><br></pre></td></tr></table></figure>
 
 
 
-<h3 id="AWS-Ubuntu-EC2"><a href="#AWS-Ubuntu-EC2" class="headerlink" title="AWS Ubuntu EC2"></a>AWS Ubuntu EC2</h3><p><img src="/../images/image-20220918004648297.png" srcset="/img/loading.gif" lazyload alt="image-20220918004648297"></p>
+<h3 id="AWS-Ubuntu-EC2"><a href="#AWS-Ubuntu-EC2" class="headerlink" title="AWS Ubuntu EC2"></a>AWS Ubuntu EC2</h3><p><img src="/../images/image-20220918004648297.png" alt="image-20220918004648297"></p>
 <p>We can use the AWS and install it by this video tutorial: <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=NuB2BTYNosE&amp;t=81s">https://www.youtube.com/watch?v=NuB2BTYNosE&amp;t=81s</a></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># Connect the ec2 server to ssh</span><br>ssh -i ...pem ubuntu@Public IPv4 DNS copied <span class="hljs-comment"># if you are using ubuntu please change the username &quot;ec2-user&quot; into &quot;ubuntu&quot;, otherwise just it.</span><br>ssh -i xiao.pem ec2-user@ec2-3-248-220-97.eu-west-1.compute.amazonaws.com<br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Connect the ec2 server to ssh</span></span><br><span class="line">ssh -i ...pem ubuntu@Public IPv4 DNS copied <span class="comment"># if you are using ubuntu please change the username &quot;ec2-user&quot; into &quot;ubuntu&quot;, otherwise just it.</span></span><br><span class="line">ssh -i xiao.pem ec2-user@ec2-3-248-220-97.eu-west-1.compute.amazonaws.com</span><br></pre></td></tr></table></figure>
 
 
 
 
 
 <h1 id="Librosa"><a href="#Librosa" class="headerlink" title="Librosa"></a>Librosa</h1><p>Here is the scripts that installed in case that it will be facing the incompatibale issues for librosa installing.</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">conda install -c numba numba<br><br>conda install -c conda-forge librosa<br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">conda install -c numba numba</span><br><span class="line"></span><br><span class="line">conda install -c conda-forge librosa</span><br></pre></td></tr></table></figure>
 
 <p>Here is one example:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br><span class="hljs-keyword">import</span> scipy<br><span class="hljs-keyword">import</span> librosa<br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br>y, sr = librosa.load(<span class="hljs-string">&quot;/mnt/c/Users/ABC/SPTK/egs/analysis_synthesis/lpc/data.org.wav&quot;</span>, duration=<span class="hljs-number">0.020</span>)<br><br>a = librosa.lpc(y, order=<span class="hljs-number">4</span>)<br>b = np.hstack([[<span class="hljs-number">0</span>], -<span class="hljs-number">1</span> * a[<span class="hljs-number">1</span>:]])<br><br>y_hat = scipy.signal.lfilter(b, [<span class="hljs-number">1</span>], y)<br>fig, ax = plt.subplots()<br>ax.plot(y)<br>ax.plot(y_hat, linestyle=<span class="hljs-string">&#x27;--&#x27;</span>)<br>ax.legend([<span class="hljs-string">&#x27;y&#x27;</span>, <span class="hljs-string">&#x27;y_hat&#x27;</span>])<br>ax.set_title(<span class="hljs-string">&#x27;LP Model Forward Prediction&#x27;</span>)<br><br>plt.savefig(<span class="hljs-string">&quot;out.png&quot;</span>)<br>plt.show()<br><br></code></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> scipy</span><br><span class="line"><span class="keyword">import</span> librosa</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">y, sr = librosa.load(<span class="string">&quot;/mnt/c/Users/ABC/SPTK/egs/analysis_synthesis/lpc/data.org.wav&quot;</span>, duration=<span class="number">0.020</span>)</span><br><span class="line"></span><br><span class="line">a = librosa.lpc(y, order=<span class="number">4</span>)</span><br><span class="line">b = np.hstack([[<span class="number">0</span>], -<span class="number">1</span> * a[<span class="number">1</span>:]])</span><br><span class="line"></span><br><span class="line">y_hat = scipy.signal.lfilter(b, [<span class="number">1</span>], y)</span><br><span class="line">fig, ax = plt.subplots()</span><br><span class="line">ax.plot(y)</span><br><span class="line">ax.plot(y_hat, linestyle=<span class="string">&#x27;--&#x27;</span>)</span><br><span class="line">ax.legend([<span class="string">&#x27;y&#x27;</span>, <span class="string">&#x27;y_hat&#x27;</span>])</span><br><span class="line">ax.set_title(<span class="string">&#x27;LP Model Forward Prediction&#x27;</span>)</span><br><span class="line"></span><br><span class="line">plt.savefig(<span class="string">&quot;out.png&quot;</span>)</span><br><span class="line">plt.show()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>The saved png file can be looks like that:</p>
-<p><img src="/../images/out.png" srcset="/img/loading.gif" lazyload alt="out"></p>
+<p><img src="/../images/out.png" alt="out"></p>
 <p>Here is a very good tutorials to express the librosa in the speech recognition and processing tasks:</p>
 <p><a target="_blank" rel="noopener" href="https://medium.com/wavey-ai/end-to-end-speech-recognition-f13f0d0197c7">https://medium.com/wavey-ai/end-to-end-speech-recognition-f13f0d0197c7</a></p>
 
-              
-            </div>
-            <hr/>
-            <div>
-              <div class="post-metas my-3">
-  
-  
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/Use%20Cases/Audio-and-Speech-Processing/">#Audio and Speech Processing</a>
-      
-    </div>
-  
 </div>
 
 
-              
-  
+<style>
+  .portfolio-content img {
+    width: 100%;      /* Make the image width equal to the container width */
+    height: auto;     /* Maintain the aspect ratio */
+    max-width: 100%;  /* Ensures the image does not exceed the container width */
+  }
+</style>
 
-  <div class="license-box my-3">
-    <div class="license-title">
-      <div>Audio and Speech Processing Development Environment</div>
-      <div>http://xiaos.site/2022/07/30/Audio-and-Speech-Processing-Development-Environment/</div>
-    </div>
-    <div class="license-meta">
-      
-        <div class="license-meta-item">
-          <div>Author</div>
-          <div>Xiao Zhang</div>
-        </div>
-      
-      
-        <div class="license-meta-item license-meta-date">
-          <div>Posted on</div>
-          <div>July 30, 2022</div>
-        </div>
-      
-      
-      <div class="license-meta-item">
-        <div>Licensed under</div>
-        <div>
-          
-            
-            
-              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
-              <span class="hint--top hint--rounded" aria-label="BY - Attribution">
-                <i class="iconfont icon-by"></i>
-              </span>
-              </a>
-            
-          
-        </div>
+
+
+
+
       </div>
-    </div>
-    <div class="license-icon iconfont"></div>
-  </div>
-
-
-
-              
-                <div class="post-prevnext my-3">
-                  <article class="post-prev col-6">
-                    
-                    
-                      <a href="/2022/08/05/ASV-Subtools-Automatic-Speaker-Verification-Toolkit-Tutorials/" title="ASV-Subtools Automatic Speaker Verification Toolkit Tutorials">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">ASV-Subtools Automatic Speaker Verification Toolkit Tutorials</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
-                  </article>
-                  <article class="post-next col-6">
-                    
-                    
-                      <a href="/2022/07/30/Speech-Technology-Industry/" title="Speech Technology Industry">
-                        <span class="hidden-mobile">Speech Technology Industry</span>
-                        <span class="visible-mobile">Next</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
-                    
-                  </article>
-                </div>
-              
-            </div>
-
-            
-  <article id="comments" lazyload>
-    
-
-  </article>
-
-
-          </article>
-        </div>
-      </div>
-    </div>
-
-    <div class="side-col d-none d-lg-block col-lg-2">
       
-  <aside class="sidebar" style="margin-left: -1rem">
-    <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;Table of Contents</p>
-  <div class="toc-body" id="toc-body"></div>
-</div>
+  	</div>
 
+    <!-- After footer scripts -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 
-
-  </aside>
-
-
-    </div>
-  </div>
-</div>
-
-
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-  
-  
-
-
-
-
-
-
-
-
-    
-
-    
-      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
-        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-      </a>
-    
-
-    
-      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-     aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
-        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
-        </div>
-        <div class="list-group" id="local-search-result"></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-    
-
-    
-  </main>
-
-  <footer>
-    <div class="footer-inner">
-  
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>© 2022 By Xiao Zhang</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-    </div>
-  
-  
-    <div class="statistics">
-  
-  
-
-  
-    
-      <span id="busuanzi_container_site_pv" style="display: none">
-        Views: 
-        <span id="busuanzi_value_site_pv"></span>
-        
-      </span>
-    
-    
-      <span id="busuanzi_container_site_uv" style="display: none">
-        Visitors: 
-        <span id="busuanzi_value_site_uv"></span>
-        
-      </span>
-    
-    
-  
-</div>
-
-  
-  
-  
-</div>
-
-  </footer>
-
-  <!-- Scripts -->
-  
-  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
-
-  <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
-    NProgress.start()
-    window.addEventListener('load', function() {
-      NProgress.done();
-    })
-  </script>
-
-
-<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
-<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
-
-
-  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
-      }
-      var text = subtitle.getAttribute('data-typed-text');
-      
-        typing(text);
-      
-    })(window, document);
-  </script>
-
-
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-
-
-  
-    <script  src="/js/img-lazyload.js" ></script>
-  
-
-
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
-    var toc = jQuery('#toc');
-    if (toc.length === 0 || !window.tocbot) { return; }
-    var boardCtn = jQuery('#board-ctn');
-    var boardTop = boardCtn.offset().top;
-
-    window.tocbot.init({
-      tocSelector     : '#toc-body',
-      contentSelector : '.markdown-body',
-      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
-      linkClass       : 'tocbot-link',
-      activeLinkClass : 'tocbot-active-link',
-      listClass       : 'tocbot-list',
-      isCollapsedClass: 'tocbot-is-collapsed',
-      collapsibleClass: 'tocbot-is-collapsible',
-      collapseDepth   : CONFIG.toc.collapseDepth || 0,
-      scrollSmooth    : true,
-      headingsOffset  : -boardTop
-    });
-    if (toc.find('.toc-list-item').length > 0) {
-      toc.css('visibility', 'visible');
-    }
-  });
-</script>
-
-
-  <script>
-  (function() {
-    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
-    var enableCopy = CONFIG.copy_btn;
-    if (!enableLang && !enableCopy) {
-      return;
-    }
-
-    function getBgClass(ele) {
-      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
-    }
-
-    var copyTmpl = '';
-    copyTmpl += '<div class="code-widget">';
-    copyTmpl += 'LANG';
-    copyTmpl += '</div>';
-    jQuery('.markdown-body pre').each(function() {
-      var $pre = jQuery(this);
-      if ($pre.find('code.mermaid').length > 0) {
-        return;
-      }
-      if ($pre.find('span.line').length > 0) {
-        return;
-      }
-
-      var lang = '';
-
-      if (enableLang) {
-        lang = CONFIG.code_language.default;
-        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
-          lang = $pre[0].children[0].classList[1];
-        } else if ($pre[0].getAttribute('data-language')) {
-          lang = $pre[0].getAttribute('data-language');
-        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
-          lang = $pre[0].children[0].classList[1];
-          $pre.parent().addClass('code-wrapper');
-        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
-          $pre.wrap('<div class="code-wrapper"></div>');
-        }
-        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
-      }
-      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
-        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
-
-      if (enableCopy) {
-        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
-          var clipboard = new window.ClipboardJS('.copy-btn', {
-            target: function(trigger) {
-              var nodes = trigger.parentNode.childNodes;
-              for (var i = 0; i < nodes.length; i++) {
-                if (nodes[i].tagName === 'CODE') {
-                  return nodes[i];
-                }
-              }
-            }
-          });
-          clipboard.on('success', function(e) {
-            e.clearSelection();
-            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
-            setTimeout(function() {
-              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
-            }, 2000);
-          });
-        });
-      }
-    });
-  })();
-</script>
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
-    window.anchors.options = {
-      placement: CONFIG.anchorjs.placement,
-      visible  : CONFIG.anchorjs.visible
-    };
-    if (CONFIG.anchorjs.icon) {
-      window.anchors.options.icon = CONFIG.anchorjs.icon;
-    }
-    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
-    var res = [];
-    for (var item of el) {
-      res.push('.markdown-body > ' + item.trim());
-    }
-    if (CONFIG.anchorjs.placement === 'left') {
-      window.anchors.options.class = 'anchorjs-link-left';
-    }
-    window.anchors.add(res.join(', '));
-  });
-</script>
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
-    Fluid.plugins.fancyBox();
-  });
-</script>
-
-
-  <script>Fluid.plugins.imageCaption();</script>
-
-  
-      <script>
-        MathJax = {
-          tex    : {
-            inlineMath: { '[+]': [['$', '$']] }
-          },
-          loader : {
-            load: ['ui/lazy']
-          },
-          options: {
-            renderActions: {
-              findScript    : [10, doc => {
-                document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-                  const display = !!node.type.match(/; *mode=display/);
-                  const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-                  const text = document.createTextNode('');
-                  node.parentNode.replaceChild(text, node);
-                  math.start = { node: text, delim: '', n: 0 };
-                  math.end = { node: text, delim: '', n: 0 };
-                  doc.math.push(math);
-                });
-              }, '', false],
-              insertedScript: [200, () => {
-                document.querySelectorAll('mjx-container').forEach(node => {
-                  let target = node.parentNode;
-                  if (target.nodeName.toLowerCase() === 'li') {
-                    target.parentNode.classList.add('has-jax');
-                  }
-                });
-              }, '', false]
-            }
-          }
-        };
-      </script>
-    
-
-  <script  src="https://lib.baomitu.com/mathjax/3.2.1/es5/tex-mml-chtml.js" ></script>
-
-  <script  src="/js/local-search.js" ></script>
-
-  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
-
-
-
-
-
-<!-- 主题的启动项，将它保持在最底部 -->
-<!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
-
-
-  
-
-  <noscript>
-    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
-  </noscript>
-</body>
+  </body>
 </html>

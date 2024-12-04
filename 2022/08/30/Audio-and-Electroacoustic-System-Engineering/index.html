@@ -1,334 +1,85 @@
-
-
 <!DOCTYPE html>
-<html lang="en" data-default-color-scheme=auto>
+<html lang="en">
+  <!-- Head tag -->
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-
-
-<head>
-  <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/fluid.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <!-- Title -->
   
-  <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="Xiao Zhang">
-  <meta name="keywords" content="Software Architecture Design">
+  <title>Audio and Electroacoustic System Engineering - Xiao Zhang (Software Design Office)</title>
+
+  <!--Favicon-->
+  <link rel="icon" href="favicon/favicon.ico">
+
+  <!--Description-->
   
-    <meta name="description" content="Audio EngineeringLoudnessFrequency and bandwidthf0F0 is the frequency corresponding to the point where the vibration plate vibrates most strongly when the speaker starts to vibrate from the low range,">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Audio and Electroacoustic System Engineering">
-<meta property="og:url" content="http://xiaos.site/2022/08/30/Audio-and-Electroacoustic-System-Engineering/index.html">
-<meta property="og:site_name" content="Xiao">
-<meta property="og:description" content="Audio EngineeringLoudnessFrequency and bandwidthf0F0 is the frequency corresponding to the point where the vibration plate vibrates most strongly when the speaker starts to vibrate from the low range,">
-<meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://xiaos.site/images/image-20220830155046339.png">
-<meta property="og:image" content="http://xiaos.site/images/image-20220830155055754.png">
-<meta property="og:image" content="http://xiaos.site/images/image-20220830153601503.png">
-<meta property="og:image" content="http://xiaos.site/images/image-20220830160459517.png">
-<meta property="og:image" content="http://xiaos.site/images/image-20220830160555817.png">
-<meta property="og:image" content="http://xiaos.site/images/image-20220830160746952.png">
-<meta property="og:image" content="http://xiaos.site/images/image-20220830160754871.png">
-<meta property="og:image" content="http://xiaos.site/images/image-20220830231622130.png">
-<meta property="og:image" content="http://xiaos.site/images/image-20220830231726241.png">
-<meta property="og:image" content="http://xiaos.site/images/image-20220830185359432.png">
-<meta property="og:image" content="http://xiaos.site/images/image-20220830185640372.png">
-<meta property="og:image" content="http://xiaos.site/images/image-20220830185803031.png">
-<meta property="og:image" content="http://xiaos.site/images/image-20220830185905173.png">
-<meta property="og:image" content="http://xiaos.site/images/image-20220830190155188.png">
-<meta property="og:image" content="http://xiaos.site/images/image-20220830190205285.png">
-<meta property="og:image" content="http://xiaos.site/images/image-20220830190254694.png">
-<meta property="og:image" content="http://xiaos.site/images/image-20220830190323321.png">
-<meta property="og:image" content="http://xiaos.site/images/image-20220830190517184.png">
-<meta property="og:image" content="http://xiaos.site/images/image-20220830190924382.png">
-<meta property="og:image" content="http://xiaos.site/images/image-20220830191000537.png">
-<meta property="og:image" content="http://xiaos.site/images/image-20220830191051142.png">
-<meta property="og:image" content="http://xiaos.site/images/image-20220830191110878.png">
-<meta property="og:image" content="http://xiaos.site/images/image-20220830191304946.png">
-<meta property="og:image" content="http://xiaos.site/images/image-20220830160217690.png">
-<meta property="og:image" content="http://xiaos.site/images/image-20220830193340585.png">
-<meta property="og:image" content="http://xiaos.site/images/image-20220830192850879.png">
-<meta property="og:image" content="http://xiaos.site/images/image-20220830192603531.png">
-<meta property="og:image" content="http://xiaos.site/images/image-20220830192615754.png">
-<meta property="og:image" content="http://xiaos.site/images/image-20220830193214428.png">
-<meta property="og:image" content="http://xiaos.site/images/image-20220830193234249.png">
-<meta property="og:image" content="http://xiaos.site/images/image-20220830193432504.png">
-<meta property="og:image" content="http://xiaos.site/images/image-20220830192931604.png">
-<meta property="og:image" content="http://xiaos.site/images/image-20220830192104094.png">
-<meta property="og:image" content="http://xiaos.site/images/image-20220830192125217.png">
-<meta property="og:image" content="http://xiaos.site/images/image-20220830192151548.png">
-<meta property="og:image" content="http://xiaos.site/images/image-20220830193531424.png">
-<meta property="og:image" content="http://xiaos.site/images/image-20220830192414403.png">
-<meta property="article:published_time" content="2022-08-30T14:34:11.000Z">
-<meta property="article:modified_time" content="2024-11-25T22:45:14.891Z">
-<meta property="article:author" content="Xiao Zhang">
-<meta property="article:tag" content="Software Architecture Design">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://xiaos.site/images/image-20220830155046339.png">
-  
-  
-    <meta name="referrer" content="no-referrer-when-downgrade">
-  
-  
-  <title>Audio and Electroacoustic System Engineering - Xiao</title>
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
-
-
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-
-
-<!-- 主题依赖的图标库，不要自行修改 -->
-<!-- Do not modify the link that theme dependent icons -->
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
-
-
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
-
-
-<link  rel="stylesheet" href="/css/main.css" />
-
-
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
-  
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+      <meta name="description" content="Audio EngineeringLoudnessFrequency and bandwidthf0F0 is the frequency corresponding to the point where the vibration plate vibrates most strongly when">
   
 
-
-
+  <!--Author-->
   
-<link rel="stylesheet" href="/css/fluid-extention.css">
-
-
-
-  <script id="fluid-configs">
-    var Fluid = window.Fluid || {};
-    Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"xiaos.site","root":"/","version":"1.9.1","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
-
-    if (CONFIG.web_analytics.follow_dnt) {
-      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
-      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
-    }
-  </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
-
+      <meta name="author" content="Xiao Zhang">
   
+
+  <!-- Pure CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Open+Sans:300,800" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  
+<link rel="stylesheet" href="/css/styles.css">
+
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <!-- Google Analytics -->
+  
+
 <meta name="generator" content="Hexo 6.2.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" class="aplayer-style-marker">
 <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js" class="aplayer-script-marker"></script>
 </head>
 
 
-<body>
-  
-
-  <header>
-    
-
-<div class="header-inner" style="height: 70vh;">
-  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
-  <div class="container">
-    <a class="navbar-brand" href="/">
-      <strong>Xiao Zhang</strong>
-    </a>
-
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <div class="animated-icon"><span></span><span></span><span></span></div>
-    </button>
-
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto text-center">
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/">
-                <i class="iconfont icon-home-fill"></i>
-                Home
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/archive/">
-                <i class="iconfont icon-archive-fill"></i>
-                Archive
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/products/">
-                <i class="iconfont icon-category-fill"></i>
-                Products
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/">
-                <i class="iconfont icon-tags-fill"></i>
-                Use Cases
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/">
-                <i class="iconfont icon-user-fill"></i>
-                About
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/links/">
-                <i class="iconfont icon-link-fill"></i>
-                Links
-              </a>
-            </li>
-          
-        
-        
-          <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
-              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
-            </a>
-          </li>
-          
-        
-        
-          <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
-                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
-          </li>
-        
-      </ul>
-    </div>
+  <body>
+  	<div class="container-fluid navbar-container m-sm-5">
+      <!-- Header -->
+      <nav class="navbar navbar-toggleable-sm navbar-light px-1 py-3 my-3 mb-sm-5">
+  <a class="navbar-brand ml-2" href="/">Xiao Zhang (Software Design Office)</a>
+  <button class="navbar-toggler navbar-toggler-right py-2" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse text-center" id="navbarCollapse">
+    <ul class="navbar-nav ml-auto my-auto">
+      
+        <li class="nav-item">
+          <a class="nav-link" href="/about">About</a>
+        </li>
+      
+        <li class="nav-item">
+          <a class="nav-link" target="_blank" rel="noopener" href="https://www.linkedin.com/in/xiao-zhang-28785b19b/">LinkedIn</a>
+        </li>
+      
+    </ul>
+    <hr class="hidden-md-up" />
   </div>
 </nav>
 
-  
 
-<div id="banner" class="banner" parallax=true
-     style="background: url('/img/banner.jpg') no-repeat center center; background-size: cover;">
-  <div class="full-bg-img">
-    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-      <div class="banner-text text-center fade-in-up">
-        <div class="h2">
-          
-            <span id="subtitle" data-typed-text="Audio and Electroacoustic System Engineering"></span>
-          
-        </div>
-
-        
-          
-  <div class="mt-3">
-    
-    
-      <span class="post-meta">
-        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-08-30 15:34" pubdate>
-          August 30, 2022 pm
-        </time>
-      </span>
-    
-  </div>
-
-  <div class="mt-1">
-    
-      <span class="post-meta mr-2">
-        <i class="iconfont icon-chart"></i>
-        
-          23k words
-        
-      </span>
-    
-
-    
-      <span class="post-meta mr-2">
-        <i class="iconfont icon-clock-fill"></i>
-        
-        
-        
-          196 mins
-        
-      </span>
-    
-
-    
-    
-  </div>
-
-
-        
-      </div>
-
-      
-    </div>
-  </div>
-</div>
-
-</div>
-
-  </header>
-
-  <main>
-    
-      
-
-<div class="container-fluid nopadding-x">
-  <div class="row nomargin-x">
-    <div class="side-col d-none d-lg-block col-lg-2">
-      
-
-    </div>
-
-    <div class="col-lg-8 nopadding-x-md">
-      <div class="container nopadding-x-md" id="board-ctn">
-        <div id="board">
-          <article class="post-content mx-auto">
-            <!-- SEO header -->
-            <h1 style="display: none">Audio and Electroacoustic System Engineering</h1>
-            
-            <div class="markdown-body">
-              
-              <h1 id="Audio-Engineering"><a href="#Audio-Engineering" class="headerlink" title="Audio Engineering"></a>Audio Engineering</h1><h2 id="Loudness"><a href="#Loudness" class="headerlink" title="Loudness"></a>Loudness</h2><h2 id="Frequency-and-bandwidth"><a href="#Frequency-and-bandwidth" class="headerlink" title="Frequency and bandwidth"></a>Frequency and bandwidth</h2><h3 id="f0"><a href="#f0" class="headerlink" title="f0"></a>f0</h3><p><code>F0</code> is the frequency corresponding to the point where the vibration plate vibrates most strongly when the speaker starts to vibrate from the low range, and the frequency corresponding to the first time the impedance value reaches its maximum value on the impedance curve (i.e. <code>Zmax</code>) is called the resonant frequency or resonance frequency of the speaker unit, abbreviated as <code>F0</code>. The input is a swept frequency signal of equal amplitude, and the voltage across the speaker is viewed in real time with a voltmeter. The voltage corresponds to <code>f0</code> at the maximum.</p>
+  		<div class="row">
+  			<!-- <div class="col-12 mb-4"> -->
+<!--   <img class="img-fluid project-img" src="/" alt="Audio and Electroacoustic System Engineering"> -->
+<!-- </div> -->
+<!-- <div class="col-lg-4 col-12 pt-3 px-4 pr-lg-5"> -->
+<!--   <h1>Audio and Electroacoustic System Engineering</h1> -->
+<!-- </div> -->
+<div class="col-lg-8 col-12 pt-lg-3 mb-4 pl-lg-5 px-lg-0 px-4 portfolio-content">
+  <h1 id="Audio-Engineering"><a href="#Audio-Engineering" class="headerlink" title="Audio Engineering"></a>Audio Engineering</h1><h2 id="Loudness"><a href="#Loudness" class="headerlink" title="Loudness"></a>Loudness</h2><h2 id="Frequency-and-bandwidth"><a href="#Frequency-and-bandwidth" class="headerlink" title="Frequency and bandwidth"></a>Frequency and bandwidth</h2><h3 id="f0"><a href="#f0" class="headerlink" title="f0"></a>f0</h3><p><code>F0</code> is the frequency corresponding to the point where the vibration plate vibrates most strongly when the speaker starts to vibrate from the low range, and the frequency corresponding to the first time the impedance value reaches its maximum value on the impedance curve (i.e. <code>Zmax</code>) is called the resonant frequency or resonance frequency of the speaker unit, abbreviated as <code>F0</code>. The input is a swept frequency signal of equal amplitude, and the voltage across the speaker is viewed in real time with a voltmeter. The voltage corresponds to <code>f0</code> at the maximum.</p>
 <p><a target="_blank" rel="noopener" href="https://wiki.aalto.fi/pages/viewpage.action?pageId=149890776">https://wiki.aalto.fi/pages/viewpage.action?pageId=149890776</a></p>
 <h3 id="fh"><a href="#fh" class="headerlink" title="fh"></a>fh</h3><p><code>f0</code> is mainly caused by the rear cavity, <code>fh</code> is the problem of the front cavity. The change in high frequency is the extrusion of the front cavity.</p>
 <h3 id="Q-Value"><a href="#Q-Value" class="headerlink" title="Q Value"></a>Q Value</h3><p>Q value: represents the resonance quality factor at the resonance point <code>f0</code>. </p>
@@ -337,8 +88,8 @@
 <p>$$<br>EG1 &#x3D; \frac{-54.5 dBV}{Pa (1.85 mV)},  1 Pa &#x3D; 94 dB SPL (1000 Hz)<br>$$</p>
 <p>$$<br>EG2 &#x3D; \frac{-29 dB  re  1V}{Pa (35mV @ 94 dB SPL)}, ±2dB @ 1Khz<br>$$</p>
 <p>Eg1 needs 25.5 dB of gain to be the same volume level as EG2 output. The louder it is the louder it is.</p>
-<p><img src="/../images/image-20220830155046339.png" srcset="/img/loading.gif" lazyload alt="image-20220830155046339"></p>
-<p><img src="/../images/image-20220830155055754.png" srcset="/img/loading.gif" lazyload alt="image-20220830155055754"></p>
+<p><img src="/../images/image-20220830155046339.png" alt="image-20220830155046339"></p>
+<p><img src="/../images/image-20220830155055754.png" alt="image-20220830155055754"></p>
 <p>This microphone is sensitive: -37dBFS, which is 94dB SPL @1kHZ is in accordance with the 1Vrms to control, so now the sensitivity can be understood as -37dBV. because the full scale here is 1Vrms.</p>
 <h2 id="Some-Important-formulas"><a href="#Some-Important-formulas" class="headerlink" title="Some Important formulas"></a>Some Important formulas</h2><p>$$<br>Frequency &#x3D; rate * channels * sample \ bits<br>$$</p>
 <p>$$<br>1 Pa @ dB SPL &#x3D; \<br>10 log_{10}(12 &#x2F; PB2) &#x3D; \<br>20 log_{10}(1 &#x2F; PB) &#x3D; \<br>-20 log_{10}(PB) &#x3D;\<br>-20 log_{10}(2(10-5)) &#x3D;\<br>-20 (log_{10} 2 + log10 10-5) &#x3D;\<br>-20 ((log_{10} 2) – 5) &#x3D;\<br>100 – 20 log_{10} 2 ≈ 93.9794 dB SPL\<br>$$</p>
@@ -351,7 +102,7 @@
 <p>$$<br>20 log_{10}(2)dB &#x3D; 6.02 dB \<br>20 log_{10}(3)dB &#x3D; 9.54 dB \<br>20 log_{10}(4)dB &#x3D; 12.04 dB \<br>20 log_{10}(5)dB &#x3D; 13.97 dB \<br>20 log_{10}(6)dB &#x3D; 15.56 dB \<br>$$<br>**dBFS &#x3D; dBm0 &#x3D; dBm relative to a 0 transmission point &#x3D; dB relative to digital overload point, 0dB0v &#x3D; full scale.. **</p>
 <p><strong>dBv is a logarithmic voltage ratio with a voltage reference of 1 Volt.</strong></p>
 <p>1 V is equivalent to 0 dBv.</p>
-<h1 id="Electroacoustic-System-Hardwares"><a href="#Electroacoustic-System-Hardwares" class="headerlink" title="Electroacoustic System Hardwares"></a>Electroacoustic System Hardwares</h1><h2 id="Loudspeaker"><a href="#Loudspeaker" class="headerlink" title="Loudspeaker"></a>Loudspeaker</h2><p><img src="/../images/image-20220830153601503.png" srcset="/img/loading.gif" lazyload alt="image-20220830153601503"></p>
+<h1 id="Electroacoustic-System-Hardwares"><a href="#Electroacoustic-System-Hardwares" class="headerlink" title="Electroacoustic System Hardwares"></a>Electroacoustic System Hardwares</h1><h2 id="Loudspeaker"><a href="#Loudspeaker" class="headerlink" title="Loudspeaker"></a>Loudspeaker</h2><p><img src="/../images/image-20220830153601503.png" alt="image-20220830153601503"></p>
 <p>The three main parts of the speaker.</p>
 <p><strong>Diaphragm</strong>： 振膜</p>
 <p><strong>Voice coil</strong>：音圈</p>
@@ -371,25 +122,25 @@
 <li>Miniature electret condenser: Miniature electret condenser microphone</li>
 </ul>
 <h4 id="MEMS-microphones"><a href="#MEMS-microphones" class="headerlink" title="MEMS microphones."></a>MEMS microphones.</h4><p>We generally choose MEMS microphones. A MEMS microphone is composed of a MEMS chip and an ASIC chip.<br>MEMS microphone classification and selection: <a target="_blank" rel="noopener" href="https://www.klippel.de/s">https://www.klippel.de/s</a></p>
-<p><img src="/../images/image-20220830160459517.png" srcset="/img/loading.gif" lazyload alt="image-20220830160459517"></p>
+<p><img src="/../images/image-20220830160459517.png" alt="image-20220830160459517"></p>
 <p>The voltage value of the output analog signal of a digital microphone is usually PDM or I²S. The output signal of a digital signal microphone can communicate directly with a DSP or SoC, which does not need a Codec at this time, thus reducing the cost of the system.</p>
 <p>The microphone is based on the clk to adjust the value of the size, the digital microphone can be adjusted by adjusting the sensitivity to achieve the effect of AOP constant. Sensitivity and AOP are related, sensitivity can be reduced to improve AOP.</p>
 <p>The AOP effect will be higher with differential signals. For the microphone to distort 1% of the time the point, and AOP is generally 5, 6 dB difference.</p>
 <h4 id="Digital-PDM-Microphones"><a href="#Digital-PDM-Microphones" class="headerlink" title="Digital (PDM) Microphones"></a>Digital (PDM) Microphones</h4><p><a target="_blank" rel="noopener" href="https://www.cuidevices.com/blog/analog-or-digital-how-to-choose-the-right-mems-microphone-interface">https://www.cuidevices.com/blog/analog-or-digital-how-to-choose-the-right-mems-microphone-interface</a><br>A PDM microphone is a digital microphone. Digital microphones generally take 4 to more pins, but analog ones generally three. The advantage of analog microphones is that they are small in size and do not take up much space generally *2.5mm,*<em>3.35mm</em>0.88mm or smaller. But PDM microphone is generally <em>3mm</em>, *4mm,*1mm, if we consider the alignment and space size, too small, we will have to consider the analog microphone.</p>
-<p><img src="/../images/image-20220830160555817.png" srcset="/img/loading.gif" lazyload alt="image-20220830160555817"></p>
+<p><img src="/../images/image-20220830160555817.png" alt="image-20220830160555817"></p>
 <h4 id="I2S-microphone"><a href="#I2S-microphone" class="headerlink" title="I2S  microphone"></a>I2S  microphone</h4><p>The I2S microphone output can then be output directly to the I2S device without a codec.</p>
-<p><img src="/../images/image-20220830160746952.png" srcset="/img/loading.gif" lazyload alt="image-20220830160746952"></p>
+<p><img src="/../images/image-20220830160746952.png" alt="image-20220830160746952"></p>
 <p><a target="_blank" rel="noopener" href="https://www.analog.com/media/en/technical-documentation/technical-articles/Analog-and-Digital-MEMS-Microphone-Design-Considerations-MS-2472.pdf">https://www.analog.com/media/en/technical-documentation/technical-articles/Analog-and-Digital-MEMS-Microphone-Design-Considerations-MS-2472.pdf</a></p>
 <p><a target="_blank" rel="noopener" href="https://ez.analog.com/audio/w/documents/511/faq-can-a-digital-microphone-s-pdm-output-be-directly-connected-to-an-i2s-input">https://ez.analog.com/audio/w/documents/511/faq-can-a-digital-microphone-s-pdm-output-be-directly-connected-to-an-i2s-input</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.digikey.com/en/product-highlight/k/knowles/i2s-output-digital-microphone">https://www.digikey.com/en/product-highlight/k/knowles/i2s-output-digital-microphone</a></p>
-<p><img src="/../images/image-20220830160754871.png" srcset="/img/loading.gif" lazyload alt="image-20220830160754871"></p>
+<p><img src="/../images/image-20220830160754871.png" alt="image-20220830160754871"></p>
 <p><a target="_blank" rel="noopener" href="https://www.digikey.com/en/product-highlight/k/knowles/i2s-output-digital-microphone">https://www.digikey.com/en/product-highlight/k/knowles/i2s-output-digital-microphone</a></p>
 <p>I2S microphone example: <a target="_blank" rel="noopener" href="http://www.analog.com/en/audiovideo-products/mems-microphones/admp441/products/product.html">ADMP441 </a>, I2S can easily be replaced, but the mainstream is still PDM now.</p>
 <h2 id="Audio-Power-Amp-（PA"><a href="#Audio-Power-Amp-（PA" class="headerlink" title="Audio Power Amp （PA)"></a>Audio Power Amp （PA)</h2><p>The amplification can be the <code>gain factor</code>. </p>
 <p>There is no electrical signal from the horn, because the horn is a passive device, so the measured signal is actually the PA.</p>
 <p>Here are the basic params to describe the Audio PA. We will only use the sin waves to do the testing here. </p>
-<p><img src="/../images/image-20220830231622130.png" srcset="/img/loading.gif" lazyload alt="image-20220830231622130"></p>
-<p><img src="/../images/image-20220830231726241.png" srcset="/img/loading.gif" lazyload alt="Power and Loudness"></p>
+<p><img src="/../images/image-20220830231622130.png" alt="image-20220830231622130"></p>
+<p><img src="/../images/image-20220830231726241.png" alt="Power and Loudness"></p>
 <p>Since every <strong>10 dBFS</strong> decrease, then the theoretical value of the measured power will decrease by a factor of <strong>10</strong>.</p>
 <p><strong>10dBFS &#x3D; 10log(P1&#x2F;P2)</strong></p>
 <p><strong>1dBFS &#x3D; log(P1&#x2F;P2)</strong></p>
@@ -401,12 +152,12 @@
 <p>MOL (Maximum Output Level): Maximum output level &#x2F; minimum output level</p>
 <p>Relative Level （电位差）</p>
 
-        <div id="aplayer-QNRRYONL" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-UsgGtUfr" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-QNRRYONL"),
+            element: document.getElementById("aplayer-UsgGtUfr"),
             narrow: false,
             autoplay: false,
             showlrc: false,
@@ -426,12 +177,12 @@
 
 
 <h3 id="Dynamic-Range"><a href="#Dynamic-Range" class="headerlink" title="Dynamic Range"></a>Dynamic Range</h3>
-        <div id="aplayer-eZtBAZJd" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-gntjOtZV" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-eZtBAZJd"),
+            element: document.getElementById("aplayer-gntjOtZV"),
             narrow: false,
             autoplay: false,
             showlrc: false,
@@ -451,12 +202,12 @@
 
 <p>*<strong>动态范围Dynamic Range_1kHz-60dB*</strong></p>
 
-        <div id="aplayer-WYhfIOko" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-AlguEIea" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-WYhfIOko"),
+            element: document.getElementById("aplayer-AlguEIea"),
             narrow: false,
             autoplay: false,
             showlrc: false,
@@ -479,12 +230,12 @@
 <p>Sweep in the AP software, we have to choose: 20 Hz - 20 kHz, 1&#x2F;6 Oct (61 pt, slow), and do not choose Append Graph Data, this option will keep the last results.</p>
 <h3 id="Distortion"><a href="#Distortion" class="headerlink" title="Distortion"></a>Distortion</h3><p>*<strong>总谐波失真和左右声道相位差_MaximumOutputLevel &amp;THD+N&amp; InterchannelPhase_1kHz_0dB互调失真_IMD_70+7K*</strong></p>
 
-        <div id="aplayer-CFsYNBNc" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-JHADVrwl" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-CFsYNBNc"),
+            element: document.getElementById("aplayer-JHADVrwl"),
             narrow: false,
             autoplay: false,
             showlrc: false,
@@ -507,12 +258,12 @@
 <p>The type of non-linearity, when the amplitude of the output levels are both compressed and distorted is called <code>saturation</code>. </p>
 <h3 id="Frequency-Response"><a href="#Frequency-Response" class="headerlink" title="Frequency Response"></a>Frequency Response</h3><p><strong>频率响应_Freq_sweep_61_0dB*</strong></p>
 
-        <div id="aplayer-EkeWtVAQ" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-gTMnMTnK" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-EkeWtVAQ"),
+            element: document.getElementById("aplayer-gTMnMTnK"),
             narrow: false,
             autoplay: false,
             showlrc: false,
@@ -532,12 +283,12 @@
 <p>Flatness: flatness</p>
 <h3 id="Noise"><a href="#Noise" class="headerlink" title="Noise"></a>Noise</h3><p>*<strong>底噪_mute_silence_0dB*</strong></p>
 
-        <div id="aplayer-wBBhRdTl" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-VtssCqKz" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-wBBhRdTl"),
+            element: document.getElementById("aplayer-VtssCqKz"),
             narrow: false,
             autoplay: false,
             showlrc: false,
@@ -555,12 +306,12 @@
 
 <p>*<strong>信噪比Dynamic Range_1kHz-60dB*</strong></p>
 
-        <div id="aplayer-HOvQMdxs" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-CdlVjbvA" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-HOvQMdxs"),
+            element: document.getElementById("aplayer-CdlVjbvA"),
             narrow: false,
             autoplay: false,
             showlrc: false,
@@ -584,12 +335,12 @@
 <h3 id="SNR"><a href="#SNR" class="headerlink" title="SNR"></a>SNR</h3><p>Dial 0dB first and then click noise. First measure the maximum electric sound pressure and then measure the bottom noise is also OK, count the difference. Signal-to-noise ratio and dynamic range is about the same. If you really can not switch, you can: maximum volume - noise bottom noise.</p>
 <h3 id="Crosstalk"><a href="#Crosstalk" class="headerlink" title="Crosstalk"></a>Crosstalk</h3><p>*<strong>Crosstalk_left_only_1kHz_0dB*</strong></p>
 
-        <div id="aplayer-SJnllRQl" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-hMuCgbRX" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-SJnllRQl"),
+            element: document.getElementById("aplayer-hMuCgbRX"),
             narrow: false,
             autoplay: false,
             showlrc: false,
@@ -607,12 +358,12 @@
 
 <p>*<strong>Crosstalk_right_only_1kHz_0dB*</strong></p>
 
-        <div id="aplayer-kmXtYmhB" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-pBcxJLgX" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-kmXtYmhB"),
+            element: document.getElementById("aplayer-pBcxJLgX"),
             narrow: false,
             autoplay: false,
             showlrc: false,
@@ -630,12 +381,12 @@
 
 <p>*<strong>Crosstalk_sweep L to R 20to20k*</strong></p>
 
-        <div id="aplayer-DEWGNDiF" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-OXteTPdG" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-DEWGNDiF"),
+            element: document.getElementById("aplayer-OXteTPdG"),
             narrow: false,
             autoplay: false,
             showlrc: false,
@@ -654,12 +405,12 @@
 <p>The crosstalk curves from L to R are tested separately.</p>
 <p>*<strong>Crosstalk_sweep R to L 20to20k*</strong></p>
 
-        <div id="aplayer-QMsaSjFK" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-LoNwZmEj" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-QMsaSjFK"),
+            element: document.getElementById("aplayer-LoNwZmEj"),
             narrow: false,
             autoplay: false,
             showlrc: false,
@@ -679,12 +430,12 @@
 <p>It means that there is no correlation between the two channels and they are independent of each other.</p>
 <h3 id="Phase"><a href="#Phase" class="headerlink" title="Phase"></a>Phase</h3><p><strong>左右声道相位差_MaximumOutputLevel &amp;THD+N&amp; InterchannelPhase_1kHz_0dB*</strong></p>
 
-        <div id="aplayer-SDrwlXuY" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-JnEnlqGi" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-SDrwlXuY"),
+            element: document.getElementById("aplayer-JnEnlqGi"),
             narrow: false,
             autoplay: false,
             showlrc: false,
@@ -706,7 +457,7 @@
 <p>boost</p>
 <p><strong>advantages</strong>: Any voltage value efficiency can be to more than 90%, do a good company, can do 95%<br><strong>Disadvantages</strong>: need inductors, occupy a lot of area, but also need to prevent EMI mess.<br>charge pump</p>
 <p><strong>advantages</strong>: Using the capacitive method, the volume advantage comes out.<br><strong>Disadvantages</strong>: VOUT voltage for the vin voltage of the integer times when the efficiency reaches the highest, other times, the efficiency will have an impact.</p>
-<h1 id="Modulation"><a href="#Modulation" class="headerlink" title="Modulation"></a><strong>Modulation</strong></h1><p><img src="/../images/image-20220830185359432.png" srcset="/img/loading.gif" lazyload alt="https://en.wikipedia.org/wiki/Delta-sigma_modulation#/media/File:Modulation_categorization.svg"></p>
+<h1 id="Modulation"><a href="#Modulation" class="headerlink" title="Modulation"></a><strong>Modulation</strong></h1><p><img src="/../images/image-20220830185359432.png" alt="https://en.wikipedia.org/wiki/Delta-sigma_modulation#/media/File:Modulation_categorization.svg"></p>
 <h2 id="Audio-Files-Formats"><a href="#Audio-Files-Formats" class="headerlink" title="Audio Files Formats"></a>Audio Files Formats</h2><h3 id="Pulse-Code-Mudulation"><a href="#Pulse-Code-Mudulation" class="headerlink" title="Pulse Code Mudulation"></a>Pulse Code Mudulation</h3><p>PCM is multi-segmented to save the audio data files of CDs and PCM files are very easy to edit.</p>
 <table>
 <thead>
@@ -724,19 +475,19 @@
 <td><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E8%84%88%E8%A1%9D%E7%B7%A8%E7%A2%BC%E8%AA%BF%E8%AE%8A">PCM</a> · <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E8%84%88%E8%A1%9D%E5%AF%AC%E5%BA%A6%E8%AA%BF%E8%AE%8A">PWM</a></td>
 </tr>
 </tbody></table>
-<p><img src="/../images/image-20220830185640372.png" srcset="/img/loading.gif" lazyload alt="[https://zh.wikipedia.org/wiki/%E8%84%88%E8%A1%9D%E7%B7%A8%E7%A2%BC%E8%AA%BF%E8%AE%8A](https://zh.wikipedia.org/wiki/脈衝編碼調變) "></p>
+<p><img src="/../images/image-20220830185640372.png" alt="[https://zh.wikipedia.org/wiki/%E8%84%88%E8%A1%9D%E7%B7%A8%E7%A2%BC%E8%AA%BF%E8%AE%8A](https://zh.wikipedia.org/wiki/脈衝編碼調變) "></p>
 <p>8, 9, 11, 12, 13, 14, 15, 15, 15, 14…etc. They are binary encoded to obtain a set of numbers: 1000, 1001, 1011, 1100, 1101, 1110, 1111, 1111, 1111, 1111, 1111, 1111…etc. These digital data can then be processed by DSPs or general CPUs for specific applications.</p>
 <p>A unit of audio data is represented by multiple bytes, and a unit is represented by a fixed amount of bytes in a segment. So its effect is determined by the sample rate and depth.</p>
-<p><img src="/../images/image-20220830185803031.png" srcset="/img/loading.gif" lazyload alt="image-20220830185803031"></p>
+<p><img src="/../images/image-20220830185803031.png" alt="image-20220830185803031"></p>
 <p>The filter filters the input square wave into a sinusoidal signal. the AP’s filter is to filter the square wave signal into a sinusoidal signal, which incidentally also reduces noise.</p>
-<h3 id="PWM-Modulator"><a href="#PWM-Modulator" class="headerlink" title="PWM Modulator"></a><strong>PWM Modulator</strong></h3><p><img src="/../images/image-20220830185905173.png" srcset="/img/loading.gif" lazyload alt="https://electronics.stackexchange.com/questions/391545/pwm-pam-pcm-sine-generation-and-usage-confusion"></p>
-<p><img src="/../images/image-20220830190155188.png" srcset="/img/loading.gif" lazyload alt="image-20220830190155188"></p>
-<p><img src="/../images/image-20220830190205285.png" srcset="/img/loading.gif" lazyload alt="https://www.arduino.cc/en/Tutorial/Foundations/PWM"></p>
+<h3 id="PWM-Modulator"><a href="#PWM-Modulator" class="headerlink" title="PWM Modulator"></a><strong>PWM Modulator</strong></h3><p><img src="/../images/image-20220830185905173.png" alt="https://electronics.stackexchange.com/questions/391545/pwm-pam-pcm-sine-generation-and-usage-confusion"></p>
+<p><img src="/../images/image-20220830190155188.png" alt="image-20220830190155188"></p>
+<p><img src="/../images/image-20220830190205285.png" alt="https://www.arduino.cc/en/Tutorial/Foundations/PWM"></p>
 <p>It is a segment of signals, each segment represents multiple points, and then the data is represented by each segment.</p>
-<h3 id="PDM-Modulator"><a href="#PDM-Modulator" class="headerlink" title="PDM Modulator"></a><strong>PDM Modulator</strong></h3><p><img src="/../images/image-20220830190254694.png" srcset="/img/loading.gif" lazyload alt="image-20220830190254694"></p>
+<h3 id="PDM-Modulator"><a href="#PDM-Modulator" class="headerlink" title="PDM Modulator"></a><strong>PDM Modulator</strong></h3><p><img src="/../images/image-20220830190254694.png" alt="image-20220830190254694"></p>
 <p>PDM is capable of transferring analog voltages into a single bit data stream. the output of PDM is PCM data that needs to be transferred via the I2S protocol. Compared to PCM has a higher sampling rate, because PCM by segment bytes to sample the audio data representation.<br>This is increasingly used in microphone acquisition and can be used to acquire high power consumption and high fidelity data.</p>
-<p><img src="/../images/image-20220830190323321.png" srcset="/img/loading.gif" lazyload alt="https://www.rfwireless-world.com/Terminology/Advantages-and-Disadvantages-of-Pulse-Density-Modulation.html"></p>
-<p><img src="/../images/image-20220830190517184.png" srcset="/img/loading.gif" lazyload alt="image-20220830190517184"></p>
+<p><img src="/../images/image-20220830190323321.png" alt="https://www.rfwireless-world.com/Terminology/Advantages-and-Disadvantages-of-Pulse-Density-Modulation.html"></p>
+<p><img src="/../images/image-20220830190517184.png" alt="image-20220830190517184"></p>
 <p>Here are the example product:</p>
 <p><strong>MIC</strong>: <a target="_blank" rel="noopener" href="http://www.analog.com/en/audiovideo-products/mems-microphones/admp421/products/product.html">ADMP421</a> or <a target="_blank" rel="noopener" href="http://www.analog.com/en/audiovideo-products/mems-microphones/admp521/products/product.html">ADMP521</a>  </p>
 <p><strong>Codec</strong>：  <a target="_blank" rel="noopener" href="http://www.analog.com/en/audiovideo-products/audio-codecs/adau1361/products/product.html">ADAU1361 </a>and <a target="_blank" rel="noopener" href="http://www.analog.com/en/audiovideo-products/audio-signal-processors/adau1761/products/product.html">ADAU1761</a></p>
@@ -748,16 +499,16 @@
 <p> PDM <em>could</em> be easily implemented in hardware; the pseudocodes Nominal Animal posted for PWM and PDM are both easily translated into digital logic (via hardware description language) and both have small silicon area; but due to tradition you just have PWM.</p>
 <p> One may opt for a hybrid solution where the hardware PWM is used with a much shorter period (and hence, lower resolution), then a software loop “dithers” this PWM setpoint. The point is, the software doesn’t need to do this for every output symbol. The result is like a “clumped” PDM; compare these examples (just boring 50% duty because I’m lazier than Nominal Animal):</p>
 <p><strong>Code:</strong> [<a href="javascript:void(0)">Select]</a> <strong><a target="_blank" rel="noopener" href="https://www.eevblog.com/forum/beginners/pdm-vs-pwm/">https://www.eevblog.com/forum/beginners/pdm-vs-pwm/</a></strong></p>
-<h1 id="Proctol"><a href="#Proctol" class="headerlink" title="Proctol"></a><strong>Proctol</strong></h1><h2 id="I2C"><a href="#I2C" class="headerlink" title="I2C"></a><strong>I2C</strong></h2><p><img src="/../images/image-20220830190924382.png" srcset="/img/loading.gif" lazyload alt="https://www.engineersgarage.com/articles-raspberry-pi-i2c-bus-pins-smbus-smbus2-python/"></p>
+<h1 id="Proctol"><a href="#Proctol" class="headerlink" title="Proctol"></a><strong>Proctol</strong></h1><h2 id="I2C"><a href="#I2C" class="headerlink" title="I2C"></a><strong>I2C</strong></h2><p><img src="/../images/image-20220830190924382.png" alt="https://www.engineersgarage.com/articles-raspberry-pi-i2c-bus-pins-smbus-smbus2-python/"></p>
 <p>I2C can control multiple devices at the same time, but SPI can only control one. i2c transmits data, i2s transmits audio. i2c is used to transmit audio data, then the transmission of audio band will be very narrow, mainly because it can not do the full frequency range. i2c generally to control registers, but GPIO is the control of the hardware. That is to say, I2C is the SW part, and GPIO is the hardware to control. That is, the software to write registers is I2C control, hardware is GPIO pull pin to control.</p>
-<h2 id="I2S"><a href="#I2S" class="headerlink" title="I2S"></a>I2S</h2><p><img src="/../images/image-20220830191000537.png" srcset="/img/loading.gif" lazyload alt="https://microchipdeveloper.com/harmony:i2s-tutorial"></p>
+<h2 id="I2S"><a href="#I2S" class="headerlink" title="I2S"></a>I2S</h2><p><img src="/../images/image-20220830191000537.png" alt="https://microchipdeveloper.com/harmony:i2s-tutorial"></p>
 <p>I2S cannot be used in the same way as I2C and is generally only used for audio devices. I2C can have multiple masters, but I2S can only have one. I2S performs better for audio transmission and is used to transmit PCM data, so that the codec can be directly avoided. <strong><a target="_blank" rel="noopener" href="https://www.feasycom.com/blog-1050.html">https://www.feasycom.com/blog-1050.html</a></strong></p>
-<p><img src="/../images/image-20220830191051142.png" srcset="/img/loading.gif" lazyload alt="**Audio PAMA12070P**"></p>
-<p><img src="/../images/image-20220830191110878.png" srcset="/img/loading.gif" lazyload alt="On Audio Precision Test"></p>
+<p><img src="/../images/image-20220830191051142.png" alt="**Audio PAMA12070P**"></p>
+<p><img src="/../images/image-20220830191110878.png" alt="On Audio Precision Test"></p>
 <p>Here the connection should be connected to GND and ground, otherwise it can not be measured.<br><strong>WS&#x2F;LRCLK</strong><br>WS is selected for the field (channel), also known as LRCK, which is used to switch the data of the left and right channels. The frequency of LRCK is equal to the sampling frequency; LRCK takes one sample point per clock cycle, BCLK is 64fs, i.e., 64 bits of data per clock cycle.<br><strong>SCK&#x2F;BCLK (bit clock)</strong><br>Serial clock SCK, also called bit clock (BCLK), means that SCLK has 1 pulse for each bit of data corresponding to digital audio. frequency of SCLK &#x3D; 2 × sampling frequency × number of bits sampled. For supporting 32 bit, BCLK &#x3D; 2<em>44.1HZ</em>32&#x3D;2.8224MHZ.</p>
 <p><strong>SD&#x2F;TDM DUT_D0: Data pin</strong><br>Serial Data SD (SDATA), is the audio data expressed in binary complement. In Philips’ I2S standard, both the hardware interface specification and the format of the digital audio data are specified. Sometimes, in order to enable better synchronization between devices, an additional signal MCLK, called the master clock, also called the system clock (Sys Clock), is 256 times or 384 times the sampling frequency.</p>
 <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/fellow1988/p/6294362.html">https://www.cnblogs.com/fellow1988/p/6294362.html</a></p>
-<h2 id="SPI"><a href="#SPI" class="headerlink" title="SPI"></a>SPI</h2><p><img src="/../images/image-20220830191304946.png" srcset="/img/loading.gif" lazyload alt="https://www.mdpi.com/2079-9292/9/9/1509/htm"></p>
+<h2 id="SPI"><a href="#SPI" class="headerlink" title="SPI"></a>SPI</h2><p><img src="/../images/image-20220830191304946.png" alt="https://www.mdpi.com/2079-9292/9/9/1509/htm"></p>
 <p><em>References</em>:</p>
 <p><strong><a target="_blank" rel="noopener" href="https://www.crifan.com/common_audio_interface_tdm_pdm_i2s_pcm/">https://www.crifan.com/common_audio_interface_tdm_pdm_i2s_pcm/</a></strong></p>
 <p>“All this functionality is implemented in a light-weight SPI interface so that any Feather Board can play audio from an SD card.”  <a target="_blank" rel="noopener" href="https://learn.adafruit.com/adafruit-music-maker-featherwing/">https://learn.adafruit.com/adafruit-music-maker-featherwing/</a></p>
@@ -769,14 +520,14 @@
 <li><p>Two-channel transfer<br>Simultaneous measurement of the reference and the DUT microphone to be tested.</p>
 </li>
 </ul>
-<p><img src="/../images/image-20220830160217690.png" srcset="/img/loading.gif" lazyload alt="image-20220830160217690"></p>
+<p><img src="/../images/image-20220830160217690.png" alt="image-20220830160217690"></p>
 <h1 id="Audio-Communication-Quality"><a href="#Audio-Communication-Quality" class="headerlink" title="Audio Communication Quality"></a>Audio Communication Quality</h1><h2 id="Loudness-Level"><a href="#Loudness-Level" class="headerlink" title="Loudness Level"></a>Loudness Level</h2><p>The loudness of the transmission and reception between the DUT and the network. Provides a known reference loudness value between the network and the DUT.<br>3GPP standard (narrowband).<br>Handheld: Transmit: 5.0 ~ 11.0dB Receive: -1.0 ~ 5.0dB<br>Hands-free: transmit: 9.0 ~ 17.0dB receive: 2.0 ~ 18.0dB<br>Positive value is attenuation, negative value is gain.<br>Attenuation is decrease<br>Gain is to increase.<br>Loudness level is very strange, positive value means decrease, negative value means increase. But for the hands-free words are to reduce, because it does not need to be to the ear on the line. The inverse square law: If any physical law, the distribution or intensity of a physical quantity decreases in the inverse square of the distance to the source, then this law can be called an inverse square law.</p>
 <p>The loudness rating value does not indicate the actual perceived loudness, but rather measures the transmission loss of the system.<br>The acoustic signal is generally analog and what our human ear can capture, usually SPL sound, but during the channel transmission is voltage, i.e. Volts. It mainly measures the audio signal level between the DUT and the network, and it will affect the compatibility between the DUT and the network. If it is not tuned properly, it will cause the transmitted or received signal to be too loud.</p>
 <p>Give a value for the acoustic signal reference, he will give. His presence essentially describes the relationship between <strong>y dBPa &#x3D; x dBV</strong> , which allows to get the correct conversion relationship.<br>The main reason for this is: the DUT is not tuned properly.</p>
 <p>Sending direction: is the near-end speakers, sent to the opposite end of the signal is generally reduced by a few dB. because of the reduction of a few dB, so in the receiving side can gain a few dB and then compensate for the loss.</p>
 <p>The frequency response is very much related to the loudness level.</p>
-<p><img src="/../images/image-20220830193340585.png" srcset="/img/loading.gif" lazyload alt="image-20220830193340585"></p>
-<p><img src="/../images/image-20220830192850879.png" srcset="/img/loading.gif" lazyload alt="image-20220830192850879"></p>
+<p><img src="/../images/image-20220830193340585.png" alt="image-20220830193340585"></p>
+<p><img src="/../images/image-20220830192850879.png" alt="image-20220830192850879"></p>
 <p>The figure on the right is the difference between the two signals, the difference between the reference curve and the actual received curve, we can see that the difference is very small and very flat, indicating that the device below is a little better.</p>
 <p><em>Reference:</em> ITU-T Recommendation P.79</p>
 <h2 id="Frequency-Response-1"><a href="#Frequency-Response-1" class="headerlink" title="Frequency Response"></a>Frequency Response</h2><p>Frequency Response: describes how flat the loudness is. Frequency response is very much related to loudness level. The loudness level is an overall level, but the frequency response is a reflection of how smooth the response is. Here we are generally only concerned with how smooth the curve is here, not the size. The red line is the test curve, the blue line is the excitation signal we send to the device, when we subtract the difference between the two signals to get, this is the final of our frequency response curve.</p>
@@ -785,21 +536,21 @@
 <p>Delay does not affect the quality of voice. The smaller the delay, the better.</p>
 <p>When I talk to my microphone, the microphone is recorded. The signal recorded by the microphone is sent into the phone via codec.</p>
 <p>Delay is generated for a variety of reasons, so its impact factors are many, need to improve the words need to be multiple dimensions to optimize the delay generated as follows. Multiple lines can cause the problem of delay.	</p>
-<p><img src="/../images/image-20220830192603531.png" srcset="/img/loading.gif" lazyload alt="image-20220830192603531"></p>
-<p><img src="/../images/image-20220830192615754.png" srcset="/img/loading.gif" lazyload alt="image-20220830192615754"></p>
+<p><img src="/../images/image-20220830192603531.png" alt="image-20220830192603531"></p>
+<p><img src="/../images/image-20220830192615754.png" alt="image-20220830192615754"></p>
 <p>The blue signal at this point is the transmitted excitation signal CSS burst, and the red one is the in-ear reception signal.</p>
 <p>Here, the two signals are aligned, they calculate the initial similarity of the signals between each frame, and once the similarity is high, they are aligned, and then the intermediate delay time is calculated as shown by the arrow.</p>
 <p><strong>Eg.</strong></p>
-<p><img src="/../images/image-20220830193214428.png" srcset="/img/loading.gif" lazyload alt="image-20220830193214428"></p>
+<p><img src="/../images/image-20220830193214428.png" alt="image-20220830193214428"></p>
 <p>​                               </p>
 <p>Delay (Cross): <strong>185.23 ms &#x3D; 0.185 s</strong></p>
-<p><img src="/../images/image-20220830193234249.png" srcset="/img/loading.gif" lazyload alt="image-20220830193234249"></p>
+<p><img src="/../images/image-20220830193234249.png" alt="image-20220830193234249"></p>
 <h2 id="Noise-1"><a href="#Noise-1" class="headerlink" title="Noise:"></a>Noise:</h2><ol>
 <li>Idle Channel Noise.<br>It is internal noise, similar to the bottom noise. The root cause of the generation of electronic noise in the audio path, low quality speakers or microphones.</li>
 </ol>
 <p>It is the noise floor. The internal bottom noise generated by the hardware when there is no signal at all.</p>
-<p><img src="/../images/image-20220830193432504.png" srcset="/img/loading.gif" lazyload alt="Level: -70.65 dBPa(A) Ok"></p>
-<p><img src="/../images/image-20220830192931604.png" srcset="/img/loading.gif" lazyload alt="image-20220830192931604"></p>
+<p><img src="/../images/image-20220830193432504.png" alt="Level: -70.65 dBPa(A) Ok"></p>
+<p><img src="/../images/image-20220830192931604.png" alt="image-20220830192931604"></p>
 <p>Unit dBm0<br>Test principle.</p>
 <blockquote>
 <p>Test the response of DUT in a quiet environment</p>
@@ -814,11 +565,11 @@
 </ol>
 <h2 id="Distortion-1"><a href="#Distortion-1" class="headerlink" title="Distortion"></a><strong>Distortion</strong></h2><p>Non-linear response of the DUT. Causes: Low quality speakers or microphones, poor dynamic range performance. We tested with a sine signal to excite the response for each frequency band.</p>
 <h2 id="Echo-the-bigger-the-better"><a href="#Echo-the-bigger-the-better" class="headerlink" title="Echo: the bigger the better"></a>Echo: the bigger the better</h2><p>Send an excitation signal to the receiving direction, we want to go to test how much echo is sent back from the receiving device, we test in the sending direction. It is when you can hear your voice in the sound sent by the other party, this time it is related to the other party and not to you. Root causes: long latency, devices that are not properly calibrated and no echo cancellation algorithm.<br>Near-end voice is green, far-end voice is red, and black indicates repeated parts.</p>
-<p><img src="/../images/image-20220830192104094.png" srcset="/img/loading.gif" lazyload alt="https://www.youtube.com/watch?v=yHJecWrk_E4 "></p>
+<p><img src="/../images/image-20220830192104094.png" alt="https://www.youtube.com/watch?v=yHJecWrk_E4 "></p>
 <p>Echo counts is the loss is the echo cancellation effect, the greater the better.<br>Echo is a problem at the far end.<br>20ms &#x3D; 31dB<br>ITU-T G.131</p>
-<p><img src="/../images/image-20220830192125217.png" srcset="/img/loading.gif" lazyload alt="https://www.youtube.com/watch?v=yHJecWrk_E4 "></p>
+<p><img src="/../images/image-20220830192125217.png" alt="https://www.youtube.com/watch?v=yHJecWrk_E4 "></p>
 <h2 id="DOUBLE-talk"><a href="#DOUBLE-talk" class="headerlink" title="DOUBLE talk"></a>DOUBLE talk</h2><p>A method looking for attenuation that occurs during double talk of varying severity.<br>Double talk has nothing to do with the quality of the call but can affect the experience.	It is when one person is talking and other voices suddenly come out and affect the original signal.</p>
-<p><img src="/../images/image-20220830192151548.png" srcset="/img/loading.gif" lazyload alt="https://www.youtube.com/watch?v=yHJecWrk_E4 "></p>
+<p><img src="/../images/image-20220830192151548.png" alt="https://www.youtube.com/watch?v=yHJecWrk_E4 "></p>
 <p><strong>Heavy doubletalk</strong>: It is when two people say the same text and at the same time. It is the scene of complete overlap.</p>
 <h2 id="MOS"><a href="#MOS" class="headerlink" title="MOS"></a>MOS</h2><p>We don’t need a professional to listen to it, less time and money spent. The downside is that it doesn’t tell you why the sound quality is poor.</p>
 <p>In order to improve the SNR ratio, we usually use linear and nonlinear noise cancellation algorithms. But these algorithms also have some degree of impact on the voice quality, which is difficult to avoid. To test the voice call quality, we measure the quality of voice calls by measuring MOS scores.</p>
@@ -841,471 +592,32 @@
 <li>Head Acoustics GmbH Version 3.5.200</li>
 <li>ACQUA 3 Head System</li>
 </ul>
-<p><img src="/../images/image-20220830193531424.png" srcset="/img/loading.gif" lazyload alt="image-20220830193531424"></p>
-<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p><img src="/../images/image-20220830192414403.png" srcset="/img/loading.gif" lazyload alt="https://www.youtube.com/watch?v=yHJecWrk_E4 "></p>
+<p><img src="/../images/image-20220830193531424.png" alt="image-20220830193531424"></p>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p><img src="/../images/image-20220830192414403.png" alt="https://www.youtube.com/watch?v=yHJecWrk_E4 "></p>
 
-              
-            </div>
-            <hr/>
-            <div>
-              <div class="post-metas my-3">
-  
-  
 </div>
 
 
-              
-  
+<style>
+  .portfolio-content img {
+    width: 100%;      /* Make the image width equal to the container width */
+    height: auto;     /* Maintain the aspect ratio */
+    max-width: 100%;  /* Ensures the image does not exceed the container width */
+  }
+</style>
 
-  <div class="license-box my-3">
-    <div class="license-title">
-      <div>Audio and Electroacoustic System Engineering</div>
-      <div>http://xiaos.site/2022/08/30/Audio-and-Electroacoustic-System-Engineering/</div>
-    </div>
-    <div class="license-meta">
-      
-        <div class="license-meta-item">
-          <div>Author</div>
-          <div>Xiao Zhang</div>
-        </div>
-      
-      
-        <div class="license-meta-item license-meta-date">
-          <div>Posted on</div>
-          <div>August 30, 2022</div>
-        </div>
-      
-      
-      <div class="license-meta-item">
-        <div>Licensed under</div>
-        <div>
-          
-            
-            
-              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
-              <span class="hint--top hint--rounded" aria-label="BY - Attribution">
-                <i class="iconfont icon-by"></i>
-              </span>
-              </a>
-            
-          
-        </div>
+
+
+
+
       </div>
-    </div>
-    <div class="license-icon iconfont"></div>
-  </div>
-
-
-
-              
-                <div class="post-prevnext my-3">
-                  <article class="post-prev col-6">
-                    
-                    
-                      <a href="/2022/09/12/Vocal-Tract-Length-Normalization-VTLN/" title="Vocal Tract Length Normalization (VTLN)">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Vocal Tract Length Normalization (VTLN)</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
-                  </article>
-                  <article class="post-next col-6">
-                    
-                    
-                      <a href="/2022/08/30/Audio-and-speech-Processing-Theory/" title="Audio and speech Processing Theory">
-                        <span class="hidden-mobile">Audio and speech Processing Theory</span>
-                        <span class="visible-mobile">Next</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
-                    
-                  </article>
-                </div>
-              
-            </div>
-
-            
-  <article id="comments" lazyload>
-    
-
-  </article>
-
-
-          </article>
-        </div>
-      </div>
-    </div>
-
-    <div class="side-col d-none d-lg-block col-lg-2">
       
-  <aside class="sidebar" style="margin-left: -1rem">
-    <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;Table of Contents</p>
-  <div class="toc-body" id="toc-body"></div>
-</div>
+  	</div>
 
+    <!-- After footer scripts -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 
-
-  </aside>
-
-
-    </div>
-  </div>
-</div>
-
-
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-  
-  
-
-
-
-
-
-
-
-
-    
-
-    
-      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
-        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-      </a>
-    
-
-    
-      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-     aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
-        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
-        </div>
-        <div class="list-group" id="local-search-result"></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-    
-
-    
-  </main>
-
-  <footer>
-    <div class="footer-inner">
-  
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>© 2022 By Xiao Zhang</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-    </div>
-  
-  
-    <div class="statistics">
-  
-  
-
-  
-    
-      <span id="busuanzi_container_site_pv" style="display: none">
-        Views: 
-        <span id="busuanzi_value_site_pv"></span>
-        
-      </span>
-    
-    
-      <span id="busuanzi_container_site_uv" style="display: none">
-        Visitors: 
-        <span id="busuanzi_value_site_uv"></span>
-        
-      </span>
-    
-    
-  
-</div>
-
-  
-  
-  
-</div>
-
-  </footer>
-
-  <!-- Scripts -->
-  
-  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
-
-  <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
-    NProgress.start()
-    window.addEventListener('load', function() {
-      NProgress.done();
-    })
-  </script>
-
-
-<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
-<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
-
-
-  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
-      }
-      var text = subtitle.getAttribute('data-typed-text');
-      
-        typing(text);
-      
-    })(window, document);
-  </script>
-
-
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-
-
-  
-    <script  src="/js/img-lazyload.js" ></script>
-  
-
-
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
-    var toc = jQuery('#toc');
-    if (toc.length === 0 || !window.tocbot) { return; }
-    var boardCtn = jQuery('#board-ctn');
-    var boardTop = boardCtn.offset().top;
-
-    window.tocbot.init({
-      tocSelector     : '#toc-body',
-      contentSelector : '.markdown-body',
-      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
-      linkClass       : 'tocbot-link',
-      activeLinkClass : 'tocbot-active-link',
-      listClass       : 'tocbot-list',
-      isCollapsedClass: 'tocbot-is-collapsed',
-      collapsibleClass: 'tocbot-is-collapsible',
-      collapseDepth   : CONFIG.toc.collapseDepth || 0,
-      scrollSmooth    : true,
-      headingsOffset  : -boardTop
-    });
-    if (toc.find('.toc-list-item').length > 0) {
-      toc.css('visibility', 'visible');
-    }
-  });
-</script>
-
-
-  <script>
-  (function() {
-    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
-    var enableCopy = CONFIG.copy_btn;
-    if (!enableLang && !enableCopy) {
-      return;
-    }
-
-    function getBgClass(ele) {
-      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
-    }
-
-    var copyTmpl = '';
-    copyTmpl += '<div class="code-widget">';
-    copyTmpl += 'LANG';
-    copyTmpl += '</div>';
-    jQuery('.markdown-body pre').each(function() {
-      var $pre = jQuery(this);
-      if ($pre.find('code.mermaid').length > 0) {
-        return;
-      }
-      if ($pre.find('span.line').length > 0) {
-        return;
-      }
-
-      var lang = '';
-
-      if (enableLang) {
-        lang = CONFIG.code_language.default;
-        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
-          lang = $pre[0].children[0].classList[1];
-        } else if ($pre[0].getAttribute('data-language')) {
-          lang = $pre[0].getAttribute('data-language');
-        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
-          lang = $pre[0].children[0].classList[1];
-          $pre.parent().addClass('code-wrapper');
-        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
-          $pre.wrap('<div class="code-wrapper"></div>');
-        }
-        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
-      }
-      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
-        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
-
-      if (enableCopy) {
-        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
-          var clipboard = new window.ClipboardJS('.copy-btn', {
-            target: function(trigger) {
-              var nodes = trigger.parentNode.childNodes;
-              for (var i = 0; i < nodes.length; i++) {
-                if (nodes[i].tagName === 'CODE') {
-                  return nodes[i];
-                }
-              }
-            }
-          });
-          clipboard.on('success', function(e) {
-            e.clearSelection();
-            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
-            setTimeout(function() {
-              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
-            }, 2000);
-          });
-        });
-      }
-    });
-  })();
-</script>
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
-    window.anchors.options = {
-      placement: CONFIG.anchorjs.placement,
-      visible  : CONFIG.anchorjs.visible
-    };
-    if (CONFIG.anchorjs.icon) {
-      window.anchors.options.icon = CONFIG.anchorjs.icon;
-    }
-    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
-    var res = [];
-    for (var item of el) {
-      res.push('.markdown-body > ' + item.trim());
-    }
-    if (CONFIG.anchorjs.placement === 'left') {
-      window.anchors.options.class = 'anchorjs-link-left';
-    }
-    window.anchors.add(res.join(', '));
-  });
-</script>
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
-    Fluid.plugins.fancyBox();
-  });
-</script>
-
-
-  <script>Fluid.plugins.imageCaption();</script>
-
-  
-      <script>
-        MathJax = {
-          tex    : {
-            inlineMath: { '[+]': [['$', '$']] }
-          },
-          loader : {
-            load: ['ui/lazy']
-          },
-          options: {
-            renderActions: {
-              findScript    : [10, doc => {
-                document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-                  const display = !!node.type.match(/; *mode=display/);
-                  const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-                  const text = document.createTextNode('');
-                  node.parentNode.replaceChild(text, node);
-                  math.start = { node: text, delim: '', n: 0 };
-                  math.end = { node: text, delim: '', n: 0 };
-                  doc.math.push(math);
-                });
-              }, '', false],
-              insertedScript: [200, () => {
-                document.querySelectorAll('mjx-container').forEach(node => {
-                  let target = node.parentNode;
-                  if (target.nodeName.toLowerCase() === 'li') {
-                    target.parentNode.classList.add('has-jax');
-                  }
-                });
-              }, '', false]
-            }
-          }
-        };
-      </script>
-    
-
-  <script  src="https://lib.baomitu.com/mathjax/3.2.1/es5/tex-mml-chtml.js" ></script>
-
-  <script  src="/js/local-search.js" ></script>
-
-  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
-
-
-
-
-
-<!-- 主题的启动项，将它保持在最底部 -->
-<!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
-
-
-  
-
-  <noscript>
-    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
-  </noscript>
-</body>
+  </body>
 </html>
